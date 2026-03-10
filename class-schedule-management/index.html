@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Schedule Management — Smart Education App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/store-buttons.css">
+    <style>
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --blue: #4285F4;
+            --blue-dark: #1a73e8;
+            --blue-deeper: #0d47a1;
+            --blue-light: #e8f0fe;
+            --blue-mid: #d2e3fc;
+            --green: #34A853;
+            --orange: #FBBC04;
+            --red: #EA4335;
+            --text: #202124;
+            --text-2: #5f6368;
+            --text-3: #9aa0a6;
+            --bg: #f8f9fa;
+            --surface: #ffffff;
+            --border: #e8eaed;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-pill: 100px;
+            --shadow: 0 4px 16px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.05);
+            --shadow-lg: 0 12px 36px rgba(0,0,0,0.10);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== Back Button ===== */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.92);
+            color: var(--blue-dark);
+            padding: 9px 18px;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 200;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.6);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            background: linear-gradient(140deg, #4285F4 0%, #1a73e8 45%, #0d47a1 100%);
+            padding: 80px 24px 64px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 15% 60%, rgba(255,255,255,0.14) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 10%, rgba(255,255,255,0.08) 0%, transparent 45%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hero-icon-wrap {
+            width: 104px;
+            height: 104px;
+            border-radius: 26px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 32px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .hero-icon-wrap img {
+            width: 88px;
+            height: 88px;
+            border-radius: 20px;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: rgba(255,255,255,0.95);
+            padding: 5px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.12rem;
+            color: rgba(255,255,255,0.88);
+            max-width: 540px;
+            line-height: 1.65;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: white;
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            font-size: 0.82rem;
+            font-weight: 500;
+            backdrop-filter: blur(6px);
+        }
+
+        /* ===== Download Section ===== */
+        .download-section {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 28px 24px;
+        }
+
+        .download-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .download-label {
+            color: var(--text-2);
+            font-size: 0.92rem;
+            font-weight: 500;
+        }
+
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 20px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1.5px solid transparent;
+        }
+
+        .store-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        .store-btn-ios {
+            background: #1c1c1e;
+            color: white;
+        }
+
+        .store-btn-android {
+            background: var(--green);
+            color: white;
+        }
+
+        .store-btn-text small {
+            display: block;
+            font-weight: 400;
+            font-size: 0.72rem;
+            opacity: 0.8;
+        }
+
+        .store-btn-text strong {
+            display: block;
+            font-size: 0.92rem;
+        }
+
+        /* ===== Features Section ===== */
+        .section {
+            padding: 64px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--blue-light);
+            color: var(--blue-dark);
+            padding: 4px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-2);
+            font-size: 1rem;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--blue-mid);
+        }
+
+        .feature-icon-wrap {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--blue-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .feature-card p {
+            font-size: 0.875rem;
+            color: var(--text-2);
+            line-height: 1.6;
+        }
+
+        /* ===== Screenshots ===== */
+        .screenshots-section {
+            background: #0a0f1e;
+            padding: 72px 0 56px;
+            overflow: hidden;
+        }
+
+        .screenshots-section .section-tag {
+            background: rgba(66,133,244,0.18);
+            color: #8ab4f8;
+            border: 1px solid rgba(66,133,244,0.3);
+        }
+
+        .screenshots-section .section-header h2 {
+            color: #ffffff;
+        }
+
+        .screenshots-section .section-header p {
+            color: rgba(255,255,255,0.55);
+        }
+
+        .screenshot-carousel {
+            position: relative;
+            margin-top: 40px;
+        }
+
+        .screenshot-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-top: 24px;
+            padding-bottom: 36px;
+            scrollbar-width: none;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .screenshot-track.grabbing {
+            cursor: grabbing;
+            scroll-snap-type: none;
+        }
+
+        .screenshot-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .screenshot-item {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1),
+                        opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+            opacity: 0.45;
+            transform: scale(0.85);
+        }
+
+        .screenshot-item.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .screenshot-item img {
+            height: 500px;
+            width: auto;
+            min-width: 220px;
+            border-radius: 28px;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.65);
+            display: block;
+            pointer-events: none;
+        }
+
+        /* Navigation Dots */
+        .screenshot-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .sc-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.22);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: width 0.35s ease, background 0.35s ease;
+        }
+
+        .sc-dot.active {
+            width: 28px;
+            background: #4285F4;
+        }
+
+        /* Carousel Arrows */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: white;
+            font-size: 1.4rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+            transition: background 0.2s, transform 0.2s;
+            z-index: 10;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .carousel-arrow.prev { left: 20px; }
+        .carousel-arrow.next { right: 20px; }
+
+        @media (max-width: 768px) {
+            .carousel-arrow { display: none; }
+            .screenshot-item img { height: 380px; }
+        }
+
+        /* ===== Tech Stack Section ===== */
+        .tech-section {
+            padding: 64px 0;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tech-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 28px;
+        }
+
+        .tech-chip {
+            background: var(--bg);
+            border: 1.5px solid var(--border);
+            color: var(--text-2);
+            padding: 7px 16px;
+            border-radius: var(--radius-pill);
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
+        }
+
+        .tech-chip:hover {
+            border-color: var(--blue);
+            color: var(--blue-dark);
+            background: var(--blue-light);
+        }
+
+        /* ===== App Info Strip ===== */
+        .info-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin: 40px 0 0;
+        }
+
+        .info-item {
+            background: var(--surface);
+            padding: 20px 24px;
+            text-align: center;
+        }
+
+        .info-item .label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-3);
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-bottom: 6px;
+        }
+
+        .info-item .value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* ===== Footer ===== */
+        .page-footer {
+            background: var(--text);
+            color: rgba(255,255,255,0.7);
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-copy {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.45);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .hero { padding: 72px 20px 52px; }
+            .hero h1 { font-size: 1.9rem; }
+            .hero p { font-size: 1rem; }
+            .section { padding: 48px 0; }
+            .section-header h2 { font-size: 1.6rem; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .back-btn { font-size: 0.82rem; padding: 8px 14px; }
+            .hero h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back Button -->
+    <a href="../" class="back-btn">
+        <span>←</span> Back
+    </a>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-tag">📱 Education App</div>
+            <div class="hero-icon-wrap">
+                <img src="../assets/images/class-schedule-icon.png" alt="Class Schedule Management">
+            </div>
+            <h1>Class Schedule<br>Management</h1>
+            <p>The all-in-one solution for teachers and tutors to manage class schedules, track attendance, and monitor student progress — all from your phone.</p>
+            <div class="hero-badges">
+                <div class="hero-badge">✅ Free to Use</div>
+                <div class="hero-badge">📱 iOS &amp; Android</div>
+                <div class="hero-badge">🌐 Multi-language</div>
+                <div class="hero-badge">☁️ Cloud Sync</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download -->
+    <div class="download-section">
+        <div class="download-inner">
+            <span class="download-label">Available on:</span>
+            <a href="https://apps.apple.com/app/id6749195306" target="_blank" rel="noopener" class="store-btn store-btn-ios">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+                </svg>
+                <div class="store-btn-text">
+                    <small>Download on the</small>
+                    <strong>App Store</strong>
+                </div>
+            </a>
+            <a href="#" class="store-btn store-btn-android" id="play-store-btn">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l10.04 10.973zm0 2.067l-10 10.933c.298.036.612-.016.906-.183l13.327-7.754-4.233-2.996z"/>
+                </svg>
+                <div class="store-btn-text">
+                    <small>Get it on</small>
+                    <strong>Google Play</strong>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Features</span>
+                <h2>Everything you need to manage your classes</h2>
+                <p>Designed for teachers, tutors, and educators who want to spend less time on admin and more time teaching.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">👥</div>
+                    <div>
+                        <h3>Student Management</h3>
+                        <p>Easily add, edit, and manage student profiles. Keep all your learner information organized in one place.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">📅</div>
+                    <div>
+                        <h3>Smart Scheduling</h3>
+                        <p>View and manage class schedules by day, week, or month. Auto-generate sessions based on weekly timetables.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">✅</div>
+                    <div>
+                        <h3>One-tap Attendance</h3>
+                        <p>Take attendance in seconds with a single tap. Automatically calculate attendance rates and participation stats.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">📊</div>
+                    <div>
+                        <h3>Detailed Analytics</h3>
+                        <p>Visual reports on attendance rates, learning progress, and class costs — all presented with clear charts.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">☁️</div>
+                    <div>
+                        <h3>Cloud Sync</h3>
+                        <p>Automatic backup and real-time sync across all your devices. Your data is always safe and up to date.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">🔔</div>
+                    <div>
+                        <h3>Smart Notifications</h3>
+                        <p>Get reminders before each class, attendance prompts, and alerts for important events — fully customizable.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="screenshots-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Screenshots</span>
+                <h2>See it in action</h2>
+                <p>A clean, intuitive interface designed for everyday use in the classroom.</p>
+            </div>
+        </div>
+        <div class="screenshot-carousel">
+            <button class="carousel-arrow prev" id="sc-prev" aria-label="Previous">&#8249;</button>
+            <button class="carousel-arrow next" id="sc-next" aria-label="Next">&#8250;</button>
+            <div class="screenshot-track" id="screenshot-track">
+                <div class="screenshot-item active">
+                    <img src="images/sc01.png" alt="Class Schedule Management - Screenshot 1" loading="eager">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/sc02.png" alt="Class Schedule Management - Screenshot 2" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/sc03.png" alt="Class Schedule Management - Screenshot 3" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/sc04.png" alt="Class Schedule Management - Screenshot 4" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/sc05.png" alt="Class Schedule Management - Screenshot 5" loading="lazy">
+                </div>
+            </div>
+            <div class="screenshot-dots" id="screenshot-dots">
+                <button class="sc-dot active"></button>
+                <button class="sc-dot"></button>
+                <button class="sc-dot"></button>
+                <button class="sc-dot"></button>
+                <button class="sc-dot"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="tech-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Built With</span>
+                <h2>Modern tech, reliable performance</h2>
+            </div>
+            <div class="tech-chips">
+                <div class="tech-chip">🦋 Flutter</div>
+                <div class="tech-chip">🍎 Swift (iOS)</div>
+                <div class="tech-chip">🤖 Kotlin (Android)</div>
+                <div class="tech-chip">🔥 Firebase Auth</div>
+                <div class="tech-chip">☁️ Cloud Firestore</div>
+                <div class="tech-chip">🗄️ SQLite (Drift)</div>
+                <div class="tech-chip">⚓ Riverpod</div>
+                <div class="tech-chip">🌐 Multi-language (17)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="footer-links">
+            <a href="legal/">📜 Legal Documents (Multi-language)</a>
+            <a href="legal/en/terms.html">Terms of Service</a>
+            <a href="legal/en/privacy.html">Privacy Policy</a>
+        </div>
+        <p class="footer-copy">&copy; <span id="footer-year"></span> Nhan Trinh. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/store-buttons.js" defer></script>
+    <script>
+        // Footer year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // ===== Screenshot Carousel =====
+        (function () {
+            const track = document.getElementById('screenshot-track');
+            if (!track) return;
+
+            const items = Array.from(track.querySelectorAll('.screenshot-item'));
+            const dots  = Array.from(document.querySelectorAll('.sc-dot'));
+            const prev  = document.getElementById('sc-prev');
+            const next  = document.getElementById('sc-next');
+
+            function applyPadding() {
+                if (!items.length) return;
+                const half = track.clientWidth / 2 - items[0].offsetWidth / 2;
+                const pad  = Math.max(half, 20) + 'px';
+                track.style.paddingLeft  = pad;
+                track.style.paddingRight = pad;
+            }
+
+            function getActiveIndex() {
+                const center = track.scrollLeft + track.clientWidth / 2;
+                let idx = 0, best = Infinity;
+                items.forEach((el, i) => {
+                    const d = Math.abs(el.offsetLeft + el.offsetWidth / 2 - center);
+                    if (d < best) { best = d; idx = i; }
+                });
+                return idx;
+            }
+
+            function updateActive() {
+                const idx = getActiveIndex();
+                items.forEach((el, i) => el.classList.toggle('active', i === idx));
+                dots.forEach((d, i)  => d.classList.toggle('active', i === idx));
+            }
+
+            function scrollTo(i, smooth) {
+                const el  = items[i];
+                const pos = el.offsetLeft + el.offsetWidth / 2 - track.clientWidth / 2;
+                track.scrollTo({ left: pos, behavior: smooth === false ? 'instant' : 'smooth' });
+            }
+
+            // ===== Auto-scroll =====
+            let autoTimer = null;
+
+            function startAuto() {
+                stopAuto();
+                autoTimer = setInterval(() => {
+                    const next = (getActiveIndex() + 1) % items.length;
+                    scrollTo(next);
+                }, 3000);
+            }
+
+            function stopAuto() {
+                clearInterval(autoTimer);
+                autoTimer = null;
+            }
+
+            function resetAuto() {
+                stopAuto();
+                startAuto();
+            }
+
+            track.addEventListener('scroll', updateActive, { passive: true });
+
+            dots.forEach((d, i) => d.addEventListener('click', () => { scrollTo(i); resetAuto(); }));
+
+            if (prev) prev.addEventListener('click', () => { scrollTo(Math.max(getActiveIndex() - 1, 0)); resetAuto(); });
+            if (next) next.addEventListener('click', () => { scrollTo(Math.min(getActiveIndex() + 1, items.length - 1)); resetAuto(); });
+
+            // Pause on hover / touch
+            track.addEventListener('mouseenter', stopAuto);
+            track.addEventListener('mouseleave', startAuto);
+            track.addEventListener('touchstart', stopAuto, { passive: true });
+            track.addEventListener('touchend', () => setTimeout(startAuto, 2000), { passive: true });
+
+            // Mouse drag
+            let dragging = false, startX = 0, startScroll = 0;
+            track.addEventListener('mousedown', e => {
+                dragging = true; startX = e.pageX; startScroll = track.scrollLeft;
+                track.classList.add('grabbing');
+                stopAuto();
+            });
+            window.addEventListener('mouseup', () => {
+                if (!dragging) return;
+                dragging = false;
+                track.classList.remove('grabbing');
+                setTimeout(startAuto, 2000);
+            });
+            track.addEventListener('mousemove', e => {
+                if (!dragging) return;
+                e.preventDefault();
+                track.scrollLeft = startScroll - (e.pageX - startX) * 1.4;
+            });
+
+            // Init after first image loads — use instant scroll to avoid scroll-event race
+            function init() {
+                applyPadding();
+                scrollTo(0, false);
+                updateActive();
+                startAuto();
+            }
+
+            const firstImg = items[0] && items[0].querySelector('img');
+            if (firstImg && firstImg.complete) {
+                init();
+            } else if (firstImg) {
+                firstImg.addEventListener('load', init);
+                firstImg.addEventListener('error', init);
+            } else {
+                init();
+            }
+
+            // Re-apply padding after all images load in case sizes shifted
+            window.addEventListener('load', applyPadding);
+
+            window.addEventListener('resize', () => { applyPadding(); updateActive(); });
+        })();
+    </script>
+</body>
+</html>
