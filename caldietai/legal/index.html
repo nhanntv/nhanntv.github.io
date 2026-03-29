@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Documents — CalDietAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --green: #4CAF50;
+            --green-dark: #388E3C;
+            --green-deeper: #1B5E20;
+            --green-light: #E8F5E9;
+            --green-mid: #C8E6C9;
+            --text: #1a1a2e;
+            --text-2: #5f6368;
+            --text-3: #9aa0a6;
+            --bg: #f8f9fa;
+            --surface: #ffffff;
+            --border: #e8eaed;
+            --radius: 14px;
+            --radius-sm: 8px;
+            --radius-pill: 100px;
+            --shadow: 0 2px 8px rgba(0,0,0,0.07);
+            --shadow-hover: 0 8px 24px rgba(0,0,0,0.10);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== Header ===== */
+        .header {
+            background: linear-gradient(135deg, #4CAF50 0%, #388E3C 50%, #1B5E20 100%);
+            color: white;
+            padding: 56px 24px 44px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .header-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .header p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1rem;
+        }
+
+        /* ===== Main Content ===== */
+        .main {
+            flex: 1;
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 24px 64px;
+        }
+
+        .section-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-3);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            font-size: 0.92rem;
+            color: var(--text-2);
+            margin-bottom: 32px;
+        }
+
+        /* ===== Language Grid ===== */
+        .language-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .language-card {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+
+        .language-card:hover {
+            border-color: var(--green);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .lang-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .flag {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .lang-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .lang-code {
+            font-size: 0.75rem;
+            color: var(--text-3);
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            background: var(--bg);
+            padding: 2px 7px;
+            border-radius: 4px;
+        }
+
+        .lang-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            flex: 1;
+            padding: 9px 12px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: opacity 0.2s, transform 0.2s;
+            letter-spacing: 0.01em;
+        }
+
+        .lang-btn:hover {
+            opacity: 0.88;
+            transform: translateY(-1px);
+        }
+
+        .btn-terms {
+            background: var(--green);
+            color: white;
+        }
+
+        .btn-privacy {
+            background: var(--green-light);
+            color: var(--green-dark);
+            border: 1.5px solid var(--green-mid);
+        }
+
+        .btn-privacy:hover {
+            background: var(--green-mid);
+        }
+
+        /* ===== Footer ===== */
+        .page-footer {
+            background: #1a1a2e;
+            color: rgba(255,255,255,0.7);
+            padding: 28px 24px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #81C784;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: white; }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* ===== Back Button ===== */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.92);
+            color: var(--green-dark);
+            padding: 9px 18px;
+            border-radius: 100px;
+            text-decoration: none;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 200;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.6);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-3px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 640px) {
+            .header h1 { font-size: 1.6rem; }
+            .language-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back Button -->
+    <a href="../" class="back-btn">
+        <span>&larr;</span> Back
+    </a>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-inner">
+            <div class="header-icon">&#x1F34F;</div>
+            <h1>Legal Documents</h1>
+            <p>CalDietAI &mdash; Terms of Service &amp; Privacy Policy</p>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <main class="main">
+        <p class="section-label">Available languages</p>
+        <h2 class="section-title">Choose your language</h2>
+        <p class="section-subtitle">Select a language to view the Terms of Service and Privacy Policy.</p>
+
+        <div class="language-grid">
+
+            <!-- English -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1FA;&#x1F1F8;</span>
+                    <div class="lang-info">
+                        <h3>English</h3>
+                        <span class="lang-code">en</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="en/terms.html" class="lang-btn btn-terms">Terms</a>
+                    <a href="en/privacy.html" class="lang-btn btn-privacy">Privacy</a>
+                </div>
+            </div>
+
+            <!-- Vietnamese -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1FB;&#x1F1F3;</span>
+                    <div class="lang-info">
+                        <h3>Ti&#x1EBF;ng Vi&#x1EC7;t</h3>
+                        <span class="lang-code">vi</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="vi/terms.html" class="lang-btn btn-terms">&#x110;i&#x1EC1;u kho&#x1EA3;n</a>
+                    <a href="vi/privacy.html" class="lang-btn btn-privacy">B&#x1EA3;o m&#x1EAD;t</a>
+                </div>
+            </div>
+
+            <!-- Korean -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1F0;&#x1F1F7;</span>
+                    <div class="lang-info">
+                        <h3>&#xD55C;&#xAD6D;&#xC5B4;</h3>
+                        <span class="lang-code">ko</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="ko/terms.html" class="lang-btn btn-terms">&#xC774;&#xC6A9;&#xC57D;&#xAD00;</a>
+                    <a href="ko/privacy.html" class="lang-btn btn-privacy">&#xAC1C;&#xC778;&#xC815;&#xBCF4;</a>
+                </div>
+            </div>
+
+            <!-- Japanese -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1EF;&#x1F1F5;</span>
+                    <div class="lang-info">
+                        <h3>&#x65E5;&#x672C;&#x8A9E;</h3>
+                        <span class="lang-code">ja</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="ja/terms.html" class="lang-btn btn-terms">&#x5229;&#x7528;&#x898F;&#x7D04;</a>
+                    <a href="ja/privacy.html" class="lang-btn btn-privacy">&#x30D7;&#x30E9;&#x30A4;&#x30D0;&#x30B7;&#x30FC;</a>
+                </div>
+            </div>
+
+            <!-- Chinese Simplified -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1E8;&#x1F1F3;</span>
+                    <div class="lang-info">
+                        <h3>&#x7B80;&#x4F53;&#x4E2D;&#x6587;</h3>
+                        <span class="lang-code">zh-Hans</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="zh-Hans/terms.html" class="lang-btn btn-terms">&#x6761;&#x6B3E;</a>
+                    <a href="zh-Hans/privacy.html" class="lang-btn btn-privacy">&#x9690;&#x79C1;</a>
+                </div>
+            </div>
+
+            <!-- Chinese Traditional -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1F9;&#x1F1FC;</span>
+                    <div class="lang-info">
+                        <h3>&#x7E41;&#x9AD4;&#x4E2D;&#x6587;</h3>
+                        <span class="lang-code">zh-Hant</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="zh-Hant/terms.html" class="lang-btn btn-terms">&#x689D;&#x6B3E;</a>
+                    <a href="zh-Hant/privacy.html" class="lang-btn btn-privacy">&#x96B1;&#x79C1;</a>
+                </div>
+            </div>
+
+            <!-- Indonesian -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1EE;&#x1F1E9;</span>
+                    <div class="lang-info">
+                        <h3>Bahasa Indonesia</h3>
+                        <span class="lang-code">id</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="id/terms.html" class="lang-btn btn-terms">Syarat</a>
+                    <a href="id/privacy.html" class="lang-btn btn-privacy">Privasi</a>
+                </div>
+            </div>
+
+            <!-- Malay -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1F2;&#x1F1FE;</span>
+                    <div class="lang-info">
+                        <h3>Bahasa Melayu</h3>
+                        <span class="lang-code">ms</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="ms/terms.html" class="lang-btn btn-terms">Terma</a>
+                    <a href="ms/privacy.html" class="lang-btn btn-privacy">Privasi</a>
+                </div>
+            </div>
+
+            <!-- Thai -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1F9;&#x1F1ED;</span>
+                    <div class="lang-info">
+                        <h3>&#xE20;&#xE32;&#xE29;&#xE32;&#xE44;&#xE17;&#xE22;</h3>
+                        <span class="lang-code">th</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="th/terms.html" class="lang-btn btn-terms">&#xE02;&#xE49;&#xE2D;&#xE15;&#xE01;&#xE25;&#xE07;</a>
+                    <a href="th/privacy.html" class="lang-btn btn-privacy">&#xE04;&#xE27;&#xE32;&#xE21;&#xE40;&#xE1B;&#xE47;&#xE19;&#xE2A;&#xE48;&#xE27;&#xE19;&#xE15;&#xE31;&#xE27;</a>
+                </div>
+            </div>
+
+            <!-- Hindi -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1EE;&#x1F1F3;</span>
+                    <div class="lang-info">
+                        <h3>&#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</h3>
+                        <span class="lang-code">hi</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="hi/terms.html" class="lang-btn btn-terms">&#x0936;&#x0930;&#x094D;&#x0924;&#x0947;&#x0902;</a>
+                    <a href="hi/privacy.html" class="lang-btn btn-privacy">&#x0917;&#x094B;&#x092A;&#x0928;&#x0940;&#x092F;&#x0924;&#x093E;</a>
+                </div>
+            </div>
+
+            <!-- French -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1EB;&#x1F1F7;</span>
+                    <div class="lang-info">
+                        <h3>Fran&#xE7;ais</h3>
+                        <span class="lang-code">fr</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="fr/terms.html" class="lang-btn btn-terms">Conditions</a>
+                    <a href="fr/privacy.html" class="lang-btn btn-privacy">Confidentialit&#xE9;</a>
+                </div>
+            </div>
+
+            <!-- Spanish -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1EA;&#x1F1F8;</span>
+                    <div class="lang-info">
+                        <h3>Espa&#xF1;ol</h3>
+                        <span class="lang-code">es</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="es/terms.html" class="lang-btn btn-terms">T&#xE9;rminos</a>
+                    <a href="es/privacy.html" class="lang-btn btn-privacy">Privacidad</a>
+                </div>
+            </div>
+
+            <!-- Italian -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1EE;&#x1F1F9;</span>
+                    <div class="lang-info">
+                        <h3>Italiano</h3>
+                        <span class="lang-code">it</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="it/terms.html" class="lang-btn btn-terms">Termini</a>
+                    <a href="it/privacy.html" class="lang-btn btn-privacy">Privacy</a>
+                </div>
+            </div>
+
+            <!-- German -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1E9;&#x1F1EA;</span>
+                    <div class="lang-info">
+                        <h3>Deutsch</h3>
+                        <span class="lang-code">de</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="de/terms.html" class="lang-btn btn-terms">Bedingungen</a>
+                    <a href="de/privacy.html" class="lang-btn btn-privacy">Datenschutz</a>
+                </div>
+            </div>
+
+            <!-- Dutch -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1F3;&#x1F1F1;</span>
+                    <div class="lang-info">
+                        <h3>Nederlands</h3>
+                        <span class="lang-code">nl</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="nl/terms.html" class="lang-btn btn-terms">Voorwaarden</a>
+                    <a href="nl/privacy.html" class="lang-btn btn-privacy">Privacy</a>
+                </div>
+            </div>
+
+            <!-- Swedish -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1F8;&#x1F1EA;</span>
+                    <div class="lang-info">
+                        <h3>Svenska</h3>
+                        <span class="lang-code">sv</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="sv/terms.html" class="lang-btn btn-terms">Villkor</a>
+                    <a href="sv/privacy.html" class="lang-btn btn-privacy">Integritet</a>
+                </div>
+            </div>
+
+            <!-- Russian -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1F7;&#x1F1FA;</span>
+                    <div class="lang-info">
+                        <h3>&#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</h3>
+                        <span class="lang-code">ru</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="ru/terms.html" class="lang-btn btn-terms">&#x0423;&#x0441;&#x043B;&#x043E;&#x0432;&#x0438;&#x044F;</a>
+                    <a href="ru/privacy.html" class="lang-btn btn-privacy">&#x041A;&#x043E;&#x043D;&#x0444;&#x0438;&#x0434;&#x0435;&#x043D;&#x0446;.</a>
+                </div>
+            </div>
+
+            <!-- Polish -->
+            <div class="language-card">
+                <div class="lang-header">
+                    <span class="flag">&#x1F1F5;&#x1F1F1;</span>
+                    <div class="lang-info">
+                        <h3>Polski</h3>
+                        <span class="lang-code">pl</span>
+                    </div>
+                </div>
+                <div class="lang-links">
+                    <a href="pl/terms.html" class="lang-btn btn-terms">Regulamin</a>
+                    <a href="pl/privacy.html" class="lang-btn btn-privacy">Prywatno&#x15B;&#x107;</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="footer-links">
+            <a href="../">&larr; Back to CalDietAI</a>
+            <a href="../../">App Hub</a>
+        </div>
+        <p class="footer-copy">&copy; <span id="footer-year"></span> Nhan Trinh. All rights reserved.</p>
+    </footer>
+
+    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

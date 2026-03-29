@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integritetspolicy – CalDietAI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4CAF50;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            color: #34495e;
+            font-size: 1.1em;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        p { margin-bottom: 12px; }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+        li { margin-bottom: 6px; }
+        .last-updated {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .contact-info {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        a { color: #4CAF50; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #1a1a1a; color: #f5f5f5; }
+            h1 { color: #81C784; border-bottom-color: #4CAF50; }
+            h2 { color: #cfd8dc; }
+            h3 { color: #b0bec5; }
+            .highlight {
+                background-color: #263238;
+                border-left-color: #4CAF50;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span {
+                color: #e0e0e0;
+            }
+            .warning {
+                background-color: #3e2723;
+                border-left-color: #ff9800;
+                color: #e0e0e0;
+            }
+            .warning p, .warning li, .warning strong, .warning span {
+                color: #e0e0e0;
+            }
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0;
+            }
+            ul, li { color: #f5f5f5; }
+            .last-updated { color: #b0bec5; }
+            a { color: #81C784; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Integritetspolicy</h1>
+    <p class="last-updated">Gäller från: mai 2026</p>
+
+    <div class="highlight">
+        <p>Denna Integritetspolicy beskriver hur <strong>CalDietAI</strong> (även kallad "CalDietAI") samlar in, använder, lagrar och skyddar dina personuppgifter. Vi är engagerade i att skydda din integritet och hantera dina uppgifter på ett transparent sätt.</p>
+    </div>
+
+    <h2>1. Information vi Samlar in</h2>
+
+    <h3>1.1 Personuppgifter (Tillhandahållna av Dig)</h3>
+    <ul>
+        <li><strong>Kontoinformation:</strong> Namn, e-postadress och profilbild erhållna via Google Sign-In eller Apple Sign-In.</li>
+        <li><strong>Profildata:</strong> Kön, ålder, längd, vikt, målvikt, aktivitetsnivå och kostpreferenser som anges under konfigurationen.</li>
+        <li><strong>Kroppsmått:</strong> Midja-, hals- och höftomfång (inmatade av användaren med måttband, inte sensorbaserat).</li>
+        <li><strong>Mat- och Näringsregistreringar:</strong> Måltidsinmatningar, livsmedel, portionsstorlekar, kalori- och makronäringsdata, egna recept och måltidsfoton.</li>
+        <li><strong>Viktregistreringar:</strong> Dagliga viktvärden och tillhörande anteckningar.</li>
+        <li><strong>Vattenintag:</strong> Dagliga registreringar av vattenkonsumtion.</li>
+    </ul>
+
+    <h3>1.2 Automatiskt Insamlad Information</h3>
+    <ul>
+        <li><strong>Enhetsinformation:</strong> Enhetstyp, operativsystemversion, enhetsidentifierare och appversion.</li>
+        <li><strong>Användningsanalys:</strong> Skärmvisningar, funktionsinteraktioner, sessionslängd och engagemangsmått (insamlade via Firebase Analytics).</li>
+        <li><strong>Felrapporter:</strong> Loggar över applikationskrascher, stackspår och felinformation (insamlade via Firebase Crashlytics) för att förbättra appens stabilitet.</li>
+        <li><strong>Prestandadata:</strong> Appens starttid, nätverksfördröjning och allmänna prestandamått.</li>
+    </ul>
+
+    <h3>1.3 AI-bearbetningsdata</h3>
+    <ul>
+        <li><strong>Måltidsfoton:</strong> När du använder AI-matskanningsfunktionen skickas dina måltidsfoton tillfälligt till molnbaserade AI-tjänster för näringsanalys. <strong>Bilder lagras inte på våra servrar efter att analysen är slutförd.</strong></li>
+        <li><strong>AI Coach-interaktioner:</strong> Kontextdata (daglig näringssammanfattning, senaste måltider) kan bearbetas av AI-tjänster för att generera personliga förslag. Dessa uppgifter lagras inte av AI-leverantörer utöver förfrågan-svarscykeln.</li>
+    </ul>
+
+    <h2>2. Hur vi Använder din Information</h2>
+    <p>Vi använder din information för följande ändamål:</p>
+    <ul>
+        <li><strong>Tjänsteleverans:</strong> För att tillhandahålla kärnfunktioner inklusive matspårning, kalorieräkning, viktövervakning och uppskattning av kroppsmått.</li>
+        <li><strong>AI-analys:</strong> För att bearbeta måltidsfoton via AI-tjänster och returnera uppskattade näringsdata.</li>
+        <li><strong>Personalisering:</strong> För att beräkna personliga kaloriemål, makromål och uppskattningar av kroppssammansättning baserat på din profil.</li>
+        <li><strong>Framstegsspårning:</strong> För att generera diagram, rapporter och trendanalyser av din närings- och välbefinnanderesa.</li>
+        <li><strong>Aviseringar:</strong> För att skicka påminnelser om måltidsregistrering, vattenintag och viktspårning (konfigurerbart i inställningarna).</li>
+        <li><strong>Appförbättring:</strong> För att analysera användningsmönster och feldata i syfte att förbättra appens prestanda, funktioner och användarupplevelse.</li>
+        <li><strong>Prenumerationshantering:</strong> För att hantera din prenumerationsstatus, behandla betalningar och ge tillgång till premiumfunktioner.</li>
+        <li><strong>Säkerhet:</strong> För att upptäcka och förhindra bedrägerier, missbruk och obehörig åtkomst till Appen.</li>
+    </ul>
+
+    <h2>3. Delning och Utlämnande av Uppgifter</h2>
+
+    <div class="warning">
+        <p><strong>Vi säljer INTE dina personuppgifter till tredje part.</strong></p>
+    </div>
+
+    <p>Vi kan dela dina uppgifter med följande kategorier av tjänsteleverantörer, enbart i syfte att leverera våra tjänster:</p>
+
+    <h3>3.1 Autentiseringsleverantörer</h3>
+    <ul>
+        <li><strong>Google Sign-In:</strong> Kontoautentisering och identitetsverifiering.</li>
+        <li><strong>Apple Sign-In:</strong> Kontoautentisering och identitetsverifiering (iOS).</li>
+    </ul>
+
+    <h3>3.2 Moln- och Analystjänster</h3>
+    <ul>
+        <li><strong>Firebase (Google):</strong> Autentisering, analyser, felrapportering, push-aviseringar och fjärrkonfiguration.</li>
+    </ul>
+
+    <h3>3.3 AI-bearbetningstjänster</h3>
+    <ul>
+        <li><strong>Molnbaserade AI-leverantörer</strong> (t.ex. Google Gemini, OpenRouter, Groq): Tillfällig bearbetning av måltidsbilder för näringsanalys. Bilder bearbetas under överföring och lagras inte av dessa leverantörer.</li>
+    </ul>
+
+    <h3>3.4 Betalnings- och Prenumerationstjänster</h3>
+    <ul>
+        <li><strong>Apple App Store / Google Play Store:</strong> Prenumerationsfakturering och köphantering.</li>
+        <li><strong>Qonversion:</strong> Spårning av prenumerationsstatus och plattformsoberoende köphantering.</li>
+    </ul>
+
+    <h3>3.5 Livsmedelsdatabasleverantörer</h3>
+    <ul>
+        <li><strong>OpenFoodFacts:</strong> Livsmedelsproduktdata med öppen källkod som används för streckkodsskanning och näringssökning.</li>
+        <li><strong>USDA FoodData Central:</strong> Referensnäringsdata för livsmedel.</li>
+    </ul>
+
+    <h3>3.6 Rättsliga Krav</h3>
+    <p>Vi kan lämna ut dina uppgifter om det krävs enligt lag, förordning, rättslig process eller myndighetsförfrågan, eller för att skydda rättigheter, egendom eller säkerhet för våra användare och allmänheten.</p>
+
+    <h2>4. Datalagring och Säkerhet</h2>
+    <ul>
+        <li><strong>Lokal Lagring:</strong> Dina matregistreringar, viktvärden, kroppsmått och andra data lagras primärt lokalt på din enhet med hjälp av en krypterad SQLite-databas.</li>
+        <li><strong>Molnsynkronisering:</strong> Premium/Pro-användare kan välja att synkronisera data till molnservrar för åtkomst från flera enheter. Molndata krypteras under överföring (TLS/HTTPS) och i vila.</li>
+        <li><strong>Säkra Autentiseringsuppgifter:</strong> Autentiseringstoken och känsliga uppgifter lagras med plattformsnativ säker lagring (iOS Keychain / Android Keystore).</li>
+        <li><strong>Bildbearbetning:</strong> Måltidsfoton som skickas för AI-analys överförs via krypterade anslutningar och lagras inte på våra servrar efter bearbetning.</li>
+        <li>Vi implementerar branschstandardiserade säkerhetsåtgärder för att skydda dina data. Dock är ingen överförings- eller lagringsmetod 100 % säker, och vi kan inte garantera absolut säkerhet.</li>
+    </ul>
+
+    <h2>5. Kamera- och Fotobehörigheter</h2>
+    <ul>
+        <li>Appen begär <strong>kameraåtkomst</strong> för att låta dig fotografera måltider för AI-matskanning och streckkodsskanning.</li>
+        <li>Appen kan begära <strong>åtkomst till fotobiblioteket</strong> för att låta dig välja befintliga foton för matskanning eller profilanpassning.</li>
+        <li>Kamera- och fotobehörigheter är <strong>valfria</strong>. Du kan använda manuell matregistrering utan att bevilja dessa behörigheter.</li>
+        <li>Foton som tas inom Appen lagras lokalt på din enhet. De skickas endast till molnbaserade AI-tjänster när du uttryckligen använder AI-skanningsfunktionen.</li>
+    </ul>
+
+    <h2>6. Dina Integritetsrättigheter</h2>
+    <p>Beroende på din jurisdiktion kan du ha följande rättigheter avseende dina personuppgifter:</p>
+    <ul>
+        <li><strong>Tillgång:</strong> Begära en kopia av de personuppgifter vi har om dig.</li>
+        <li><strong>Rättelse:</strong> Begära korrigering av felaktiga eller ofullständiga personuppgifter.</li>
+        <li><strong>Radering:</strong> Begära radering av dina personuppgifter och ditt konto. Du kan göra detta direkt via Profil → Inställningar → Radera konto, eller genom att skicka e-post till oss.</li>
+        <li><strong>Dataportabilitet:</strong> Begära en kopia av dina data i ett strukturerat, maskinläsbart format.</li>
+        <li><strong>Invändning:</strong> Välja bort insamling av analysdata eller personliga funktioner via Appens inställningar.</li>
+        <li><strong>Återkallande av Samtycke:</strong> Återkalla ditt samtycke till databehandling när som helst, när samtycke utgör den rättsliga grunden för behandlingen.</li>
+    </ul>
+    <p>För att utöva dessa rättigheter, kontakta oss på <a href="mailto:nhanntv113@gmail.com">nhanntv113@gmail.com</a>. Vi svarar inom 30 dagar (eller enligt krav i din lokala lagstiftning).</p>
+
+    <h2>7. Barns Integritet</h2>
+    <ul>
+        <li>CalDietAI är avsedd för användare som är <strong>13 år och äldre</strong>.</li>
+        <li>Vi samlar inte medvetet in personuppgifter från barn under 13 år.</li>
+        <li>Användare mellan 13 och 18 år måste ha samtycke från en förälder eller vårdnadshavare för att använda Appen.</li>
+        <li>Om vi upptäcker att vi oavsiktligt har samlat in uppgifter från ett barn under 13 år kommer vi omedelbart att radera dessa uppgifter.</li>
+        <li>Om du tror att ett barn under 13 år har lämnat personuppgifter till oss, vänligen kontakta oss omedelbart.</li>
+    </ul>
+
+    <h2>8. Känslighet för Hälsodata</h2>
+    <div class="highlight">
+        <p>CalDietAI samlar in hälsorelaterade data (vikt, kroppsmått, näringsregistreringar) som i vissa jurisdiktioner kan betraktas som känsliga personuppgifter. Vi behandlar dessa uppgifter med extra omsorg:</p>
+        <ul>
+            <li>Hälsodata lagras primärt <strong>lokalt på din enhet</strong> och delas inte med tredje part utöver vad som beskrivs i denna policy.</li>
+            <li>Beräkningar av kroppsmått är <strong>enbart uppskattningar</strong>, härledda från publicerade vetenskapliga formler baserade på användarens inmatade mätningar.</li>
+            <li>Vi använder inte hälsodata i reklamsyfte.</li>
+            <li>Du har rätt att radera alla hälsodata när som helst genom att radera ditt konto.</li>
+        </ul>
+    </div>
+
+    <h2>9. Internationella Dataöverföringar</h2>
+    <p>Dina uppgifter kan överföras till och behandlas i länder utanför ditt hemland, inklusive USA, där våra tjänsteleverantörer är verksamma. Vi säkerställer att lämpliga skyddsåtgärder vidtas för sådana överföringar, inklusive:</p>
+    <ul>
+        <li>Standardavtalsklausuler (SCC) för EU-dataöverföringar</li>
+        <li>Efterlevnad av tillämpliga regler för gränsöverskridande dataöverföring</li>
+    </ul>
+
+    <h2>10. Datalagring</h2>
+    <ul>
+        <li><strong>Kontodata:</strong> Bevaras tills du raderar ditt konto.</li>
+        <li><strong>Mat- och Viktregistreringar:</strong> Bevaras lokalt på din enhet. Molnsynkroniserade data raderas vid kontoradering.</li>
+        <li><strong>Analysdata:</strong> Bevaras i upp till 24 månader, därefter anonymiseras eller raderas de automatiskt.</li>
+        <li><strong>Felrapporter:</strong> Bevaras i upp till 12 månader för felsökningsändamål.</li>
+        <li><strong>AI-bearbetningsdata:</strong> Måltidsbilder lagras inte efter AI-analys. AI Coach-interaktioner cachas lokalt och löper ut automatiskt.</li>
+        <li><strong>Prenumerationsdata:</strong> Hanteras av Apple/Google och Qonversion enligt deras respektive lagringspolicyer.</li>
+    </ul>
+
+    <h2>11. Tredjepartslänkar och -tjänster</h2>
+    <p>Appen kan innehålla länkar eller integrationer med tredjepartstjänster. Vi ansvarar inte för dessa tredje parters integritetspraxis. Vi uppmuntrar dig att granska integritetspolicyn för:</p>
+    <ul>
+        <li><a href="https://policies.google.com/privacy">Googles Integritetspolicy</a></li>
+        <li><a href="https://www.apple.com/legal/privacy/">Apples Integritetspolicy</a></li>
+        <li><a href="https://firebase.google.com/support/privacy">Firebase Integritetspolicy</a></li>
+        <li><a href="https://qonversion.io/privacy-policy">Qonversions Integritetspolicy</a></li>
+    </ul>
+
+    <h2>12. Regional Efterlevnad</h2>
+
+    <h3>12.1 Europeiska unionen (GDPR)</h3>
+    <p>Om du befinner dig i EU/EES har du rättigheter enligt den Allmänna dataskyddsförordningen (GDPR), inklusive rätten till tillgång, rättelse, radering, begränsning av behandling, dataportabilitet och invändning mot behandling (Artiklarna 15-22). Våra rättsliga grunder för behandling inkluderar samtycke, fullgörande av avtal och berättigade intressen.</p>
+
+    <h3>12.2 Kalifornien (CCPA/CPRA)</h3>
+    <p>Invånare i Kalifornien har rätt att veta vilka personuppgifter som samlas in, begära radering och välja bort försäljning av personuppgifter. Vi säljer inte personuppgifter.</p>
+
+    <h3>12.3 Vietnam (PDPL 91/2025)</h3>
+    <p>I enlighet med Vietnams lag om skydd av personuppgifter 91/2025 och Decree 13/2023/NĐ-CP tillhandahåller vi detaljerade samtyckesmekanismer, rätten att återkalla samtycke, stöd för Do Not Track och anmälan av dataintrång inom 72 timmar.</p>
+
+    <h3>12.4 Övriga Jurisdiktioner</h3>
+    <ul>
+        <li><strong>Sydkorea (PIPA):</strong> Rättigheter till dataportabilitet (ikraft från mars 2025).</li>
+        <li><strong>Thailand (PDPA):</strong> Samtyckebaserad databehandling och användarrättigheter.</li>
+        <li><strong>Malaysia (PDPA):</strong> Dataskyddsombud utsett; anmälan av dataintrång inom 72 timmar.</li>
+        <li><strong>Indonesien (UU PDP):</strong> Efterlevnad av krav på skydd av personuppgifter.</li>
+        <li><strong>Japan (APPI):</strong> Uttryckligt samtycke för icke-nödvändig databehandling.</li>
+        <li><strong>Kina (PIPL):</strong> Efterlevnad av gränsöverskridande dataöverföring.</li>
+        <li><strong>Ryssland (Federal lag 152-FZ):</strong> Krav på lokal datalagring för ryska medborgare.</li>
+    </ul>
+
+    <h2>13. Uppdateringar av denna Policy</h2>
+    <p>Vi kan uppdatera denna Integritetspolicy från tid till annan. Vid väsentliga ändringar:</p>
+    <ul>
+        <li>Meddelar vi dig via Appen eller via e-post.</li>
+        <li>Datumet "Gäller från" högst upp i denna policy uppdateras.</li>
+        <li>Fortsatt användning av Appen efter ikraftträdandedatumet utgör godkännande av den uppdaterade policyn.</li>
+    </ul>
+
+    <h2>14. Kontakta Oss</h2>
+    <div class="contact-info">
+        <p>Om du har frågor, synpunkter eller förfrågningar angående denna Integritetspolicy eller dina personuppgifter, vänligen kontakta oss:</p>
+        <p><strong>E-post:</strong> <a href="mailto:nhanntv113@gmail.com">nhanntv113@gmail.com</a></p>
+        <p><small>&copy; <span class="copyright-year">2026</span> CalDietAI. Alla rättigheter förbehållna.</small></p>
+    </div>
+
+    <script>
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

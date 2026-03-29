@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terma Perkhidmatan – CalDietAI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4CAF50;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            color: #34495e;
+            font-size: 1.1em;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        p { margin-bottom: 12px; }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+        li { margin-bottom: 6px; }
+        .last-updated {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .contact-info {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        a { color: #4CAF50; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #1a1a1a; color: #f5f5f5; }
+            h1 { color: #81C784; border-bottom-color: #4CAF50; }
+            h2 { color: #cfd8dc; }
+            h3 { color: #b0bec5; }
+            .highlight {
+                background-color: #263238;
+                border-left-color: #4CAF50;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span {
+                color: #e0e0e0;
+            }
+            .warning {
+                background-color: #3e2723;
+                border-left-color: #ff9800;
+                color: #e0e0e0;
+            }
+            .warning p, .warning li, .warning strong, .warning span {
+                color: #e0e0e0;
+            }
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0;
+            }
+            ul, li { color: #f5f5f5; }
+            .last-updated { color: #b0bec5; }
+            a { color: #81C784; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Terma Perkhidmatan</h1>
+    <p class="last-updated">Berkuat kuasa mulai: Mei 2026</p>
+
+    <div class="highlight">
+        <p><strong>CalDietAI</strong> (juga dirujuk sebagai "CalDietAI") ialah aplikasi penjejakan kesejahteraan dan pemakanan. Dengan menggunakan aplikasi ini, anda bersetuju dengan Terma Perkhidmatan berikut. Sila baca dengan teliti sebelum meneruskan.</p>
+    </div>
+
+    <h2>1. Penerimaan Terma</h2>
+    <p>Dengan memuat turun, memasang, atau menggunakan CalDietAI ("Aplikasi"), anda bersetuju untuk terikat dengan Terma Perkhidmatan ini ("Terma"). Jika anda tidak bersetuju dengan Terma ini, sila jangan gunakan Aplikasi.</p>
+    <p>Terma ini merupakan perjanjian yang mengikat dari segi undang-undang antara anda ("Pengguna," "anda") dan pembangun CalDietAI ("kami," "kita").</p>
+
+    <h2>2. Penerangan Perkhidmatan</h2>
+    <p>CalDietAI ialah <strong>aplikasi penjejakan kesejahteraan dan gaya hidup</strong> yang menyediakan ciri-ciri berikut:</p>
+    <ul>
+        <li><strong>Pengimbasan Makanan Dikuasakan AI:</strong> Ambil gambar hidangan untuk menerima anggaran maklumat pemakanan menggunakan kecerdasan buatan. Keputusan adalah anggaran dan dilabelkan sebagai "~AI estimate."</li>
+        <li><strong>Pengelogan Makanan Manual:</strong> Cari dan log item makanan secara manual daripada pangkalan data yang komprehensif, termasuk pengimbasan kod bar.</li>
+        <li><strong>Penjejakan Kalori & Makronutrien:</strong> Jejak pengambilan kalori harian dan pengagihan makronutrien (protein, karbohidrat, lemak).</li>
+        <li><strong>Penjejakan Berat Badan:</strong> Log entri berat badan harian dan lihat carta trend dari semasa ke semasa.</li>
+        <li><strong>Anggaran Metrik Badan:</strong> Kira anggaran metrik komposisi badan (BMI, peratusan lemak badan, BMR, TDEE, dll.) menggunakan formula saintifik yang telah diterbitkan berdasarkan ukuran yang dimasukkan pengguna.</li>
+        <li><strong>Penjejakan Pengambilan Air:</strong> Pantau pengambilan air harian ke arah matlamat yang boleh disesuaikan.</li>
+        <li><strong>AI Coach:</strong> Terima cadangan pemakanan dan syor perancangan hidangan yang dijana oleh AI (ciri Premium). Dikuasakan oleh AI — bukan pakar pemakanan atau profesional perubatan sebenar.</li>
+        <li><strong>Laporan Kemajuan:</strong> Lihat carta dan analitik perjalanan pemakanan dan kesejahteraan anda.</li>
+    </ul>
+
+    <div class="warning">
+        <p><strong>Penafian Kesihatan Penting:</strong> CalDietAI ialah <strong>alat penjejakan kesejahteraan</strong>, BUKAN peranti perubatan atau alat diagnostik. Semua data pemakanan, anggaran komposisi badan, dan cadangan AI adalah <strong>anggaran</strong> dan bertujuan untuk tujuan kesejahteraan am sahaja. Ia tidak boleh menggantikan nasihat perubatan profesional, diagnosis, atau rawatan. Sentiasa berunding dengan profesional penjagaan kesihatan yang berkelayakan sebelum membuat perubahan ketara pada diet atau rejimen senaman anda.</p>
+    </div>
+
+    <h2>3. Pendaftaran Akaun</h2>
+    <p>Untuk menggunakan CalDietAI, anda perlu membuat akaun menggunakan salah satu kaedah log masuk yang disokong:</p>
+    <ul>
+        <li><strong>Google Sign-In</strong> (tersedia di semua platform)</li>
+        <li><strong>Apple Sign-In</strong> (tersedia di iOS)</li>
+    </ul>
+    <p>Dengan membuat akaun, anda bersetuju bahawa:</p>
+    <ul>
+        <li>Anda berumur sekurang-kurangnya <strong>13 tahun</strong>. Jika anda berumur di bawah 18 tahun, anda mesti mendapat kebenaran ibu bapa atau penjaga.</li>
+        <li>Maklumat yang anda berikan semasa pendaftaran adalah tepat dan terkini.</li>
+        <li>Anda bertanggungjawab untuk menjaga keselamatan kelayakan akaun anda dan sebarang aktiviti di bawah akaun anda.</li>
+        <li>Anda akan memberitahu kami dengan segera tentang sebarang penggunaan akaun anda yang tidak dibenarkan.</li>
+    </ul>
+
+    <h2>4. Langganan dan Pembayaran</h2>
+    <h3>4.1 Peringkat Perkhidmatan</h3>
+    <p>CalDietAI menawarkan peringkat langganan berikut:</p>
+    <ul>
+        <li><strong>Percuma:</strong> Pengelogan makanan asas, penjejakan berat badan, penjejakan air, imbasan AI terhad setiap hari, storan data tempatan.</li>
+        <li><strong>Premium:</strong> Kuota imbasan AI yang ditingkatkan, akses AI Coach, carta dan analitik lanjutan, penyegerakan data awan.</li>
+        <li><strong>Pro:</strong> Kuota imbasan AI maksimum, semua ciri Premium, pemprosesan AI keutamaan, ciri tanpa had.</li>
+    </ul>
+
+    <h3>4.2 Pengebilan dan Pembaharuan</h3>
+    <ul>
+        <li>Langganan dibilkan melalui Apple App Store atau Google Play Store, bergantung pada platform anda.</li>
+        <li>Langganan <strong>diperbaharui secara automatik</strong> pada akhir setiap tempoh pengebilan (bulanan atau tahunan) melainkan dibatalkan sekurang-kurangnya 24 jam sebelum tarikh pembaharuan.</li>
+        <li>Harga dipaparkan dalam mata wang tempatan anda dan mungkin berbeza mengikut wilayah. Cukai yang berkenaan mungkin dikenakan.</li>
+        <li>Tempoh percubaan percuma, jika ditawarkan, akan dinyatakan dengan jelas semasa langganan. Bahagian percubaan percuma yang tidak digunakan akan dilupuskan selepas membeli langganan.</li>
+    </ul>
+
+    <h3>4.3 Pembatalan dan Bayaran Balik</h3>
+    <ul>
+        <li>Anda boleh membatalkan langganan anda pada bila-bila masa melalui tetapan pengurusan langganan peranti anda (App Store atau Google Play).</li>
+        <li>Pembatalan berkuat kuasa pada akhir tempoh pengebilan semasa. Anda masih mempunyai akses kepada ciri Premium/Pro sehingga tarikh tersebut.</li>
+        <li>Permintaan bayaran balik dikendalikan oleh Apple atau Google mengikut dasar bayaran balik masing-masing.</li>
+        <li>Pilihan <strong>"Pulihkan Pembelian"</strong> tersedia dalam tetapan Aplikasi untuk memulihkan langganan yang dibeli sebelum ini pada peranti baharu.</li>
+    </ul>
+
+    <h2>5. Ciri AI dan Penafian</h2>
+    <h3>5.1 Pengimbasan Makanan AI</h3>
+    <ul>
+        <li>Pengimbasan makanan AI menggunakan kecerdasan buatan untuk <strong>menganggar</strong> kandungan pemakanan hidangan yang difoto.</li>
+        <li>Keputusan dilabelkan dengan jelas sebagai <strong>"~AI estimate"</strong> dan mungkin tidak sepenuhnya tepat. Nilai pemakanan sebenar boleh berbeza berdasarkan saiz hidangan, kaedah penyediaan, bahan, dan faktor lain.</li>
+        <li>Gambar hidangan mungkin dihantar sementara ke perkhidmatan AI awan untuk pemprosesan. Gambar <strong>tidak disimpan di pelayan kami</strong> selepas analisis selesai.</li>
+        <li>Modal persetujuan akan dipaparkan sebelum imbasan AI pertama anda untuk menerangkan bagaimana data anda diproses.</li>
+    </ul>
+
+    <h3>5.2 AI Coach</h3>
+    <ul>
+        <li>AI Coach menyediakan cadangan pemakanan automatik dan syor perancangan hidangan.</li>
+        <li>AI Coach <strong>dikuasakan oleh kecerdasan buatan</strong> dan <strong>bukan pakar pemakanan, pakar diet, atau profesional perubatan sebenar</strong>.</li>
+        <li>Cadangan AI Coach hanya untuk <strong>panduan kesejahteraan am</strong> dan tidak boleh dianggap sebagai preskripsi perubatan atau diet.</li>
+        <li>Pengguna yang mempunyai keadaan perubatan, alahan makanan, gangguan pemakanan, atau keperluan diet khas harus berunding dengan profesional penjagaan kesihatan yang berkelayakan.</li>
+    </ul>
+
+    <h3>5.3 Anggaran Metrik Badan</h3>
+    <ul>
+        <li>Anggaran komposisi badan (peratusan lemak badan, BMI, BMR, TDEE, umur metabolik, jisim badan tanpa lemak, peratusan air badan, risiko lemak viseral) dikira menggunakan <strong>formula saintifik yang telah diterbitkan</strong> berdasarkan ukuran yang dimasukkan pengguna (pita ukur, penimbang).</li>
+        <li>Ini hanyalah <strong>anggaran</strong>, bukan ukuran klinikal. Untuk analisis komposisi badan yang tepat, peranti profesional (DEXA, BIA) dan perundingan perubatan adalah disyorkan.</li>
+        <li>Sumber formula termasuk: US Navy Method (Hodgdon & Beckett, 1984), WHO BMI standard, Mifflin-St Jeor equation (Mifflin et al., 1990), Watson Formula (Watson et al., 1980), dan Waist-to-Height Ratio (Ashwell & Hsieh, 2005).</li>
+    </ul>
+
+    <h2>6. Penggunaan yang Boleh Diterima</h2>
+    <p>Anda bersetuju untuk tidak:</p>
+    <ul>
+        <li>Menggunakan Aplikasi untuk sebarang tujuan yang menyalahi undang-undang atau tidak dibenarkan.</li>
+        <li>Cuba merekayasa terbalik, menyahkompil, atau membongkar Aplikasi.</li>
+        <li>Berkongsi kelayakan akaun anda dengan orang lain atau membenarkan orang lain mengakses akaun anda.</li>
+        <li>Mengedarkan perisian hasad, virus, atau sebarang kod berbahaya melalui Aplikasi.</li>
+        <li>Cuba mendapatkan akses tanpa kebenaran kepada data pengguna lain atau sistem kami.</li>
+        <li>Menggunakan Aplikasi untuk mengganggu, menyalahguna, atau memudaratkan individu lain.</li>
+        <li>Menggunakan sistem automatik (bot, pengikis) untuk mengakses perkhidmatan Aplikasi melebihi penggunaan yang dimaksudkan.</li>
+        <li>Mengelakkan sebarang langkah keselamatan, had kadar, atau kawalan akses yang dilaksanakan dalam Aplikasi.</li>
+    </ul>
+
+    <h2>7. Kandungan dan Data</h2>
+    <ul>
+        <li>Anda mengekalkan pemilikan ke atas sebarang kandungan yang anda cipta dalam Aplikasi (log makanan, entri berat badan, foto hidangan, resipi tersuai).</li>
+        <li>Dengan menggunakan Aplikasi, anda memberikan kami lesen terhad, bukan eksklusif untuk memproses data anda semata-mata untuk tujuan menyampaikan dan menambah baik perkhidmatan kami.</li>
+        <li>Anda bertanggungjawab untuk mengekalkan sandaran data anda. Walaupun kami melaksanakan langkah perlindungan yang munasabah, kami tidak dapat menjamin terhadap kehilangan data.</li>
+        <li>Data pemakanan dalam pangkalan data makanan kami bersumber daripada USDA, OpenFoodFacts, dan pangkalan data awam yang lain. Walaupun kami berusaha untuk ketepatan, kami tidak menjamin kelengkapan atau ketepatan maklumat pemakanan pihak ketiga.</li>
+    </ul>
+
+    <h2>8. Privasi dan Perlindungan Data</h2>
+    <p>Penggunaan Aplikasi oleh anda juga ditadbir oleh <strong>Dasar Privasi</strong> kami, yang memperincikan bagaimana kami mengumpul, menggunakan, menyimpan, dan melindungi maklumat peribadi anda. Dengan menggunakan Aplikasi, anda memberi kebenaran kepada amalan data yang diterangkan dalam Dasar Privasi.</p>
+    <p>Kami mematuhi peraturan perlindungan data yang berkenaan termasuk, tetapi tidak terhad kepada:</p>
+    <ul>
+        <li><strong>GDPR</strong> (General Data Protection Regulation) untuk pengguna di Kesatuan Eropah</li>
+        <li><strong>CCPA</strong> (California Consumer Privacy Act) untuk penduduk California</li>
+        <li><strong>Vietnam Personal Data Protection Law 91/2025</strong> dan <strong>Decree 13/2023</strong></li>
+        <li><strong>PIPA</strong> (Korea Selatan), <strong>PDPA</strong> (Thailand, Malaysia), <strong>APPI</strong> (Jepun)</li>
+    </ul>
+
+    <h2>9. Penafian</h2>
+    <ul>
+        <li>Aplikasi disediakan <strong>"sebagaimana adanya"</strong> dan <strong>"sebagaimana tersedia"</strong> tanpa sebarang jaminan, sama ada tersurat atau tersirat.</li>
+        <li>Kami tidak menjamin akses kepada Aplikasi yang tidak terganggu, bebas ralat, atau selamat pada setiap masa.</li>
+        <li>Anggaran pemakanan, keputusan imbasan AI, pengiraan metrik badan, dan cadangan AI Coach adalah <strong>anggaran</strong> dan tidak boleh dijadikan asas tunggal untuk keputusan diet, kesihatan, atau perubatan.</li>
+        <li>Kami tidak bertanggungjawab atas sebarang kesan kesihatan yang timbul daripada penggunaan anggaran atau cadangan yang diberikan oleh Aplikasi.</li>
+        <li>Maklumat pangkalan data makanan pihak ketiga mungkin mengandungi ketidaktepatan. Pengguna harus mengesahkan data pemakanan untuk keperluan diet yang kritikal.</li>
+    </ul>
+
+    <h2>10. Pengehadan Liabiliti</h2>
+    <p>Setakat maksimum yang dibenarkan oleh undang-undang yang berkenaan:</p>
+    <ul>
+        <li>Jumlah liabiliti kami kepada anda bagi sebarang tuntutan yang timbul daripada atau berkaitan dengan penggunaan Aplikasi tidak akan melebihi amaun yang anda bayar untuk perkhidmatan langganan Aplikasi dalam <strong>12 bulan</strong> sebelum tuntutan.</li>
+        <li>Kami tidak akan bertanggungjawab atas sebarang kerugian tidak langsung, sampingan, khas, akibat, atau punitif, termasuk kehilangan data, hasil, atau kesan berkaitan kesihatan.</li>
+        <li>Kami tidak bertanggungjawab atas sebarang tindakan yang diambil berdasarkan anggaran yang dijana AI, data pemakanan, atau cadangan kesejahteraan yang diberikan oleh Aplikasi.</li>
+    </ul>
+
+    <h2>11. Penamatan</h2>
+    <ul>
+        <li>Anda boleh memadam akaun anda pada bila-bila masa melalui tetapan Aplikasi (Profil → Tetapan → Padam Akaun) atau dengan menghubungi kami melalui e-mel.</li>
+        <li>Kami berhak untuk menggantung atau menamatkan akaun anda jika anda melanggar Terma ini, terlibat dalam aktiviti penipuan, gagal membayar yuran langganan, atau tidak aktif selama lebih daripada 12 bulan.</li>
+        <li>Selepas penamatan, data anda akan dipadam mengikut Dasar Privasi kami dan keperluan penyimpanan data yang berkenaan.</li>
+    </ul>
+
+    <h2>12. Undang-undang yang Mengawal</h2>
+    <p>Terma ini ditadbir oleh dan ditafsirkan mengikut undang-undang yang berkenaan di bidang kuasa anda:</p>
+    <ul>
+        <li><strong>Vietnam:</strong> Civil Code 2015, Consumer Protection Law 2010, Personal Data Protection Law 91/2025, Decree 13/2023/NĐ-CP.</li>
+        <li><strong>Amerika Syarikat:</strong> Undang-undang negeri dan persekutuan yang berkenaan.</li>
+        <li><strong>Kesatuan Eropah:</strong> EU Digital Services Act dan undang-undang negara anggota yang berkenaan.</li>
+    </ul>
+
+    <h2>13. Perubahan kepada Terma</h2>
+    <p>Kami mungkin mengemas kini Terma ini dari semasa ke semasa. Apabila perubahan material dibuat:</p>
+    <ul>
+        <li>Kami akan memberitahu anda melalui Aplikasi atau melalui e-mel sekurang-kurangnya <strong>30 hari</strong> sebelum perubahan berkuat kuasa.</li>
+        <li>Penggunaan berterusan Aplikasi selepas tarikh berkuat kuasa merupakan penerimaan Terma yang dikemas kini.</li>
+        <li>Jika anda tidak bersetuju dengan Terma yang dikemas kini, anda boleh berhenti menggunakan Aplikasi dan memadam akaun anda.</li>
+    </ul>
+
+    <h2>14. Pengakuan Penggunaan Kesejahteraan</h2>
+    <div class="warning">
+        <p>Dengan menggunakan CalDietAI, anda mengakui dan bersetuju bahawa:</p>
+        <ul>
+            <li>Aplikasi ini direka sebagai <strong>alat penjejakan kesejahteraan dan gaya hidup</strong>, bukan peranti perubatan.</li>
+            <li>Semua kiraan kalori, anggaran pemakanan, dan metrik komposisi badan adalah <strong>pengiraan anggaran</strong>, bukan ukuran klinikal.</li>
+            <li>Kandungan yang dijana AI (keputusan imbasan makanan, cadangan jurulatih) adalah untuk <strong>tujuan maklumat sahaja</strong>.</li>
+            <li>Anda harus berunding dengan profesional penjagaan kesihatan yang berkelayakan untuk nasihat perubatan, terutamanya jika anda mempunyai keadaan kesihatan, alahan makanan, gangguan pemakanan, atau sedang mengandung atau menyusu.</li>
+            <li>Pembangun tidak bertanggungjawab atas sebarang keputusan kesihatan yang dibuat berdasarkan maklumat yang diberikan oleh Aplikasi.</li>
+        </ul>
+    </div>
+
+    <h2>15. Maklumat Hubungan</h2>
+    <div class="contact-info">
+        <p>Jika anda mempunyai sebarang soalan, kebimbangan, atau maklum balas tentang Terma ini, sila hubungi kami:</p>
+        <p><strong>E-mel:</strong> <a href="mailto:nhanntv113@gmail.com">nhanntv113@gmail.com</a></p>
+        <p><small>© <span class="copyright-year">2026</span> CalDietAI. Hak cipta terpelihara.</small></p>
+    </div>
+
+    <script>
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
