@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terma Perkhidmatan – Sentinel</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4CAF50;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            color: #34495e;
+            font-size: 1.1em;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        p { margin-bottom: 12px; }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+        li { margin-bottom: 6px; }
+        .last-updated {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .contact-info {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        a { color: #4CAF50; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #1a1a1a; color: #f5f5f5; }
+            h1 { color: #81C784; border-bottom-color: #4CAF50; }
+            h2 { color: #cfd8dc; }
+            h3 { color: #b0bec5; }
+            .highlight {
+                background-color: #263238;
+                border-left-color: #4CAF50;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span {
+                color: #e0e0e0;
+            }
+            .warning {
+                background-color: #3e2723;
+                border-left-color: #ff9800;
+                color: #e0e0e0;
+            }
+            .warning p, .warning li, .warning strong, .warning span {
+                color: #e0e0e0;
+            }
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0;
+            }
+            ul, li { color: #f5f5f5; }
+            .last-updated { color: #b0bec5; }
+            a { color: #81C784; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Terma Perkhidmatan</h1>
+    <p class="last-updated">Berkuat kuasa mulai: Julai 2026 &middot; Kemas kini terakhir: Julai 2026</p>
+
+    <div class="highlight">
+        <p><strong>Sentinel</strong> ("Apl") ialah alat pengimbasan berbilang penderia yang membantu anda mencari kamera tersembunyi dan peranti rakaman terselindung. Dengan memuat turun, memasang, atau menggunakan Sentinel, anda bersetuju dengan Terma Perkhidmatan ini ("Terma"). Sila baca dengan teliti, terutamanya bahagian penafian dan had liabiliti.</p>
+    </div>
+
+    <h2>1. Penerimaan Terma</h2>
+    <p>Dengan memuat turun, memasang, atau menggunakan Sentinel, anda bersetuju untuk terikat dengan Terma ini. Jika anda tidak bersetuju, sila jangan gunakan Apl. Terma ini membentuk perjanjian yang mengikat dari segi undang-undang antara anda ("Pengguna", "anda") dan penyedia Sentinel ("kami").</p>
+
+    <h2>2. Penerangan Perkhidmatan</h2>
+    <p>Sentinel menggunakan penderia sedia ada pada peranti anda untuk menonjolkan kemungkinan tanda kehadiran peranti pengawasan. Bergantung pada keupayaan peranti anda, ia mungkin merangkumi:</p>
+    <ul>
+        <li><strong>Imbasan rangkaian Wi-Fi</strong> &mdash; menyenaraikan peranti Wi-Fi berdekatan dan menandakan corak yang mungkin menunjukkan kamera.</li>
+        <li><strong>Imbasan optik pantulan kanta</strong> &mdash; menggunakan kamera dan lampu suluh untuk mengesan pantulan daripada kanta.</li>
+        <li><strong>Imbasan Bluetooth (BLE)</strong> &mdash; mengesan peranti Bluetooth berdekatan.</li>
+        <li><strong>Imbasan magnetometer</strong> &mdash; pemeriksaan berkeyakinan rendah, "rujukan sahaja" untuk anomali magnet.</li>
+        <li><strong>Pemapar inframerah (IR)</strong> &mdash; membantu anda mencari LED inframerah yang digunakan oleh sesetengah kamera.</li>
+        <li><strong>Imbasan Time-of-Flight / LiDAR</strong> &mdash; pemeriksaan berasaskan kedalaman pada peranti yang disokong.</li>
+        <li><strong>Senarai semak manual berpandu</strong> &mdash; arahan langkah demi langkah untuk memeriksa bilik secara manual.</li>
+    </ul>
+
+    <h2>3. Tiada Jaminan Pengesanan — Kedudukan yang Jujur</h2>
+    <div class="warning">
+        <p>Sentinel ialah <strong>alat bantu kesedaran dan saringan awal (triaj)</strong>, bukan pengesan yang terjamin. Anda mengakui dan bersetuju bahawa:</p>
+        <ul>
+            <li>Apl <strong>tidak dapat menemui setiap peranti tersembunyi</strong> dan mungkin menghasilkan kedua-dua <strong>positif palsu</strong> (menandakan objek yang tidak berbahaya) serta <strong>negatif palsu</strong> (terlepas peranti sebenar).</li>
+            <li>Apl <strong>tidak akan pernah</strong> dapat mengesahkan bahawa sesuatu ruang itu "100% selamat". Imbasan yang tidak menemui apa-apa hanya bermakna tiada isyarat mencurigakan dikesan oleh kaedah yang tersedia — bukan bermakna tiada peranti hadir.</li>
+            <li>Anda <strong>tidak boleh bergantung pada Sentinel sebagai satu-satunya cara perlindungan anda</strong>. Sentiasa gabungkannya dengan pemeriksaan manual yang teliti (menggunakan senarai semak berpandu dalam apl).</li>
+            <li>Sentinel <strong>bukan pengganti</strong> sapuan langkah balas pengawasan teknikal profesional (TSCM) atau penguatkuasaan undang-undang. Jika keselamatan anda mungkin terancam, hubungi profesional yang berkelayakan atau pihak berkuasa.</li>
+        </ul>
+    </div>
+
+    <h2>4. Lesen untuk Menggunakan</h2>
+    <p>Tertakluk kepada Terma ini, kami memberi anda lesen yang terhad, peribadi, bukan eksklusif, tidak boleh dipindah milik, dan boleh dibatalkan untuk memasang dan menggunakan Sentinel pada peranti yang anda miliki atau kawal, bagi penggunaan peribadi anda yang sah. Anda tidak boleh mensublesenkan, menjual semula, atau mengeksploitasi Apl secara komersial tanpa kebenaran bertulis kami.</p>
+
+    <h2>5. Penggunaan yang Boleh Diterima dan Sah</h2>
+    <p>Anda bertanggungjawab sepenuhnya untuk menggunakan Sentinel secara sah. Anda bersetuju bahawa:</p>
+    <ul>
+        <li>Anda hanya akan <strong>memeriksa ruang yang anda miliki, duduki, atau yang anda berhak dari segi undang-undang untuk memeriksanya</strong> (sebagai contoh, rumah anda sendiri, bilik hotel yang anda sewa, atau premis dengan keizinan pemiliknya).</li>
+        <li>Anda akan mematuhi semua undang-undang yang berkenaan, termasuk undang-undang privasi, pengawasan, pencerobohan, dan harta di bidang kuasa anda.</li>
+        <li>Anda tidak akan menggunakan Apl untuk mengganggu, menghendap, mengawasi, atau memudaratkan mana-mana orang, atau untuk mengganggu rangkaian atau peranti yang anda tidak mempunyai kebenaran untuk mengaksesnya.</li>
+        <li>Anda tidak akan merekayasa balik, menyahkompil, atau membongkar Apl kecuali apabila dibenarkan oleh undang-undang, dan anda tidak akan memintas keselamatan, had kadar, atau kawalan aksesnya.</li>
+    </ul>
+    <p>Anda bertanggungjawab terhadap sebarang akibat penggunaan yang menyalahi undang-undang atau tidak dibenarkan.</p>
+
+    <h2>6. Langganan dan Pembayaran</h2>
+    <h3>6.1 Langganan Pro</h3>
+    <ul>
+        <li>Sentinel menawarkan langganan <strong>Pro</strong> pilihan yang membuka kunci modul pengimbasan lanjutan. Ciri teras kekal tersedia tanpa langganan.</li>
+        <li>Langganan dijual melalui <strong>Apple App Store</strong> atau <strong>Google Play Store</strong> dan diurus melalui <strong>Qonversion</strong>.</li>
+    </ul>
+    <h3>6.2 Pengebilan, Pembaharuan Automatik, dan Pembatalan</h3>
+    <ul>
+        <li>Langganan <strong>diperbaharui secara automatik</strong> pada penghujung setiap tempoh pengebilan melainkan dibatalkan sekurang-kurangnya 24 jam sebelum tarikh pembaharuan.</li>
+        <li>Akaun anda dicaj melalui akaun gedung apl anda. Harga dipaparkan dalam mata wang tempatan anda dan mungkin berbeza mengikut rantau; cukai mungkin dikenakan.</li>
+        <li>Anda boleh membatalkan pada bila-bila masa melalui tetapan langganan peranti anda (App Store atau Google Play). Pembatalan berkuat kuasa pada penghujung tempoh semasa; anda mengekalkan akses Pro sehingga ketika itu.</li>
+        <li>Bayaran balik dikendalikan oleh Apple atau Google di bawah dasar masing-masing. Pilihan <strong>"Pulihkan Pembelian" (Restore Purchases)</strong> tersedia untuk memulihkan pembelian pada peranti baharu.</li>
+    </ul>
+
+    <h2>7. Harta Intelek</h2>
+    <p>Sentinel, termasuk perisian, reka bentuk, logo, dan kandungannya, dimiliki oleh kami atau pemberi lesen kami dan dilindungi oleh undang-undang harta intelek. Terma ini tidak memindahkan sebarang hak pemilikan kepada anda. Sebarang data yang anda jana dalam Apl (seperti sejarah imbasan dan nota) kekal milik anda dan kekal pada peranti anda.</p>
+
+    <h2>8. Penafian</h2>
+    <ul>
+        <li>Apl disediakan <strong>"sebagaimana adanya"</strong> dan <strong>"sebagaimana tersedia"</strong>, tanpa jaminan dalam apa jua bentuk, sama ada nyata atau tersirat, termasuk kebolehdagangan, kesesuaian untuk tujuan tertentu, ketepatan, dan tanpa pelanggaran.</li>
+        <li>Kami tidak menjamin bahawa Apl akan tidak terganggu, bebas ralat, selamat, atau bahawa ia akan mengesan mana-mana peranti tertentu.</li>
+        <li>Keputusan imbasan, skor risiko, dan penunjuk ialah <strong>anggaran</strong> yang dijana oleh heuristik dan penderia peranti anda, dan bergantung pada keupayaan perkakasan serta keadaan persekitaran. Ia tidak boleh dijadikan sandaran sebagai sesuatu yang muktamad.</li>
+        <li>Kami tidak bertanggungjawab terhadap sebarang hasil yang berpunca daripada pergantungan pada Apl, termasuk peranti yang tidak dikesan atau penggera palsu.</li>
+    </ul>
+
+    <h2>9. Had Liabiliti</h2>
+    <p>Setakat maksimum yang dibenarkan oleh undang-undang yang berkenaan:</p>
+    <ul>
+        <li>Kami tidak akan bertanggungan terhadap sebarang ganti rugi tidak langsung, sampingan, khas, berbangkit, teladan, atau punitif, atau terhadap sebarang kehilangan privasi, data, atau keselamatan, yang timbul daripada atau berkaitan dengan penggunaan anda (atau ketidakupayaan menggunakan) Apl, termasuk sebarang kegagalan untuk mengesan peranti pengawasan.</li>
+        <li>Jumlah liabiliti agregat kami bagi sebarang tuntutan yang timbul daripada atau berkaitan dengan Apl tidak akan melebihi jumlah yang anda bayar untuk langganan Apl dalam tempoh <strong>12 bulan</strong> sebelum tuntutan.</li>
+        <li>Sesetengah bidang kuasa tidak membenarkan had tertentu; di tempat tersebut, liabiliti kami dihadkan setakat maksimum yang dibenarkan oleh undang-undang.</li>
+    </ul>
+
+    <h2>10. Bukan Pengganti Perkhidmatan Profesional</h2>
+    <p>Sentinel tidak menyediakan perkhidmatan keselamatan, undang-undang, atau penyiasatan. Untuk situasi yang melibatkan risiko sebenar terhadap keselamatan, privasi, atau harta anda, rujuk profesional yang berkelayakan (seperti pakar TSCM berlesen) atau hubungi penguatkuasaan undang-undang. Tiada apa-apa dalam Apl yang membentuk nasihat profesional.</p>
+
+    <h2>11. Privasi</h2>
+    <p>Penggunaan Apl oleh anda juga tertakluk kepada <strong>Dasar Privasi</strong> kami, yang menerangkan cara maklumat dikendalikan. Sentinel mengutamakan luar talian: data imbasan anda kekal pada peranti anda dan tidak dihantar ke luar peranti secara lalai. Dengan menggunakan Apl, anda mengakui amalan yang diterangkan dalam Dasar Privasi.</p>
+
+    <h2>12. Penamatan</h2>
+    <ul>
+        <li>Anda boleh berhenti menggunakan Apl dan menyahpasangnya pada bila-bila masa, yang akan mengeluarkan data anda yang disimpan secara setempat.</li>
+        <li>Kami boleh menggantung atau menamatkan akses anda jika anda melanggar Terma ini atau menggunakan Apl secara menyalahi undang-undang.</li>
+        <li>Bahagian yang menurut sifatnya patut kekal selepas penamatan (termasuk penafian, had liabiliti, dan undang-undang yang mentadbir) akan terus terpakai.</li>
+    </ul>
+
+    <h2>13. Undang-Undang yang Mentadbir</h2>
+    <p>Terma ini ditadbir oleh dan ditafsirkan menurut undang-undang <strong>[EDIT: governing-law jurisdiction — placeholder: Vietnam]</strong>, tanpa mengira kaedah percanggahan undang-undangnya. Sebarang pertikaian akan tertakluk kepada mahkamah bidang kuasa tersebut, kecuali apabila undang-undang perlindungan pengguna tempatan yang mandatori memberi anda hak tambahan. Tiada apa-apa dalam Terma ini yang menghadkan sebarang hak berkanun yang tidak boleh diketepikan yang anda miliki sebagai pengguna.</p>
+
+    <h2>14. Perubahan pada Terma Ini</h2>
+    <p>Kami mungkin mengemas kini Terma ini dari semasa ke semasa. Apabila perubahan material dibuat, kami akan mengemas kini tarikh "Kemas kini terakhir" di atas dan, jika sesuai, memberitahu anda dalam Apl. Penggunaan Apl yang berterusan selepas tarikh kuat kuasa merupakan penerimaan Terma yang dikemas kini. Jika anda tidak bersetuju, sila berhenti menggunakan Apl.</p>
+
+    <h2>15. Pengakuan</h2>
+    <div class="warning">
+        <p>Dengan menggunakan Sentinel, anda mengakui dan bersetuju bahawa:</p>
+        <ul>
+            <li>Apl ialah <strong>alat bantu saringan awal dan kesedaran</strong>, bukan pengesan yang terjamin, dan tidak dapat memastikan sesuatu ruang itu bebas daripada peranti pengawasan.</li>
+            <li>Positif palsu dan negatif palsu mungkin berlaku; anda <strong>tidak akan bergantung pada Apl sahaja</strong> untuk keselamatan anda.</li>
+            <li>Anda akan menggunakan Apl <strong>secara sah</strong> dan hanya untuk memeriksa ruang yang anda berhak memeriksanya.</li>
+            <li>Untuk risiko sebenar, anda akan mendapatkan bantuan profesional atau penguatkuasaan undang-undang.</li>
+        </ul>
+    </div>
+
+    <h2>16. Maklumat Hubungan</h2>
+    <div class="contact-info">
+        <p>Jika anda mempunyai sebarang pertanyaan, kebimbangan, atau maklum balas tentang Terma ini, sila hubungi kami:</p>
+        <p><strong>E-mel:</strong> <a href="mailto:nguyen@sartoro.co">nguyen@sartoro.co</a> <!-- [EDIT: contact email] --></p>
+        <p><strong>Apl:</strong> Sentinel (bundle ID <code>io.ntvtech.hiddencamdetect</code>)</p>
+        <p><strong>Penyedia:</strong> [EDIT: company legal name] &middot; [EDIT: business address]</p>
+        <p><small>&copy; <span class="copyright-year">2026</span> Sentinel. Hak cipta terpelihara.</small></p>
+    </div>
+
+    <script>
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务条款 – Sentinel</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4CAF50;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            color: #34495e;
+            font-size: 1.1em;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        p { margin-bottom: 12px; }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+        li { margin-bottom: 6px; }
+        .last-updated {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .contact-info {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        a { color: #4CAF50; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #1a1a1a; color: #f5f5f5; }
+            h1 { color: #81C784; border-bottom-color: #4CAF50; }
+            h2 { color: #cfd8dc; }
+            h3 { color: #b0bec5; }
+            .highlight {
+                background-color: #263238;
+                border-left-color: #4CAF50;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span {
+                color: #e0e0e0;
+            }
+            .warning {
+                background-color: #3e2723;
+                border-left-color: #ff9800;
+                color: #e0e0e0;
+            }
+            .warning p, .warning li, .warning strong, .warning span {
+                color: #e0e0e0;
+            }
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0;
+            }
+            ul, li { color: #f5f5f5; }
+            .last-updated { color: #b0bec5; }
+            a { color: #81C784; }
+        }
+    </style>
+</head>
+<body>
+    <h1>服务条款</h1>
+    <p class="last-updated">生效日期：2026年7月 &middot; 最近更新：2026年7月</p>
+
+    <div class="highlight">
+        <p><strong>Sentinel</strong>（"本应用"）是一款多传感器扫描工具，帮助您查找隐藏摄像头和偷拍偷录设备。下载、安装或使用 Sentinel，即表示您同意本服务条款（"条款"）。请仔细阅读，尤其是免责声明和责任限制部分。</p>
+    </div>
+
+    <h2>1. 条款的接受</h2>
+    <p>下载、安装或使用 Sentinel，即表示您同意受本条款约束。如果您不同意，请勿使用本应用。本条款构成您（"用户"、"您"）与 Sentinel 提供方（"我们"）之间具有法律约束力的协议。</p>
+
+    <h2>2. 服务说明</h2>
+    <p>Sentinel 利用您设备现有的传感器来呈现监控设备可能存在的迹象。视您设备的功能而定，可能包括：</p>
+    <ul>
+        <li><strong>Wi-Fi 网络扫描</strong> &mdash; 列出附近的 Wi-Fi 设备并标记可能指示摄像头的模式。</li>
+        <li><strong>镜头反光光学扫描</strong> &mdash; 利用摄像头和手电筒发现来自镜头的反射。</li>
+        <li><strong>蓝牙（BLE）扫描</strong> &mdash; 检测附近的蓝牙设备。</li>
+        <li><strong>磁力计扫描</strong> &mdash; 一项可信度较低、"仅供参考"的磁场异常检查。</li>
+        <li><strong>红外（IR）查看器</strong> &mdash; 帮助您查找某些摄像头所使用的红外 LED。</li>
+        <li><strong>飞行时间（ToF）/ LiDAR 扫描</strong> &mdash; 在支持的设备上进行基于深度的检查。</li>
+        <li><strong>引导式人工检查清单</strong> &mdash; 提供逐步说明，帮助您手动检查房间。</li>
+    </ul>
+
+    <h2>3. 不保证检测——诚实定位</h2>
+    <div class="warning">
+        <p>Sentinel 是一款<strong>提高警觉与初步排查的辅助工具</strong>，而非保证有效的探测器。您确认并同意：</p>
+        <ul>
+            <li>本应用<strong>无法找出所有隐藏设备</strong>，并且可能既产生<strong>误报</strong>（将无害物体标记为可疑），也产生<strong>漏报</strong>（遗漏真实设备）。</li>
+            <li>本应用<strong>永远无法</strong>确认某个空间"100% 安全"。扫描未发现任何结果，仅表示通过现有方法未检测到可疑信号——而非表示不存在任何设备。</li>
+            <li>您<strong>不得将 Sentinel 作为您唯一的防护手段</strong>。请务必将其与细致的人工检查相结合（使用应用内的引导式检查清单）。</li>
+            <li>Sentinel <strong>不能替代</strong>专业的技术监控反制（TSCM）排查或执法机关。如果您的人身安全可能受到威胁，请联系合格的专业人士或当局。</li>
+        </ul>
+    </div>
+
+    <h2>4. 使用许可</h2>
+    <p>在遵守本条款的前提下，我们授予您一项有限的、个人的、非排他的、不可转让的、可撤销的许可，允许您在您拥有或控制的设备上安装并使用 Sentinel，仅供您自身合法的个人使用。未经我们书面许可，您不得再许可、转售本应用或对其进行商业利用。</p>
+
+    <h2>5. 可接受且合法的使用</h2>
+    <p>您应自行负责合法使用 Sentinel。您同意：</p>
+    <ul>
+        <li>您将<strong>仅检查您拥有、占用或在其他方面依法有权检查的空间</strong>（例如您自己的住所、您租用的酒店房间，或在所有者同意下的场所）。</li>
+        <li>您将遵守所有适用法律，包括您所在司法管辖区的隐私、监控、非法侵入和财产法律。</li>
+        <li>您不会使用本应用骚扰、跟踪、监视或伤害任何人，或干扰您无权访问的网络或设备。</li>
+        <li>除法律允许的情形外，您不会对本应用进行逆向工程、反编译或反汇编，也不会绕过其安全机制、速率限制或访问控制。</li>
+    </ul>
+    <p>对于任何非法或未经授权使用所产生的后果，您应自行承担责任。</p>
+
+    <h2>6. 订阅与付款</h2>
+    <h3>6.1 Pro 订阅</h3>
+    <ul>
+        <li>Sentinel 提供可选的 <strong>Pro</strong> 订阅，以解锁高级扫描模块。无需订阅即可继续使用核心功能。</li>
+        <li>订阅通过 <strong>Apple App Store</strong> 或 <strong>Google Play Store</strong> 销售，并通过 <strong>Qonversion</strong> 进行管理。</li>
+    </ul>
+    <h3>6.2 账单、自动续订与取消</h3>
+    <ul>
+        <li>除非在续订日期前至少 24 小时取消，否则订阅将在每个计费周期结束时<strong>自动续订</strong>。</li>
+        <li>您的账户将通过您的应用商店账户扣费。价格以您的当地货币显示，并可能因地区而异；可能产生税费。</li>
+        <li>您可以随时通过设备的订阅设置（App Store 或 Google Play）取消订阅。取消将在当前周期结束时生效；在此之前您仍可保留 Pro 访问权限。</li>
+        <li>退款由 Apple 或 Google 依据其各自的政策处理。应用提供<strong>"恢复购买"</strong>选项，以便在新设备上恢复购买记录。</li>
+    </ul>
+
+    <h2>7. 知识产权</h2>
+    <p>Sentinel，包括其软件、设计、徽标和内容，归我们或我们的许可方所有，并受知识产权法律保护。本条款不会向您转让任何所有权。您在应用内生成的任何数据（如扫描历史和备注）仍归您所有，并保留在您的设备上。</p>
+
+    <h2>8. 免责声明</h2>
+    <ul>
+        <li>本应用按<strong>"现状"</strong>和<strong>"现有可用"</strong>基础提供，不附带任何明示或默示的保证，包括适销性、特定用途适用性、准确性和不侵权。</li>
+        <li>我们不保证本应用将不间断、无错误、安全，或保证其能检测到任何特定设备。</li>
+        <li>扫描结果、风险评分和指标是由启发式算法和您设备的传感器生成的<strong>估计值</strong>，取决于硬件能力和环境条件。不得将其作为确定性结论依赖。</li>
+        <li>对于因依赖本应用而产生的任何后果，包括未检测到的设备或误报，我们概不负责。</li>
+    </ul>
+
+    <h2>9. 责任限制</h2>
+    <p>在适用法律允许的最大范围内：</p>
+    <ul>
+        <li>对于因您使用（或无法使用）本应用而产生或与之相关的任何间接、附带、特殊、后果性、惩戒性或惩罚性损害，或任何隐私、数据或安全方面的损失，包括任何未能检测到监控设备的情形，我们概不承担责任。</li>
+        <li>对于因本应用产生或与之相关的任何索赔，我们的累计总责任不应超过您在索赔发生前 <strong>12 个月</strong>内为本应用订阅所支付的金额。</li>
+        <li>某些司法管辖区不允许特定的限制；在这些地区，我们的责任以法律允许的最大限度为限。</li>
+    </ul>
+
+    <h2>10. 不能替代专业服务</h2>
+    <p>Sentinel 不提供安保、法律或调查服务。对于涉及您人身安全、隐私或财产真实风险的情况，请咨询合格的专业人士（如持牌 TSCM 专家）或联系执法机关。本应用中的任何内容均不构成专业建议。</p>
+
+    <h2>11. 隐私</h2>
+    <p>您对本应用的使用还受我们<strong>隐私政策</strong>的约束，该政策说明了信息的处理方式。Sentinel 采用离线优先原则：在默认情况下，您的扫描数据保留在您的设备上，不会被传输出设备。使用本应用，即表示您知悉隐私政策中所述的做法。</p>
+
+    <h2>12. 终止</h2>
+    <ul>
+        <li>您可以随时停止使用并卸载本应用，这将移除您本地存储的数据。</li>
+        <li>如果您违反本条款或非法使用本应用，我们可能暂停或终止您的访问权限。</li>
+        <li>就其性质应在终止后继续有效的条款（包括免责声明、责任限制和管辖法律）将继续适用。</li>
+    </ul>
+
+    <h2>13. 管辖法律</h2>
+    <p>本条款受 <strong>[EDIT: governing-law jurisdiction — placeholder: 越南]</strong> 法律管辖并据其解释，不考虑其法律冲突规则。任何争议均应提交该司法管辖区的法院处理，但当地强制性消费者保护法律赋予您额外权利的情形除外。本条款中的任何内容均不限制您作为消费者所享有的任何不可放弃的法定权利。</p>
+
+    <h2>14. 本条款的变更</h2>
+    <p>我们可能会不时更新本条款。当作出重大变更时，我们将更新上方的"最近更新"日期，并在适当情况下在应用内通知您。在生效日期之后继续使用本应用，即表示您接受更新后的条款。如果您不同意，请停止使用本应用。</p>
+
+    <h2>15. 确认</h2>
+    <div class="warning">
+        <p>使用 Sentinel，即表示您确认并同意：</p>
+        <ul>
+            <li>本应用是一款<strong>初步排查与提高警觉的辅助工具</strong>，而非保证有效的探测器，无法确保任何空间不存在监控设备。</li>
+            <li>误报和漏报均有可能发生；您<strong>不会仅依赖本应用</strong>来保障您的安全。</li>
+            <li>您将<strong>合法</strong>使用本应用，且仅用于检查您有权检查的空间。</li>
+            <li>对于真实风险，您将寻求专业人士或执法机关的协助。</li>
+        </ul>
+    </div>
+
+    <h2>16. 联系方式</h2>
+    <div class="contact-info">
+        <p>如果您对本条款有任何疑问、顾虑或反馈，请与我们联系：</p>
+        <p><strong>电子邮箱：</strong> <a href="mailto:nguyen@sartoro.co">nguyen@sartoro.co</a> <!-- [EDIT: contact email] --></p>
+        <p><strong>应用：</strong> Sentinel（包名 <code>io.ntvtech.hiddencamdetect</code>）</p>
+        <p><strong>提供方：</strong> [EDIT: company legal name] &middot; [EDIT: business address]</p>
+        <p><small>&copy; <span class="copyright-year">2026</span> Sentinel。保留所有权利。</small></p>
+    </div>
+
+    <script>
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

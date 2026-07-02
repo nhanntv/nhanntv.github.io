@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos del servicio – Sentinel</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4CAF50;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            color: #34495e;
+            font-size: 1.1em;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        p { margin-bottom: 12px; }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+        li { margin-bottom: 6px; }
+        .last-updated {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .contact-info {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        a { color: #4CAF50; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #1a1a1a; color: #f5f5f5; }
+            h1 { color: #81C784; border-bottom-color: #4CAF50; }
+            h2 { color: #cfd8dc; }
+            h3 { color: #b0bec5; }
+            .highlight {
+                background-color: #263238;
+                border-left-color: #4CAF50;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span {
+                color: #e0e0e0;
+            }
+            .warning {
+                background-color: #3e2723;
+                border-left-color: #ff9800;
+                color: #e0e0e0;
+            }
+            .warning p, .warning li, .warning strong, .warning span {
+                color: #e0e0e0;
+            }
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0;
+            }
+            ul, li { color: #f5f5f5; }
+            .last-updated { color: #b0bec5; }
+            a { color: #81C784; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Términos del servicio</h1>
+    <p class="last-updated">En vigor desde: julio de 2026 &middot; Última actualización: julio de 2026</p>
+
+    <div class="highlight">
+        <p><strong>Sentinel</strong> (la «App») es una herramienta de análisis multisensor que te ayuda a buscar cámaras ocultas y dispositivos de grabación encubiertos. Al descargar, instalar o usar Sentinel, aceptas estos Términos del servicio («Términos»). Léelos atentamente, en especial las cláusulas de exención de responsabilidad y de limitación de responsabilidad.</p>
+    </div>
+
+    <h2>1. Aceptación de los Términos</h2>
+    <p>Al descargar, instalar o usar Sentinel, aceptas quedar vinculado por estos Términos. Si no estás de acuerdo, no uses la App. Estos Términos constituyen un acuerdo jurídicamente vinculante entre tú («Usuario», «tú») y el proveedor de Sentinel («nosotros», «nos», «nuestro»).</p>
+
+    <h2>2. Descripción del servicio</h2>
+    <p>Sentinel utiliza los sensores existentes de tu dispositivo para mostrar posibles indicios de dispositivos de vigilancia. Según las capacidades de tu dispositivo, puede incluir:</p>
+    <ul>
+        <li><strong>Análisis de redes Wi-Fi</strong> &mdash; enumera los dispositivos Wi-Fi cercanos y señala patrones que pueden indicar la presencia de cámaras.</li>
+        <li><strong>Análisis óptico de reflejos de lente</strong> &mdash; utiliza la cámara y la linterna para detectar reflejos en las lentes.</li>
+        <li><strong>Análisis Bluetooth (BLE)</strong> &mdash; detecta dispositivos Bluetooth cercanos.</li>
+        <li><strong>Análisis con el magnetómetro</strong> &mdash; una comprobación de baja fiabilidad, «solo a título de referencia», de anomalías magnéticas.</li>
+        <li><strong>Visor de infrarrojos (IR)</strong> &mdash; te ayuda a buscar los LED infrarrojos que utilizan algunas cámaras.</li>
+        <li><strong>Análisis de Tiempo de Vuelo / LiDAR</strong> &mdash; inspección basada en la profundidad en los dispositivos compatibles.</li>
+        <li><strong>Lista de comprobación manual guiada</strong> &mdash; instrucciones paso a paso para inspeccionar una habitación a mano.</li>
+    </ul>
+
+    <h2>3. Sin garantía de detección — posicionamiento honesto</h2>
+    <div class="warning">
+        <p>Sentinel es una <strong>ayuda de concienciación y de cribado (triaje)</strong>, no un detector garantizado. Reconoces y aceptas que:</p>
+        <ul>
+            <li>La App <strong>no puede encontrar todos los dispositivos ocultos</strong> y puede producir tanto <strong>falsos positivos</strong> (señalando objetos inofensivos) como <strong>falsos negativos</strong> (sin detectar dispositivos reales).</li>
+            <li>La App <strong>nunca</strong> puede confirmar que un espacio sea «100 % seguro». Un análisis que no encuentra nada significa únicamente que los métodos disponibles no detectaron señales sospechosas, no que no haya ningún dispositivo presente.</li>
+            <li><strong>No debes basarte en Sentinel como tu único medio de protección</strong>. Combínalo siempre con una inspección manual cuidadosa (utilizando la lista de comprobación guiada de la app).</li>
+            <li>Sentinel <strong>no sustituye</strong> a un barrido profesional de contramedidas técnicas de vigilancia (TSCM) ni a las fuerzas del orden. Si tu seguridad puede estar en riesgo, ponte en contacto con un profesional cualificado o con las autoridades.</li>
+        </ul>
+    </div>
+
+    <h2>4. Licencia de uso</h2>
+    <p>Con sujeción a estos Términos, te concedemos una licencia limitada, personal, no exclusiva, intransferible y revocable para instalar y usar Sentinel en dispositivos de tu propiedad o bajo tu control, para tu propio uso personal y lícito. No puedes sublicenciar, revender ni explotar comercialmente la App sin nuestro permiso por escrito.</p>
+
+    <h2>5. Uso aceptable y lícito</h2>
+    <p>Eres el único responsable de usar Sentinel de forma lícita. Aceptas que:</p>
+    <ul>
+        <li><strong>Solo inspeccionarás espacios de tu propiedad, que ocupes o que de otro modo tengas derecho legal a inspeccionar</strong> (por ejemplo, tu propia vivienda, una habitación de hotel que hayas alquilado o instalaciones con el consentimiento del propietario).</li>
+        <li>Cumplirás todas las leyes aplicables, incluidas las leyes de privacidad, vigilancia, allanamiento y propiedad de tu jurisdicción.</li>
+        <li>No usarás la App para acosar, espiar, vigilar o dañar a ninguna persona, ni para interferir en redes o dispositivos a los que no tengas permiso de acceso.</li>
+        <li>No realizarás ingeniería inversa, descompilación ni desensamblado de la App, salvo en la medida en que lo permita la ley, y no eludirás su seguridad, sus límites de uso ni sus controles de acceso.</li>
+    </ul>
+    <p>Eres responsable de cualquier consecuencia derivada de un uso ilícito o no autorizado.</p>
+
+    <h2>6. Suscripciones y pagos</h2>
+    <h3>6.1 Suscripción Pro</h3>
+    <ul>
+        <li>Sentinel ofrece una suscripción <strong>Pro</strong> opcional que desbloquea módulos de análisis avanzados. Las funciones básicas siguen estando disponibles sin suscripción.</li>
+        <li>Las suscripciones se venden a través de la <strong>Apple App Store</strong> o de <strong>Google Play Store</strong> y se gestionan mediante <strong>Qonversion</strong>.</li>
+    </ul>
+    <h3>6.2 Facturación, renovación automática y cancelación</h3>
+    <ul>
+        <li>Las suscripciones se <strong>renuevan automáticamente</strong> al final de cada periodo de facturación, salvo que se cancelen al menos 24 horas antes de la fecha de renovación.</li>
+        <li>El cargo se efectúa a través de tu cuenta de la tienda de aplicaciones. Los precios se muestran en tu moneda local y pueden variar según la región; pueden aplicarse impuestos.</li>
+        <li>Puedes cancelar en cualquier momento desde los ajustes de suscripción de tu dispositivo (App Store o Google Play). La cancelación surte efecto al final del periodo en curso; conservas el acceso Pro hasta entonces.</li>
+        <li>Los reembolsos los gestionan Apple o Google conforme a sus respectivas políticas. Está disponible una opción de <strong>«Restaurar compras»</strong> para recuperar las compras en nuevos dispositivos.</li>
+    </ul>
+
+    <h2>7. Propiedad intelectual</h2>
+    <p>Sentinel, incluidos su software, diseño, logotipos y contenido, es propiedad nuestra o de nuestros licenciantes y está protegido por las leyes de propiedad intelectual. Estos Términos no te transfieren ningún derecho de propiedad. Cualquier dato que generes dentro de la App (como el historial de análisis y las notas) sigue siendo tuyo y permanece en tu dispositivo.</p>
+
+    <h2>8. Exenciones de responsabilidad</h2>
+    <ul>
+        <li>La App se proporciona <strong>«tal cual»</strong> y <strong>«según disponibilidad»</strong>, sin garantías de ningún tipo, expresas o implícitas, incluidas las de comerciabilidad, idoneidad para un fin determinado, exactitud y no infracción.</li>
+        <li>No garantizamos que la App vaya a funcionar de forma ininterrumpida, sin errores o de manera segura, ni que detecte ningún dispositivo en particular.</li>
+        <li>Los resultados de los análisis, las puntuaciones de riesgo y los indicadores son <strong>estimaciones</strong> generadas por heurísticas y por los sensores de tu dispositivo, y dependen de las capacidades del hardware y de las condiciones del entorno. No deben considerarse definitivos.</li>
+        <li>No somos responsables de ningún resultado derivado de confiar en la App, incluidos los dispositivos no detectados o las falsas alarmas.</li>
+    </ul>
+
+    <h2>9. Limitación de responsabilidad</h2>
+    <p>En la máxima medida permitida por la legislación aplicable:</p>
+    <ul>
+        <li>No seremos responsables de ningún daño indirecto, incidental, especial, consecuente, ejemplar o punitivo, ni de ninguna pérdida de privacidad, datos o seguridad, derivados de o relacionados con tu uso (o imposibilidad de uso) de la App, incluida cualquier falta de detección de un dispositivo de vigilancia.</li>
+        <li>Nuestra responsabilidad total y acumulada por cualquier reclamación derivada de o relacionada con la App no excederá el importe que hayas pagado por la suscripción de la App en los <strong>12 meses</strong> anteriores a la reclamación.</li>
+        <li>Algunas jurisdicciones no permiten determinadas limitaciones; en esos lugares, nuestra responsabilidad se limita en la mayor medida permitida por la ley.</li>
+    </ul>
+
+    <h2>10. No sustituye a los servicios profesionales</h2>
+    <p>Sentinel no presta servicios de seguridad, jurídicos ni de investigación. En situaciones que impliquen un riesgo real para tu seguridad, privacidad o propiedad, consulta a un profesional cualificado (como un especialista en TSCM con licencia) o ponte en contacto con las fuerzas del orden. Nada en la App constituye asesoramiento profesional.</p>
+
+    <h2>11. Privacidad</h2>
+    <p>Tu uso de la App también se rige por nuestra <strong>Política de privacidad</strong>, que explica cómo se trata la información. Sentinel tiene prioridad en el funcionamiento sin conexión: tus datos de análisis permanecen en tu dispositivo y no se transmiten fuera de él de forma predeterminada. Al usar la App, reconoces las prácticas descritas en la Política de privacidad.</p>
+
+    <h2>12. Terminación</h2>
+    <ul>
+        <li>Puedes dejar de usar la App y desinstalarla en cualquier momento, lo que elimina los datos almacenados localmente.</li>
+        <li>Podemos suspender o cancelar tu acceso si incumples estos Términos o usas la App de forma ilícita.</li>
+        <li>Las cláusulas que por su naturaleza deban subsistir a la terminación (incluidas las exenciones de responsabilidad, la limitación de responsabilidad y la ley aplicable) seguirán surtiendo efecto.</li>
+    </ul>
+
+    <h2>13. Ley aplicable</h2>
+    <p>Estos Términos se rigen e interpretan de conformidad con las leyes de <strong>[EDIT: governing-law jurisdiction — placeholder: Vietnam]</strong>, sin tener en cuenta sus normas sobre conflicto de leyes. Cualquier controversia se someterá a los tribunales de dicha jurisdicción, salvo cuando las leyes imperativas locales de protección al consumidor te otorguen derechos adicionales. Nada en estos Términos limita los derechos legales irrenunciables que tengas como consumidor.</p>
+
+    <h2>14. Cambios en estos Términos</h2>
+    <p>Podemos actualizar estos Términos periódicamente. Cuando se realicen cambios sustanciales, actualizaremos la fecha de «Última actualización» que figura arriba y, cuando proceda, te lo notificaremos en la App. El uso continuado de la App después de la fecha de entrada en vigor constituye la aceptación de los Términos actualizados. Si no estás de acuerdo, deja de usar la App.</p>
+
+    <h2>15. Reconocimiento</h2>
+    <div class="warning">
+        <p>Al usar Sentinel, reconoces y aceptas que:</p>
+        <ul>
+            <li>La App es una <strong>ayuda de cribado (triaje) y concienciación</strong>, no un detector garantizado, y no puede asegurar que un espacio esté libre de dispositivos de vigilancia.</li>
+            <li>Son posibles los falsos positivos y los falsos negativos; <strong>no te basarás únicamente en la App</strong> para tu seguridad.</li>
+            <li>Usarás la App <strong>de forma lícita</strong> y solo para inspeccionar espacios que tengas derecho a inspeccionar.</li>
+            <li>Ante riesgos reales, buscarás la asistencia de profesionales o de las fuerzas del orden.</li>
+        </ul>
+    </div>
+
+    <h2>16. Información de contacto</h2>
+    <div class="contact-info">
+        <p>Si tienes alguna pregunta, inquietud o comentario sobre estos Términos, ponte en contacto con nosotros:</p>
+        <p><strong>Correo electrónico:</strong> <a href="mailto:nguyen@sartoro.co">nguyen@sartoro.co</a> <!-- [EDIT: contact email] --></p>
+        <p><strong>App:</strong> Sentinel (ID de paquete <code>io.ntvtech.hiddencamdetect</code>)</p>
+        <p><strong>Proveedor:</strong> [EDIT: company legal name] &middot; [EDIT: business address]</p>
+        <p><small>&copy; <span class="copyright-year">2026</span> Sentinel. Todos los derechos reservados.</small></p>
+    </div>
+
+    <script>
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ketentuan Layanan – Sentinel</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4CAF50;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            color: #34495e;
+            font-size: 1.1em;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        p { margin-bottom: 12px; }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+        li { margin-bottom: 6px; }
+        .last-updated {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .contact-info {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        a { color: #4CAF50; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #1a1a1a; color: #f5f5f5; }
+            h1 { color: #81C784; border-bottom-color: #4CAF50; }
+            h2 { color: #cfd8dc; }
+            h3 { color: #b0bec5; }
+            .highlight {
+                background-color: #263238;
+                border-left-color: #4CAF50;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span {
+                color: #e0e0e0;
+            }
+            .warning {
+                background-color: #3e2723;
+                border-left-color: #ff9800;
+                color: #e0e0e0;
+            }
+            .warning p, .warning li, .warning strong, .warning span {
+                color: #e0e0e0;
+            }
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0;
+            }
+            ul, li { color: #f5f5f5; }
+            .last-updated { color: #b0bec5; }
+            a { color: #81C784; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Ketentuan Layanan</h1>
+    <p class="last-updated">Berlaku sejak: Juli 2026 &middot; Terakhir diperbarui: Juli 2026</p>
+
+    <div class="highlight">
+        <p><strong>Sentinel</strong> ("Aplikasi") adalah alat pemindaian multisensor yang membantu Anda mencari kamera tersembunyi dan perangkat perekam terselubung. Dengan mengunduh, memasang, atau menggunakan Sentinel, Anda menyetujui Ketentuan Layanan ini ("Ketentuan"). Harap baca dengan cermat, terutama bagian penafian dan pembatasan tanggung jawab.</p>
+    </div>
+
+    <h2>1. Penerimaan Ketentuan</h2>
+    <p>Dengan mengunduh, memasang, atau menggunakan Sentinel, Anda setuju untuk terikat oleh Ketentuan ini. Jika Anda tidak setuju, harap jangan gunakan Aplikasi. Ketentuan ini membentuk perjanjian yang mengikat secara hukum antara Anda ("Pengguna", "Anda") dan penyedia Sentinel ("kami").</p>
+
+    <h2>2. Deskripsi Layanan</h2>
+    <p>Sentinel menggunakan sensor yang sudah ada pada perangkat Anda untuk memunculkan kemungkinan tanda adanya perangkat pengawasan. Bergantung pada kemampuan perangkat Anda, ini dapat mencakup:</p>
+    <ul>
+        <li><strong>Pemindaian jaringan Wi-Fi</strong> &mdash; mendaftar perangkat Wi-Fi terdekat dan menandai pola yang mungkin mengindikasikan kamera.</li>
+        <li><strong>Pemindaian optik pantulan lensa</strong> &mdash; menggunakan kamera dan senter untuk menemukan pantulan dari lensa.</li>
+        <li><strong>Pemindaian Bluetooth (BLE)</strong> &mdash; mendeteksi perangkat Bluetooth terdekat.</li>
+        <li><strong>Pemindaian magnetometer</strong> &mdash; pemeriksaan berkeyakinan rendah, "hanya sebagai referensi" untuk anomali magnetik.</li>
+        <li><strong>Penampil inframerah (IR)</strong> &mdash; membantu Anda mencari LED inframerah yang digunakan oleh sebagian kamera.</li>
+        <li><strong>Pemindaian Time-of-Flight / LiDAR</strong> &mdash; pemeriksaan berbasis kedalaman pada perangkat yang mendukung.</li>
+        <li><strong>Daftar periksa manual terpandu</strong> &mdash; petunjuk langkah demi langkah untuk memeriksa ruangan secara manual.</li>
+    </ul>
+
+    <h2>3. Tanpa Jaminan Deteksi — Posisi yang Jujur</h2>
+    <div class="warning">
+        <p>Sentinel adalah <strong>alat bantu kewaspadaan dan penyaringan awal (triase)</strong>, bukan pendeteksi yang dijamin. Anda mengakui dan menyetujui bahwa:</p>
+        <ul>
+            <li>Aplikasi <strong>tidak dapat menemukan setiap perangkat tersembunyi</strong> dan dapat menghasilkan baik <strong>positif palsu</strong> (menandai objek yang tidak berbahaya) maupun <strong>negatif palsu</strong> (melewatkan perangkat yang nyata).</li>
+            <li>Aplikasi <strong>tidak pernah</strong> dapat memastikan bahwa suatu ruang "100% aman". Pemindaian yang tidak menemukan apa pun hanya berarti tidak ada sinyal mencurigakan yang terdeteksi oleh metode yang tersedia — bukan berarti tidak ada perangkat yang hadir.</li>
+            <li>Anda <strong>tidak boleh mengandalkan Sentinel sebagai satu-satunya sarana perlindungan Anda</strong>. Selalu padukan dengan pemeriksaan manual yang cermat (menggunakan daftar periksa terpandu di dalam aplikasi).</li>
+            <li>Sentinel <strong>bukan pengganti</strong> penyapuan kontra-pengawasan teknis profesional (TSCM) atau penegak hukum. Jika keselamatan Anda mungkin terancam, hubungi profesional yang memenuhi syarat atau pihak berwenang.</li>
+        </ul>
+    </div>
+
+    <h2>4. Lisensi Penggunaan</h2>
+    <p>Tunduk pada Ketentuan ini, kami memberi Anda lisensi yang terbatas, pribadi, non-eksklusif, tidak dapat dialihkan, dan dapat dicabut untuk memasang dan menggunakan Sentinel pada perangkat yang Anda miliki atau kendalikan, untuk penggunaan pribadi Anda yang sah. Anda tidak boleh mensublisensikan, menjual kembali, atau mengeksploitasi Aplikasi secara komersial tanpa izin tertulis dari kami.</p>
+
+    <h2>5. Penggunaan yang Dapat Diterima dan Sah</h2>
+    <p>Anda sepenuhnya bertanggung jawab untuk menggunakan Sentinel secara sah. Anda setuju bahwa:</p>
+    <ul>
+        <li>Anda hanya akan <strong>memeriksa ruang yang Anda miliki, tempati, atau secara hukum berhak Anda periksa</strong> (misalnya, rumah Anda sendiri, kamar hotel yang Anda sewa, atau tempat dengan persetujuan pemiliknya).</li>
+        <li>Anda akan mematuhi semua hukum yang berlaku, termasuk hukum privasi, pengawasan, pelanggaran masuk tanpa izin (trespass), dan hukum properti di yurisdiksi Anda.</li>
+        <li>Anda tidak akan menggunakan Aplikasi untuk melecehkan, menguntit, mengawasi, atau membahayakan siapa pun, atau untuk mengganggu jaringan atau perangkat yang tidak Anda miliki izin untuk mengaksesnya.</li>
+        <li>Anda tidak akan merekayasa balik, mendekompilasi, atau membongkar Aplikasi kecuali jika diizinkan oleh hukum, dan Anda tidak akan menghindari keamanan, batas laju, atau kontrol aksesnya.</li>
+    </ul>
+    <p>Anda bertanggung jawab atas segala konsekuensi dari penggunaan yang melawan hukum atau tidak sah.</p>
+
+    <h2>6. Langganan dan Pembayaran</h2>
+    <h3>6.1 Langganan Pro</h3>
+    <ul>
+        <li>Sentinel menawarkan langganan <strong>Pro</strong> opsional yang membuka modul pemindaian lanjutan. Fitur inti tetap tersedia tanpa langganan.</li>
+        <li>Langganan dijual melalui <strong>Apple App Store</strong> atau <strong>Google Play Store</strong> dan dikelola melalui <strong>Qonversion</strong>.</li>
+    </ul>
+    <h3>6.2 Penagihan, Perpanjangan Otomatis, dan Pembatalan</h3>
+    <ul>
+        <li>Langganan <strong>diperpanjang secara otomatis</strong> pada akhir setiap periode penagihan kecuali dibatalkan setidaknya 24 jam sebelum tanggal perpanjangan.</li>
+        <li>Akun Anda ditagih melalui akun toko aplikasi Anda. Harga ditampilkan dalam mata uang lokal Anda dan dapat bervariasi menurut wilayah; pajak dapat berlaku.</li>
+        <li>Anda dapat membatalkan kapan saja melalui pengaturan langganan perangkat Anda (App Store atau Google Play). Pembatalan berlaku pada akhir periode berjalan; Anda tetap memiliki akses Pro hingga saat itu.</li>
+        <li>Pengembalian dana ditangani oleh Apple atau Google berdasarkan kebijakan masing-masing. Opsi <strong>"Pulihkan Pembelian" (Restore Purchases)</strong> tersedia untuk memulihkan pembelian pada perangkat baru.</li>
+    </ul>
+
+    <h2>7. Kekayaan Intelektual</h2>
+    <p>Sentinel, termasuk perangkat lunak, desain, logo, dan kontennya, dimiliki oleh kami atau pemberi lisensi kami dan dilindungi oleh hukum kekayaan intelektual. Ketentuan ini tidak mengalihkan hak kepemilikan apa pun kepada Anda. Data apa pun yang Anda hasilkan di dalam Aplikasi (seperti riwayat pemindaian dan catatan) tetap menjadi milik Anda dan tetap berada di perangkat Anda.</p>
+
+    <h2>8. Penafian</h2>
+    <ul>
+        <li>Aplikasi disediakan <strong>"sebagaimana adanya"</strong> dan <strong>"sebagaimana tersedia"</strong>, tanpa jaminan dalam bentuk apa pun, baik tersurat maupun tersirat, termasuk kelayakan untuk diperdagangkan, kesesuaian untuk tujuan tertentu, keakuratan, dan tanpa pelanggaran.</li>
+        <li>Kami tidak menjamin bahwa Aplikasi akan tanpa gangguan, bebas kesalahan, aman, atau bahwa ia akan mendeteksi perangkat tertentu.</li>
+        <li>Hasil pemindaian, skor risiko, dan indikator adalah <strong>perkiraan</strong> yang dihasilkan oleh heuristik dan sensor perangkat Anda, serta bergantung pada kemampuan perangkat keras dan kondisi lingkungan. Hal tersebut tidak boleh diandalkan sebagai sesuatu yang definitif.</li>
+        <li>Kami tidak bertanggung jawab atas hasil apa pun yang timbul dari ketergantungan pada Aplikasi, termasuk perangkat yang tidak terdeteksi atau alarm palsu.</li>
+    </ul>
+
+    <h2>9. Pembatasan Tanggung Jawab</h2>
+    <p>Sejauh diizinkan secara maksimal oleh hukum yang berlaku:</p>
+    <ul>
+        <li>Kami tidak akan bertanggung jawab atas kerugian tidak langsung, insidental, khusus, konsekuensial, hukuman teladan (exemplary), atau punitif, atau atas kehilangan privasi, data, atau keselamatan, yang timbul dari atau terkait dengan penggunaan Anda (atau ketidakmampuan menggunakan) Aplikasi, termasuk kegagalan apa pun dalam mendeteksi perangkat pengawasan.</li>
+        <li>Total tanggung jawab agregat kami atas klaim apa pun yang timbul dari atau terkait dengan Aplikasi tidak akan melebihi jumlah yang Anda bayarkan untuk langganan Aplikasi dalam <strong>12 bulan</strong> sebelum klaim.</li>
+        <li>Beberapa yurisdiksi tidak mengizinkan pembatasan tertentu; di tempat-tempat tersebut, tanggung jawab kami dibatasi sejauh yang diizinkan secara maksimal oleh hukum.</li>
+    </ul>
+
+    <h2>10. Bukan Pengganti Layanan Profesional</h2>
+    <p>Sentinel tidak menyediakan layanan keamanan, hukum, atau investigasi. Untuk situasi yang melibatkan risiko nyata terhadap keselamatan, privasi, atau properti Anda, konsultasikan dengan profesional yang memenuhi syarat (seperti spesialis TSCM berlisensi) atau hubungi penegak hukum. Tidak ada apa pun dalam Aplikasi yang merupakan nasihat profesional.</p>
+
+    <h2>11. Privasi</h2>
+    <p>Penggunaan Aplikasi oleh Anda juga diatur oleh <strong>Kebijakan Privasi</strong> kami, yang menjelaskan bagaimana informasi ditangani. Sentinel mengutamakan offline: data pemindaian Anda tetap berada di perangkat Anda dan tidak dikirim ke luar perangkat secara bawaan. Dengan menggunakan Aplikasi, Anda mengakui praktik yang dijelaskan dalam Kebijakan Privasi.</p>
+
+    <h2>12. Pengakhiran</h2>
+    <ul>
+        <li>Anda dapat berhenti menggunakan Aplikasi dan menghapus instalasinya kapan saja, yang akan menghapus data Anda yang tersimpan secara lokal.</li>
+        <li>Kami dapat menangguhkan atau mengakhiri akses Anda jika Anda melanggar Ketentuan ini atau menggunakan Aplikasi secara melawan hukum.</li>
+        <li>Bagian-bagian yang menurut sifatnya harus tetap berlaku setelah pengakhiran (termasuk penafian, pembatasan tanggung jawab, dan hukum yang mengatur) akan terus berlaku.</li>
+    </ul>
+
+    <h2>13. Hukum yang Mengatur</h2>
+    <p>Ketentuan ini diatur oleh dan ditafsirkan sesuai dengan hukum <strong>[EDIT: governing-law jurisdiction — placeholder: Vietnam]</strong>, tanpa memperhatikan kaidah konflik hukumnya. Setiap perselisihan akan tunduk pada pengadilan yurisdiksi tersebut, kecuali jika hukum perlindungan konsumen setempat yang bersifat wajib memberi Anda hak tambahan. Tidak ada apa pun dalam Ketentuan ini yang membatasi hak hukum yang tidak dapat dikesampingkan yang Anda miliki sebagai konsumen.</p>
+
+    <h2>14. Perubahan pada Ketentuan Ini</h2>
+    <p>Kami dapat memperbarui Ketentuan ini dari waktu ke waktu. Ketika perubahan material dibuat, kami akan memperbarui tanggal "Terakhir diperbarui" di atas dan, jika sesuai, memberi tahu Anda di dalam Aplikasi. Penggunaan Aplikasi secara terus-menerus setelah tanggal berlaku merupakan penerimaan atas Ketentuan yang diperbarui. Jika Anda tidak setuju, harap berhenti menggunakan Aplikasi.</p>
+
+    <h2>15. Pengakuan</h2>
+    <div class="warning">
+        <p>Dengan menggunakan Sentinel, Anda mengakui dan menyetujui bahwa:</p>
+        <ul>
+            <li>Aplikasi adalah <strong>alat bantu penyaringan awal dan kewaspadaan</strong>, bukan pendeteksi yang dijamin, dan tidak dapat memastikan bahwa suatu ruang bebas dari perangkat pengawasan.</li>
+            <li>Positif palsu dan negatif palsu mungkin terjadi; Anda <strong>tidak akan mengandalkan Aplikasi sendirian</strong> untuk keselamatan Anda.</li>
+            <li>Anda akan menggunakan Aplikasi <strong>secara sah</strong> dan hanya untuk memeriksa ruang yang berhak Anda periksa.</li>
+            <li>Untuk risiko nyata, Anda akan mencari bantuan profesional atau penegak hukum.</li>
+        </ul>
+    </div>
+
+    <h2>16. Informasi Kontak</h2>
+    <div class="contact-info">
+        <p>Jika Anda memiliki pertanyaan, kekhawatiran, atau masukan tentang Ketentuan ini, silakan hubungi kami:</p>
+        <p><strong>Email:</strong> <a href="mailto:nguyen@sartoro.co">nguyen@sartoro.co</a> <!-- [EDIT: contact email] --></p>
+        <p><strong>Aplikasi:</strong> Sentinel (bundle ID <code>io.ntvtech.hiddencamdetect</code>)</p>
+        <p><strong>Penyedia:</strong> [EDIT: company legal name] &middot; [EDIT: business address]</p>
+        <p><small>&copy; <span class="copyright-year">2026</span> Sentinel. Semua hak dilindungi undang-undang.</small></p>
+    </div>
+
+    <script>
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

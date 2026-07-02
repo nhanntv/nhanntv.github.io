@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Điều khoản Dịch vụ – Sentinel</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4CAF50;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            color: #34495e;
+            font-size: 1.1em;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        p { margin-bottom: 12px; }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+        li { margin-bottom: 6px; }
+        .last-updated {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .contact-info {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        a { color: #4CAF50; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #1a1a1a; color: #f5f5f5; }
+            h1 { color: #81C784; border-bottom-color: #4CAF50; }
+            h2 { color: #cfd8dc; }
+            h3 { color: #b0bec5; }
+            .highlight {
+                background-color: #263238;
+                border-left-color: #4CAF50;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span {
+                color: #e0e0e0;
+            }
+            .warning {
+                background-color: #3e2723;
+                border-left-color: #ff9800;
+                color: #e0e0e0;
+            }
+            .warning p, .warning li, .warning strong, .warning span {
+                color: #e0e0e0;
+            }
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0;
+            }
+            ul, li { color: #f5f5f5; }
+            .last-updated { color: #b0bec5; }
+            a { color: #81C784; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Điều khoản Dịch vụ</h1>
+    <p class="last-updated">Có hiệu lực từ: Tháng 7 năm 2026 &middot; Cập nhật lần cuối: Tháng 7 năm 2026</p>
+
+    <div class="highlight">
+        <p><strong>Sentinel</strong> ("Ứng dụng") là công cụ quét đa cảm biến giúp bạn tìm camera ẩn và thiết bị ghi hình/ghi âm lén. Bằng việc tải xuống, cài đặt hoặc sử dụng Sentinel, bạn đồng ý với Điều khoản Dịch vụ này ("Điều khoản"). Vui lòng đọc kỹ, đặc biệt là phần tuyên bố miễn trừ và giới hạn trách nhiệm.</p>
+    </div>
+
+    <h2>1. Chấp nhận Điều khoản</h2>
+    <p>Bằng việc tải xuống, cài đặt hoặc sử dụng Sentinel, bạn đồng ý chịu ràng buộc bởi các Điều khoản này. Nếu bạn không đồng ý, vui lòng không sử dụng Ứng dụng. Các Điều khoản này tạo thành một thỏa thuận ràng buộc pháp lý giữa bạn ("Người dùng", "bạn") và nhà cung cấp Sentinel ("chúng tôi").</p>
+
+    <h2>2. Mô tả Dịch vụ</h2>
+    <p>Sentinel sử dụng các cảm biến sẵn có trên thiết bị của bạn để làm nổi bật những dấu hiệu khả nghi của thiết bị giám sát. Tùy theo khả năng phần cứng của thiết bị, ứng dụng có thể bao gồm:</p>
+    <ul>
+        <li><strong>Quét mạng Wi-Fi</strong> &mdash; liệt kê các thiết bị Wi-Fi lân cận và đánh dấu các mẫu hình có thể là camera.</li>
+        <li><strong>Quét quang học ánh lóa ống kính</strong> &mdash; dùng camera và đèn pin để phát hiện phản chiếu từ ống kính.</li>
+        <li><strong>Quét Bluetooth (BLE)</strong> &mdash; phát hiện các thiết bị Bluetooth lân cận.</li>
+        <li><strong>Quét từ kế</strong> &mdash; kiểm tra bất thường từ trường với độ tin cậy thấp, "chỉ mang tính tham khảo".</li>
+        <li><strong>Chế độ xem hồng ngoại (IR)</strong> &mdash; giúp bạn tìm đèn LED hồng ngoại mà một số camera sử dụng.</li>
+        <li><strong>Quét Time-of-Flight / LiDAR</strong> &mdash; kiểm tra dựa trên độ sâu trên các thiết bị được hỗ trợ.</li>
+        <li><strong>Danh sách rà soát thủ công có hướng dẫn</strong> &mdash; hướng dẫn từng bước để kiểm tra một căn phòng bằng tay.</li>
+    </ul>
+
+    <h2>3. Không bảo đảm phát hiện — Định vị trung thực</h2>
+    <div class="warning">
+        <p>Sentinel là <strong>công cụ hỗ trợ nhận biết và sàng lọc</strong>, không phải máy dò bảo đảm. Bạn thừa nhận và đồng ý rằng:</p>
+        <ul>
+            <li>Ứng dụng <strong>không thể tìm ra mọi thiết bị ẩn</strong> và có thể tạo ra cả <strong>báo động giả (dương tính giả)</strong> (đánh dấu vật vô hại) lẫn <strong>bỏ sót (âm tính giả)</strong> (không phát hiện thiết bị thật).</li>
+            <li>Ứng dụng <strong>không bao giờ</strong> có thể xác nhận một không gian là "an toàn 100%". Một lần quét không tìm thấy gì chỉ có nghĩa là không có tín hiệu khả nghi nào được phát hiện bằng các phương pháp khả dụng — chứ không phải là không có thiết bị nào.</li>
+            <li>Bạn <strong>không được dựa vào Sentinel như biện pháp bảo vệ duy nhất</strong>. Hãy luôn kết hợp với việc rà soát thủ công kỹ lưỡng (dùng danh sách hướng dẫn trong ứng dụng).</li>
+            <li>Sentinel <strong>không thay thế</strong> cho việc rà quét đối phó giám sát kỹ thuật (TSCM) chuyên nghiệp hay cho cơ quan thực thi pháp luật. Nếu an toàn của bạn có thể bị đe dọa, hãy liên hệ chuyên gia có chuyên môn hoặc cơ quan chức năng.</li>
+        </ul>
+    </div>
+
+    <h2>4. Giấy phép sử dụng</h2>
+    <p>Tùy thuộc vào các Điều khoản này, chúng tôi cấp cho bạn một giấy phép có giới hạn, mang tính cá nhân, không độc quyền, không thể chuyển nhượng và có thể thu hồi để cài đặt và sử dụng Sentinel trên các thiết bị bạn sở hữu hoặc kiểm soát, cho mục đích cá nhân hợp pháp của riêng bạn. Bạn không được cấp phép lại, bán lại hoặc khai thác thương mại Ứng dụng khi chưa có sự cho phép bằng văn bản của chúng tôi.</p>
+
+    <h2>5. Sử dụng hợp lệ và hợp pháp</h2>
+    <p>Bạn hoàn toàn chịu trách nhiệm sử dụng Sentinel một cách hợp pháp. Bạn đồng ý rằng:</p>
+    <ul>
+        <li>Bạn chỉ <strong>kiểm tra những không gian bạn sở hữu, cư trú, hoặc có quyền hợp pháp để kiểm tra</strong> (ví dụ nhà riêng, phòng khách sạn bạn đã thuê, hoặc cơ sở có sự đồng ý của chủ sở hữu).</li>
+        <li>Bạn tuân thủ mọi luật áp dụng, bao gồm luật về quyền riêng tư, giám sát, xâm phạm và tài sản tại khu vực pháp lý của bạn.</li>
+        <li>Bạn không dùng Ứng dụng để quấy rối, theo dõi, giám sát hay gây hại cho bất kỳ ai, hoặc can thiệp vào mạng hay thiết bị mà bạn không được phép truy cập.</li>
+        <li>Bạn không dịch ngược, biên dịch ngược hay tháo rời Ứng dụng trừ khi pháp luật cho phép, và không vượt qua các cơ chế bảo mật, giới hạn tốc độ hay kiểm soát truy cập của ứng dụng.</li>
+    </ul>
+    <p>Bạn chịu trách nhiệm về mọi hậu quả của việc sử dụng trái pháp luật hoặc trái phép.</p>
+
+    <h2>6. Đăng ký và thanh toán</h2>
+    <h3>6.1 Gói đăng ký Pro</h3>
+    <ul>
+        <li>Sentinel cung cấp gói đăng ký <strong>Pro</strong> tùy chọn để mở khóa các mô-đun quét nâng cao. Các tính năng cốt lõi vẫn khả dụng mà không cần đăng ký.</li>
+        <li>Gói đăng ký được bán qua <strong>Apple App Store</strong> hoặc <strong>Google Play Store</strong> và được quản lý qua <strong>Qonversion</strong>.</li>
+    </ul>
+    <h3>6.2 Thanh toán, tự động gia hạn và hủy</h3>
+    <ul>
+        <li>Gói đăng ký <strong>tự động gia hạn</strong> vào cuối mỗi kỳ thanh toán trừ khi bị hủy ít nhất 24 giờ trước ngày gia hạn.</li>
+        <li>Tài khoản của bạn bị tính phí qua tài khoản cửa hàng ứng dụng. Giá hiển thị bằng đơn vị tiền tệ địa phương và có thể khác nhau theo khu vực; thuế có thể được áp dụng.</li>
+        <li>Bạn có thể hủy bất cứ lúc nào qua phần cài đặt đăng ký trên thiết bị (App Store hoặc Google Play). Việc hủy có hiệu lực vào cuối kỳ hiện tại; bạn vẫn giữ quyền truy cập Pro cho đến lúc đó.</li>
+        <li>Việc hoàn tiền do Apple hoặc Google xử lý theo chính sách của họ. Tùy chọn <strong>"Khôi phục giao dịch mua"</strong> có sẵn để khôi phục giao dịch trên thiết bị mới.</li>
+    </ul>
+
+    <h2>7. Sở hữu trí tuệ</h2>
+    <p>Sentinel, bao gồm phần mềm, thiết kế, logo và nội dung, thuộc sở hữu của chúng tôi hoặc các bên cấp phép của chúng tôi và được bảo vệ bởi luật sở hữu trí tuệ. Các Điều khoản này không chuyển giao bất kỳ quyền sở hữu nào cho bạn. Mọi dữ liệu bạn tạo trong Ứng dụng (như lịch sử quét và ghi chú) vẫn thuộc về bạn và nằm trên thiết bị của bạn.</p>
+
+    <h2>8. Tuyên bố miễn trừ</h2>
+    <ul>
+        <li>Ứng dụng được cung cấp <strong>"nguyên trạng"</strong> và <strong>"theo khả năng sẵn có"</strong>, không có bảo đảm dưới bất kỳ hình thức nào, dù rõ ràng hay ngụ ý, bao gồm tính thương mại, sự phù hợp cho một mục đích cụ thể, độ chính xác và không vi phạm.</li>
+        <li>Chúng tôi không bảo đảm rằng Ứng dụng sẽ không bị gián đoạn, không có lỗi, an toàn, hay sẽ phát hiện được bất kỳ thiết bị cụ thể nào.</li>
+        <li>Kết quả quét, điểm rủi ro và các chỉ báo là <strong>ước lượng</strong> được tạo bởi các thuật toán suy đoán (heuristic) và cảm biến của thiết bị, phụ thuộc vào khả năng phần cứng và điều kiện môi trường. Không được coi chúng là kết luận chắc chắn.</li>
+        <li>Chúng tôi không chịu trách nhiệm về bất kỳ hậu quả nào phát sinh từ việc dựa vào Ứng dụng, bao gồm thiết bị không bị phát hiện hoặc báo động giả.</li>
+    </ul>
+
+    <h2>9. Giới hạn trách nhiệm</h2>
+    <p>Trong phạm vi tối đa mà luật áp dụng cho phép:</p>
+    <ul>
+        <li>Chúng tôi không chịu trách nhiệm về bất kỳ thiệt hại gián tiếp, ngẫu nhiên, đặc biệt, hệ quả, làm gương hay mang tính trừng phạt nào, hoặc về bất kỳ tổn thất nào về quyền riêng tư, dữ liệu hay an toàn, phát sinh từ hoặc liên quan đến việc bạn sử dụng (hoặc không thể sử dụng) Ứng dụng, bao gồm việc không phát hiện được thiết bị giám sát.</li>
+        <li>Tổng trách nhiệm tổng hợp của chúng tôi đối với bất kỳ khiếu nại nào phát sinh từ hoặc liên quan đến Ứng dụng sẽ không vượt quá số tiền bạn đã trả cho gói đăng ký của Ứng dụng trong <strong>12 tháng</strong> trước khi khiếu nại.</li>
+        <li>Một số khu vực pháp lý không cho phép một số giới hạn nhất định; tại những nơi đó, trách nhiệm của chúng tôi được giới hạn ở mức tối đa mà luật cho phép.</li>
+    </ul>
+
+    <h2>10. Không thay thế dịch vụ chuyên nghiệp</h2>
+    <p>Sentinel không cung cấp dịch vụ an ninh, pháp lý hay điều tra. Đối với những tình huống có rủi ro thực sự đến an toàn, quyền riêng tư hoặc tài sản của bạn, hãy tham vấn chuyên gia có chuyên môn (như chuyên gia TSCM được cấp phép) hoặc liên hệ cơ quan thực thi pháp luật. Không có nội dung nào trong Ứng dụng cấu thành lời khuyên chuyên môn.</p>
+
+    <h2>11. Quyền riêng tư</h2>
+    <p>Việc sử dụng Ứng dụng của bạn cũng được điều chỉnh bởi <strong>Chính sách Bảo mật</strong> của chúng tôi, trong đó giải thích cách thông tin được xử lý. Sentinel ưu tiên ngoại tuyến: dữ liệu quét của bạn nằm trên thiết bị và theo mặc định không được truyền ra khỏi thiết bị. Bằng việc sử dụng Ứng dụng, bạn thừa nhận các thông lệ được mô tả trong Chính sách Bảo mật.</p>
+
+    <h2>12. Chấm dứt</h2>
+    <ul>
+        <li>Bạn có thể ngừng sử dụng Ứng dụng và gỡ cài đặt bất cứ lúc nào, điều này sẽ xóa dữ liệu lưu cục bộ của bạn.</li>
+        <li>Chúng tôi có thể tạm ngừng hoặc chấm dứt quyền truy cập của bạn nếu bạn vi phạm các Điều khoản này hoặc sử dụng Ứng dụng trái pháp luật.</li>
+        <li>Các điều khoản mà về bản chất cần tiếp tục có hiệu lực sau khi chấm dứt (bao gồm tuyên bố miễn trừ, giới hạn trách nhiệm và luật điều chỉnh) sẽ tiếp tục được áp dụng.</li>
+    </ul>
+
+    <h2>13. Luật điều chỉnh</h2>
+    <p>Các Điều khoản này được điều chỉnh và diễn giải theo pháp luật của <strong>[EDIT: governing-law jurisdiction — placeholder: Việt Nam]</strong>, không xét đến các quy tắc xung đột pháp luật. Mọi tranh chấp sẽ thuộc thẩm quyền của tòa án tại khu vực pháp lý đó, trừ khi luật bảo vệ người tiêu dùng bắt buộc tại địa phương trao cho bạn các quyền bổ sung. Không có nội dung nào trong các Điều khoản này hạn chế các quyền theo luật định không thể từ bỏ mà bạn có với tư cách người tiêu dùng.</p>
+
+    <h2>14. Thay đổi Điều khoản</h2>
+    <p>Chúng tôi có thể cập nhật các Điều khoản này theo thời gian. Khi có thay đổi quan trọng, chúng tôi sẽ cập nhật ngày "Cập nhật lần cuối" ở trên và, khi phù hợp, thông báo cho bạn trong Ứng dụng. Việc tiếp tục sử dụng Ứng dụng sau ngày có hiệu lực đồng nghĩa với việc chấp nhận các Điều khoản đã cập nhật. Nếu bạn không đồng ý, vui lòng ngừng sử dụng Ứng dụng.</p>
+
+    <h2>15. Thừa nhận</h2>
+    <div class="warning">
+        <p>Bằng việc sử dụng Sentinel, bạn thừa nhận và đồng ý rằng:</p>
+        <ul>
+            <li>Ứng dụng là <strong>công cụ hỗ trợ sàng lọc và nhận biết</strong>, không phải máy dò bảo đảm, và không thể bảo đảm bất kỳ không gian nào không có thiết bị giám sát.</li>
+            <li>Có thể xảy ra dương tính giả và âm tính giả; bạn <strong>sẽ không chỉ dựa vào Ứng dụng</strong> cho an toàn của mình.</li>
+            <li>Bạn sẽ sử dụng Ứng dụng một cách <strong>hợp pháp</strong> và chỉ để kiểm tra những không gian bạn có quyền kiểm tra.</li>
+            <li>Đối với các rủi ro thực sự, bạn sẽ tìm đến sự hỗ trợ của chuyên gia hoặc cơ quan thực thi pháp luật.</li>
+        </ul>
+    </div>
+
+    <h2>16. Thông tin liên hệ</h2>
+    <div class="contact-info">
+        <p>Nếu bạn có bất kỳ câu hỏi, lo ngại hay phản hồi nào về các Điều khoản này, vui lòng liên hệ chúng tôi:</p>
+        <p><strong>Email:</strong> <a href="mailto:nguyen@sartoro.co">nguyen@sartoro.co</a> <!-- [EDIT: contact email] --></p>
+        <p><strong>Ứng dụng:</strong> Sentinel (mã định danh <code>io.ntvtech.hiddencamdetect</code>)</p>
+        <p><strong>Nhà cung cấp:</strong> [EDIT: company legal name] &middot; [EDIT: business address]</p>
+        <p><small>&copy; <span class="copyright-year">2026</span> Sentinel. Bảo lưu mọi quyền.</small></p>
+    </div>
+
+    <script>
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

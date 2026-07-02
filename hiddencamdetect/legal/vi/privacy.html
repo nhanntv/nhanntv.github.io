@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chính sách Bảo mật – Sentinel</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4CAF50;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            color: #34495e;
+            font-size: 1.1em;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        p { margin-bottom: 12px; }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+        li { margin-bottom: 6px; }
+        .last-updated {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .contact-info {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        a { color: #4CAF50; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #1a1a1a; color: #f5f5f5; }
+            h1 { color: #81C784; border-bottom-color: #4CAF50; }
+            h2 { color: #cfd8dc; }
+            h3 { color: #b0bec5; }
+            .highlight {
+                background-color: #263238;
+                border-left-color: #4CAF50;
+                color: #e0e0e0;
+            }
+            .highlight p, .highlight li, .highlight strong, .highlight span {
+                color: #e0e0e0;
+            }
+            .warning {
+                background-color: #3e2723;
+                border-left-color: #ff9800;
+                color: #e0e0e0;
+            }
+            .warning p, .warning li, .warning strong, .warning span {
+                color: #e0e0e0;
+            }
+            .contact-info {
+                background-color: #1b5e20;
+                color: #e0e0e0;
+            }
+            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
+                color: #e0e0e0;
+            }
+            ul, li { color: #f5f5f5; }
+            .last-updated { color: #b0bec5; }
+            a { color: #81C784; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Chính sách Bảo mật</h1>
+    <p class="last-updated">Có hiệu lực từ: Tháng 7 năm 2026 &middot; Cập nhật lần cuối: Tháng 7 năm 2026</p>
+
+    <div class="highlight">
+        <p>Chính sách Bảo mật này mô tả cách <strong>Sentinel</strong> ("Ứng dụng", "chúng tôi") xử lý thông tin. Sentinel là công cụ <strong>ưu tiên ngoại tuyến, ưu tiên quyền riêng tư</strong>, giúp bạn rà soát môi trường xung quanh để tìm camera ẩn và thiết bị ghi hình/ghi âm lén. Dữ liệu quét của bạn nằm trên thiết bị của bạn. Sentinel được thiết kế để theo mặc định, <strong>không có dữ liệu quét nào rời khỏi điện thoại của bạn</strong>.</p>
+    </div>
+
+    <h2>1. Sentinel là gì — và không phải là gì</h2>
+    <div class="warning">
+        <p>Sentinel là <strong>công cụ hỗ trợ nhận biết và sàng lọc (triage)</strong>, không phải máy dò bảo đảm. Ứng dụng dùng các cảm biến sẵn có trên điện thoại để làm nổi bật những <em>dấu hiệu khả nghi</em> của thiết bị giám sát. Ứng dụng <strong>không thể tìm ra mọi thiết bị ẩn</strong> và không bao giờ có thể xác nhận một không gian là "an toàn 100%". Kết quả có thể bao gồm cả báo động giả lẫn thiết bị bị bỏ sót. Hãy luôn kết hợp Sentinel với việc rà soát thủ công kỹ lưỡng, và tìm đến chuyên gia khi an toàn của bạn có thể bị đe dọa.</p>
+    </div>
+
+    <h2>2. Nguyên tắc bảo mật của chúng tôi</h2>
+    <ul>
+        <li><strong>Ưu tiên ngoại tuyến:</strong> Việc quét hoạt động không cần kết nối Internet. Dữ liệu cảm biến và kết quả phát hiện được xử lý ngay trên thiết bị của bạn.</li>
+        <li><strong>Không cần tài khoản:</strong> Bạn có thể dùng các tính năng quét cốt lõi mà không cần đăng ký hay cung cấp thông tin cá nhân.</li>
+        <li><strong>Dữ liệu quét nằm cục bộ:</strong> Kết quả quét, thiết bị phát hiện và lịch sử chỉ được lưu trên thiết bị của bạn. Chúng tôi không tải chúng lên.</li>
+        <li><strong>Dữ liệu tối thiểu:</strong> Dữ liệu duy nhất có thể rời khỏi thiết bị là dữ liệu chẩn đoán ẩn danh (bạn có thể tắt) và xác thực giao dịch mua (do các cửa hàng ứng dụng xử lý).</li>
+    </ul>
+
+    <h2>3. Thông tin chúng tôi thu thập</h2>
+
+    <h3>3.1 Dữ liệu quét &amp; cảm biến (chỉ trên thiết bị)</h3>
+    <ul>
+        <li><strong>Số liệu cảm biến:</strong> Kết quả quét mạng Wi-Fi, tín hiệu quảng bá Bluetooth năng lượng thấp (BLE), khung hình camera (cho quét ánh lóa ống kính và chế độ xem hồng ngoại), số liệu từ kế/chuyển động, và dữ liệu độ sâu Time-of-Flight/LiDAR, tùy theo các phép quét bạn chạy và phần cứng thiết bị hỗ trợ.</li>
+        <li><strong>Kết quả phát hiện &amp; lịch sử:</strong> Bản ghi thiết bị khả nghi, điểm rủi ro, các phiên quét và ghi chú bạn lưu.</li>
+        <li>Dữ liệu này được tạo và lưu <strong>cục bộ trên thiết bị của bạn</strong> trong cơ sở dữ liệu trên máy. Khung hình camera được xử lý theo thời gian thực để phân tích và <strong>không được lưu lại</strong> trong quá trình quét thông thường. Theo mặc định, chúng tôi không truyền bất kỳ dữ liệu nào trong số này ra khỏi thiết bị của bạn.</li>
+    </ul>
+
+    <h3>3.2 Dữ liệu chẩn đoán &amp; sự cố (tùy chọn, có thể từ chối)</h3>
+    <ul>
+        <li><strong>Báo cáo sự cố &amp; phân tích:</strong> Để giữ Ứng dụng ổn định, chúng tôi có thể thu thập nhật ký sự cố ẩn danh, thông tin lỗi, loại thiết bị, phiên bản hệ điều hành, phiên bản ứng dụng và các sự kiện sử dụng tính năng cơ bản thông qua <strong>Firebase Crashlytics và Firebase Analytics</strong>.</li>
+        <li>Thông tin này <strong>không gắn với danh tính của bạn</strong> và không bao giờ bao gồm kết quả quét, thiết bị phát hiện, hình ảnh camera, hay nội dung của bất kỳ không gian nào bạn rà soát.</li>
+        <li>Bạn có thể <strong>tắt chẩn đoán bất cứ lúc nào</strong> trong phần Cài đặt.</li>
+    </ul>
+
+    <h3>3.3 Dữ liệu đăng ký</h3>
+    <ul>
+        <li>Nếu bạn mua gói đăng ký Pro, cửa hàng ứng dụng liên quan (Apple App Store hoặc Google Play) và đơn vị quản lý đăng ký của chúng tôi là <strong>Qonversion</strong> sẽ xử lý giao dịch và báo cho Ứng dụng biết gói của bạn có đang hoạt động hay không.</li>
+        <li>Chúng tôi <strong>không</strong> nhận hay lưu trữ thông tin thẻ thanh toán đầy đủ của bạn. Việc thanh toán hoàn toàn do các cửa hàng ứng dụng xử lý.</li>
+    </ul>
+
+    <h3>3.4 Những gì chúng tôi KHÔNG thu thập</h3>
+    <ul>
+        <li>Chúng tôi không thu thập tên, danh bạ, thư viện ảnh, lịch sử vị trí chính xác hay hoạt động duyệt web của bạn.</li>
+        <li>Chúng tôi không tải lên kết quả quét, danh sách thiết bị phát hiện, hay dữ liệu camera/cảm biến của bạn.</li>
+        <li>Chúng tôi không bán, cho thuê hay trao đổi thông tin cá nhân với bất kỳ ai.</li>
+    </ul>
+
+    <h2>4. Quyền truy cập thiết bị và lý do cần đến</h2>
+    <p>Sentinel xin cấp quyền <strong>theo ngữ cảnh — từng quyền một</strong>, kèm giải thích ngắn gọn, chỉ khi một tính năng cần đến. Bạn có thể từ chối bất kỳ quyền nào; khi đó phép quét liên quan đơn giản là sẽ không khả dụng. Mỗi quyền chỉ được dùng <strong>duy nhất</strong> cho việc quét trên thiết bị.</p>
+    <ul>
+        <li><strong>Camera:</strong> Dùng cho quét quang học ánh lóa ống kính (phát hiện phản chiếu từ ống kính camera bằng đèn pin) và chế độ xem hồng ngoại. Khung hình camera được phân tích trên thiết bị theo thời gian thực và không được lưu lại.</li>
+        <li><strong>Vị trí (chính xác) &amp; Wi-Fi lân cận:</strong> Trên Android, hệ điều hành <strong>bắt buộc</strong> phải có quyền vị trí để thực hiện quét mạng Wi-Fi. Chúng tôi chỉ dùng nó để liệt kê các mạng Wi-Fi lân cận phục vụ phép quét Wi-Fi. Chúng tôi không theo dõi, lưu trữ hay truyền đi vị trí địa lý của bạn.</li>
+        <li><strong>Bluetooth / thiết bị lân cận:</strong> Dùng để quét các thiết bị Bluetooth năng lượng thấp (BLE) lân cận có thể là camera, thiết bị theo dõi hay máy ghi.</li>
+        <li><strong>Chuyển động &amp; cảm biến (từ kế):</strong> Dùng cho phép quét từ kế, vốn tìm các bất thường từ trường gần thiết bị điện tử. Đây là tín hiệu độ tin cậy thấp, "chỉ mang tính tham khảo".</li>
+    </ul>
+
+    <h2>5. Cách chúng tôi sử dụng thông tin</h2>
+    <ul>
+        <li><strong>Để chạy quét:</strong> Dữ liệu cảm biến được phân tích trên thiết bị của bạn để làm nổi bật thiết bị giám sát khả nghi và tạo điểm rủi ro.</li>
+        <li><strong>Để hiển thị lịch sử:</strong> Kết quả phát hiện và phiên quét được lưu cục bộ để bạn xem lại.</li>
+        <li><strong>Để cải thiện độ ổn định:</strong> Dữ liệu chẩn đoán ẩn danh (nếu bật) giúp chúng tôi tìm và sửa lỗi, sự cố.</li>
+        <li><strong>Để quản lý đăng ký:</strong> Trạng thái mua từ cửa hàng/Qonversion mở khóa các tính năng Pro.</li>
+    </ul>
+
+    <h2>6. Xử lý dữ liệu trên thiết bị và bảo mật</h2>
+    <ul>
+        <li><strong>Lưu trữ cục bộ:</strong> Kết quả quét, phát hiện và lịch sử được lưu trong cơ sở dữ liệu trên thiết bị. Gỡ Ứng dụng sẽ xóa dữ liệu này.</li>
+        <li><strong>Không tải lên ngầm:</strong> Dữ liệu quét không được đồng bộ lên bất kỳ máy chủ nào.</li>
+        <li><strong>Mã hóa khi truyền:</strong> Lượng dữ liệu hạn chế thực sự rời khỏi thiết bị (chẩn đoán, xác thực mua) được gửi qua kết nối mã hóa (TLS/HTTPS).</li>
+        <li>Không có phương thức lưu trữ hay truyền tải nào an toàn 100%, và chúng tôi không thể bảo đảm an toàn tuyệt đối. Bạn chịu trách nhiệm về an toàn vật lý của thiết bị mình.</li>
+    </ul>
+
+    <h2>7. Tùy chọn: Cơ sở dữ liệu thiết bị giám sát của cộng đồng</h2>
+    <div class="highlight">
+        <p>Chúng tôi có thể cung cấp một tính năng <strong>tùy chọn, đăng ký tự nguyện (opt-in)</strong> cho phép bạn đóng góp <strong>dấu vân tay ẩn danh</strong> của các thiết bị khả nghi để giúp xây dựng cơ sở dữ liệu cộng đồng, qua đó cải thiện khả năng phát hiện cho mọi người.</p>
+        <ul>
+            <li>Tính năng này <strong>TẮT theo mặc định</strong>. Nó <strong>tách biệt với việc chấp nhận Điều khoản Dịch vụ</strong> — việc chấp nhận Điều khoản <em>không</em> kích hoạt chia sẻ.</li>
+            <li>Nếu bạn bật, chỉ <strong>các đặc tính tín hiệu kỹ thuật ẩn danh</strong> mới có thể được chia sẻ — ví dụ tiền tố OUI/nhà sản xuất hoặc đặc điểm tín hiệu chung của một thiết bị khả nghi.</li>
+            <li>Chúng tôi <strong>KHÔNG</strong> chia sẻ bất kỳ dữ liệu cá nhân nào, hình ảnh camera hay phương tiện khác, nội dung không gian bạn đã quét, hay vị trí địa lý của bạn.</li>
+            <li>Bạn có thể <strong>tắt và thu hồi việc chia sẻ bất cứ lúc nào</strong> trong phần Cài đặt.</li>
+        </ul>
+    </div>
+
+    <h2>8. Chẩn đoán và phân tích (Firebase)</h2>
+    <ul>
+        <li>Chúng tôi dùng <strong>Firebase Crashlytics</strong> (báo cáo sự cố) và <strong>Firebase Analytics</strong> (số liệu sử dụng ẩn danh) để cải thiện độ tin cậy và hiểu những tính năng nào được dùng.</li>
+        <li>Dữ liệu thu thập có thể bao gồm kiểu máy, phiên bản hệ điều hành, phiên bản ứng dụng, dấu vết sự cố (stack trace) và số đếm sự kiện ẩn danh. Dữ liệu này <strong>không dùng để nhận dạng bạn</strong> và không chứa nội dung quét.</li>
+        <li>Bạn có thể <strong>từ chối</strong> bất cứ lúc nào trong phần Cài đặt; chẩn đoán có thể được bật theo mặc định và có thể bị tắt.</li>
+    </ul>
+
+    <h2>9. Đăng ký và giao dịch mua</h2>
+    <ul>
+        <li>Sentinel cung cấp gói đăng ký <strong>Pro</strong> tùy chọn để mở khóa các mô-đun quét nâng cao.</li>
+        <li>Giao dịch mua do <strong>Apple App Store</strong> hoặc <strong>Google Play Store</strong> xử lý và được quản lý qua <strong>Qonversion</strong> để theo dõi quyền lợi đa nền tảng.</li>
+        <li>Thông tin thanh toán do các cửa hàng ứng dụng xử lý theo chính sách bảo mật riêng của họ. Chúng tôi chỉ nhận trạng thái đăng ký của bạn.</li>
+    </ul>
+
+    <h2>10. Chia sẻ và tiết lộ dữ liệu</h2>
+    <div class="warning">
+        <p><strong>Chúng tôi KHÔNG bán thông tin cá nhân của bạn và không chia sẻ dữ liệu quét của bạn với bên thứ ba.</strong></p>
+    </div>
+    <p>Chúng tôi chỉ chia sẻ những loại dữ liệu hạn chế đã mô tả ở trên, và chỉ với các nhà cung cấp dịch vụ cần thiết để vận hành Ứng dụng:</p>
+    <ul>
+        <li><strong>Firebase (Google):</strong> Báo cáo sự cố và phân tích ẩn danh (có thể từ chối).</li>
+        <li><strong>Apple App Store / Google Play / Qonversion:</strong> Thanh toán và trạng thái đăng ký.</li>
+        <li><strong>Yêu cầu pháp lý:</strong> Chúng tôi có thể tiết lộ thông tin nếu luật pháp, quy trình pháp lý yêu cầu, hoặc để bảo vệ quyền lợi và sự an toàn. Vì dữ liệu quét nằm trên thiết bị của bạn nên chúng tôi không có để tiết lộ.</li>
+    </ul>
+
+    <h2>11. Quyền riêng tư của trẻ em</h2>
+    <ul>
+        <li>Sentinel <strong>không hướng đến trẻ em</strong> và dành cho người trưởng thành và thanh thiếu niên lớn tuổi (tối thiểu 13 tuổi, hoặc 16 tuổi nơi luật địa phương yêu cầu).</li>
+        <li>Chúng tôi không cố ý thu thập thông tin cá nhân từ trẻ em dưới độ tuổi áp dụng. Nếu bạn tin rằng một trẻ em đã cung cấp thông tin cho chúng tôi, vui lòng liên hệ và chúng tôi sẽ xử lý.</li>
+    </ul>
+
+    <h2>12. Lưu giữ dữ liệu</h2>
+    <ul>
+        <li><strong>Dữ liệu quét &amp; lịch sử:</strong> Được giữ trên thiết bị của bạn cho đến khi bạn xóa hoặc gỡ Ứng dụng. Bạn có thể xóa lịch sử trong Ứng dụng bất cứ lúc nào.</li>
+        <li><strong>Chẩn đoán:</strong> Dữ liệu sự cố và phân tích được Firebase lưu giữ trong một khoảng thời gian hạn chế (thường tới 12&ndash;14 tháng) rồi tự động xóa hoặc ẩn danh.</li>
+        <li><strong>Dữ liệu đăng ký:</strong> Được các cửa hàng ứng dụng và Qonversion lưu giữ theo chính sách của họ.</li>
+    </ul>
+
+    <h2>13. Quyền riêng tư của bạn</h2>
+    <p>Tùy nơi bạn sinh sống, bạn có thể có quyền truy cập, chỉnh sửa, xóa hoặc chuyển dữ liệu cá nhân, cũng như phản đối hoặc hạn chế một số hoạt động xử lý (ví dụ theo <strong>GDPR</strong> của EU/Anh hoặc <strong>CCPA/CPRA</strong> tại California).</p>
+    <ul>
+        <li>Vì dữ liệu quét của bạn chỉ nằm trên thiết bị, bạn có thể thực hiện hầu hết các quyền một cách trực tiếp — bằng cách xem, xuất (nơi khả dụng), hoặc xóa dữ liệu và gỡ Ứng dụng.</li>
+        <li>Đối với dữ liệu chẩn đoán hoặc đăng ký, hãy liên hệ chúng tôi qua email bên dưới và chúng tôi sẽ phản hồi trong thời hạn luật địa phương yêu cầu (thường trong vòng 30 ngày).</li>
+        <li>Cư dân California: chúng tôi không bán hay "chia sẻ" thông tin cá nhân theo định nghĩa của CCPA/CPRA.</li>
+    </ul>
+
+    <h2>14. Chuyển dữ liệu quốc tế</h2>
+    <p>Lượng dữ liệu chẩn đoán và đăng ký hạn chế rời khỏi thiết bị của bạn có thể được nhà cung cấp dịch vụ của chúng tôi xử lý tại các quốc gia khác với quốc gia của bạn, bao gồm Hoa Kỳ. Khi cần, chúng tôi dựa vào các biện pháp bảo vệ phù hợp như Điều khoản Hợp đồng Tiêu chuẩn (SCC) cho việc chuyển dữ liệu xuyên biên giới.</p>
+
+    <h2>15. Dịch vụ của bên thứ ba</h2>
+    <p>Chúng tôi khuyến khích bạn xem chính sách bảo mật của các dịch vụ mà chúng tôi dựa vào:</p>
+    <ul>
+        <li><a href="https://policies.google.com/privacy">Chính sách Bảo mật của Google</a></li>
+        <li><a href="https://firebase.google.com/support/privacy">Bảo mật &amp; An toàn của Firebase</a></li>
+        <li><a href="https://www.apple.com/legal/privacy/">Chính sách Bảo mật của Apple</a></li>
+        <li><a href="https://qonversion.io/privacy-policy">Chính sách Bảo mật của Qonversion</a></li>
+    </ul>
+
+    <h2>16. Thay đổi đối với Chính sách này</h2>
+    <p>Chúng tôi có thể cập nhật Chính sách Bảo mật này theo thời gian. Khi có thay đổi quan trọng, chúng tôi sẽ cập nhật ngày "Cập nhật lần cuối" ở trên và, khi phù hợp, thông báo cho bạn trong Ứng dụng. Việc tiếp tục sử dụng Ứng dụng sau ngày có hiệu lực đồng nghĩa với việc chấp nhận chính sách đã cập nhật.</p>
+
+    <h2>17. Liên hệ</h2>
+    <div class="contact-info">
+        <p>Nếu bạn có bất kỳ câu hỏi, lo ngại hay yêu cầu nào về Chính sách Bảo mật này hoặc dữ liệu của bạn, vui lòng liên hệ chúng tôi:</p>
+        <p><strong>Email:</strong> <a href="mailto:nguyen@sartoro.co">nguyen@sartoro.co</a> <!-- [EDIT: contact email] --></p>
+        <p><strong>Ứng dụng:</strong> Sentinel (mã định danh <code>io.ntvtech.hiddencamdetect</code>)</p>
+        <p><strong>Nhà cung cấp:</strong> [EDIT: company legal name] &middot; [EDIT: business address]</p>
+        <p><small>&copy; <span class="copyright-year">2026</span> Sentinel. Bảo lưu mọi quyền.</small></p>
+    </div>
+
+    <script>
+        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
