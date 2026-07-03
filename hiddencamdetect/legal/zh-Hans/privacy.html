@@ -1,264 +1,117 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>隐私政策 – Sentinel</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-        }
-        h1 {
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #4CAF50;
-        }
-        h2 {
-            color: #2c3e50;
-            font-size: 1.3em;
-            margin-top: 30px;
-            margin-bottom: 10px;
-        }
-        h3 {
-            color: #34495e;
-            font-size: 1.1em;
-            margin-top: 15px;
-            margin-bottom: 8px;
-        }
-        p { margin-bottom: 12px; }
-        ul {
-            margin-left: 20px;
-            margin-bottom: 12px;
-        }
-        li { margin-bottom: 6px; }
-        .last-updated {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        .highlight {
-            background-color: #f8f9fa;
-            border-left: 4px solid #4CAF50;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .warning {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .contact-info {
-            background-color: #e8f5e9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-        a { color: #4CAF50; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #1a1a1a; color: #f5f5f5; }
-            h1 { color: #81C784; border-bottom-color: #4CAF50; }
-            h2 { color: #cfd8dc; }
-            h3 { color: #b0bec5; }
-            .highlight {
-                background-color: #263238;
-                border-left-color: #4CAF50;
-                color: #e0e0e0;
-            }
-            .highlight p, .highlight li, .highlight strong, .highlight span {
-                color: #e0e0e0;
-            }
-            .warning {
-                background-color: #3e2723;
-                border-left-color: #ff9800;
-                color: #e0e0e0;
-            }
-            .warning p, .warning li, .warning strong, .warning span {
-                color: #e0e0e0;
-            }
-            .contact-info {
-                background-color: #1b5e20;
-                color: #e0e0e0;
-            }
-            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
-                color: #e0e0e0;
-            }
-            ul, li { color: #f5f5f5; }
-            .last-updated { color: #b0bec5; }
-            a { color: #81C784; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>隐私政策 — HiddenCamDetect</title>
+  <style>
+    :root {
+      color-scheme: light;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px 18px 48px;
+      -webkit-text-size-adjust: 100%;
+    }
+    .container { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; line-height: 1.3; margin: 0 0 8px; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 32px 0 8px; }
+    p, li { font-size: 1rem; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    a { color: #0a63c9; word-break: break-word; }
+    .last-updated { color: #6b7280; font-size: 0.9rem; margin: 0 0 24px; }
+    .highlight {
+      background: #eef4ff;
+      border-left: 4px solid #0a63c9;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .warning {
+      background: #fff4e5;
+      border-left: 4px solid #d97706;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .contact-info {
+      background: #f3f4f6;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    strong { font-weight: 600; }
+  </style>
 </head>
 <body>
+  <div class="container">
     <h1>隐私政策</h1>
-    <p class="last-updated">生效日期：2026年7月 &middot; 最近更新：2026年7月</p>
+    <p class="last-updated">最后更新：July 2026</p>
+
+    <p>HiddenCamDetect（“本应用”）是一款隐藏设备警觉与初步排查工具，帮助您查找隐藏摄像头、隐蔽录音设备和窃听装置。本隐私政策说明本应用处理和不处理哪些数据，以及如何保护您的隐私。HiddenCamDetect 由 HiddenCamDetect（“我们”）提供。</p>
 
     <div class="highlight">
-        <p>本隐私政策说明 <strong>Sentinel</strong>（"本应用"、"我们"）如何处理信息。Sentinel 是一款<strong>离线优先、隐私优先</strong>的工具，帮助您扫描周围环境，查找隐藏摄像头和偷拍偷录设备。您的扫描数据保留在您的设备上。我们对 Sentinel 的设计原则是：在默认情况下，<strong>任何扫描数据都不会离开您的手机</strong>。</p>
+      <p>HiddenCamDetect 秉持<strong>离线优先、隐私优先</strong>的原则。您的扫描结果完全在您的设备上处理。本应用没有扫描后端，您的扫描数据绝不会上传给我们或任何其他人。</p>
     </div>
 
-    <h2>1. Sentinel 是什么——以及它不是什么</h2>
-    <div class="warning">
-        <p>Sentinel 是一款<strong>提高警觉与初步排查的辅助工具</strong>，而非保证有效的探测器。它利用您手机现有的传感器来呈现监控设备<em>可能</em>存在的迹象。它<strong>无法找出所有隐藏设备</strong>，也永远无法确认某个空间"100% 安全"。检测结果可能既出现误报，也可能漏掉真实设备。请务必将 Sentinel 与细致的人工检查相结合，当您的人身安全可能受到威胁时，应寻求专业人士的帮助。</p>
-    </div>
-
-    <h2>2. 我们的隐私原则</h2>
+    <h2>我们不收集的数据</h2>
+    <p>我们<strong>不会</strong>在任何服务器上收集、传输或存储以下内容。这些数据全部保留在您的设备上，绝不会离开设备：</p>
     <ul>
-        <li><strong>离线优先：</strong>扫描无需联网即可进行。传感器读数和检测结果均在您的设备上处理。</li>
-        <li><strong>无需账户：</strong>您无需注册或提供个人信息即可使用核心扫描功能。</li>
-        <li><strong>扫描数据保留在本地：</strong>扫描结果、检测到的设备和历史记录仅存储在您的设备上。我们不会将其上传。</li>
-        <li><strong>数据最小化：</strong>唯一可能离开您设备的数据是匿名诊断信息（您可以将其关闭）以及购买验证（由应用商店处理）。</li>
+      <li><strong>Wi-Fi 与网络扫描结果</strong> — 在您本地网络中发现的 IP 地址、设备名称、端口和服务。</li>
+      <li><strong>蓝牙（BLE）扫描结果</strong> — 附近正在广播的设备、信号强度和标识符。</li>
+      <li><strong>相机画面</strong> — 在镜头反光（glint）或红外检查过程中捕获的图像会在设备上实时分析，绝不会被保存或发送。</li>
+      <li><strong>传感器读数</strong> — 磁力计和其他运动传感器的数值实时显示，不会保留在设备之外。</li>
+      <li><strong>扫描历史与基线</strong> — 仅存储在您设备上本应用的本地数据库中。</li>
+    </ul>
+    <p>由于这些数据绝不会离开您的设备，我们无法查看、访问或共享这些数据。</p>
+
+    <h2>我们使用的权限及原因</h2>
+    <p>本应用仅在相应场景下、为特定检测目的请求设备权限。您可以授予或拒绝每一项权限，并可日后在设备设置中撤销。</p>
+    <ul>
+      <li><strong>相机</strong> — 用于检测隐藏摄像头的镜头反光（glint）和红外光。画面在设备上分析，绝不会被存储或传输。</li>
+      <li><strong>位置 / 附近 Wi-Fi</strong>（Android） — 操作系统要求，用于扫描您本地网络上的联网设备。我们<strong>不会</strong>追踪您的地理位置。</li>
+      <li><strong>本地网络</strong>（iOS） — 用于发现您本地网络上的设备以进行扫描。</li>
+      <li><strong>蓝牙</strong> — 用于扫描附近正在广播的设备。在 Android 上被标记为“绝不用于定位”，因此不会用于推断您的位置。</li>
+      <li><strong>运动传感器</strong> — 用于读取磁场作为参考指标。此信号仅供参考。</li>
     </ul>
 
-    <h2>3. 我们收集的信息</h2>
-
-    <h3>3.1 扫描与传感器数据（仅限设备本地）</h3>
-    <ul>
-        <li><strong>传感器读数：</strong>Wi-Fi 网络扫描结果、低功耗蓝牙（BLE）广播、摄像头画面（用于镜头反光检测和红外查看）、磁力计/运动传感器读数，以及飞行时间（ToF）/LiDAR 深度数据，具体取决于您运行哪些扫描以及您的设备支持哪些功能。</li>
-        <li><strong>检测结果与历史记录：</strong>可疑设备记录、风险评分、扫描会话以及您保存的备注。</li>
-        <li>这些数据在您的设备上<strong>本地创建并存储</strong>于设备端数据库中。摄像头画面会被实时处理以供分析，在常规扫描过程中<strong>不会被保存</strong>。在默认情况下，我们不会将上述任何数据传输出您的设备。</li>
-    </ul>
-
-    <h3>3.2 诊断与崩溃数据（可选，可退出）</h3>
-    <ul>
-        <li><strong>崩溃报告与分析：</strong>为保持本应用稳定，我们可能通过 <strong>Firebase Crashlytics 和 Firebase Analytics</strong> 收集匿名崩溃日志、错误信息、设备类型、操作系统版本、应用版本以及基本的功能使用事件。</li>
-        <li>这些信息<strong>不会与您的身份关联</strong>，也绝不包含您的扫描结果、检测到的设备、摄像头图像，或您所检查空间的内容。</li>
-        <li>您可以随时在"设置"中<strong>关闭诊断功能</strong>。</li>
-    </ul>
-
-    <h3>3.3 订阅数据</h3>
-    <ul>
-        <li>如果您购买 Pro 订阅，相关应用商店（Apple App Store 或 Google Play）及我们的订阅管理服务商 <strong>Qonversion</strong> 将处理该交易，并告知本应用您的订阅是否有效。</li>
-        <li>我们<strong>不会</strong>接收或存储您的完整支付卡信息。账单完全由应用商店处理。</li>
-    </ul>
-
-    <h3>3.4 我们不会收集的信息</h3>
-    <ul>
-        <li>我们不会收集您的姓名、通讯录、照片图库、精确位置历史或浏览活动。</li>
-        <li>我们不会上传您的扫描结果、检测到的设备列表或摄像头/传感器数据。</li>
-        <li>我们不会向任何人出售、出租或交易个人信息。</li>
-    </ul>
-
-    <h2>4. 设备权限及我们需要它们的原因</h2>
-    <p>Sentinel 会<strong>根据使用情境逐项请求</strong>权限，并附简短说明，仅在某项功能需要时才会请求。您可以拒绝任何权限，相关扫描功能届时将无法使用。每项权限<strong>仅</strong>用于设备端扫描。</p>
-    <ul>
-        <li><strong>摄像头：</strong>用于镜头反光光学扫描（借助手电筒检测摄像头镜头反射）和红外查看器。摄像头画面在设备端实时分析，不会被存储。</li>
-        <li><strong>位置（精确）及附近 Wi-Fi：</strong>在 Android 上，操作系统<strong>要求</strong>必须授予位置权限才能执行 Wi-Fi 网络扫描。我们仅将其用于枚举附近的 Wi-Fi 网络以进行 Wi-Fi 扫描。我们不会跟踪、存储或传输您的地理位置。</li>
-        <li><strong>蓝牙/附近设备：</strong>用于扫描附近可能为摄像头、追踪器或录音设备的低功耗蓝牙（BLE）设备。</li>
-        <li><strong>运动与传感器（磁力计）：</strong>用于磁力计扫描，以查找电子设备附近的磁场异常。这是一项可信度较低、"仅供参考"的信号。</li>
-    </ul>
-
-    <h2>5. 我们如何使用信息</h2>
-    <ul>
-        <li><strong>用于执行扫描：</strong>传感器数据在您的设备上进行分析，以突出显示可能的监控设备并生成风险评分。</li>
-        <li><strong>用于显示历史记录：</strong>您的检测结果和扫描会话在本地保存，以便您日后查看。</li>
-        <li><strong>用于改善稳定性：</strong>匿名诊断信息（若已启用）有助于我们发现并修复崩溃和错误。</li>
-        <li><strong>用于管理您的订阅：</strong>来自应用商店/Qonversion 的购买状态用于解锁 Pro 功能。</li>
-    </ul>
-
-    <h2>6. 设备端数据处理与安全</h2>
-    <ul>
-        <li><strong>本地存储：</strong>扫描、检测结果和历史记录存储在您设备上的数据库中。删除本应用即会移除这些数据。</li>
-        <li><strong>无后台上传：</strong>扫描数据不会同步至任何服务器。</li>
-        <li><strong>传输加密：</strong>确实离开您设备的有限数据（诊断信息、购买验证）通过加密连接（TLS/HTTPS）发送。</li>
-        <li>任何存储或传输方式都无法做到 100% 安全，我们无法保证绝对安全。您应负责您设备的物理安全。</li>
-    </ul>
-
-    <h2>7. 可选：社区监控设备数据库</h2>
+    <h2>诊断与分析</h2>
+    <p>为保持本应用稳定并提升检测质量，我们使用 Firebase Crashlytics 和 Firebase Analytics 收集<strong>匿名</strong>诊断和使用信息（例如崩溃报告和汇总的功能使用情况）。</p>
     <div class="highlight">
-        <p>我们可能提供一项<strong>可选、需主动开启</strong>的功能，让您贡献可疑设备的<strong>匿名指纹</strong>，帮助构建社区数据库，从而为所有人改进检测效果。</p>
-        <ul>
-            <li>此功能<strong>默认为关闭</strong>。它与<strong>接受服务条款是相互独立的</strong>——接受条款<em>并不会</em>启用数据共享。</li>
-            <li>如果您选择开启，仅会共享<strong>匿名的技术信号特征</strong>——例如可疑设备的 OUI/厂商前缀或通用信号特性。</li>
-            <li>我们<strong>不会</strong>共享任何个人数据、摄像头图像或其他媒体内容、您所扫描空间的内容，或您的地理位置。</li>
-            <li>您可以随时在"设置"中<strong>关闭此功能并撤销共享</strong>。</li>
-        </ul>
+      <p>诊断<strong>默认开启</strong>，但完全可选。您可以随时在<strong>设置 →“共享匿名诊断”</strong>中将其关闭。此数据经过匿名化处理，不与您的身份关联，也<strong>不会</strong>用于跨应用追踪或广告（无 IDFA）。</p>
     </div>
+    <p><strong>您的扫描数据（Wi-Fi、蓝牙、相机和传感器结果）绝不会包含在诊断中，也绝不会发送到任何地方。</strong>这是我们不会改变的核心承诺。</p>
 
-    <h2>8. 诊断与分析（Firebase）</h2>
-    <ul>
-        <li>我们使用 <strong>Firebase Crashlytics</strong>（崩溃报告）和 <strong>Firebase Analytics</strong>（匿名使用指标）来提升可靠性并了解哪些功能被使用。</li>
-        <li>收集的数据可能包括设备型号、操作系统版本、应用版本、崩溃堆栈跟踪以及匿名事件计数。这些数据<strong>不会用于识别您的身份</strong>，且不包含任何扫描内容。</li>
-        <li>您可以随时在"设置"中<strong>选择退出</strong>；诊断功能可能默认启用，但可被禁用。</li>
-    </ul>
+    <h2>检测数据更新</h2>
+    <p>本应用可能通过安全的 HTTPS 连接下载公开的参考数据——例如硬件厂商（OUI）列表和已知可疑端口列表——以提高检测准确性。这仅为<strong>下载操作</strong>。在这些更新过程中，不会发送任何扫描数据或个人信息。</p>
 
-    <h2>9. 订阅与购买</h2>
-    <ul>
-        <li>Sentinel 提供可选的 <strong>Pro</strong> 订阅，以解锁高级扫描模块。</li>
-        <li>购买交易由 <strong>Apple App Store</strong> 或 <strong>Google Play Store</strong> 处理，并通过 <strong>Qonversion</strong> 进行跨平台权益跟踪管理。</li>
-        <li>账单信息由应用商店依据其各自的隐私政策处理。我们仅接收您的订阅状态。</li>
-    </ul>
+    <h2>应用内购买</h2>
+    <p>本应用提供可选的付费订阅（“Pro”）。付款完全由 Apple App Store 或 Google Play 处理。我们<strong>不会</strong>接收或存储您的支付卡信息。购买和订阅状态通过商店的收据机制进行验证。有关您的付款信息如何处理，请参阅相应商店的隐私政策。</p>
 
-    <h2>10. 数据共享与披露</h2>
-    <div class="warning">
-        <p><strong>我们不会出售您的个人信息，也不会与第三方共享您的扫描数据。</strong></p>
-    </div>
-    <p>我们仅共享上文所述的有限类别数据，且仅与提供本应用所必需的服务商共享：</p>
-    <ul>
-        <li><strong>Firebase（Google）：</strong>匿名崩溃报告和分析（可退出）。</li>
-        <li><strong>Apple App Store / Google Play / Qonversion：</strong>订阅账单与状态。</li>
-        <li><strong>法律要求：</strong>在法律、法律程序要求或为保护权利和安全时，我们可能披露信息。由于扫描数据保留在您的设备上，我们无从获取，因此无法披露。</li>
-    </ul>
+    <h2>本地存储</h2>
+    <p>本应用使用设备上的数据库和偏好设置，将您的扫描历史、基线和设置（例如主题、语言和已启用的模块）本地存储在您的设备上。此信息不会同步到任何服务器。</p>
 
-    <h2>11. 儿童隐私</h2>
-    <ul>
-        <li>Sentinel <strong>并非面向儿童</strong>，仅供成年人及较大年龄的青少年使用（至少 13 岁，在当地法律要求时为 16 岁）。</li>
-        <li>我们不会在知情的情况下收集低于适用年龄儿童的个人信息。如果您认为有儿童向我们提供了信息，请与我们联系，我们将予以处理。</li>
-    </ul>
+    <h2>儿童隐私</h2>
+    <p>本应用并非面向 13 岁以下（或您所在司法管辖区要求的最低年龄，例如欧盟部分地区为 16 岁）的儿童。我们不会在知情的情况下收集儿童的个人信息。</p>
 
-    <h2>12. 数据保留</h2>
-    <ul>
-        <li><strong>扫描数据与历史记录：</strong>保留在您的设备上，直到您将其删除或卸载本应用。您可以随时在应用内清除历史记录。</li>
-        <li><strong>诊断数据：</strong>崩溃和分析数据由 Firebase 保留有限的期限（通常最长 12&ndash;14 个月），随后将被自动删除或匿名化。</li>
-        <li><strong>订阅数据：</strong>由应用商店和 Qonversion 依据其各自的政策保留。</li>
-    </ul>
+    <h2>您的权利</h2>
+    <p>根据您所在地的不同，您可能依据 GDPR 或 CCPA 等法律享有相关权利，包括访问或删除您个人数据的权利。由于本应用不会在任何服务器上收集或存储您的扫描数据或个人数据，<strong>您的所有数据都保存在您的设备上</strong>。删除本应用即可移除这些数据，包括您的扫描历史和设置。若您已启用诊断，可随时在设置中将其禁用。</p>
+    <p>如有任何隐私相关问题或请求，请使用下方信息联系我们。</p>
 
-    <h2>13. 您的隐私权利</h2>
-    <p>根据您所在地区的不同，您可能享有访问、更正、删除或转移您个人数据的权利，以及反对或限制某些处理活动的权利（例如根据欧盟/英国的 <strong>GDPR</strong> 或加利福尼亚州的 <strong>CCPA/CPRA</strong>）。</p>
-    <ul>
-        <li>由于您的扫描数据仅存在于您的设备上，您可以直接行使大部分权利——通过查看、在可用时导出，或删除您的数据并卸载本应用。</li>
-        <li>对于诊断或订阅数据，请通过下方邮箱与我们联系，我们将在您当地法律要求的时间内（通常为 30 天内）作出回应。</li>
-        <li>加利福尼亚州居民：我们不会按照 CCPA/CPRA 所定义的方式出售或"共享"个人信息。</li>
-    </ul>
+    <h2>本政策的变更</h2>
+    <p>我们可能会不时更新本隐私政策。当我们作出重大变更时，将更新上方的“最后更新”日期，并在适当情况下在本应用内通知您。在变更生效后您继续使用本应用，即表示您接受更新后的政策。</p>
 
-    <h2>14. 跨境数据传输</h2>
-    <p>确实离开您设备的有限诊断和订阅数据，可能由我们的服务商在您所在国家/地区以外的国家（包括美国）处理。在法律要求时，我们将依据适当的保障措施（如标准合同条款）进行跨境传输。</p>
-
-    <h2>15. 第三方服务</h2>
-    <p>我们建议您查阅我们所依赖服务的隐私政策：</p>
-    <ul>
-        <li><a href="https://policies.google.com/privacy">Google 隐私政策</a></li>
-        <li><a href="https://firebase.google.com/support/privacy">Firebase 隐私与安全</a></li>
-        <li><a href="https://www.apple.com/legal/privacy/">Apple 隐私政策</a></li>
-        <li><a href="https://qonversion.io/privacy-policy">Qonversion 隐私政策</a></li>
-    </ul>
-
-    <h2>16. 本政策的变更</h2>
-    <p>我们可能会不时更新本隐私政策。当我们作出重大变更时，将更新上方的"最近更新"日期，并在适当情况下在应用内通知您。在生效日期之后继续使用本应用，即表示您接受更新后的政策。</p>
-
-    <h2>17. 联系我们</h2>
+    <h2>联系我们</h2>
     <div class="contact-info">
-        <p>如果您对本隐私政策或您的数据有任何疑问、顾虑或请求，请与我们联系：</p>
-        <p><strong>电子邮箱：</strong> <a href="mailto:nguyen@sartoro.co">nguyen@sartoro.co</a> <!-- [EDIT: contact email] --></p>
-        <p><strong>应用：</strong> Sentinel（包名 <code>io.ntvtech.hiddencamdetect</code>）</p>
-        <p><strong>提供方：</strong> [EDIT: company legal name] &middot; [EDIT: business address]</p>
-        <p><small>&copy; <span class="copyright-year">2026</span> Sentinel。保留所有权利。</small></p>
+      <p>如您对本隐私政策或您的数据有任何疑问，请通过以下方式联系我们：</p>
+      <p><strong>HiddenCamDetect</strong><br>
+      电子邮件：<a href="mailto:nhanntv113@gmail.com">nhanntv113@gmail.com</a></p>
     </div>
-
-    <script>
-        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
-    </script>
+  </div>
 </body>
 </html>

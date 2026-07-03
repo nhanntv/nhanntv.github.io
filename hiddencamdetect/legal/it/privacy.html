@@ -1,264 +1,117 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informativa sulla privacy – Sentinel</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-        }
-        h1 {
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #4CAF50;
-        }
-        h2 {
-            color: #2c3e50;
-            font-size: 1.3em;
-            margin-top: 30px;
-            margin-bottom: 10px;
-        }
-        h3 {
-            color: #34495e;
-            font-size: 1.1em;
-            margin-top: 15px;
-            margin-bottom: 8px;
-        }
-        p { margin-bottom: 12px; }
-        ul {
-            margin-left: 20px;
-            margin-bottom: 12px;
-        }
-        li { margin-bottom: 6px; }
-        .last-updated {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        .highlight {
-            background-color: #f8f9fa;
-            border-left: 4px solid #4CAF50;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .warning {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .contact-info {
-            background-color: #e8f5e9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-        a { color: #4CAF50; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #1a1a1a; color: #f5f5f5; }
-            h1 { color: #81C784; border-bottom-color: #4CAF50; }
-            h2 { color: #cfd8dc; }
-            h3 { color: #b0bec5; }
-            .highlight {
-                background-color: #263238;
-                border-left-color: #4CAF50;
-                color: #e0e0e0;
-            }
-            .highlight p, .highlight li, .highlight strong, .highlight span {
-                color: #e0e0e0;
-            }
-            .warning {
-                background-color: #3e2723;
-                border-left-color: #ff9800;
-                color: #e0e0e0;
-            }
-            .warning p, .warning li, .warning strong, .warning span {
-                color: #e0e0e0;
-            }
-            .contact-info {
-                background-color: #1b5e20;
-                color: #e0e0e0;
-            }
-            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
-                color: #e0e0e0;
-            }
-            ul, li { color: #f5f5f5; }
-            .last-updated { color: #b0bec5; }
-            a { color: #81C784; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informativa sulla Privacy — HiddenCamDetect</title>
+  <style>
+    :root {
+      color-scheme: light;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px 18px 48px;
+      -webkit-text-size-adjust: 100%;
+    }
+    .container { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; line-height: 1.3; margin: 0 0 8px; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 32px 0 8px; }
+    p, li { font-size: 1rem; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    a { color: #0a63c9; word-break: break-word; }
+    .last-updated { color: #6b7280; font-size: 0.9rem; margin: 0 0 24px; }
+    .highlight {
+      background: #eef4ff;
+      border-left: 4px solid #0a63c9;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .warning {
+      background: #fff4e5;
+      border-left: 4px solid #d97706;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .contact-info {
+      background: #f3f4f6;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    strong { font-weight: 600; }
+  </style>
 </head>
 <body>
-    <h1>Informativa sulla privacy</h1>
-    <p class="last-updated">In vigore dal: luglio 2026 &middot; Ultimo aggiornamento: luglio 2026</p>
+  <div class="container">
+    <h1>Informativa sulla Privacy</h1>
+    <p class="last-updated">Ultimo aggiornamento: luglio 2026</p>
+
+    <p>HiddenCamDetect (l'"App") è uno strumento di sensibilizzazione e triage per dispositivi nascosti che ti aiuta a cercare telecamere nascoste, registratori occulti e dispositivi di intercettazione. La presente Informativa sulla privacy spiega quali dati l'App tratta e quali non tratta, e come viene protetta la tua privacy. HiddenCamDetect è fornita da HiddenCamDetect ("noi", "ci" o "nostro").</p>
 
     <div class="highlight">
-        <p>La presente Informativa sulla privacy descrive come <strong>Sentinel</strong> (l'«App», «noi», «ci», «nostro») tratta le informazioni. Sentinel è uno strumento <strong>che privilegia il funzionamento offline e la privacy</strong> e ti aiuta a ispezionare l'ambiente circostante alla ricerca di telecamere nascoste e dispositivi di registrazione occulti. Le tue scansioni restano sul tuo dispositivo. Abbiamo progettato Sentinel in modo che, per impostazione predefinita, <strong>nessun dato di scansione lasci mai il tuo telefono</strong>.</p>
+      <p>HiddenCamDetect è <strong>offline-first e privacy-first</strong>. I risultati delle tue scansioni vengono elaborati interamente sul tuo dispositivo. L'App non dispone di alcun backend di scansione e i dati delle tue scansioni non vengono mai caricati verso di noi né verso chiunque altro.</p>
     </div>
 
-    <h2>1. Che cos'è Sentinel — e che cosa non è</h2>
-    <div class="warning">
-        <p>Sentinel è uno <strong>strumento di sensibilizzazione e di triage</strong>, non un rilevatore garantito. Utilizza i sensori già presenti nel tuo telefono per evidenziare <em>possibili</em> indizi della presenza di dispositivi di sorveglianza. <strong>Non è in grado di individuare ogni dispositivo nascosto</strong> e non può mai confermare che un ambiente sia «sicuro al 100%». I risultati possono comprendere sia falsi allarmi sia dispositivi non rilevati. Affianca sempre a Sentinel un'attenta ispezione manuale e rivolgiti a un professionista quando la tua sicurezza potrebbe essere a rischio.</p>
-    </div>
-
-    <h2>2. I nostri principi in materia di privacy</h2>
+    <h2>Dati che non raccogliamo</h2>
+    <p><strong>Non</strong> raccogliamo, trasmettiamo né archiviamo su alcun server i seguenti dati. Tutti restano sul tuo dispositivo e non lo lasciano mai:</p>
     <ul>
-        <li><strong>Priorità all'offline:</strong> la scansione funziona senza connessione a internet. Le letture dei sensori e i rilevamenti vengono elaborati sul tuo dispositivo.</li>
-        <li><strong>Nessun account richiesto:</strong> puoi utilizzare le funzioni di scansione principali senza registrarti né fornire informazioni personali.</li>
-        <li><strong>Le tue scansioni restano locali:</strong> i risultati delle scansioni, i dispositivi rilevati e la cronologia sono memorizzati esclusivamente sul tuo dispositivo. Non li carichiamo da nessuna parte.</li>
-        <li><strong>Dati minimi:</strong> gli unici dati che possono lasciare il tuo dispositivo sono i dati diagnostici anonimizzati (che puoi disattivare) e la convalida degli acquisti (gestita dagli store delle applicazioni).</li>
+      <li><strong>Risultati delle scansioni Wi-Fi e di rete</strong> — indirizzi IP, nomi dei dispositivi, porte e servizi rilevati sulla tua rete locale.</li>
+      <li><strong>Risultati delle scansioni Bluetooth (BLE)</strong> — dispositivi in trasmissione nelle vicinanze, intensità del segnale e identificatori.</li>
+      <li><strong>Fotogrammi della fotocamera</strong> — le immagini acquisite durante i controlli del riflesso della lente (glint) o a infrarossi vengono analizzate sul dispositivo in tempo reale e non vengono mai salvate né inviate.</li>
+      <li><strong>Letture dei sensori</strong> — i valori del magnetometro e degli altri sensori di movimento vengono mostrati in tempo reale e non vengono conservati al di fuori del dispositivo.</li>
+      <li><strong>Cronologia delle scansioni e riferimenti di base</strong> — memorizzati esclusivamente nel database locale dell'App sul tuo dispositivo.</li>
+    </ul>
+    <p>Poiché questi dati non lasciano mai il tuo dispositivo, non possiamo vederli, accedervi o condividerli.</p>
+
+    <h2>Autorizzazioni che utilizziamo e perché</h2>
+    <p>L'App richiede le autorizzazioni del dispositivo solo in contesto e per una specifica finalità di rilevamento. Puoi concedere o negare ciascuna di esse e revocarle in seguito nelle impostazioni del tuo dispositivo.</p>
+    <ul>
+      <li><strong>Fotocamera</strong> — per rilevare i riflessi delle lenti (glint) e la luce a infrarossi delle telecamere nascoste. I fotogrammi vengono analizzati sul dispositivo e non vengono mai memorizzati né trasmessi.</li>
+      <li><strong>Posizione / Wi-Fi nelle vicinanze</strong> (Android) — richiesta dal sistema operativo per eseguire la scansione dei dispositivi collegati alla tua rete locale. <strong>Non</strong> tracciamo la tua posizione geografica.</li>
+      <li><strong>Rete locale</strong> (iOS) — per rilevare i dispositivi presenti sulla tua rete locale ai fini della scansione.</li>
+      <li><strong>Bluetooth</strong> — per eseguire la scansione dei dispositivi in trasmissione nelle vicinanze. Su Android questa autorizzazione è contrassegnata come "mai per la posizione", quindi non viene utilizzata per determinare la tua posizione.</li>
+      <li><strong>Sensori di movimento</strong> — per leggere il campo magnetico come indicatore di riferimento. Questo segnale è puramente informativo.</li>
     </ul>
 
-    <h2>3. Informazioni che raccogliamo</h2>
-
-    <h3>3.1 Dati di scansione e dei sensori (solo sul dispositivo)</h3>
-    <ul>
-        <li><strong>Letture dei sensori:</strong> risultati della scansione delle reti Wi-Fi, annunci Bluetooth Low Energy (BLE), fotogrammi della fotocamera (per il rilevamento dei riflessi dell'obiettivo e la visualizzazione a infrarossi), letture del magnetometro/di movimento e dati di profondità Time-of-Flight/LiDAR, a seconda delle scansioni che esegui e di ciò che il tuo dispositivo supporta.</li>
-        <li><strong>Rilevamenti e cronologia:</strong> registri dei dispositivi sospetti, punteggi di rischio, sessioni di scansione e le note che salvi.</li>
-        <li>Questi dati vengono creati e memorizzati <strong>localmente sul tuo dispositivo</strong>, in un database sul dispositivo stesso. I fotogrammi della fotocamera vengono elaborati in tempo reale ai fini dell'analisi e <strong>non vengono salvati</strong> durante la normale scansione. Per impostazione predefinita, non trasmettiamo nessuno di questi dati al di fuori del tuo dispositivo.</li>
-    </ul>
-
-    <h3>3.2 Dati diagnostici e sugli arresti anomali (facoltativi, con opzione di rinuncia)</h3>
-    <ul>
-        <li><strong>Report sugli arresti anomali e analisi:</strong> per mantenere l'App stabile, possiamo raccogliere registri anonimizzati sugli arresti anomali, informazioni sugli errori, tipo di dispositivo, versione del sistema operativo, versione dell'app ed eventi di base sull'utilizzo delle funzioni tramite <strong>Firebase Crashlytics e Firebase Analytics</strong>.</li>
-        <li>Queste informazioni <strong>non sono collegate alla tua identità</strong> e non includono mai i risultati delle tue scansioni, i dispositivi rilevati, le immagini della fotocamera o il contenuto di alcun ambiente che ispezioni.</li>
-        <li>Puoi <strong>disattivare la diagnostica in qualsiasi momento</strong> nelle Impostazioni.</li>
-    </ul>
-
-    <h3>3.3 Dati relativi all'abbonamento</h3>
-    <ul>
-        <li>Se acquisti un abbonamento Pro, lo store delle applicazioni pertinente (Apple App Store o Google Play) e il nostro gestore degli abbonamenti <strong>Qonversion</strong> elaborano la transazione e comunicano all'App se il tuo abbonamento è attivo.</li>
-        <li><strong>Non</strong> riceviamo né conserviamo i dati completi della tua carta di pagamento. La fatturazione è gestita interamente dagli store delle applicazioni.</li>
-    </ul>
-
-    <h3>3.4 Ciò che NON raccogliamo</h3>
-    <ul>
-        <li>Non raccogliamo il tuo nome, i contatti, la libreria fotografica, la cronologia della posizione precisa o l'attività di navigazione.</li>
-        <li>Non carichiamo i risultati delle tue scansioni, gli elenchi dei dispositivi rilevati o i dati della fotocamera/dei sensori.</li>
-        <li>Non vendiamo, noleggiamo né scambiamo informazioni personali con nessuno.</li>
-    </ul>
-
-    <h2>4. Autorizzazioni del dispositivo e perché ci servono</h2>
-    <p>Sentinel richiede le autorizzazioni <strong>in modo contestuale — una alla volta</strong>, con una breve spiegazione, solo quando una funzione ne ha bisogno. Puoi rifiutare qualsiasi autorizzazione; la relativa scansione semplicemente non sarà disponibile. Ogni autorizzazione viene utilizzata <strong>esclusivamente</strong> per la scansione sul dispositivo.</p>
-    <ul>
-        <li><strong>Fotocamera:</strong> utilizzata per la scansione ottica dei riflessi dell'obiettivo (rilevamento dei riflessi sugli obiettivi delle telecamere tramite la torcia) e per il visore a infrarossi. I fotogrammi della fotocamera vengono analizzati sul dispositivo in tempo reale e non vengono memorizzati.</li>
-        <li><strong>Posizione (precisa) e reti Wi-Fi vicine:</strong> su Android, il sistema operativo <strong>richiede</strong> l'autorizzazione alla posizione per poter eseguire le scansioni delle reti Wi-Fi. La utilizziamo solo per elencare le reti Wi-Fi vicine ai fini della scansione Wi-Fi. Non tracciamo, conserviamo né trasmettiamo la tua posizione geografica.</li>
-        <li><strong>Bluetooth / dispositivi nelle vicinanze:</strong> utilizzata per cercare dispositivi Bluetooth Low Energy (BLE) vicini che potrebbero essere telecamere, tracker o registratori.</li>
-        <li><strong>Movimento e sensori (magnetometro):</strong> utilizzata per la scansione con il magnetometro, che ricerca anomalie del campo magnetico in prossimità dei dispositivi elettronici. È un segnale a bassa affidabilità, «solo a titolo di riferimento».</li>
-    </ul>
-
-    <h2>5. Come utilizziamo le informazioni</h2>
-    <ul>
-        <li><strong>Per eseguire le scansioni:</strong> i dati dei sensori vengono analizzati sul tuo dispositivo per evidenziare possibili dispositivi di sorveglianza e produrre un punteggio di rischio.</li>
-        <li><strong>Per mostrare la cronologia:</strong> i tuoi rilevamenti e le sessioni di scansione vengono salvati localmente per consentirti di rivederli.</li>
-        <li><strong>Per migliorare la stabilità:</strong> i dati diagnostici anonimizzati (se attivati) ci aiutano a individuare e correggere arresti anomali e bug.</li>
-        <li><strong>Per gestire il tuo abbonamento:</strong> lo stato dell'acquisto fornito dagli store/da Qonversion sblocca le funzioni Pro.</li>
-    </ul>
-
-    <h2>6. Trattamento dei dati sul dispositivo e sicurezza</h2>
-    <ul>
-        <li><strong>Archiviazione locale:</strong> scansioni, rilevamenti e cronologia sono memorizzati in un database sul tuo dispositivo. La disinstallazione dell'App rimuove questi dati.</li>
-        <li><strong>Nessun caricamento in background:</strong> i dati di scansione non vengono sincronizzati con alcun server.</li>
-        <li><strong>Crittografia in transito:</strong> i pochi dati che lasciano il tuo dispositivo (diagnostica, convalida degli acquisti) vengono inviati tramite connessioni crittografate (TLS/HTTPS).</li>
-        <li>Nessun metodo di archiviazione o trasmissione è sicuro al 100% e non possiamo garantire una sicurezza assoluta. Sei responsabile della sicurezza fisica del tuo dispositivo.</li>
-    </ul>
-
-    <h2>7. Facoltativo: database comunitario dei dispositivi di sorveglianza</h2>
+    <h2>Diagnostica e analisi</h2>
+    <p>Per mantenere l'App stabile e migliorare la qualità del rilevamento, utilizziamo Firebase Crashlytics e Firebase Analytics per raccogliere informazioni diagnostiche e di utilizzo <strong>anonime</strong> (ad esempio, report sugli arresti anomali e dati aggregati sull'uso delle funzionalità).</p>
     <div class="highlight">
-        <p>Possiamo offrire una funzione <strong>facoltativa, con adesione esplicita</strong>, che ti consente di contribuire con <strong>impronte anonimizzate</strong> di dispositivi sospetti per aiutare a creare un database comunitario che migliori il rilevamento per tutti.</p>
-        <ul>
-            <li>Questa funzione è <strong>DISATTIVATA per impostazione predefinita</strong>. È <strong>distinta dall'accettazione dei Termini di servizio</strong>: l'accettazione dei Termini <em>non</em> attiva la condivisione.</li>
-            <li>Se aderisci, possono essere condivise solo <strong>caratteristiche tecniche anonimizzate del segnale</strong>, ad esempio un prefisso OUI/del produttore o caratteristiche generiche del segnale di un dispositivo sospetto.</li>
-            <li><strong>NON</strong> condividiamo alcun dato personale, immagini della fotocamera o altri contenuti multimediali, il contenuto dell'ambiente che hai analizzato o la tua posizione geografica.</li>
-            <li>Puoi <strong>disattivare questa funzione e revocare la condivisione in qualsiasi momento</strong> nelle Impostazioni.</li>
-        </ul>
+      <p>La diagnostica è <strong>attiva per impostazione predefinita</strong> ma è completamente facoltativa. Puoi disattivarla in qualsiasi momento in <strong>Impostazioni → "Condividi diagnostica anonima"</strong>. Questi dati sono anonimizzati, non sono collegati alla tua identità e <strong>non</strong> vengono utilizzati per il tracciamento tra app o per la pubblicità (nessun IDFA).</p>
     </div>
+    <p><strong>I dati delle tue scansioni (risultati Wi-Fi, Bluetooth, fotocamera e sensori) non sono mai inclusi nella diagnostica e non vengono mai inviati da nessuna parte.</strong> Questo è un impegno fondamentale che non cambia.</p>
 
-    <h2>8. Diagnostica e analisi (Firebase)</h2>
-    <ul>
-        <li>Utilizziamo <strong>Firebase Crashlytics</strong> (segnalazione degli arresti anomali) e <strong>Firebase Analytics</strong> (metriche di utilizzo anonime) per migliorare l'affidabilità e capire quali funzioni vengono utilizzate.</li>
-        <li>I dati raccolti possono includere il modello del dispositivo, la versione del sistema operativo, la versione dell'app, le tracce dello stack degli arresti anomali e conteggi anonimi degli eventi. <strong>Non vengono utilizzati per identificarti</strong> e non contengono alcun contenuto delle scansioni.</li>
-        <li>Puoi <strong>rinunciare</strong> in qualsiasi momento nelle Impostazioni; la diagnostica può essere attiva per impostazione predefinita e può essere disattivata.</li>
-    </ul>
+    <h2>Aggiornamenti dei dati di rilevamento</h2>
+    <p>L'App può scaricare dati di riferimento pubblici tramite una connessione HTTPS sicura — ad esempio elenchi di produttori hardware (OUI) ed elenchi di porte note come sospette — per migliorare l'accuratezza del rilevamento. Si tratta di un'operazione di <strong>solo download</strong> (nessun invio di dati). Nessun dato di scansione o informazione personale viene inviato nell'ambito di questi aggiornamenti.</p>
 
-    <h2>9. Abbonamenti e acquisti</h2>
-    <ul>
-        <li>Sentinel offre un abbonamento <strong>Pro</strong> facoltativo che sblocca moduli di scansione avanzati.</li>
-        <li>Gli acquisti vengono elaborati dall'<strong>Apple App Store</strong> o dal <strong>Google Play Store</strong> e gestiti tramite <strong>Qonversion</strong> per il monitoraggio dei diritti tra piattaforme.</li>
-        <li>Le informazioni di fatturazione sono gestite dagli store delle applicazioni in base alle rispettive informative sulla privacy. Noi riceviamo soltanto lo stato del tuo abbonamento.</li>
-    </ul>
+    <h2>Acquisti in-app</h2>
+    <p>L'App offre un abbonamento a pagamento facoltativo ("Pro"). I pagamenti vengono elaborati interamente da Apple App Store o Google Play. <strong>Non</strong> riceviamo né archiviamo i dati della tua carta di pagamento. Lo stato dell'acquisto e dell'abbonamento viene verificato tramite il meccanismo di ricevuta dello store. Ti invitiamo a consultare l'informativa sulla privacy dello store applicabile per sapere come vengono trattate le tue informazioni di pagamento.</p>
 
-    <h2>10. Condivisione e divulgazione dei dati</h2>
-    <div class="warning">
-        <p><strong>NON vendiamo le tue informazioni personali e non condividiamo i tuoi dati di scansione con terze parti.</strong></p>
-    </div>
-    <p>Condividiamo soltanto le categorie limitate di dati descritte sopra e solo con i fornitori di servizi necessari per erogare l'App:</p>
-    <ul>
-        <li><strong>Firebase (Google):</strong> segnalazione anonimizzata degli arresti anomali e analisi (con opzione di rinuncia).</li>
-        <li><strong>Apple App Store / Google Play / Qonversion:</strong> fatturazione e stato dell'abbonamento.</li>
-        <li><strong>Obblighi di legge:</strong> possiamo divulgare informazioni se richiesto dalla legge, da un procedimento giudiziario o per tutelare diritti e sicurezza. Poiché i dati di scansione restano sul tuo dispositivo, non sono a nostra disposizione per essere divulgati.</li>
-    </ul>
+    <h2>Archiviazione locale</h2>
+    <p>L'App memorizza la cronologia delle scansioni, i riferimenti di base e le impostazioni (come tema, lingua e moduli abilitati) localmente sul tuo dispositivo, utilizzando un database e preferenze sul dispositivo. Queste informazioni non vengono sincronizzate con alcun server.</p>
 
-    <h2>11. Privacy dei minori</h2>
-    <ul>
-        <li>Sentinel <strong>non è rivolto ai minori</strong> ed è destinato agli adulti e agli adolescenti più grandi (almeno 13 anni, o 16 dove richiesto dalla normativa locale).</li>
-        <li>Non raccogliamo consapevolmente informazioni personali da minori al di sotto dell'età applicabile. Se ritieni che un minore ci abbia fornito informazioni, contattaci e provvederemo a risolvere la questione.</li>
-    </ul>
+    <h2>Privacy dei minori</h2>
+    <p>L'App non è destinata ai minori di 13 anni (o all'età minima richiesta nella tua giurisdizione, ad esempio 16 anni in alcune parti dell'UE). Non raccogliamo consapevolmente informazioni personali dai minori.</p>
 
-    <h2>12. Conservazione dei dati</h2>
-    <ul>
-        <li><strong>Dati di scansione e cronologia:</strong> conservati sul tuo dispositivo finché non li elimini o disinstalli l'App. Puoi cancellare la cronologia nell'App in qualsiasi momento.</li>
-        <li><strong>Diagnostica:</strong> i dati sugli arresti anomali e di analisi vengono conservati da Firebase per un periodo limitato (di norma fino a 12&ndash;14 mesi) e poi eliminati o anonimizzati automaticamente.</li>
-        <li><strong>Dati relativi all'abbonamento:</strong> conservati dagli store delle applicazioni e da Qonversion in base alle rispettive politiche.</li>
-    </ul>
+    <h2>I tuoi diritti</h2>
+    <p>A seconda del luogo in cui vivi, potresti avere diritti in base a leggi come il GDPR o il CCPA, incluso il diritto di accedere ai tuoi dati personali o di cancellarli. Poiché l'App non raccoglie né archivia su alcun server i dati delle tue scansioni o i tuoi dati personali, <strong>tutti i tuoi dati risiedono sul tuo dispositivo</strong>. La disinstallazione dell'App rimuove questi dati, inclusa la cronologia delle scansioni e le impostazioni. Se hai abilitato la diagnostica, puoi disattivarla in qualsiasi momento nelle Impostazioni.</p>
+    <p>Per qualsiasi domanda o richiesta in materia di privacy, contattaci utilizzando i recapiti riportati di seguito.</p>
 
-    <h2>13. I tuoi diritti in materia di privacy</h2>
-    <p>A seconda del luogo in cui risiedi, puoi avere il diritto di accedere ai tuoi dati personali, rettificarli, cancellarli o trasferirli, nonché di opporti a determinati trattamenti o limitarli (ad esempio ai sensi del <strong>GDPR</strong> dell'UE/del Regno Unito o del <strong>CCPA/CPRA</strong> in California).</p>
-    <ul>
-        <li>Poiché i tuoi dati di scansione risiedono solo sul tuo dispositivo, puoi esercitare la maggior parte dei diritti direttamente, visualizzando, esportando (ove disponibile) o eliminando i tuoi dati e disinstallando l'App.</li>
-        <li>Per i dati diagnostici o relativi all'abbonamento, contattaci all'indirizzo e-mail indicato di seguito e risponderemo entro il termine previsto dalla tua normativa locale (in genere entro 30 giorni).</li>
-        <li>Residenti in California: non vendiamo né «condividiamo» informazioni personali ai sensi del CCPA/CPRA.</li>
-    </ul>
+    <h2>Modifiche alla presente Informativa</h2>
+    <p>Potremmo aggiornare la presente Informativa sulla privacy di tanto in tanto. Quando apportiamo modifiche sostanziali, aggiorneremo la data di "Ultimo aggiornamento" sopra indicata e, ove opportuno, ti informeremo all'interno dell'App. L'uso continuato dell'App dopo l'entrata in vigore delle modifiche implica l'accettazione dell'informativa aggiornata.</p>
 
-    <h2>14. Trasferimenti internazionali di dati</h2>
-    <p>I pochi dati diagnostici e relativi all'abbonamento che lasciano il tuo dispositivo possono essere trattati dai nostri fornitori di servizi in Paesi diversi dal tuo, compresi gli Stati Uniti. Ove richiesto, ci avvaliamo di garanzie adeguate, come le Clausole Contrattuali Tipo, per i trasferimenti transfrontalieri.</p>
-
-    <h2>15. Servizi di terze parti</h2>
-    <p>Ti invitiamo a consultare le informative sulla privacy dei servizi su cui facciamo affidamento:</p>
-    <ul>
-        <li><a href="https://policies.google.com/privacy">Informativa sulla privacy di Google</a></li>
-        <li><a href="https://firebase.google.com/support/privacy">Privacy e sicurezza di Firebase</a></li>
-        <li><a href="https://www.apple.com/legal/privacy/">Informativa sulla privacy di Apple</a></li>
-        <li><a href="https://qonversion.io/privacy-policy">Informativa sulla privacy di Qonversion</a></li>
-    </ul>
-
-    <h2>16. Modifiche alla presente Informativa</h2>
-    <p>Possiamo aggiornare di tanto in tanto la presente Informativa sulla privacy. In caso di modifiche sostanziali, aggiorneremo la data di «Ultimo aggiornamento» riportata sopra e, ove opportuno, te lo comunicheremo nell'App. L'uso continuato dell'App dopo la data di entrata in vigore costituisce accettazione dell'informativa aggiornata.</p>
-
-    <h2>17. Contattaci</h2>
+    <h2>Contattaci</h2>
     <div class="contact-info">
-        <p>Se hai domande, dubbi o richieste in merito alla presente Informativa sulla privacy o ai tuoi dati, contattaci:</p>
-        <p><strong>E-mail:</strong> <a href="mailto:nguyen@sartoro.co">nguyen@sartoro.co</a> <!-- [EDIT: contact email] --></p>
-        <p><strong>App:</strong> Sentinel (ID pacchetto <code>io.ntvtech.hiddencamdetect</code>)</p>
-        <p><strong>Fornitore:</strong> [EDIT: company legal name] &middot; [EDIT: business address]</p>
-        <p><small>&copy; <span class="copyright-year">2026</span> Sentinel. Tutti i diritti riservati.</small></p>
+      <p>Se hai domande sulla presente Informativa sulla privacy o sui tuoi dati, contattaci all'indirizzo:</p>
+      <p><strong>HiddenCamDetect</strong><br>
+      Email: <a href="mailto:nhanntv113@gmail.com">nhanntv113@gmail.com</a></p>
     </div>
-
-    <script>
-        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
-    </script>
+  </div>
 </body>
 </html>

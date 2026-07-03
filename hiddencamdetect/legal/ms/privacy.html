@@ -1,264 +1,117 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dasar Privasi – Sentinel</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-        }
-        h1 {
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #4CAF50;
-        }
-        h2 {
-            color: #2c3e50;
-            font-size: 1.3em;
-            margin-top: 30px;
-            margin-bottom: 10px;
-        }
-        h3 {
-            color: #34495e;
-            font-size: 1.1em;
-            margin-top: 15px;
-            margin-bottom: 8px;
-        }
-        p { margin-bottom: 12px; }
-        ul {
-            margin-left: 20px;
-            margin-bottom: 12px;
-        }
-        li { margin-bottom: 6px; }
-        .last-updated {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        .highlight {
-            background-color: #f8f9fa;
-            border-left: 4px solid #4CAF50;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .warning {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .contact-info {
-            background-color: #e8f5e9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-        a { color: #4CAF50; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #1a1a1a; color: #f5f5f5; }
-            h1 { color: #81C784; border-bottom-color: #4CAF50; }
-            h2 { color: #cfd8dc; }
-            h3 { color: #b0bec5; }
-            .highlight {
-                background-color: #263238;
-                border-left-color: #4CAF50;
-                color: #e0e0e0;
-            }
-            .highlight p, .highlight li, .highlight strong, .highlight span {
-                color: #e0e0e0;
-            }
-            .warning {
-                background-color: #3e2723;
-                border-left-color: #ff9800;
-                color: #e0e0e0;
-            }
-            .warning p, .warning li, .warning strong, .warning span {
-                color: #e0e0e0;
-            }
-            .contact-info {
-                background-color: #1b5e20;
-                color: #e0e0e0;
-            }
-            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
-                color: #e0e0e0;
-            }
-            ul, li { color: #f5f5f5; }
-            .last-updated { color: #b0bec5; }
-            a { color: #81C784; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dasar Privasi — HiddenCamDetect</title>
+  <style>
+    :root {
+      color-scheme: light;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px 18px 48px;
+      -webkit-text-size-adjust: 100%;
+    }
+    .container { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; line-height: 1.3; margin: 0 0 8px; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 32px 0 8px; }
+    p, li { font-size: 1rem; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    a { color: #0a63c9; word-break: break-word; }
+    .last-updated { color: #6b7280; font-size: 0.9rem; margin: 0 0 24px; }
+    .highlight {
+      background: #eef4ff;
+      border-left: 4px solid #0a63c9;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .warning {
+      background: #fff4e5;
+      border-left: 4px solid #d97706;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .contact-info {
+      background: #f3f4f6;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    strong { font-weight: 600; }
+  </style>
 </head>
 <body>
+  <div class="container">
     <h1>Dasar Privasi</h1>
-    <p class="last-updated">Berkuat kuasa mulai: Julai 2026 &middot; Kemas kini terakhir: Julai 2026</p>
+    <p class="last-updated">Kemas kini terakhir: Julai 2026</p>
+
+    <p>HiddenCamDetect ("Aplikasi") ialah alat kesedaran dan triaj peranti tersembunyi yang membantu anda mencari kamera tersembunyi, perakam terselindung, dan peranti pendengar. Dasar Privasi ini menerangkan data yang dikendalikan dan tidak dikendalikan oleh Aplikasi, serta cara privasi anda dilindungi. HiddenCamDetect disediakan oleh HiddenCamDetect ("kami", atau "milik kami").</p>
 
     <div class="highlight">
-        <p>Dasar Privasi ini menerangkan cara <strong>Sentinel</strong> ("Apl", "kami") mengendalikan maklumat. Sentinel ialah alat yang <strong>mengutamakan luar talian dan mengutamakan privasi</strong>, yang membantu anda mengimbas persekitaran anda untuk mencari kamera tersembunyi dan peranti rakaman terselindung. Imbasan anda kekal pada peranti anda. Kami mereka bentuk Sentinel sedemikian rupa supaya, secara lalai, <strong>tiada data imbasan yang pernah meninggalkan telefon anda</strong>.</p>
+      <p>HiddenCamDetect mengutamakan <strong>luar talian dan privasi</strong>. Keputusan imbasan anda diproses sepenuhnya pada peranti anda. Aplikasi ini tidak mempunyai pelayan latar imbasan, dan data imbasan anda tidak pernah dimuat naik kepada kami mahupun kepada sesiapa yang lain.</p>
     </div>
 
-    <h2>1. Apa Itu Sentinel — dan Apa yang Bukan</h2>
-    <div class="warning">
-        <p>Sentinel ialah <strong>alat bantu kesedaran dan saringan awal (triaj)</strong>, bukan pengesan yang terjamin. Ia menggunakan penderia sedia ada pada telefon anda untuk menonjolkan tanda <em>kemungkinan</em> kehadiran peranti pengawasan. Ia <strong>tidak dapat menemui setiap peranti tersembunyi</strong>, dan ia tidak akan pernah dapat mengesahkan bahawa sesuatu ruang itu "100% selamat". Keputusan mungkin merangkumi kedua-dua penggera palsu dan peranti yang terlepas. Sentiasa gabungkan Sentinel dengan pemeriksaan manual yang teliti, dan dapatkan bantuan profesional apabila keselamatan anda mungkin terancam.</p>
-    </div>
-
-    <h2>2. Prinsip Privasi Kami</h2>
+    <h2>Data yang Tidak Kami Kumpulkan</h2>
+    <p>Kami <strong>tidak</strong> mengumpul, menghantar, atau menyimpan perkara berikut pada mana-mana pelayan. Kesemuanya kekal pada peranti anda dan tidak pernah meninggalkannya:</p>
     <ul>
-        <li><strong>Mengutamakan luar talian:</strong> Pengimbasan berfungsi tanpa sambungan internet. Bacaan penderia dan pengesanan diproses pada peranti anda.</li>
-        <li><strong>Tiada akaun diperlukan:</strong> Anda boleh menggunakan ciri pengimbasan teras tanpa mendaftar atau memberikan maklumat peribadi.</li>
-        <li><strong>Imbasan anda kekal setempat:</strong> Keputusan imbasan, peranti yang dikesan, dan sejarah disimpan hanya pada peranti anda. Kami tidak memuat naiknya.</li>
-        <li><strong>Data minimum:</strong> Satu-satunya data yang mungkin meninggalkan peranti anda ialah diagnostik tanpa nama (yang boleh anda matikan) dan pengesahan pembelian (dikendalikan oleh gedung apl).</li>
+      <li><strong>Keputusan imbasan Wi-Fi dan rangkaian</strong> — alamat IP, nama peranti, port, dan perkhidmatan yang ditemui pada rangkaian setempat anda.</li>
+      <li><strong>Keputusan imbasan Bluetooth (BLE)</strong> — peranti bersiaran berdekatan, kekuatan isyarat, dan pengecam.</li>
+      <li><strong>Bingkai kamera</strong> — imej yang ditangkap semasa pemeriksaan pantulan kanta (glint) atau inframerah dianalisis pada peranti secara masa nyata dan tidak pernah disimpan atau dihantar.</li>
+      <li><strong>Bacaan penderia</strong> — nilai magnetometer dan penderia gerakan lain ditunjukkan secara langsung dan tidak disimpan di luar peranti.</li>
+      <li><strong>Sejarah imbasan dan garis dasar</strong> — disimpan hanya dalam pangkalan data setempat Aplikasi pada peranti anda.</li>
+    </ul>
+    <p>Oleh sebab data ini tidak pernah meninggalkan peranti anda, kami tidak dapat melihatnya, mengaksesnya, atau berkongsinya.</p>
+
+    <h2>Kebenaran yang Kami Guna dan Sebabnya</h2>
+    <p>Aplikasi meminta kebenaran peranti hanya mengikut konteks dan untuk tujuan pengesanan yang khusus. Anda boleh memberi atau menolak setiap satu, dan menarik baliknya kemudian dalam tetapan peranti anda.</p>
+    <ul>
+      <li><strong>Kamera</strong> — untuk mengesan pantulan kanta (glint) dan cahaya inframerah daripada kamera tersembunyi. Bingkai dianalisis pada peranti dan tidak pernah disimpan atau dihantar.</li>
+      <li><strong>Lokasi / Wi-Fi berdekatan</strong> (Android) — diperlukan oleh sistem pengendalian untuk mengimbas peranti bersambung rangkaian pada rangkaian setempat anda. Kami <strong>tidak</strong> menjejaki lokasi geografi anda.</li>
+      <li><strong>Rangkaian Setempat</strong> (iOS) — untuk menemui peranti pada rangkaian setempat anda bagi tujuan imbasan.</li>
+      <li><strong>Bluetooth</strong> — untuk mengimbas peranti bersiaran berdekatan. Pada Android, ini ditandakan sebagai "tidak sekali-kali untuk lokasi", jadi ia tidak digunakan untuk menentukan lokasi anda.</li>
+      <li><strong>Penderia gerakan</strong> — untuk membaca medan magnet sebagai penunjuk rujukan. Isyarat ini bersifat maklumat sahaja.</li>
     </ul>
 
-    <h2>3. Maklumat yang Kami Kumpulkan</h2>
-
-    <h3>3.1 Data Imbasan &amp; Penderia (Pada Peranti Sahaja)</h3>
-    <ul>
-        <li><strong>Bacaan penderia:</strong> Keputusan imbasan rangkaian Wi-Fi, iklan Bluetooth Low Energy (BLE), bingkai kamera (untuk pantulan kanta dan paparan inframerah), bacaan magnetometer/gerakan, dan data kedalaman Time-of-Flight/LiDAR, bergantung pada imbasan yang anda jalankan dan apa yang disokong oleh peranti anda.</li>
-        <li><strong>Pengesanan &amp; sejarah:</strong> Rekod peranti mencurigakan, skor risiko, sesi imbasan, dan nota yang anda simpan.</li>
-        <li>Data ini dicipta dan disimpan <strong>secara setempat pada peranti anda</strong> dalam pangkalan data pada peranti. Bingkai kamera diproses secara masa nyata untuk analisis dan <strong>tidak disimpan</strong> sebagai sebahagian daripada pengimbasan biasa. Kami tidak menghantar mana-mana data ini ke luar peranti anda secara lalai.</li>
-    </ul>
-
-    <h3>3.2 Data Diagnostik &amp; Ranap (Pilihan, Boleh Dimatikan)</h3>
-    <ul>
-        <li><strong>Laporan ranap &amp; analitik:</strong> Untuk memastikan Apl kekal stabil, kami mungkin mengumpul log ranap tanpa nama, maklumat ralat, jenis peranti, versi sistem pengendalian, versi apl, dan peristiwa penggunaan ciri asas melalui <strong>Firebase Crashlytics dan Firebase Analytics</strong>.</li>
-        <li>Maklumat ini <strong>tidak dipautkan dengan identiti anda</strong> dan tidak pernah merangkumi keputusan imbasan, peranti yang dikesan, imej kamera, atau kandungan mana-mana ruang yang anda periksa.</li>
-        <li>Anda boleh <strong>mematikan diagnostik pada bila-bila masa</strong> dalam Tetapan.</li>
-    </ul>
-
-    <h3>3.3 Data Langganan</h3>
-    <ul>
-        <li>Jika anda membeli langganan Pro, gedung apl berkaitan (Apple App Store atau Google Play) dan pengurus langganan kami <strong>Qonversion</strong> memproses transaksi tersebut dan memberitahu Apl sama ada langganan anda aktif.</li>
-        <li>Kami <strong>tidak</strong> menerima atau menyimpan butiran penuh kad pembayaran anda. Pengebilan dikendalikan sepenuhnya oleh gedung apl.</li>
-    </ul>
-
-    <h3>3.4 Apa yang TIDAK Kami Kumpulkan</h3>
-    <ul>
-        <li>Kami tidak mengumpul nama, kenalan, pustaka foto, sejarah lokasi tepat, atau aktiviti pelayaran anda.</li>
-        <li>Kami tidak memuat naik keputusan imbasan, senarai peranti yang dikesan, atau data kamera/penderia anda.</li>
-        <li>Kami tidak menjual, menyewa, atau memperdagangkan maklumat peribadi kepada sesiapa pun.</li>
-    </ul>
-
-    <h2>4. Kebenaran Peranti dan Sebab Kami Memerlukannya</h2>
-    <p>Sentinel meminta kebenaran <strong>secara kontekstual — satu demi satu</strong>, dengan penerangan ringkas, hanya apabila sesuatu ciri memerlukannya. Anda boleh menolak mana-mana kebenaran; imbasan berkaitan hanya tidak akan tersedia. Setiap kebenaran digunakan <strong>semata-mata</strong> untuk pengimbasan pada peranti.</p>
-    <ul>
-        <li><strong>Kamera:</strong> Digunakan untuk imbasan optik pantulan kanta (mengesan pantulan daripada kanta kamera menggunakan lampu suluh) dan pemapar inframerah. Bingkai kamera dianalisis pada peranti secara masa nyata dan tidak disimpan.</li>
-        <li><strong>Lokasi (tepat) &amp; Wi-Fi berdekatan:</strong> Pada Android, sistem pengendalian <strong>memerlukan</strong> kebenaran lokasi untuk melaksanakan imbasan rangkaian Wi-Fi. Kami hanya menggunakannya untuk menyenaraikan rangkaian Wi-Fi berdekatan bagi imbasan Wi-Fi. Kami tidak menjejak, menyimpan, atau menghantar lokasi geografi anda.</li>
-        <li><strong>Bluetooth / peranti berdekatan:</strong> Digunakan untuk mengimbas peranti Bluetooth Low Energy (BLE) berdekatan yang mungkin kamera, penjejak, atau perakam.</li>
-        <li><strong>Gerakan &amp; penderia (magnetometer):</strong> Digunakan untuk imbasan magnetometer, yang mencari anomali medan magnet berhampiran elektronik. Ini ialah isyarat berkeyakinan rendah, "rujukan sahaja".</li>
-    </ul>
-
-    <h2>5. Cara Kami Menggunakan Maklumat</h2>
-    <ul>
-        <li><strong>Untuk menjalankan imbasan:</strong> Data penderia dianalisis pada peranti anda untuk menonjolkan kemungkinan peranti pengawasan dan menghasilkan skor risiko.</li>
-        <li><strong>Untuk memaparkan sejarah:</strong> Pengesanan dan sesi imbasan anda disimpan secara setempat supaya anda boleh menyemaknya.</li>
-        <li><strong>Untuk meningkatkan kestabilan:</strong> Diagnostik tanpa nama (jika didayakan) membantu kami mencari dan membaiki ranap serta pepijat.</li>
-        <li><strong>Untuk mengurus langganan anda:</strong> Status pembelian daripada gedung/Qonversion membuka kunci ciri Pro.</li>
-    </ul>
-
-    <h2>6. Pengendalian Data Pada Peranti dan Keselamatan</h2>
-    <ul>
-        <li><strong>Storan setempat:</strong> Imbasan, pengesanan, dan sejarah disimpan dalam pangkalan data pada peranti anda. Memadam Apl akan mengeluarkan data ini.</li>
-        <li><strong>Tiada muat naik latar belakang:</strong> Data imbasan tidak disegerakkan ke mana-mana pelayan.</li>
-        <li><strong>Penyulitan semasa transit:</strong> Data terhad yang memang meninggalkan peranti anda (diagnostik, pengesahan pembelian) dihantar melalui sambungan tersulit (TLS/HTTPS).</li>
-        <li>Tiada kaedah storan atau penghantaran yang 100% selamat, dan kami tidak dapat menjamin keselamatan mutlak. Anda bertanggungjawab terhadap keselamatan fizikal peranti anda.</li>
-    </ul>
-
-    <h2>7. Pilihan: Pangkalan Data Peranti Pengawasan Komuniti</h2>
+    <h2>Diagnostik dan Analitik</h2>
+    <p>Untuk memastikan Aplikasi kekal stabil dan meningkatkan kualiti pengesanan, kami menggunakan Firebase Crashlytics dan Firebase Analytics untuk mengumpul maklumat diagnostik dan penggunaan yang <strong>tanpa nama</strong> (contohnya, laporan ranap dan penggunaan ciri secara agregat).</p>
     <div class="highlight">
-        <p>Kami mungkin menawarkan ciri <strong>pilihan yang perlu didayakan sendiri (opt-in)</strong> yang membolehkan anda menyumbang <strong>cap jari tanpa nama</strong> bagi peranti mencurigakan untuk membantu membina pangkalan data komuniti yang menambah baik pengesanan bagi semua orang.</p>
-        <ul>
-            <li>Ciri ini <strong>DIMATIKAN secara lalai</strong>. Ia <strong>berasingan daripada penerimaan Terma Perkhidmatan</strong> — menerima Terma <em>tidak</em> mendayakan perkongsian.</li>
-            <li>Jika anda mendayakannya, hanya <strong>ciri isyarat teknikal tanpa nama</strong> yang boleh dikongsi — sebagai contoh, awalan OUI/vendor atau ciri isyarat generik bagi peranti mencurigakan.</li>
-            <li>Kami <strong>TIDAK</strong> berkongsi sebarang data peribadi, imej kamera atau media lain, kandungan ruang yang anda imbas, atau lokasi geografi anda.</li>
-            <li>Anda boleh <strong>mematikan ini dan membatalkan perkongsian pada bila-bila masa</strong> dalam Tetapan.</li>
-        </ul>
+      <p>Diagnostik <strong>didayakan secara lalai</strong> tetapi bersifat pilihan sepenuhnya. Anda boleh mematikannya pada bila-bila masa di <strong>Tetapan → "Kongsi diagnostik tanpa nama"</strong>. Data ini dinyahkenal, tidak dipautkan kepada identiti anda, dan <strong>tidak</strong> digunakan untuk penjejakan merentas aplikasi atau pengiklanan (tiada IDFA).</p>
     </div>
+    <p><strong>Data imbasan anda (keputusan Wi-Fi, Bluetooth, kamera, dan penderia) tidak pernah disertakan dalam diagnostik dan tidak pernah dihantar ke mana-mana.</strong> Ini merupakan komitmen teras yang tidak berubah.</p>
 
-    <h2>8. Diagnostik dan Analitik (Firebase)</h2>
-    <ul>
-        <li>Kami menggunakan <strong>Firebase Crashlytics</strong> (pelaporan ranap) dan <strong>Firebase Analytics</strong> (metrik penggunaan tanpa nama) untuk meningkatkan kebolehpercayaan dan memahami ciri yang digunakan.</li>
-        <li>Data yang dikumpul mungkin merangkumi model peranti, versi OS, versi apl, surih tindanan ranap, dan kiraan peristiwa tanpa nama. Ia <strong>tidak digunakan untuk mengenal pasti anda</strong> dan tidak mengandungi sebarang kandungan imbasan.</li>
-        <li>Anda boleh <strong>memilih keluar (opt out)</strong> pada bila-bila masa dalam Tetapan; diagnostik mungkin didayakan secara lalai dan boleh dilumpuhkan.</li>
-    </ul>
+    <h2>Kemas Kini Data Pengesanan</h2>
+    <p>Aplikasi mungkin memuat turun data rujukan awam melalui sambungan HTTPS yang selamat — contohnya, senarai pembekal perkakasan (OUI) dan senarai port mencurigakan yang diketahui — untuk meningkatkan ketepatan pengesanan. Ini adalah <strong>muat turun sahaja</strong>. Tiada data imbasan atau maklumat peribadi dihantar sebagai sebahagian daripada kemas kini ini.</p>
 
-    <h2>9. Langganan dan Pembelian</h2>
-    <ul>
-        <li>Sentinel menawarkan langganan <strong>Pro</strong> pilihan yang membuka kunci modul pengimbasan lanjutan.</li>
-        <li>Pembelian diproses oleh <strong>Apple App Store</strong> atau <strong>Google Play Store</strong> dan diurus melalui <strong>Qonversion</strong> untuk penjejakan hak merentas platform.</li>
-        <li>Maklumat pengebilan dikendalikan oleh gedung apl di bawah dasar privasi mereka sendiri. Kami hanya menerima status langganan anda.</li>
-    </ul>
+    <h2>Pembelian Dalam Aplikasi</h2>
+    <p>Aplikasi menawarkan langganan berbayar pilihan ("Pro"). Pembayaran diproses sepenuhnya oleh Apple App Store atau Google Play. Kami <strong>tidak</strong> menerima atau menyimpan butiran kad pembayaran anda. Status pembelian dan langganan disahkan melalui mekanisme resit gedung. Sila rujuk dasar privasi gedung yang berkenaan untuk mengetahui cara maklumat pembayaran anda dikendalikan.</p>
 
-    <h2>10. Perkongsian dan Pendedahan Data</h2>
-    <div class="warning">
-        <p><strong>Kami TIDAK menjual maklumat peribadi anda, dan kami tidak berkongsi data imbasan anda dengan pihak ketiga.</strong></p>
-    </div>
-    <p>Kami hanya berkongsi kategori data terhad yang diterangkan di atas, dan hanya dengan penyedia perkhidmatan yang diperlukan untuk menyampaikan Apl:</p>
-    <ul>
-        <li><strong>Firebase (Google):</strong> Pelaporan ranap dan analitik tanpa nama (boleh dimatikan).</li>
-        <li><strong>Apple App Store / Google Play / Qonversion:</strong> Pengebilan dan status langganan.</li>
-        <li><strong>Keperluan undang-undang:</strong> Kami mungkin mendedahkan maklumat jika dikehendaki oleh undang-undang, proses undang-undang, atau untuk melindungi hak dan keselamatan. Oleh kerana data imbasan kekal pada peranti anda, ia tidak tersedia kepada kami untuk didedahkan.</li>
-    </ul>
+    <h2>Storan Setempat</h2>
+    <p>Aplikasi menyimpan sejarah imbasan, garis dasar, dan tetapan anda (seperti tema, bahasa, dan modul yang didayakan) secara setempat pada peranti anda menggunakan pangkalan data dan keutamaan pada peranti. Maklumat ini tidak disegerakkan ke mana-mana pelayan.</p>
 
-    <h2>11. Privasi Kanak-Kanak</h2>
-    <ul>
-        <li>Sentinel <strong>tidak ditujukan kepada kanak-kanak</strong> dan dimaksudkan untuk orang dewasa serta remaja yang lebih tua (sekurang-kurangnya 13 tahun, atau 16 tahun di tempat yang dikehendaki oleh undang-undang tempatan).</li>
-        <li>Kami tidak mengumpul maklumat peribadi daripada kanak-kanak di bawah umur yang berkenaan secara sedar. Jika anda percaya seorang kanak-kanak telah memberikan maklumat kepada kami, sila hubungi kami dan kami akan menanganinya.</li>
-    </ul>
+    <h2>Privasi Kanak-kanak</h2>
+    <p>Aplikasi ini tidak ditujukan kepada kanak-kanak berumur di bawah 13 tahun (atau umur minimum yang diperlukan dalam bidang kuasa anda, seperti 16 tahun di sesetengah bahagian EU). Kami tidak mengumpul maklumat peribadi daripada kanak-kanak secara sedar.</p>
 
-    <h2>12. Pengekalan Data</h2>
-    <ul>
-        <li><strong>Data imbasan &amp; sejarah:</strong> Disimpan pada peranti anda sehingga anda memadamnya atau menyahpasang Apl. Anda boleh mengosongkan sejarah dalam Apl pada bila-bila masa.</li>
-        <li><strong>Diagnostik:</strong> Data ranap dan analitik disimpan oleh Firebase untuk tempoh terhad (biasanya sehingga 12&ndash;14 bulan) kemudian dipadam secara automatik atau dinyahnamakan.</li>
-        <li><strong>Data langganan:</strong> Disimpan oleh gedung apl dan Qonversion menurut dasar mereka.</li>
-    </ul>
+    <h2>Hak Anda</h2>
+    <p>Bergantung pada tempat anda tinggal, anda mungkin mempunyai hak di bawah undang-undang seperti GDPR atau CCPA, termasuk hak untuk mengakses atau memadamkan data peribadi anda. Oleh sebab Aplikasi tidak mengumpul atau menyimpan data imbasan atau data peribadi anda pada mana-mana pelayan, <strong>semua data anda berada pada peranti anda</strong>. Memadamkan Aplikasi akan mengalih keluar data ini, termasuk sejarah imbasan dan tetapan anda. Jika anda telah mendayakan diagnostik, anda boleh melumpuhkannya pada bila-bila masa dalam Tetapan.</p>
+    <p>Untuk sebarang soalan atau permintaan berkaitan privasi, hubungi kami menggunakan butiran di bawah.</p>
 
-    <h2>13. Hak Privasi Anda</h2>
-    <p>Bergantung pada tempat anda tinggal, anda mungkin mempunyai hak untuk mengakses, membetulkan, memadam, atau memindahkan data peribadi anda, serta membantah atau menyekat pemprosesan tertentu (sebagai contoh di bawah <strong>GDPR</strong> EU/UK atau <strong>CCPA/CPRA</strong> di California).</p>
-    <ul>
-        <li>Oleh kerana data imbasan anda hanya berada pada peranti anda, anda boleh melaksanakan kebanyakan hak secara langsung — dengan melihat, mengeksport jika tersedia, atau memadam data anda dan menyahpasang Apl.</li>
-        <li>Untuk data diagnostik atau langganan, hubungi kami di e-mel di bawah dan kami akan membalas dalam tempoh yang dikehendaki oleh undang-undang tempatan anda (umumnya dalam 30 hari).</li>
-        <li>Penduduk California: kami tidak menjual atau "berkongsi" maklumat peribadi sebagaimana ditakrifkan oleh CCPA/CPRA.</li>
-    </ul>
+    <h2>Perubahan pada Dasar Ini</h2>
+    <p>Kami mungkin mengemas kini Dasar Privasi ini dari semasa ke semasa. Apabila kami membuat perubahan material, kami akan mengemas kini tarikh "Kemas kini terakhir" di atas dan, jika sesuai, memaklumkan anda dalam Aplikasi. Penggunaan berterusan Aplikasi oleh anda selepas perubahan berkuat kuasa bermakna anda menerima dasar yang telah dikemas kini.</p>
 
-    <h2>14. Pemindahan Data Antarabangsa</h2>
-    <p>Data diagnostik dan langganan terhad yang meninggalkan peranti anda mungkin diproses oleh penyedia perkhidmatan kami di negara selain negara anda sendiri, termasuk Amerika Syarikat. Apabila dikehendaki, kami bergantung pada langkah perlindungan yang sesuai seperti Klausa Kontraktual Standard (Standard Contractual Clauses) untuk pemindahan merentas sempadan.</p>
-
-    <h2>15. Perkhidmatan Pihak Ketiga</h2>
-    <p>Kami menggalakkan anda menyemak dasar privasi perkhidmatan yang kami bergantung kepadanya:</p>
-    <ul>
-        <li><a href="https://policies.google.com/privacy">Dasar Privasi Google</a></li>
-        <li><a href="https://firebase.google.com/support/privacy">Privasi &amp; Keselamatan Firebase</a></li>
-        <li><a href="https://www.apple.com/legal/privacy/">Dasar Privasi Apple</a></li>
-        <li><a href="https://qonversion.io/privacy-policy">Dasar Privasi Qonversion</a></li>
-    </ul>
-
-    <h2>16. Perubahan pada Dasar Ini</h2>
-    <p>Kami mungkin mengemas kini Dasar Privasi ini dari semasa ke semasa. Apabila kami membuat perubahan material, kami akan mengemas kini tarikh "Kemas kini terakhir" di atas dan, jika sesuai, memberitahu anda dalam Apl. Penggunaan Apl yang berterusan selepas tarikh kuat kuasa merupakan penerimaan dasar yang dikemas kini.</p>
-
-    <h2>17. Hubungi Kami</h2>
+    <h2>Hubungi Kami</h2>
     <div class="contact-info">
-        <p>Jika anda mempunyai sebarang pertanyaan, kebimbangan, atau permintaan berkenaan Dasar Privasi ini atau data anda, sila hubungi kami:</p>
-        <p><strong>E-mel:</strong> <a href="mailto:nguyen@sartoro.co">nguyen@sartoro.co</a> <!-- [EDIT: contact email] --></p>
-        <p><strong>Apl:</strong> Sentinel (bundle ID <code>io.ntvtech.hiddencamdetect</code>)</p>
-        <p><strong>Penyedia:</strong> [EDIT: company legal name] &middot; [EDIT: business address]</p>
-        <p><small>&copy; <span class="copyright-year">2026</span> Sentinel. Hak cipta terpelihara.</small></p>
+      <p>Jika anda mempunyai soalan tentang Dasar Privasi ini atau data anda, hubungi kami di:</p>
+      <p><strong>HiddenCamDetect</strong><br>
+      E-mel: <a href="mailto:nhanntv113@gmail.com">nhanntv113@gmail.com</a></p>
     </div>
-
-    <script>
-        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
-    </script>
+  </div>
 </body>
 </html>

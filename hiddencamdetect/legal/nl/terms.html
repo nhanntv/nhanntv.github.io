@@ -1,227 +1,107 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gebruiksvoorwaarden – Sentinel</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-        }
-        h1 {
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #4CAF50;
-        }
-        h2 {
-            color: #2c3e50;
-            font-size: 1.3em;
-            margin-top: 30px;
-            margin-bottom: 10px;
-        }
-        h3 {
-            color: #34495e;
-            font-size: 1.1em;
-            margin-top: 15px;
-            margin-bottom: 8px;
-        }
-        p { margin-bottom: 12px; }
-        ul {
-            margin-left: 20px;
-            margin-bottom: 12px;
-        }
-        li { margin-bottom: 6px; }
-        .last-updated {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        .highlight {
-            background-color: #f8f9fa;
-            border-left: 4px solid #4CAF50;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .warning {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .contact-info {
-            background-color: #e8f5e9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-        a { color: #4CAF50; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #1a1a1a; color: #f5f5f5; }
-            h1 { color: #81C784; border-bottom-color: #4CAF50; }
-            h2 { color: #cfd8dc; }
-            h3 { color: #b0bec5; }
-            .highlight {
-                background-color: #263238;
-                border-left-color: #4CAF50;
-                color: #e0e0e0;
-            }
-            .highlight p, .highlight li, .highlight strong, .highlight span {
-                color: #e0e0e0;
-            }
-            .warning {
-                background-color: #3e2723;
-                border-left-color: #ff9800;
-                color: #e0e0e0;
-            }
-            .warning p, .warning li, .warning strong, .warning span {
-                color: #e0e0e0;
-            }
-            .contact-info {
-                background-color: #1b5e20;
-                color: #e0e0e0;
-            }
-            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
-                color: #e0e0e0;
-            }
-            ul, li { color: #f5f5f5; }
-            .last-updated { color: #b0bec5; }
-            a { color: #81C784; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Servicevoorwaarden — HiddenCamDetect</title>
+  <style>
+    :root {
+      color-scheme: light;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px 18px 48px;
+      -webkit-text-size-adjust: 100%;
+    }
+    .container { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; line-height: 1.3; margin: 0 0 8px; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 32px 0 8px; }
+    p, li { font-size: 1rem; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    a { color: #0a63c9; word-break: break-word; }
+    .last-updated { color: #6b7280; font-size: 0.9rem; margin: 0 0 24px; }
+    .highlight {
+      background: #eef4ff;
+      border-left: 4px solid #0a63c9;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .warning {
+      background: #fff4e5;
+      border-left: 4px solid #d97706;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .contact-info {
+      background: #f3f4f6;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    strong { font-weight: 600; }
+  </style>
 </head>
 <body>
-    <h1>Gebruiksvoorwaarden</h1>
-    <p class="last-updated">Van kracht vanaf: juli 2026 &middot; Laatst bijgewerkt: juli 2026</p>
+  <div class="container">
+    <h1>Servicevoorwaarden</h1>
+    <p class="last-updated">Laatst bijgewerkt: July 2026</p>
 
-    <div class="highlight">
-        <p><strong>Sentinel</strong> (de „App") is een multisensor-scanhulpmiddel dat u helpt te zoeken naar verborgen camera's en heimelijke opnameapparatuur. Door Sentinel te downloaden, te installeren of te gebruiken, gaat u akkoord met deze Gebruiksvoorwaarden („Voorwaarden"). Lees ze zorgvuldig door, met name de disclaimers en de aansprakelijkheidsbeperking.</p>
-    </div>
+    <p>Deze Servicevoorwaarden ("Voorwaarden") zijn van toepassing op uw gebruik van de HiddenCamDetect-applicatie (de "App"), aangeboden door HiddenCamDetect ("wij", "ons" of "onze"). Lees ze zorgvuldig door. Door de App te downloaden, te installeren of te gebruiken, gaat u akkoord met deze Voorwaarden.</p>
 
-    <h2>1. Aanvaarding van de Voorwaarden</h2>
-    <p>Door Sentinel te downloaden, te installeren of te gebruiken, gaat u ermee akkoord gebonden te zijn aan deze Voorwaarden. Als u niet akkoord gaat, gebruik de App dan niet. Deze Voorwaarden vormen een juridisch bindende overeenkomst tussen u („Gebruiker", „u") en de aanbieder van Sentinel („wij", „ons", „onze").</p>
+    <h2>Aanvaarding van de Voorwaarden</h2>
+    <p>Door de App te openen of te gebruiken, bevestigt u dat u deze Voorwaarden en ons Privacybeleid hebt gelezen en begrepen en dat u ermee instemt hieraan gebonden te zijn. Als u niet akkoord gaat, gebruik de App dan niet.</p>
 
-    <h2>2. Beschrijving van de dienst</h2>
-    <p>Sentinel gebruikt de bestaande sensoren van uw apparaat om mogelijke tekenen van bewakingsapparatuur aan het licht te brengen. Afhankelijk van de mogelijkheden van uw apparaat kan dit het volgende omvatten:</p>
-    <ul>
-        <li><strong>Wifi-netwerkscan</strong> &mdash; somt nabijgelegen wifi-apparaten op en markeert patronen die op camera's kunnen wijzen.</li>
-        <li><strong>Optische lensreflectiescan</strong> &mdash; gebruikt de camera en de zaklamp om reflecties van lenzen op te sporen.</li>
-        <li><strong>Bluetooth-(BLE-)scan</strong> &mdash; detecteert nabijgelegen Bluetooth-apparaten.</li>
-        <li><strong>Magnetometerscan</strong> &mdash; een controle met lage betrouwbaarheid „alleen ter referentie" op magnetische afwijkingen.</li>
-        <li><strong>Infrarood-(IR-)viewer</strong> &mdash; helpt u te zoeken naar infrarood-leds die door sommige camera's worden gebruikt.</li>
-        <li><strong>Time-of-Flight-/LiDAR-scan</strong> &mdash; diepte-gebaseerde inspectie op ondersteunde apparaten.</li>
-        <li><strong>Begeleide handmatige checklist</strong> &mdash; stapsgewijze instructies om een ruimte met de hand te inspecteren.</li>
-    </ul>
-
-    <h2>3. Geen garantie op detectie — eerlijke positionering</h2>
+    <h2>Belangrijke kennisgeving — Geen garantie</h2>
     <div class="warning">
-        <p>Sentinel is een <strong>hulpmiddel voor bewustwording en eerste beoordeling</strong>, geen gegarandeerde detector. U erkent en gaat ermee akkoord dat:</p>
-        <ul>
-            <li>de App <strong>niet elk verborgen apparaat kan vinden</strong> en zowel <strong>valse positieven</strong> (het markeren van onschuldige voorwerpen) als <strong>valse negatieven</strong> (het missen van echte apparaten) kan produceren.</li>
-            <li>de App <strong>nooit</strong> kan bevestigen dat een ruimte „100% veilig" is. Een scan die niets vindt, betekent alleen dat er met de beschikbare methoden geen verdachte signalen zijn gedetecteerd — niet dat er geen apparaat aanwezig is.</li>
-            <li>u <strong>niet uitsluitend op Sentinel mag vertrouwen als enige beschermingsmiddel</strong>. Combineer het altijd met een zorgvuldige handmatige inspectie (met behulp van de begeleide checklist in de app).</li>
-            <li>Sentinel <strong>geen vervanging</strong> is voor een professionele technische bewakingstegenmaatregelen-sweep (TSCM) of voor wetshandhaving. Als uw veiligheid in gevaar kan zijn, neem dan contact op met een gekwalificeerde professional of de autoriteiten.</li>
-        </ul>
+      <p>HiddenCamDetect is een <strong>hulpmiddel voor bewustwording en triage</strong>, geen gegarandeerde detector. Geen enkele smartphone-app kan elke verborgen camera, opnameapparaat of afluisterapparaat vinden. De App vervangt <strong>geen</strong> professionele fysieke inspectie of een gekwalificeerde technische veiligheidscontrole.</p>
     </div>
+    <p>U mag niet uitsluitend op de App vertrouwen als enige beschermingsmiddel. Een resultaat "geen verdachte signalen gevonden" betekent <strong>niet</strong> dat een ruimte veilig of vrij van apparaten is. Combineer de resultaten van de App altijd met een zorgvuldige handmatige controle en volg de begeleide checklist die in de App wordt aangeboden. Wij beloven niet dat de App een bepaald apparaat zal detecteren.</p>
 
-    <h2>4. Gebruikslicentie</h2>
-    <p>Onder voorbehoud van deze Voorwaarden verlenen wij u een beperkte, persoonlijke, niet-exclusieve, niet-overdraagbare, herroepbare licentie om Sentinel te installeren en te gebruiken op apparaten die u bezit of beheert, voor uw eigen rechtmatige, persoonlijke gebruik. U mag de App niet in sublicentie geven, doorverkopen of commercieel exploiteren zonder onze schriftelijke toestemming.</p>
+    <h2>Licentie voor het gebruik van de App</h2>
+    <p>Onder voorbehoud van deze Voorwaarden verlenen wij u een beperkte, persoonlijke, niet-exclusieve, niet-overdraagbare en herroepbare licentie om de App te installeren en te gebruiken op apparaten die u bezit of beheert, voor uw persoonlijke, niet-commerciële gebruik. U mag de App niet kopiëren, wijzigen, reverse-engineeren, distribueren of er afgeleide werken van maken, behalve voor zover toegestaan door de wet.</p>
 
-    <h2>5. Aanvaardbaar en rechtmatig gebruik</h2>
-    <p>U bent als enige verantwoordelijk voor het rechtmatig gebruik van Sentinel. U gaat ermee akkoord dat:</p>
+    <h2>Rechtmatig en verantwoord gebruik</h2>
+    <p>U stemt ermee in de App alleen te gebruiken op plaatsen waar u het wettelijke recht hebt om dit te doen — bijvoorbeeld uw eigen woning, kamer of verblijf. U bent als enige verantwoordelijk voor de naleving van alle toepasselijke wetten op uw locatie, waaronder wetten met betrekking tot privacy, surveillance, opnames en eigendom. U mag de App niet gebruiken om anderen lastig te vallen, te stalken of hun rechten te schenden. U bent verantwoordelijk voor de manier waarop u de resultaten van de App interpreteert en ernaar handelt.</p>
+
+    <h2>Pro-abonnement en facturering</h2>
+    <p>De App biedt een optioneel betaald abonnement ("Pro") dat aanvullende functies ontgrendelt. De volgende voorwaarden zijn van toepassing:</p>
     <ul>
-        <li>u <strong>alleen ruimtes inspecteert die u bezit, bewoont of die u anderszins wettelijk gerechtigd bent te inspecteren</strong> (bijvoorbeeld uw eigen woning, een hotelkamer die u hebt gehuurd, of een pand met toestemming van de eigenaar).</li>
-        <li>u alle toepasselijke wetten naleeft, waaronder privacy-, bewakings-, huisvredebreuk- en eigendomswetten in uw rechtsgebied.</li>
-        <li>u de App niet zult gebruiken om een persoon lastig te vallen, te stalken, te bespieden of te schaden, of om netwerken of apparaten te verstoren waartoe u geen toegang mag hebben.</li>
-        <li>u de App niet zult reverse-engineeren, decompileren of disassembleren, behalve voor zover wettelijk toegestaan, en dat u de beveiliging, gebruikslimieten of toegangscontroles ervan niet zult omzeilen.</li>
+      <li>De betaling wordt bij bevestiging van de aankoop in rekening gebracht op uw Apple App Store- of Google Play-account.</li>
+      <li>Abonnementen worden aan het einde van elke factureringsperiode <strong>automatisch verlengd</strong>, tenzij de automatische verlenging ten minste 24 uur vóór het einde van de periode wordt uitgeschakeld.</li>
+      <li>U kunt uw abonnement beheren of opzeggen in de accountinstellingen van uw Apple App Store of Google Play.</li>
+      <li>Terugbetalingen worden afgehandeld volgens het beleid van de betreffende store; wij verwerken betalingen niet rechtstreeks.</li>
+      <li>Een eventuele gratis proefperiode wordt automatisch omgezet in een betaald abonnement, tenzij deze vóór het einde van de proefperiode wordt opgezegd. De prijzen worden in de App weergegeven zoals aangeleverd door de store.</li>
     </ul>
-    <p>U bent verantwoordelijk voor alle gevolgen van onrechtmatig of ongeoorloofd gebruik.</p>
+    <p>Aanvullende factureringsvoorwaarden van de store kunnen van toepassing zijn: raadpleeg de accountinstellingen van uw Apple App Store of Google Play en de bijbehorende toepasselijke voorwaarden.</p>
 
-    <h2>6. Abonnementen en betalingen</h2>
-    <h3>6.1 Pro-abonnement</h3>
-    <ul>
-        <li>Sentinel biedt een optioneel <strong>Pro</strong>-abonnement dat geavanceerde scanmodules ontgrendelt. De kernfuncties blijven beschikbaar zonder abonnement.</li>
-        <li>Abonnementen worden verkocht via de <strong>Apple App Store</strong> of de <strong>Google Play Store</strong> en beheerd via <strong>Qonversion</strong>.</li>
-    </ul>
-    <h3>6.2 Facturering, automatische verlenging en opzegging</h3>
-    <ul>
-        <li>Abonnementen <strong>worden automatisch verlengd</strong> aan het einde van elke factureringsperiode, tenzij ze ten minste 24 uur vóór de verlengingsdatum worden opgezegd.</li>
-        <li>Uw account wordt belast via uw appstore-account. Prijzen worden weergegeven in uw lokale valuta en kunnen per regio verschillen; er kunnen belastingen van toepassing zijn.</li>
-        <li>U kunt op elk moment opzeggen via de abonnementsinstellingen van uw apparaat (App Store of Google Play). De opzegging gaat in aan het einde van de lopende periode; tot dan behoudt u Pro-toegang.</li>
-        <li>Terugbetalingen worden afgehandeld door Apple of Google volgens hun respectieve beleid. Een optie <strong>„Aankopen herstellen"</strong> is beschikbaar om aankopen op nieuwe apparaten te herstellen.</li>
-    </ul>
+    <h2>Intellectuele eigendom</h2>
+    <p>De App, inclusief de software, het ontwerp, de teksten, afbeeldingen en handelsmerken, is eigendom van ons of onze licentiegevers en wordt beschermd door wetten inzake intellectuele eigendom. Deze Voorwaarden verlenen u geen enkel eigendomsrecht op de App. Alle rechten die niet uitdrukkelijk worden verleend, blijven voorbehouden.</p>
 
-    <h2>7. Intellectueel eigendom</h2>
-    <p>Sentinel, inclusief de software, het ontwerp, de logo's en de inhoud, is eigendom van ons of onze licentiegevers en wordt beschermd door wetgeving inzake intellectueel eigendom. Deze Voorwaarden dragen geen eigendomsrechten aan u over. Alle gegevens die u binnen de App genereert (zoals scangeschiedenis en notities) blijven van u en blijven op uw apparaat.</p>
+    <h2>Beperking van aansprakelijkheid</h2>
+    <p>Voor zover maximaal toegestaan door de wet zijn wij niet aansprakelijk voor enige indirecte, incidentele, bijzondere, gevolg- of punitieve schade, noch voor enig verlies, letsel of schade die voortvloeit uit uw gebruik van, of onvermogen om gebruik te maken van, de App — inclusief het niet detecteren van een verborgen apparaat. U gebruikt de App op eigen risico.</p>
 
-    <h2>8. Disclaimers</h2>
-    <ul>
-        <li>De App wordt geleverd <strong>„zoals deze is"</strong> en <strong>„zoals beschikbaar"</strong>, zonder enige garantie, expliciet of impliciet, waaronder verkoopbaarheid, geschiktheid voor een bepaald doel, nauwkeurigheid en niet-inbreuk.</li>
-        <li>Wij garanderen niet dat de App ononderbroken, foutloos of veilig zal zijn, of dat deze een bepaald apparaat zal detecteren.</li>
-        <li>Scanresultaten, risicoscores en indicatoren zijn <strong>schattingen</strong> die door heuristieken en de sensoren van uw apparaat worden gegenereerd en afhangen van de hardwaremogelijkheden en omgevingsomstandigheden. Er mag niet als definitief op worden vertrouwd.</li>
-        <li>Wij zijn niet verantwoordelijk voor enig gevolg dat voortvloeit uit het vertrouwen op de App, waaronder niet-gedetecteerde apparaten of valse alarmen.</li>
-    </ul>
+    <h2>Uitsluiting van garanties</h2>
+    <p>De App wordt geleverd "zoals deze is" en "zoals beschikbaar", zonder enige vorm van garantie, expliciet of impliciet, waaronder garanties van verkoopbaarheid, geschiktheid voor een bepaald doel, nauwkeurigheid of niet-inbreuk. Wij garanderen niet dat de App foutloos of ononderbroken zal werken, of dat deze een specifiek apparaat zal detecteren.</p>
 
-    <h2>9. Beperking van aansprakelijkheid</h2>
-    <p>Voor zover maximaal is toegestaan door de toepasselijke wetgeving:</p>
-    <ul>
-        <li>Wij zijn niet aansprakelijk voor enige indirecte, incidentele, bijzondere, gevolg-, voorbeeldige of bestraffende schade, of voor enig verlies van privacy, gegevens of veiligheid, voortvloeiend uit of verband houdend met uw gebruik van (of onvermogen om gebruik te maken van) de App, waaronder het niet detecteren van een bewakingsapparaat.</li>
-        <li>Onze totale gezamenlijke aansprakelijkheid voor enige vordering die voortvloeit uit of verband houdt met de App zal niet hoger zijn dan het bedrag dat u voor het abonnement op de App hebt betaald in de <strong>12 maanden</strong> voorafgaand aan de vordering.</li>
-        <li>Sommige rechtsgebieden staan bepaalde beperkingen niet toe; op die plaatsen is onze aansprakelijkheid beperkt tot de grootst mogelijke wettelijk toegestane mate.</li>
-    </ul>
+    <h2>Toepasselijk recht</h2>
+    <p>Op deze Voorwaarden is het recht van de Socialistische Republiek Vietnam van toepassing, zonder rekening te houden met de beginselen van conflictenrecht. Eventuele geschillen worden voorgelegd aan de rechtbanken van dat rechtsgebied, tenzij het toepasselijke recht anders vereist.</p>
 
-    <h2>10. Geen vervanging voor professionele diensten</h2>
-    <p>Sentinel biedt geen beveiligings-, juridische of opsporingsdiensten. Voor situaties waarbij sprake is van een reëel risico voor uw veiligheid, privacy of eigendom, raadpleeg een gekwalificeerde professional (zoals een erkende TSCM-specialist) of neem contact op met wetshandhaving. Niets in de App vormt professioneel advies.</p>
+    <h2>Wijzigingen in deze Voorwaarden</h2>
+    <p>Wij kunnen deze Voorwaarden van tijd tot tijd bijwerken. Wanneer wij wezenlijke wijzigingen aanbrengen, werken wij de datum "Laatst bijgewerkt" hierboven bij en stellen wij u, waar passend, hiervan op de hoogte binnen de App. Uw voortgezette gebruik van de App nadat de wijzigingen van kracht zijn geworden, betekent dat u de bijgewerkte Voorwaarden aanvaardt.</p>
 
-    <h2>11. Privacy</h2>
-    <p>Uw gebruik van de App wordt tevens beheerst door ons <strong>Privacybeleid</strong>, dat uitlegt hoe met gegevens wordt omgegaan. Sentinel is offline-eerst: uw scangegevens blijven op uw apparaat en worden standaard niet van het apparaat verzonden. Door de App te gebruiken, erkent u de in het Privacybeleid beschreven praktijken.</p>
-
-    <h2>12. Beëindiging</h2>
-    <ul>
-        <li>U kunt op elk moment stoppen met het gebruik van de App en deze deïnstalleren, waardoor uw lokaal opgeslagen gegevens worden verwijderd.</li>
-        <li>Wij kunnen uw toegang opschorten of beëindigen als u deze Voorwaarden schendt of de App onrechtmatig gebruikt.</li>
-        <li>Bepalingen die naar hun aard de beëindiging zouden moeten overleven (waaronder disclaimers, aansprakelijkheidsbeperking en toepasselijk recht) blijven van kracht.</li>
-    </ul>
-
-    <h2>13. Toepasselijk recht</h2>
-    <p>Deze Voorwaarden worden beheerst door en uitgelegd in overeenstemming met de wetten van <strong>[EDIT: governing-law jurisdiction — placeholder: Vietnam]</strong>, zonder rekening te houden met de regels inzake wetsconflicten. Eventuele geschillen vallen onder de bevoegdheid van de rechtbanken van dat rechtsgebied, behalve waar dwingende lokale consumentenbeschermingswetten u aanvullende rechten verlenen. Niets in deze Voorwaarden beperkt enige niet-afdwingbare wettelijke rechten die u als consument hebt.</p>
-
-    <h2>14. Wijzigingen in deze Voorwaarden</h2>
-    <p>Wij kunnen deze Voorwaarden van tijd tot tijd bijwerken. Wanneer er wezenlijke wijzigingen worden aangebracht, werken wij de datum „Laatst bijgewerkt" hierboven bij en stellen wij u, waar passend, in de App op de hoogte. Voortgezet gebruik van de App na de ingangsdatum geldt als aanvaarding van de bijgewerkte Voorwaarden. Als u niet akkoord gaat, stop dan met het gebruik van de App.</p>
-
-    <h2>15. Bevestiging</h2>
-    <div class="warning">
-        <p>Door Sentinel te gebruiken, erkent u en gaat u ermee akkoord dat:</p>
-        <ul>
-            <li>de App een <strong>hulpmiddel voor eerste beoordeling en bewustwording</strong> is, geen gegarandeerde detector, en niet kan verzekeren dat een ruimte vrij is van bewakingsapparatuur.</li>
-            <li>valse positieven en valse negatieven mogelijk zijn; u <strong>niet alleen op de App zult vertrouwen</strong> voor uw veiligheid.</li>
-            <li>u de App <strong>rechtmatig</strong> zult gebruiken en alleen om ruimtes te inspecteren die u gerechtigd bent te inspecteren.</li>
-            <li>u bij reële risico's professionele hulp of hulp van wetshandhaving zult inroepen.</li>
-        </ul>
-    </div>
-
-    <h2>16. Contactgegevens</h2>
+    <h2>Contact met ons opnemen</h2>
     <div class="contact-info">
-        <p>Als u vragen, zorgen of feedback hebt over deze Voorwaarden, neem dan contact met ons op:</p>
-        <p><strong>E-mail:</strong> <a href="mailto:nguyen@sartoro.co">nguyen@sartoro.co</a> <!-- [EDIT: contact email] --></p>
-        <p><strong>App:</strong> Sentinel (bundel-ID <code>io.ntvtech.hiddencamdetect</code>)</p>
-        <p><strong>Aanbieder:</strong> [EDIT: company legal name] &middot; [EDIT: business address]</p>
-        <p><small>&copy; <span class="copyright-year">2026</span> Sentinel. Alle rechten voorbehouden.</small></p>
+      <p>Als u vragen hebt over deze Voorwaarden, neem dan contact met ons op via:</p>
+      <p><strong>HiddenCamDetect</strong><br>
+      E-mail: <a href="mailto:nhanntv113@gmail.com">nhanntv113@gmail.com</a></p>
     </div>
-
-    <script>
-        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
-    </script>
+  </div>
 </body>
 </html>

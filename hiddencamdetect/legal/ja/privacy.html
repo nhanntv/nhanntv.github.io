@@ -1,264 +1,117 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>プライバシーポリシー – Sentinel</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-        }
-        h1 {
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #4CAF50;
-        }
-        h2 {
-            color: #2c3e50;
-            font-size: 1.3em;
-            margin-top: 30px;
-            margin-bottom: 10px;
-        }
-        h3 {
-            color: #34495e;
-            font-size: 1.1em;
-            margin-top: 15px;
-            margin-bottom: 8px;
-        }
-        p { margin-bottom: 12px; }
-        ul {
-            margin-left: 20px;
-            margin-bottom: 12px;
-        }
-        li { margin-bottom: 6px; }
-        .last-updated {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        .highlight {
-            background-color: #f8f9fa;
-            border-left: 4px solid #4CAF50;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .warning {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .contact-info {
-            background-color: #e8f5e9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-        a { color: #4CAF50; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #1a1a1a; color: #f5f5f5; }
-            h1 { color: #81C784; border-bottom-color: #4CAF50; }
-            h2 { color: #cfd8dc; }
-            h3 { color: #b0bec5; }
-            .highlight {
-                background-color: #263238;
-                border-left-color: #4CAF50;
-                color: #e0e0e0;
-            }
-            .highlight p, .highlight li, .highlight strong, .highlight span {
-                color: #e0e0e0;
-            }
-            .warning {
-                background-color: #3e2723;
-                border-left-color: #ff9800;
-                color: #e0e0e0;
-            }
-            .warning p, .warning li, .warning strong, .warning span {
-                color: #e0e0e0;
-            }
-            .contact-info {
-                background-color: #1b5e20;
-                color: #e0e0e0;
-            }
-            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
-                color: #e0e0e0;
-            }
-            ul, li { color: #f5f5f5; }
-            .last-updated { color: #b0bec5; }
-            a { color: #81C784; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>プライバシーポリシー — HiddenCamDetect</title>
+  <style>
+    :root {
+      color-scheme: light;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px 18px 48px;
+      -webkit-text-size-adjust: 100%;
+    }
+    .container { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; line-height: 1.3; margin: 0 0 8px; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 32px 0 8px; }
+    p, li { font-size: 1rem; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    a { color: #0a63c9; word-break: break-word; }
+    .last-updated { color: #6b7280; font-size: 0.9rem; margin: 0 0 24px; }
+    .highlight {
+      background: #eef4ff;
+      border-left: 4px solid #0a63c9;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .warning {
+      background: #fff4e5;
+      border-left: 4px solid #d97706;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .contact-info {
+      background: #f3f4f6;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    strong { font-weight: 600; }
+  </style>
 </head>
 <body>
+  <div class="container">
     <h1>プライバシーポリシー</h1>
-    <p class="last-updated">発効日: 2026年7月 &middot; 最終更新日: 2026年7月</p>
+    <p class="last-updated">最終更新日: July 2026</p>
+
+    <p>HiddenCamDetect（以下「本アプリ」）は、隠しカメラ、隠された録音機、盗聴器を探すのに役立つ、隠し機器の注意喚起およびトリアージツールです。本プライバシーポリシーは、本アプリがどのようなデータを取り扱い、また取り扱わないか、そしてお客様のプライバシーがどのように保護されるかを説明します。HiddenCamDetectはHiddenCamDetect（以下「当社」）によって提供されています。</p>
 
     <div class="highlight">
-        <p>本プライバシーポリシーは、<strong>Sentinel</strong>（以下「本アプリ」「当社」）が情報をどのように取り扱うかを説明するものです。Sentinel は、<strong>オフラインファースト・プライバシーファースト</strong>のツールであり、周囲に隠しカメラや秘密の録音・撮影機器がないかをスキャンするお手伝いをします。スキャン結果はお客様の端末内に留まります。当社は、初期設定では<strong>スキャンデータが端末から外部に送信されることが一切ない</strong>よう Sentinel を設計しています。</p>
+      <p>HiddenCamDetectは<strong>オフラインファーストかつプライバシーファースト</strong>です。お客様のスキャン結果は、すべてお客様の端末上で処理されます。本アプリにはスキャン用のバックエンドがなく、お客様のスキャンデータが当社や第三者にアップロードされることは一切ありません。</p>
     </div>
 
-    <h2>1. Sentinel とは何か、そして何ではないか</h2>
-    <div class="warning">
-        <p>Sentinel は<strong>気づきと初期トリアージを支援するツール</strong>であり、確実な検出器ではありません。本アプリは端末に既に備わっているセンサーを利用して、監視機器の<em>可能性のある</em>兆候を浮かび上がらせます。本アプリは<strong>すべての隠し機器を発見できるわけではなく</strong>、ある空間が「100%安全」であると確認することは決してできません。結果には、誤検知と見逃しの両方が含まれる可能性があります。Sentinel は必ず入念な手動点検と組み合わせてご利用いただき、ご自身の安全が脅かされるおそれがある場合は専門家の支援を求めてください。</p>
-    </div>
-
-    <h2>2. 当社のプライバシー原則</h2>
+    <h2>当社が収集しないデータ</h2>
+    <p>当社は、以下をいかなるサーバーにも収集、送信、または保存<strong>しません</strong>。これらはすべてお客様の端末上に留まり、端末から離れることはありません。</p>
     <ul>
-        <li><strong>オフラインファースト:</strong> スキャンはインターネット接続なしで動作します。センサーの読み取り値や検出結果は端末内で処理されます。</li>
-        <li><strong>アカウント不要:</strong> サインアップや個人情報の提供なしに、中核となるスキャン機能をご利用いただけます。</li>
-        <li><strong>スキャン結果は端末内に留まる:</strong> スキャン結果、検出された機器、および履歴はお客様の端末内にのみ保存されます。当社がこれらをアップロードすることはありません。</li>
-        <li><strong>最小限のデータ:</strong> 端末から外部に送信される可能性があるのは、匿名の診断情報（無効化が可能）と購入検証（アプリストアが処理）のみです。</li>
+      <li><strong>Wi-Fiおよびネットワークのスキャン結果</strong> — お客様のローカルネットワーク上で検出されたIPアドレス、端末名、ポート、サービス。</li>
+      <li><strong>Bluetooth（BLE）のスキャン結果</strong> — 近くで発信している機器、信号強度、識別子。</li>
+      <li><strong>カメラフレーム</strong> — レンズの反射（グリント）や赤外線チェック中に撮影された画像は、端末上でリアルタイムに解析され、保存や送信は一切行われません。</li>
+      <li><strong>センサーの測定値</strong> — 磁力計やその他のモーションセンサーの値はリアルタイムで表示され、端末外に保持されることはありません。</li>
+      <li><strong>スキャン履歴とベースライン</strong> — お客様の端末上の本アプリのローカルデータベースにのみ保存されます。</li>
+    </ul>
+    <p>これらのデータはお客様の端末から離れることがないため、当社はこれらを閲覧、アクセス、または共有することはできません。</p>
+
+    <h2>当社が使用する権限とその理由</h2>
+    <p>本アプリは、状況に応じて特定の検出目的のためにのみ端末の権限を要求します。お客様は各権限を許可または拒否でき、後から端末の設定で取り消すこともできます。</p>
+    <ul>
+      <li><strong>カメラ</strong> — 隠しカメラのレンズの反射（グリント）や赤外光を検出するため。フレームは端末上で解析され、保存も送信もされません。</li>
+      <li><strong>位置情報 / 近くのWi-Fi</strong>（Android） — ローカルネットワーク上のネットワーク機器をスキャンするためにオペレーティングシステムによって要求されます。当社はお客様の地理的位置を<strong>追跡しません</strong>。</li>
+      <li><strong>ローカルネットワーク</strong>（iOS） — スキャンのためにお客様のローカルネットワーク上の機器を検出するため。</li>
+      <li><strong>Bluetooth</strong> — 近くで発信している機器をスキャンするため。Androidでは「位置情報には決して使用しない」と設定されているため、お客様の位置の推定には使用されません。</li>
+      <li><strong>モーションセンサー</strong> — 参考指標として磁場を読み取るため。この信号はあくまで参考情報です。</li>
     </ul>
 
-    <h2>3. 当社が収集する情報</h2>
-
-    <h3>3.1 スキャンおよびセンサーデータ（端末内のみ）</h3>
-    <ul>
-        <li><strong>センサーの読み取り値:</strong> 実行するスキャンの種類と端末の対応状況に応じて、Wi-Fi ネットワークのスキャン結果、Bluetooth Low Energy（BLE）のアドバタイズ情報、カメラのフレーム（レンズの反射検出および赤外線表示用）、磁力計／モーションの読み取り値、ToF（Time-of-Flight）／LiDAR の深度データなど。</li>
-        <li><strong>検出結果と履歴:</strong> 不審な機器の記録、リスクスコア、スキャンセッション、およびお客様が保存したメモ。</li>
-        <li>これらのデータは端末内のデータベースに<strong>お客様の端末内でローカルに</strong>作成・保存されます。カメラのフレームは分析のためにリアルタイムで処理され、通常のスキャンの一環として<strong>保存されることはありません</strong>。初期設定では、これらのデータを端末の外部に送信することはありません。</li>
-    </ul>
-
-    <h3>3.2 診断およびクラッシュデータ（任意・オプトアウト可能）</h3>
-    <ul>
-        <li><strong>クラッシュレポートと分析:</strong> 本アプリの安定性を維持するため、当社は <strong>Firebase Crashlytics および Firebase Analytics</strong> を通じて、匿名化されたクラッシュログ、エラー情報、端末の種類、OS のバージョン、アプリのバージョン、および基本的な機能利用イベントを収集する場合があります。</li>
-        <li>この情報は<strong>お客様の身元と紐付けられることはなく</strong>、スキャン結果、検出された機器、カメラ画像、または点検した空間の内容を含むことは決してありません。</li>
-        <li>診断情報は<strong>いつでも設定から無効にできます</strong>。</li>
-    </ul>
-
-    <h3>3.3 サブスクリプションデータ</h3>
-    <ul>
-        <li>Pro サブスクリプションをご購入いただいた場合、該当するアプリストア（Apple App Store または Google Play）および当社のサブスクリプション管理サービス <strong>Qonversion</strong> が取引を処理し、お客様のサブスクリプションが有効かどうかを本アプリに通知します。</li>
-        <li>当社がお客様の支払いカードの詳細を受領または保存することは<strong>ありません</strong>。請求はすべてアプリストアによって処理されます。</li>
-    </ul>
-
-    <h3>3.4 当社が収集しないもの</h3>
-    <ul>
-        <li>当社は、お客様の氏名、連絡先、フォトライブラリ、正確な位置情報の履歴、または閲覧履歴を収集しません。</li>
-        <li>当社は、お客様のスキャン結果、検出された機器の一覧、またはカメラ／センサーデータをアップロードしません。</li>
-        <li>当社は、個人情報を何人に対しても販売、貸与、または取引しません。</li>
-    </ul>
-
-    <h2>4. 端末の権限と、その必要性</h2>
-    <p>Sentinel は、ある機能がそれを必要とする場合にのみ、簡単な説明とともに<strong>その場で、1つずつ</strong>権限を要求します。いかなる権限も拒否でき、その場合は関連するスキャンが利用できなくなるだけです。各権限は端末内でのスキャンの<strong>ためだけに</strong>使用されます。</p>
-    <ul>
-        <li><strong>カメラ:</strong> レンズ反射の光学スキャン（ライトを用いてカメラレンズからの反射を検出）および赤外線ビューアに使用します。カメラのフレームは端末内でリアルタイムに分析され、保存されません。</li>
-        <li><strong>位置情報（正確）および付近の Wi-Fi:</strong> Android では、Wi-Fi ネットワークのスキャンを実行するために OS が位置情報の権限を<strong>要求します</strong>。当社はこれを Wi-Fi スキャンで付近の Wi-Fi ネットワークを列挙するためにのみ使用します。お客様の地理的位置を追跡、保存、または送信することはありません。</li>
-        <li><strong>Bluetooth／付近の機器:</strong> カメラ、トラッカー、または録音機器である可能性のある付近の Bluetooth Low Energy（BLE）機器をスキャンするために使用します。</li>
-        <li><strong>モーションとセンサー（磁力計）:</strong> 電子機器付近の磁場の異常を調べる磁力計スキャンに使用します。これは信頼度の低い「参考のみ」のシグナルです。</li>
-    </ul>
-
-    <h2>5. 情報の利用方法</h2>
-    <ul>
-        <li><strong>スキャンの実行のため:</strong> センサーデータは端末内で分析され、監視機器の可能性を浮かび上がらせ、リスクスコアを算出します。</li>
-        <li><strong>履歴の表示のため:</strong> 検出結果とスキャンセッションはローカルに保存され、後から確認できます。</li>
-        <li><strong>安定性の向上のため:</strong> 匿名の診断情報（有効な場合）は、クラッシュやバグの発見・修正に役立ちます。</li>
-        <li><strong>サブスクリプションの管理のため:</strong> ストア／Qonversion からの購入ステータスにより Pro 機能のロックが解除されます。</li>
-    </ul>
-
-    <h2>6. 端末内でのデータの取り扱いとセキュリティ</h2>
-    <ul>
-        <li><strong>ローカル保存:</strong> スキャン、検出結果、および履歴はお客様の端末内のデータベースに保存されます。本アプリを削除すると、これらのデータは削除されます。</li>
-        <li><strong>バックグラウンドでのアップロードなし:</strong> スキャンデータがいかなるサーバーにも同期されることはありません。</li>
-        <li><strong>送信時の暗号化:</strong> 端末から外部に送信される限られたデータ（診断情報、購入検証）は、暗号化された接続（TLS/HTTPS）を介して送信されます。</li>
-        <li>いかなる保存・送信の方法も100%安全ではなく、当社は絶対的なセキュリティを保証することはできません。お客様は、ご自身の端末の物理的なセキュリティについて責任を負います。</li>
-    </ul>
-
-    <h2>7. 任意: コミュニティ監視機器データベース</h2>
+    <h2>診断と分析</h2>
+    <p>本アプリを安定させ、検出品質を向上させるため、当社はFirebase CrashlyticsおよびFirebase Analyticsを使用して、<strong>匿名の</strong>診断情報および利用情報（例えば、クラッシュレポートや機能利用の集計）を収集します。</p>
     <div class="highlight">
-        <p>当社は、誰にとっても検出を向上させるコミュニティデータベースの構築に役立てるため、不審な機器の<strong>匿名化されたフィンガープリント</strong>を提供できる<strong>任意・オプトイン</strong>の機能を提供する場合があります。</p>
-        <ul>
-            <li>この機能は<strong>初期設定では無効</strong>です。これは<strong>利用規約への同意とは別個のもの</strong>であり、利用規約に同意しても共有が有効になることは<em>ありません</em>。</li>
-            <li>オプトインした場合に共有される可能性があるのは、<strong>匿名化された技術的なシグナルの特性</strong>のみです。例えば、OUI／ベンダープレフィックスや、不審な機器の一般的なシグナル特性などです。</li>
-            <li>当社は、いかなる個人データ、カメラ画像その他のメディア、スキャンした空間の内容、またはお客様の地理的位置も共有<strong>しません</strong>。</li>
-            <li>この機能は<strong>いつでも設定から無効にし、共有を取り消すことができます</strong>。</li>
-        </ul>
+      <p>診断は<strong>デフォルトで有効</strong>ですが、完全に任意です。<strong>設定 →「匿名の診断を共有」</strong>からいつでもオフにできます。このデータは匿名化されており、お客様の身元と結び付けられることはなく、アプリ間トラッキングや広告には<strong>使用されません</strong>（IDFAなし）。</p>
     </div>
+    <p><strong>お客様のスキャンデータ（Wi-Fi、Bluetooth、カメラ、センサーの結果）は、診断に含まれることは一切なく、どこにも送信されません。</strong>これは変わることのない当社の中核的な約束です。</p>
 
-    <h2>8. 診断と分析（Firebase）</h2>
-    <ul>
-        <li>当社は、信頼性の向上と、どの機能が利用されているかの把握のため、<strong>Firebase Crashlytics</strong>（クラッシュレポート）および <strong>Firebase Analytics</strong>（匿名の利用状況の指標）を使用します。</li>
-        <li>収集されるデータには、端末モデル、OS のバージョン、アプリのバージョン、クラッシュのスタックトレース、および匿名のイベント数が含まれる場合があります。これらは<strong>お客様を特定するために使用されることはなく</strong>、スキャンの内容を含みません。</li>
-        <li><strong>いつでも設定からオプトアウト</strong>できます。診断情報は初期設定で有効になっている場合があり、無効にすることができます。</li>
-    </ul>
+    <h2>検出データの更新</h2>
+    <p>本アプリは、検出精度を向上させるため、安全なHTTPS接続を通じて公開参照データ（例えば、ハードウェアベンダー（OUI）リストや既知の不審なポートのリスト）をダウンロードすることがあります。これは<strong>ダウンロードのみ</strong>です。これらの更新の一環として、スキャンデータや個人情報が送信されることはありません。</p>
 
-    <h2>9. サブスクリプションと購入</h2>
-    <ul>
-        <li>Sentinel は、高度なスキャンモジュールのロックを解除する任意の <strong>Pro</strong> サブスクリプションを提供します。</li>
-        <li>購入は <strong>Apple App Store</strong> または <strong>Google Play Store</strong> によって処理され、クロスプラットフォームの権利管理のため <strong>Qonversion</strong> を介して管理されます。</li>
-        <li>請求情報はアプリストアが各自のプライバシーポリシーに基づいて取り扱います。当社が受領するのはお客様のサブスクリプションのステータスのみです。</li>
-    </ul>
+    <h2>アプリ内課金</h2>
+    <p>本アプリは、任意の有料サブスクリプション（以下「Pro」）を提供します。決済はすべてApple App StoreまたはGoogle Playによって処理されます。当社がお客様の支払いカード情報を受け取ったり保存したりすることは<strong>ありません</strong>。購入およびサブスクリプションの状態は、ストアのレシート機構を通じて検証されます。お客様の支払い情報の取り扱いについては、該当するストアのプライバシーポリシーをご参照ください。</p>
 
-    <h2>10. データの共有と開示</h2>
-    <div class="warning">
-        <p><strong>当社はお客様の個人情報を販売することはなく、スキャンデータを第三者と共有することもありません。</strong></p>
-    </div>
-    <p>当社が共有するのは、上記の限られたカテゴリーのデータのみであり、かつ本アプリの提供に必要なサービスプロバイダーに対してのみです。</p>
-    <ul>
-        <li><strong>Firebase（Google）:</strong> 匿名化されたクラッシュレポートと分析（オプトアウト可能）。</li>
-        <li><strong>Apple App Store／Google Play／Qonversion:</strong> サブスクリプションの請求とステータス。</li>
-        <li><strong>法的要件:</strong> 法律、法的手続き、または権利と安全の保護のために必要な場合、当社は情報を開示することがあります。スキャンデータはお客様の端末内に留まるため、当社が開示できる状態にはありません。</li>
-    </ul>
+    <h2>ローカルストレージ</h2>
+    <p>本アプリは、お客様のスキャン履歴、ベースライン、および設定（テーマ、言語、有効化されたモジュールなど）を、端末上のデータベースおよび設定を使用して、お客様の端末上にローカルに保存します。この情報がいかなるサーバーにも同期されることはありません。</p>
 
-    <h2>11. 児童のプライバシー</h2>
-    <ul>
-        <li>Sentinel は<strong>児童を対象としていません</strong>。成人および年長の十代の方（13歳以上、または現地の法律で求められる場合は16歳以上）を対象としています。</li>
-        <li>当社は、該当年齢未満の児童から故意に個人情報を収集することはありません。児童が当社に情報を提供したと思われる場合は、当社までご連絡ください。対応いたします。</li>
-    </ul>
+    <h2>子どものプライバシー</h2>
+    <p>本アプリは、13歳未満（またはお客様の法域で要求される最低年齢、例えばEUの一部では16歳）の子どもを対象としていません。当社は、子どもから個人情報を故意に収集することはありません。</p>
 
-    <h2>12. データの保持</h2>
-    <ul>
-        <li><strong>スキャンデータと履歴:</strong> お客様が削除するか本アプリをアンインストールするまで、端末内に保持されます。アプリ内でいつでも履歴を消去できます。</li>
-        <li><strong>診断:</strong> クラッシュおよび分析のデータは、限られた期間（通常は最長で12&ndash;14か月）Firebase によって保持された後、自動的に削除または匿名化されます。</li>
-        <li><strong>サブスクリプションデータ:</strong> アプリストアおよび Qonversion が各自のポリシーに従って保持します。</li>
-    </ul>
+    <h2>お客様の権利</h2>
+    <p>お住まいの地域によっては、GDPRやCCPAなどの法律に基づき、個人データへのアクセスまたは削除を求める権利など、一定の権利を有する場合があります。本アプリはお客様のスキャンデータや個人データをいかなるサーバーにも収集・保存しないため、<strong>お客様のすべてのデータはお客様の端末上に存在します</strong>。本アプリを削除すると、スキャン履歴や設定を含むこれらのデータが削除されます。診断を有効にしている場合は、設定からいつでも無効にできます。</p>
+    <p>プライバシーに関するご質問やご要望については、以下の連絡先までお問い合わせください。</p>
 
-    <h2>13. お客様のプライバシーに関する権利</h2>
-    <p>お住まいの地域によっては、お客様には、ご自身の個人データへのアクセス、訂正、削除、または移転を求める権利、および特定の処理に異議を申し立てたり処理を制限したりする権利がある場合があります（例えば、EU／英国の <strong>GDPR</strong> や、カリフォルニア州の <strong>CCPA/CPRA</strong> に基づくもの）。</p>
-    <ul>
-        <li>お客様のスキャンデータは端末内にのみ存在するため、ほとんどの権利は、データを閲覧、可能な場合はエクスポート、または削除し、本アプリをアンインストールすることで、直接行使できます。</li>
-        <li>診断データまたはサブスクリプションデータについては、下記のメールアドレスまでご連絡ください。お客様の現地の法律で求められる期間内（一般的には30日以内）に回答いたします。</li>
-        <li>カリフォルニア州の居住者の方へ: 当社は、CCPA/CPRA で定義される個人情報の販売または「共有」を行いません。</li>
-    </ul>
+    <h2>本ポリシーの変更</h2>
+    <p>当社は、随時本プライバシーポリシーを更新することがあります。重要な変更を行う場合、当社は上記の「最終更新日」を更新し、適切な場合には本アプリ内でお客様に通知します。変更の発効後もお客様が本アプリの使用を継続する場合、更新後のポリシーに同意したものとみなされます。</p>
 
-    <h2>14. 国際的なデータの移転</h2>
-    <p>端末から外部に送信される限られた診断データおよびサブスクリプションデータは、米国を含むお客様の国以外の国にある当社のサービスプロバイダーによって処理される場合があります。必要な場合、当社は越境移転について標準契約条項などの適切な保護措置に依拠します。</p>
-
-    <h2>15. 第三者サービス</h2>
-    <p>当社が利用するサービスのプライバシーポリシーをご確認いただくことをお勧めします。</p>
-    <ul>
-        <li><a href="https://policies.google.com/privacy">Google プライバシーポリシー</a></li>
-        <li><a href="https://firebase.google.com/support/privacy">Firebase プライバシーとセキュリティ</a></li>
-        <li><a href="https://www.apple.com/legal/privacy/">Apple プライバシーポリシー</a></li>
-        <li><a href="https://qonversion.io/privacy-policy">Qonversion プライバシーポリシー</a></li>
-    </ul>
-
-    <h2>16. 本ポリシーの変更</h2>
-    <p>当社は、本プライバシーポリシーを随時更新することがあります。重要な変更を行う場合、当社は上記の「最終更新日」を更新し、適切な場合にはアプリ内でお客様に通知します。発効日以降も本アプリの利用を継続することは、更新後のポリシーへの同意を構成します。</p>
-
-    <h2>17. お問い合わせ</h2>
+    <h2>お問い合わせ</h2>
     <div class="contact-info">
-        <p>本プライバシーポリシーまたはお客様のデータに関してご質問、ご懸念、またはご要望がある場合は、当社までご連絡ください。</p>
-        <p><strong>メール:</strong> <a href="mailto:nguyen@sartoro.co">nguyen@sartoro.co</a> <!-- [EDIT: contact email] --></p>
-        <p><strong>アプリ:</strong> Sentinel（バンドルID <code>io.ntvtech.hiddencamdetect</code>）</p>
-        <p><strong>提供者:</strong> [EDIT: company legal name] &middot; [EDIT: business address]</p>
-        <p><small>&copy; <span class="copyright-year">2026</span> Sentinel. 無断複製・転載を禁じます。</small></p>
+      <p>本プライバシーポリシーまたはお客様のデータについてご質問がある場合は、以下までお問い合わせください。</p>
+      <p><strong>HiddenCamDetect</strong><br>
+      メール: <a href="mailto:nhanntv113@gmail.com">nhanntv113@gmail.com</a></p>
     </div>
-
-    <script>
-        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
-    </script>
+  </div>
 </body>
 </html>

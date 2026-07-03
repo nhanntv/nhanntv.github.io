@@ -1,227 +1,107 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conditions d'utilisation – Sentinel</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-        }
-        h1 {
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #4CAF50;
-        }
-        h2 {
-            color: #2c3e50;
-            font-size: 1.3em;
-            margin-top: 30px;
-            margin-bottom: 10px;
-        }
-        h3 {
-            color: #34495e;
-            font-size: 1.1em;
-            margin-top: 15px;
-            margin-bottom: 8px;
-        }
-        p { margin-bottom: 12px; }
-        ul {
-            margin-left: 20px;
-            margin-bottom: 12px;
-        }
-        li { margin-bottom: 6px; }
-        .last-updated {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        .highlight {
-            background-color: #f8f9fa;
-            border-left: 4px solid #4CAF50;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .warning {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .contact-info {
-            background-color: #e8f5e9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-        a { color: #4CAF50; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #1a1a1a; color: #f5f5f5; }
-            h1 { color: #81C784; border-bottom-color: #4CAF50; }
-            h2 { color: #cfd8dc; }
-            h3 { color: #b0bec5; }
-            .highlight {
-                background-color: #263238;
-                border-left-color: #4CAF50;
-                color: #e0e0e0;
-            }
-            .highlight p, .highlight li, .highlight strong, .highlight span {
-                color: #e0e0e0;
-            }
-            .warning {
-                background-color: #3e2723;
-                border-left-color: #ff9800;
-                color: #e0e0e0;
-            }
-            .warning p, .warning li, .warning strong, .warning span {
-                color: #e0e0e0;
-            }
-            .contact-info {
-                background-color: #1b5e20;
-                color: #e0e0e0;
-            }
-            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
-                color: #e0e0e0;
-            }
-            ul, li { color: #f5f5f5; }
-            .last-updated { color: #b0bec5; }
-            a { color: #81C784; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conditions d'utilisation — HiddenCamDetect</title>
+  <style>
+    :root {
+      color-scheme: light;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px 18px 48px;
+      -webkit-text-size-adjust: 100%;
+    }
+    .container { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; line-height: 1.3; margin: 0 0 8px; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 32px 0 8px; }
+    p, li { font-size: 1rem; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    a { color: #0a63c9; word-break: break-word; }
+    .last-updated { color: #6b7280; font-size: 0.9rem; margin: 0 0 24px; }
+    .highlight {
+      background: #eef4ff;
+      border-left: 4px solid #0a63c9;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .warning {
+      background: #fff4e5;
+      border-left: 4px solid #d97706;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .contact-info {
+      background: #f3f4f6;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    strong { font-weight: 600; }
+  </style>
 </head>
 <body>
+  <div class="container">
     <h1>Conditions d'utilisation</h1>
-    <p class="last-updated">En vigueur à compter de : juillet 2026 &middot; Dernière mise à jour : juillet 2026</p>
+    <p class="last-updated">Dernière mise à jour : juillet 2026</p>
 
-    <div class="highlight">
-        <p><strong>Sentinel</strong> (l'« Application ») est un outil d'analyse multicapteur qui vous aide à rechercher des caméras cachées et des dispositifs d'enregistrement dissimulés. En téléchargeant, en installant ou en utilisant Sentinel, vous acceptez les présentes Conditions d'utilisation (les « Conditions »). Veuillez les lire attentivement, en particulier les clauses de non-responsabilité et la limitation de responsabilité.</p>
-    </div>
+    <p>Les présentes Conditions d'utilisation (les « Conditions ») régissent votre utilisation de l'application HiddenCamDetect (l'« Application »), fournie par HiddenCamDetect (« nous », « notre » ou « nos »). Veuillez les lire attentivement. En téléchargeant, en installant ou en utilisant l'Application, vous acceptez les présentes Conditions.</p>
 
-    <h2>1. Acceptation des Conditions</h2>
-    <p>En téléchargeant, en installant ou en utilisant Sentinel, vous acceptez d'être lié par les présentes Conditions. Si vous n'êtes pas d'accord, veuillez ne pas utiliser l'Application. Ces Conditions constituent un accord juridiquement contraignant entre vous (l'« Utilisateur », « vous ») et le fournisseur de Sentinel (« nous », « notre », « nos »).</p>
+    <h2>Acceptation des Conditions</h2>
+    <p>En accédant à l'Application ou en l'utilisant, vous confirmez avoir lu, compris et accepté d'être lié par les présentes Conditions ainsi que par notre Politique de confidentialité. Si vous n'êtes pas d'accord, veuillez ne pas utiliser l'Application.</p>
 
-    <h2>2. Description du service</h2>
-    <p>Sentinel utilise les capteurs existants de votre appareil pour faire apparaître d'éventuels signes de dispositifs de surveillance. Selon les capacités de votre appareil, cela peut inclure :</p>
-    <ul>
-        <li><strong>Analyse des réseaux Wi-Fi</strong> &mdash; répertorie les appareils Wi-Fi à proximité et signale les schémas pouvant indiquer la présence de caméras.</li>
-        <li><strong>Analyse optique des reflets de lentille</strong> &mdash; utilise la caméra et la lampe torche pour repérer les reflets des objectifs.</li>
-        <li><strong>Analyse Bluetooth (BLE)</strong> &mdash; détecte les appareils Bluetooth à proximité.</li>
-        <li><strong>Analyse au magnétomètre</strong> &mdash; un contrôle à faible fiabilité, « à titre indicatif uniquement », des anomalies magnétiques.</li>
-        <li><strong>Visualiseur infrarouge (IR)</strong> &mdash; vous aide à rechercher les LED infrarouges utilisées par certaines caméras.</li>
-        <li><strong>Analyse Time-of-Flight / LiDAR</strong> &mdash; inspection basée sur la profondeur sur les appareils compatibles.</li>
-        <li><strong>Liste de vérification manuelle guidée</strong> &mdash; instructions étape par étape pour inspecter une pièce à la main.</li>
-    </ul>
-
-    <h2>3. Aucune garantie de détection — un positionnement honnête</h2>
+    <h2>Avis important — Aucune garantie</h2>
     <div class="warning">
-        <p>Sentinel est une <strong>aide à la sensibilisation et au premier diagnostic</strong>, et non un détecteur garanti. Vous reconnaissez et acceptez que :</p>
-        <ul>
-            <li>l'Application <strong>ne peut pas trouver tous les dispositifs cachés</strong> et peut produire à la fois des <strong>faux positifs</strong> (signalant des objets inoffensifs) et des <strong>faux négatifs</strong> (manquant de vrais dispositifs).</li>
-            <li>l'Application ne peut <strong>jamais</strong> confirmer qu'un espace est « 100 % sûr ». Une analyse ne trouvant rien signifie seulement qu'aucun signal suspect n'a été détecté par les méthodes disponibles — et non qu'aucun dispositif n'est présent.</li>
-            <li>vous ne devez <strong>pas vous fier à Sentinel comme unique moyen de protection</strong>. Associez-le toujours à une inspection manuelle minutieuse (à l'aide de la liste de vérification guidée intégrée à l'application).</li>
-            <li>Sentinel ne <strong>remplace pas</strong> un balayage professionnel de contre-mesures techniques de surveillance (TSCM) ni les forces de l'ordre. Si votre sécurité pourrait être menacée, contactez un professionnel qualifié ou les autorités.</li>
-        </ul>
+      <p>HiddenCamDetect est une <strong>aide à la sensibilisation et au triage</strong>, et non un détecteur garanti. Aucune application pour smartphone ne peut trouver toutes les caméras cachées, enregistreurs ou dispositifs d'écoute. L'Application <strong>ne</strong> remplace <strong>pas</strong> une inspection physique professionnelle ni un balayage de sécurité technique qualifié.</p>
     </div>
+    <p>Vous ne devez pas vous fier à l'Application comme unique moyen de protection. Un résultat « aucun signal suspect détecté » ne signifie <strong>pas</strong> qu'un espace est sûr ou exempt de dispositifs. Combinez toujours les résultats de l'Application avec une vérification manuelle attentive et suivez la liste de contrôle guidée fournie dans l'Application. Nous ne promettons pas que l'Application détectera un quelconque dispositif particulier.</p>
 
-    <h2>4. Licence d'utilisation</h2>
-    <p>Sous réserve des présentes Conditions, nous vous accordons une licence limitée, personnelle, non exclusive, non transférable et révocable pour installer et utiliser Sentinel sur les appareils que vous possédez ou contrôlez, pour votre propre usage personnel et licite. Vous ne pouvez pas concéder de sous-licence, revendre ni exploiter commercialement l'Application sans notre autorisation écrite.</p>
+    <h2>Licence d'utilisation de l'Application</h2>
+    <p>Sous réserve des présentes Conditions, nous vous accordons une licence limitée, personnelle, non exclusive, non transférable et révocable pour installer et utiliser l'Application sur des appareils que vous possédez ou contrôlez, pour votre usage personnel et non commercial. Vous ne pouvez pas copier, modifier, faire de l'ingénierie inverse, distribuer ou créer des œuvres dérivées de l'Application, sauf dans la mesure permise par la loi.</p>
 
-    <h2>5. Utilisation acceptable et licite</h2>
-    <p>Vous êtes seul responsable de l'utilisation licite de Sentinel. Vous acceptez que :</p>
+    <h2>Utilisation licite et responsable</h2>
+    <p>Vous acceptez d'utiliser l'Application uniquement dans les lieux où vous avez le droit légal de le faire — par exemple, votre propre domicile, chambre ou hébergement. Vous êtes seul responsable du respect de toutes les lois applicables dans votre localité, y compris les lois relatives à la vie privée, à la surveillance, à l'enregistrement et à la propriété. Vous ne devez pas utiliser l'Application pour harceler, traquer ou violer les droits d'autrui. Vous êtes responsable de la manière dont vous interprétez les résultats de l'Application et agissez en conséquence.</p>
+
+    <h2>Abonnement Pro et facturation</h2>
+    <p>L'Application propose un abonnement payant facultatif (« Pro ») qui débloque des fonctionnalités supplémentaires. Les conditions suivantes s'appliquent :</p>
     <ul>
-        <li>vous n'<strong>inspecterez que les espaces que vous possédez, occupez ou que vous êtes par ailleurs légalement autorisé à inspecter</strong> (par exemple, votre propre domicile, une chambre d'hôtel que vous avez louée, ou des locaux avec le consentement du propriétaire).</li>
-        <li>vous respecterez toutes les lois applicables, y compris les lois relatives à la vie privée, à la surveillance, à l'intrusion et à la propriété dans votre juridiction.</li>
-        <li>vous n'utiliserez pas l'Application pour harceler, traquer, surveiller ou nuire à quiconque, ni pour interférer avec des réseaux ou des appareils auxquels vous n'avez pas l'autorisation d'accéder.</li>
-        <li>vous ne procéderez pas à l'ingénierie inverse, à la décompilation ou au désassemblage de l'Application, sauf dans les cas autorisés par la loi, et vous ne contournerez pas sa sécurité, ses limites d'utilisation ou ses contrôles d'accès.</li>
+      <li>Le paiement est prélevé sur votre compte Apple App Store ou Google Play lors de la confirmation de l'achat.</li>
+      <li>Les abonnements <strong>se renouvellent automatiquement</strong> à la fin de chaque période de facturation, sauf si le renouvellement automatique est désactivé au moins 24 heures avant la fin de la période.</li>
+      <li>Vous pouvez gérer ou annuler votre abonnement dans les paramètres de votre compte Apple App Store ou Google Play.</li>
+      <li>Les remboursements sont traités conformément aux politiques de la boutique concernée ; nous ne traitons pas les paiements directement.</li>
+      <li>Toute période d'essai gratuite, si elle est proposée, se convertit automatiquement en abonnement payant sauf annulation avant la fin de l'essai. Les prix sont affichés dans l'Application tels que fournis par la boutique.</li>
     </ul>
-    <p>Vous êtes responsable de toute conséquence d'une utilisation illicite ou non autorisée.</p>
+    <p>Des conditions de facturation supplémentaires de la boutique peuvent s'appliquer : consultez les paramètres de votre compte Apple App Store ou Google Play ainsi que leurs conditions applicables.</p>
 
-    <h2>6. Abonnements et paiements</h2>
-    <h3>6.1 Abonnement Pro</h3>
-    <ul>
-        <li>Sentinel propose un abonnement <strong>Pro</strong> facultatif qui débloque des modules d'analyse avancés. Les fonctionnalités essentielles restent disponibles sans abonnement.</li>
-        <li>Les abonnements sont vendus via l'<strong>Apple App Store</strong> ou le <strong>Google Play Store</strong> et gérés via <strong>Qonversion</strong>.</li>
-    </ul>
-    <h3>6.2 Facturation, renouvellement automatique et résiliation</h3>
-    <ul>
-        <li>Les abonnements <strong>se renouvellent automatiquement</strong> à la fin de chaque période de facturation, sauf résiliation au moins 24 heures avant la date de renouvellement.</li>
-        <li>Votre compte est débité via votre compte de boutique d'applications. Les prix sont affichés dans votre devise locale et peuvent varier selon les régions ; des taxes peuvent s'appliquer.</li>
-        <li>Vous pouvez résilier à tout moment via les réglages d'abonnement de votre appareil (App Store ou Google Play). La résiliation prend effet à la fin de la période en cours ; vous conservez l'accès Pro jusque-là.</li>
-        <li>Les remboursements sont gérés par Apple ou Google selon leurs politiques respectives. Une option <strong>« Restaurer les achats »</strong> est disponible pour récupérer les achats sur de nouveaux appareils.</li>
-    </ul>
+    <h2>Propriété intellectuelle</h2>
+    <p>L'Application, y compris son logiciel, sa conception, ses textes, ses graphiques et ses marques, nous appartient ou appartient à nos concédants de licence et est protégée par les lois sur la propriété intellectuelle. Les présentes Conditions ne vous confèrent aucun droit de propriété sur l'Application. Tous les droits qui ne sont pas expressément accordés sont réservés.</p>
 
-    <h2>7. Propriété intellectuelle</h2>
-    <p>Sentinel, y compris son logiciel, sa conception, ses logos et son contenu, est la propriété de nous-mêmes ou de nos concédants de licence et est protégé par les lois sur la propriété intellectuelle. Les présentes Conditions ne vous transfèrent aucun droit de propriété. Toute donnée que vous générez au sein de l'Application (telle que l'historique d'analyse et les notes) vous appartient et reste sur votre appareil.</p>
+    <h2>Limitation de responsabilité</h2>
+    <p>Dans toute la mesure permise par la loi, nous ne saurions être tenus responsables de tout dommage indirect, accessoire, spécial, consécutif ou punitif, ni de toute perte, préjudice ou blessure découlant de votre utilisation de l'Application ou de votre incapacité à l'utiliser — y compris toute défaillance à détecter un dispositif caché. Votre utilisation de l'Application se fait à vos propres risques.</p>
 
-    <h2>8. Clauses de non-responsabilité</h2>
-    <ul>
-        <li>L'Application est fournie <strong>« en l'état »</strong> et <strong>« selon disponibilité »</strong>, sans garantie d'aucune sorte, expresse ou implicite, y compris la qualité marchande, l'adéquation à un usage particulier, l'exactitude et l'absence de contrefaçon.</li>
-        <li>Nous ne garantissons pas que l'Application sera ininterrompue, exempte d'erreurs, sécurisée, ni qu'elle détectera un dispositif particulier.</li>
-        <li>Les résultats d'analyse, les scores de risque et les indicateurs sont des <strong>estimations</strong> générées par des heuristiques et les capteurs de votre appareil, et dépendent des capacités matérielles et des conditions environnementales. Ils ne doivent pas être considérés comme définitifs.</li>
-        <li>Nous ne sommes pas responsables des conséquences résultant du fait de se fier à l'Application, y compris les dispositifs non détectés ou les fausses alertes.</li>
-    </ul>
+    <h2>Exclusion de garanties</h2>
+    <p>L'Application est fournie « telle quelle » et « selon disponibilité », sans garantie d'aucune sorte, expresse ou implicite, y compris les garanties de qualité marchande, d'adéquation à un usage particulier, d'exactitude ou d'absence de contrefaçon. Nous ne garantissons pas que l'Application sera exempte d'erreurs, ininterrompue, ni qu'elle détectera un dispositif spécifique.</p>
 
-    <h2>9. Limitation de responsabilité</h2>
-    <p>Dans toute la mesure permise par la loi applicable :</p>
-    <ul>
-        <li>Nous ne saurions être tenus responsables des dommages indirects, accessoires, spéciaux, consécutifs, exemplaires ou punitifs, ni de toute perte de vie privée, de données ou de sécurité, découlant de votre utilisation (ou de votre incapacité à utiliser) l'Application ou liés à celle-ci, y compris toute incapacité à détecter un dispositif de surveillance.</li>
-        <li>Notre responsabilité globale totale pour toute réclamation découlant de l'Application ou liée à celle-ci ne dépassera pas le montant que vous avez payé pour l'abonnement à l'Application au cours des <strong>12 mois</strong> précédant la réclamation.</li>
-        <li>Certaines juridictions n'autorisent pas certaines limitations ; dans ces juridictions, notre responsabilité est limitée dans la plus large mesure permise par la loi.</li>
-    </ul>
+    <h2>Droit applicable</h2>
+    <p>Les présentes Conditions sont régies par les lois de la République socialiste du Viêt Nam, sans égard aux principes de conflit de lois. Tout litige sera soumis aux tribunaux de cette juridiction, sauf si la loi applicable en dispose autrement.</p>
 
-    <h2>10. Pas un substitut aux services professionnels</h2>
-    <p>Sentinel ne fournit pas de services de sécurité, juridiques ou d'investigation. Pour les situations comportant un risque réel pour votre sécurité, votre vie privée ou vos biens, consultez un professionnel qualifié (tel qu'un spécialiste TSCM agréé) ou contactez les forces de l'ordre. Rien dans l'Application ne constitue un conseil professionnel.</p>
+    <h2>Modifications des présentes Conditions</h2>
+    <p>Nous pouvons mettre à jour les présentes Conditions de temps à autre. Lorsque nous apportons des modifications importantes, nous mettrons à jour la date de « Dernière mise à jour » ci-dessus et, le cas échéant, nous vous en informerons dans l'Application. En continuant à utiliser l'Application après l'entrée en vigueur des modifications, vous acceptez les Conditions mises à jour.</p>
 
-    <h2>11. Confidentialité</h2>
-    <p>Votre utilisation de l'Application est également régie par notre <strong>Politique de confidentialité</strong>, qui explique comment les informations sont traitées. Sentinel privilégie le fonctionnement hors ligne : vos données d'analyse restent sur votre appareil et ne sont pas transmises en dehors de celui-ci par défaut. En utilisant l'Application, vous reconnaissez les pratiques décrites dans la Politique de confidentialité.</p>
-
-    <h2>12. Résiliation</h2>
-    <ul>
-        <li>Vous pouvez cesser d'utiliser l'Application et la désinstaller à tout moment, ce qui supprime vos données stockées localement.</li>
-        <li>Nous pouvons suspendre ou résilier votre accès si vous enfreignez les présentes Conditions ou utilisez l'Application de manière illicite.</li>
-        <li>Les clauses qui, par leur nature, doivent survivre à la résiliation (y compris les clauses de non-responsabilité, la limitation de responsabilité et le droit applicable) continueront de s'appliquer.</li>
-    </ul>
-
-    <h2>13. Droit applicable</h2>
-    <p>Les présentes Conditions sont régies et interprétées conformément aux lois de <strong>[EDIT: governing-law jurisdiction — placeholder: Vietnam]</strong>, sans égard à ses règles de conflit de lois. Tout litige sera soumis aux tribunaux de cette juridiction, sauf lorsque des lois locales impératives de protection des consommateurs vous accordent des droits supplémentaires. Rien dans les présentes Conditions ne limite les droits légaux auxquels vous ne pouvez renoncer en tant que consommateur.</p>
-
-    <h2>14. Modifications des présentes Conditions</h2>
-    <p>Nous pouvons mettre à jour les présentes Conditions de temps à autre. Lorsque des modifications importantes sont apportées, nous mettons à jour la date de « Dernière mise à jour » ci-dessus et, le cas échéant, vous en informons dans l'Application. L'utilisation continue de l'Application après la date d'entrée en vigueur vaut acceptation des Conditions mises à jour. Si vous n'êtes pas d'accord, veuillez cesser d'utiliser l'Application.</p>
-
-    <h2>15. Reconnaissance</h2>
-    <div class="warning">
-        <p>En utilisant Sentinel, vous reconnaissez et acceptez que :</p>
-        <ul>
-            <li>l'Application est une <strong>aide au premier diagnostic et à la sensibilisation</strong>, et non un détecteur garanti, et ne peut garantir qu'un espace est exempt de dispositifs de surveillance.</li>
-            <li>des faux positifs et des faux négatifs sont possibles ; vous ne vous <strong>fierez pas à l'Application seule</strong> pour votre sécurité.</li>
-            <li>vous utiliserez l'Application <strong>de manière licite</strong> et uniquement pour inspecter des espaces que vous êtes autorisé à inspecter.</li>
-            <li>face à des risques réels, vous solliciterez l'aide d'un professionnel ou des forces de l'ordre.</li>
-        </ul>
-    </div>
-
-    <h2>16. Coordonnées</h2>
+    <h2>Nous contacter</h2>
     <div class="contact-info">
-        <p>Si vous avez des questions, des préoccupations ou des commentaires concernant les présentes Conditions, veuillez nous contacter :</p>
-        <p><strong>E-mail :</strong> <a href="mailto:nguyen@sartoro.co">nguyen@sartoro.co</a> <!-- [EDIT: contact email] --></p>
-        <p><strong>Application :</strong> Sentinel (identifiant de bundle <code>io.ntvtech.hiddencamdetect</code>)</p>
-        <p><strong>Fournisseur :</strong> [EDIT: company legal name] &middot; [EDIT: business address]</p>
-        <p><small>&copy; <span class="copyright-year">2026</span> Sentinel. Tous droits réservés.</small></p>
+      <p>Si vous avez des questions concernant les présentes Conditions, contactez-nous à :</p>
+      <p><strong>HiddenCamDetect</strong><br>
+      E-mail : <a href="mailto:nhanntv113@gmail.com">nhanntv113@gmail.com</a></p>
     </div>
-
-    <script>
-        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
-    </script>
+  </div>
 </body>
 </html>

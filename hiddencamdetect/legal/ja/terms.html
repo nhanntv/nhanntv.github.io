@@ -1,227 +1,107 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>利用規約 – Sentinel</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-        }
-        h1 {
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #4CAF50;
-        }
-        h2 {
-            color: #2c3e50;
-            font-size: 1.3em;
-            margin-top: 30px;
-            margin-bottom: 10px;
-        }
-        h3 {
-            color: #34495e;
-            font-size: 1.1em;
-            margin-top: 15px;
-            margin-bottom: 8px;
-        }
-        p { margin-bottom: 12px; }
-        ul {
-            margin-left: 20px;
-            margin-bottom: 12px;
-        }
-        li { margin-bottom: 6px; }
-        .last-updated {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        .highlight {
-            background-color: #f8f9fa;
-            border-left: 4px solid #4CAF50;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .warning {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .contact-info {
-            background-color: #e8f5e9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-        a { color: #4CAF50; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #1a1a1a; color: #f5f5f5; }
-            h1 { color: #81C784; border-bottom-color: #4CAF50; }
-            h2 { color: #cfd8dc; }
-            h3 { color: #b0bec5; }
-            .highlight {
-                background-color: #263238;
-                border-left-color: #4CAF50;
-                color: #e0e0e0;
-            }
-            .highlight p, .highlight li, .highlight strong, .highlight span {
-                color: #e0e0e0;
-            }
-            .warning {
-                background-color: #3e2723;
-                border-left-color: #ff9800;
-                color: #e0e0e0;
-            }
-            .warning p, .warning li, .warning strong, .warning span {
-                color: #e0e0e0;
-            }
-            .contact-info {
-                background-color: #1b5e20;
-                color: #e0e0e0;
-            }
-            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
-                color: #e0e0e0;
-            }
-            ul, li { color: #f5f5f5; }
-            .last-updated { color: #b0bec5; }
-            a { color: #81C784; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>利用規約 — HiddenCamDetect</title>
+  <style>
+    :root {
+      color-scheme: light;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px 18px 48px;
+      -webkit-text-size-adjust: 100%;
+    }
+    .container { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; line-height: 1.3; margin: 0 0 8px; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 32px 0 8px; }
+    p, li { font-size: 1rem; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    a { color: #0a63c9; word-break: break-word; }
+    .last-updated { color: #6b7280; font-size: 0.9rem; margin: 0 0 24px; }
+    .highlight {
+      background: #eef4ff;
+      border-left: 4px solid #0a63c9;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .warning {
+      background: #fff4e5;
+      border-left: 4px solid #d97706;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .contact-info {
+      background: #f3f4f6;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    strong { font-weight: 600; }
+  </style>
 </head>
 <body>
+  <div class="container">
     <h1>利用規約</h1>
-    <p class="last-updated">発効日: 2026年7月 &middot; 最終更新日: 2026年7月</p>
+    <p class="last-updated">最終更新日: July 2026</p>
 
-    <div class="highlight">
-        <p><strong>Sentinel</strong>（以下「本アプリ」）は、隠しカメラや秘密の録音・撮影機器を探すお手伝いをするマルチセンサー方式のスキャンツールです。Sentinel をダウンロード、インストール、または使用することにより、お客様は本利用規約（以下「本規約」）に同意したものとみなされます。特に免責事項および責任の制限について、注意してお読みください。</p>
-    </div>
+    <p>本利用規約（以下「本規約」）は、HiddenCamDetect（以下「当社」）が提供するHiddenCamDetectアプリケーション（以下「本アプリ」）のご利用について定めるものです。よくお読みください。本アプリをダウンロード、インストール、または使用することにより、お客様は本規約に同意したものとみなされます。</p>
 
-    <h2>1. 規約への同意</h2>
-    <p>Sentinel をダウンロード、インストール、または使用することにより、お客様は本規約に拘束されることに同意するものとします。同意されない場合は、本アプリをご使用にならないでください。本規約は、お客様（以下「ユーザー」「お客様」）と Sentinel の提供者（以下「当社」）との間の法的拘束力のある契約を構成します。</p>
+    <h2>規約への同意</h2>
+    <p>本アプリにアクセスまたは使用することにより、お客様は本規約および当社のプライバシーポリシーを読み、理解し、これらに拘束されることに同意したことを確認するものとします。同意されない場合は、本アプリをご使用にならないでください。</p>
 
-    <h2>2. サービスの説明</h2>
-    <p>Sentinel は、お客様の端末に既に備わっているセンサーを利用して、監視機器の可能性のある兆候を浮かび上がらせます。端末の機能に応じて、以下が含まれる場合があります。</p>
-    <ul>
-        <li><strong>Wi-Fi ネットワークスキャン</strong> &mdash; 付近の Wi-Fi 機器を列挙し、カメラを示唆する可能性のあるパターンを示します。</li>
-        <li><strong>レンズ反射の光学スキャン</strong> &mdash; カメラとライトを用いてレンズからの反射を見つけます。</li>
-        <li><strong>Bluetooth（BLE）スキャン</strong> &mdash; 付近の Bluetooth 機器を検出します。</li>
-        <li><strong>磁力計スキャン</strong> &mdash; 磁気の異常を調べる、信頼度の低い「参考のみ」のチェックです。</li>
-        <li><strong>赤外線（IR）ビューア</strong> &mdash; 一部のカメラが使用する赤外線 LED を探すのに役立ちます。</li>
-        <li><strong>ToF（Time-of-Flight）／LiDAR スキャン</strong> &mdash; 対応端末における深度に基づく点検です。</li>
-        <li><strong>ガイド付き手動チェックリスト</strong> &mdash; 部屋を手作業で点検するための段階的な手順です。</li>
-    </ul>
-
-    <h2>3. 検出の保証なし — 誠実な位置づけ</h2>
+    <h2>重要なお知らせ — 保証はありません</h2>
     <div class="warning">
-        <p>Sentinel は<strong>気づきと初期トリアージを支援するツール</strong>であり、確実な検出器ではありません。お客様は以下を認識し、これに同意するものとします。</p>
-        <ul>
-            <li>本アプリは<strong>すべての隠し機器を発見できるわけではなく</strong>、<strong>誤検知</strong>（無害な物体を不審と判定すること）と<strong>見逃し</strong>（実在する機器を発見できないこと）の両方を生じる可能性があります。</li>
-            <li>本アプリは、ある空間が「100%安全」であると<strong>決して</strong>確認できません。スキャンで何も見つからなかったことは、利用可能な手法によって不審なシグナルが検出されなかったことを意味するにすぎず、機器が存在しないことを意味するものではありません。</li>
-            <li>お客様は<strong>Sentinel を唯一の保護手段として依拠してはなりません</strong>。常に入念な手動点検（アプリ内のガイド付きチェックリストを使用）と組み合わせてください。</li>
-            <li>Sentinel は、専門的な技術的監視対策（TSCM）スイープや法執行機関の<strong>代替となるものではありません</strong>。ご自身の安全が脅かされるおそれがある場合は、有資格の専門家または当局にご連絡ください。</li>
-        </ul>
+      <p>HiddenCamDetectは<strong>注意喚起およびトリアージのための補助ツール</strong>であり、検出を保証するものではありません。スマートフォンアプリでは、すべての隠しカメラ、録音機、または盗聴器を発見することはできません。本アプリは、専門的な物理的検査や有資格者による技術的セキュリティ点検に<strong>代わるものではありません</strong>。</p>
     </div>
+    <p>本アプリを唯一の保護手段として頼ってはなりません。「不審な信号は検出されませんでした」という結果は、その空間が安全であることや機器が存在しないことを<strong>意味しません</strong>。本アプリの結果は必ず入念な手作業での確認と組み合わせ、本アプリで提供されるガイド付きチェックリストに従ってください。当社は、本アプリが特定の機器を検出することを一切約束しません。</p>
 
-    <h2>4. 使用許諾</h2>
-    <p>本規約に従うことを条件として、当社はお客様に対し、お客様が所有または管理する端末に Sentinel をインストールし、お客様自身の適法かつ私的な使用のために使用するための、限定的、個人的、非独占的、譲渡不能かつ取消可能なライセンスを付与します。お客様は、当社の書面による許可なく、本アプリをサブライセンス、再販売、または商業的に利用してはなりません。</p>
+    <h2>本アプリの使用ライセンス</h2>
+    <p>本規約に従い、当社はお客様に対し、お客様が所有または管理する端末に本アプリをインストールし、お客様の個人的かつ非商業的な目的で使用するための、限定的、個人的、非独占的、譲渡不可能かつ取消可能なライセンスを付与します。お客様は、法律で認められる場合を除き、本アプリの複製、改変、リバースエンジニアリング、配布、または本アプリからの派生物の作成を行うことはできません。</p>
 
-    <h2>5. 許容される適法な使用</h2>
-    <p>お客様は、Sentinel を適法に使用することについて単独で責任を負います。お客様は以下に同意するものとします。</p>
+    <h2>適法かつ責任ある使用</h2>
+    <p>お客様は、ご自身の住居、部屋、宿泊施設など、法的にその権利を有する場所においてのみ本アプリを使用することに同意するものとします。お客様は、プライバシー、監視、録音、財産に関する法律を含め、お客様の所在地におけるすべての適用法令を遵守する単独の責任を負います。お客様は、他者への嫌がらせ、ストーキング、または他者の権利の侵害を目的として本アプリを使用してはなりません。本アプリの結果をどのように解釈し、それに基づいて行動するかについては、お客様が責任を負います。</p>
+
+    <h2>Proサブスクリプションと課金</h2>
+    <p>本アプリは、追加機能を利用できる任意の有料サブスクリプション（以下「Pro」）を提供します。以下の条件が適用されます。</p>
     <ul>
-        <li>お客様は、<strong>所有、占有、またはその他の方法で点検する法的権利を有する空間のみを点検します</strong>（例えば、ご自身の住居、借りているホテルの部屋、または所有者の同意がある施設など）。</li>
-        <li>お客様は、ご自身の管轄におけるプライバシー、監視、不法侵入、および財産に関する法律を含む、適用されるすべての法律を遵守します。</li>
-        <li>お客様は、本アプリを、いかなる人物に対する嫌がらせ、ストーキング、監視、もしくは危害のために、またはアクセス許可のないネットワークもしくは機器を妨害するために使用しません。</li>
-        <li>お客様は、法律で認められる場合を除き、本アプリをリバースエンジニアリング、逆コンパイル、または逆アセンブルせず、また本アプリのセキュリティ、レート制限、もしくはアクセス制御を回避しません。</li>
+      <li>購入確定時に、お客様のApple App StoreまたはGoogle Playアカウントに料金が請求されます。</li>
+      <li>サブスクリプションは、期間終了の少なくとも24時間前に自動更新をオフにしない限り、各請求期間の終了時に<strong>自動的に更新</strong>されます。</li>
+      <li>サブスクリプションの管理または解約は、Apple App StoreまたはGoogle Playアカウントの設定から行えます。</li>
+      <li>返金は該当するストアのポリシーに従って処理されます。当社が直接決済を処理することはありません。</li>
+      <li>無料トライアルが提供される場合、トライアル終了前に解約しない限り、自動的に有料サブスクリプションへ移行します。価格は、ストアから提供された内容が本アプリ内に表示されます。</li>
     </ul>
-    <p>お客様は、違法または無許可の使用によるいかなる結果についても責任を負います。</p>
+    <p>ストアの追加の課金条件が適用される場合があります。ご利用のApple App StoreまたはGoogle Playアカウントの設定および該当する規約をご確認ください。</p>
 
-    <h2>6. サブスクリプションと支払い</h2>
-    <h3>6.1 Pro サブスクリプション</h3>
-    <ul>
-        <li>Sentinel は、高度なスキャンモジュールのロックを解除する任意の <strong>Pro</strong> サブスクリプションを提供します。中核となる機能はサブスクリプションなしでも引き続きご利用いただけます。</li>
-        <li>サブスクリプションは <strong>Apple App Store</strong> または <strong>Google Play Store</strong> を通じて販売され、<strong>Qonversion</strong> を介して管理されます。</li>
-    </ul>
-    <h3>6.2 請求、自動更新、解約</h3>
-    <ul>
-        <li>サブスクリプションは、更新日の少なくとも24時間前に解約されない限り、各請求期間の終了時に<strong>自動的に更新</strong>されます。</li>
-        <li>料金はお客様のアプリストアアカウントを通じて請求されます。価格はお客様の現地通貨で表示され、地域によって異なる場合があります。税金が適用される場合があります。</li>
-        <li>お客様は、端末のサブスクリプション設定（App Store または Google Play）からいつでも解約できます。解約は現在の期間の終了時に有効となり、それまでは Pro へのアクセスを維持できます。</li>
-        <li>返金は、Apple または Google が各自のポリシーに基づいて処理します。新しい端末で購入を復元するための<strong>「購入を復元」</strong>オプションが利用できます。</li>
-    </ul>
+    <h2>知的財産権</h2>
+    <p>本アプリ（そのソフトウェア、デザイン、テキスト、グラフィック、商標を含む）は、当社または当社のライセンサーが所有し、知的財産法によって保護されています。本規約は、お客様に本アプリに対するいかなる所有権も付与するものではありません。明示的に付与されていないすべての権利は留保されます。</p>
 
-    <h2>7. 知的財産</h2>
-    <p>Sentinel は、そのソフトウェア、デザイン、ロゴ、およびコンテンツを含め、当社または当社のライセンサーに帰属し、知的財産権に関する法律によって保護されています。本規約は、お客様にいかなる所有権も移転するものではありません。お客様が本アプリ内で生成したデータ（スキャン履歴やメモなど）はお客様に帰属し、お客様の端末内に留まります。</p>
+    <h2>責任の制限</h2>
+    <p>法律で認められる最大限の範囲において、当社は、隠された機器を検出できなかった場合を含め、本アプリの使用または使用不能から生じるいかなる間接的、付随的、特別、結果的、または懲罰的損害、あるいはいかなる損失、損害、または傷害についても責任を負いません。本アプリのご使用はお客様ご自身の責任において行われるものとします。</p>
 
-    <h2>8. 免責事項</h2>
-    <ul>
-        <li>本アプリは、商品性、特定目的への適合性、正確性、および非侵害を含め、明示または黙示を問わずいかなる保証もなく、<strong>「現状有姿」</strong>かつ<strong>「提供可能な範囲」</strong>で提供されます。</li>
-        <li>当社は、本アプリが中断なく、エラーなく、安全であること、または特定の機器を検出することを保証しません。</li>
-        <li>スキャン結果、リスクスコア、および指標は、ヒューリスティクスとお客様の端末のセンサーによって生成される<strong>推定値</strong>であり、ハードウェアの機能および環境条件に依存します。これらを決定的なものとして依拠してはなりません。</li>
-        <li>当社は、未検出の機器や誤検知を含め、本アプリへの依拠に起因するいかなる結果についても責任を負いません。</li>
-    </ul>
+    <h2>保証の否認</h2>
+    <p>本アプリは「現状有姿」かつ「提供可能な範囲」で提供され、商品性、特定目的への適合性、正確性、または非侵害の保証を含め、明示または黙示を問わず、いかなる種類の保証も行いません。当社は、本アプリにエラーがないこと、中断されないこと、または特定の機器を検出することを保証しません。</p>
 
-    <h2>9. 責任の制限</h2>
-    <p>適用される法律で認められる最大限の範囲において、</p>
-    <ul>
-        <li>当社は、監視機器を検出できなかったことを含め、お客様による本アプリの使用（または使用不能）に起因または関連して生じる、間接的、付随的、特別、結果的、懲罰的、もしくは制裁的な損害、またはプライバシー、データ、もしくは安全のいかなる喪失についても、責任を負いません。</li>
-        <li>本アプリに起因または関連するいかなる請求についても、当社の累積的な責任の総額は、請求に先立つ<strong>12か月間</strong>にお客様が本アプリのサブスクリプションに対して支払った金額を超えないものとします。</li>
-        <li>一部の管轄では特定の制限が認められていません。そうした地域では、当社の責任は法律で認められる最大限の範囲に制限されます。</li>
-    </ul>
+    <h2>準拠法</h2>
+    <p>本規約は、抵触法の原則にかかわらず、ベトナム社会主義共和国の法律に準拠します。適用法で別途要求される場合を除き、いかなる紛争も当該法域の裁判所に服するものとします。</p>
 
-    <h2>10. 専門的サービスの代替ではないこと</h2>
-    <p>Sentinel は、セキュリティ、法律、または調査に関するサービスを提供するものではありません。ご自身の安全、プライバシー、または財産に対する現実のリスクを伴う状況については、有資格の専門家（ライセンスを有する TSCM 専門家など）にご相談いただくか、法執行機関にご連絡ください。本アプリのいかなる内容も、専門的な助言を構成するものではありません。</p>
+    <h2>本規約の変更</h2>
+    <p>当社は、随時本規約を更新することがあります。重要な変更を行う場合、当社は上記の「最終更新日」を更新し、適切な場合には本アプリ内でお客様に通知します。変更の発効後もお客様が本アプリの使用を継続する場合、更新後の規約に同意したものとみなされます。</p>
 
-    <h2>11. プライバシー</h2>
-    <p>お客様による本アプリの使用は、情報の取り扱い方法を説明する当社の<strong>プライバシーポリシー</strong>にも準拠します。Sentinel はオフラインファーストであり、お客様のスキャンデータは端末内に留まり、初期設定では端末外に送信されません。本アプリを使用することにより、お客様はプライバシーポリシーに記載された取り扱いを認識するものとします。</p>
-
-    <h2>12. 終了</h2>
-    <ul>
-        <li>お客様は、いつでも本アプリの使用を停止しアンインストールでき、これによりローカルに保存されたデータが削除されます。</li>
-        <li>お客様が本規約に違反した場合、または本アプリを違法に使用した場合、当社はお客様のアクセスを停止または終了することがあります。</li>
-        <li>その性質上、終了後も存続すべき条項（免責事項、責任の制限、および準拠法を含む）は、引き続き適用されます。</li>
-    </ul>
-
-    <h2>13. 準拠法</h2>
-    <p>本規約は、<strong>[EDIT: governing-law jurisdiction — placeholder: ベトナム]</strong>の法律に準拠し、これに従って解釈されるものとし、その抵触法の規則は適用されません。いかなる紛争も当該管轄の裁判所に服するものとします。ただし、強行的な現地の消費者保護法がお客様に追加の権利を付与する場合を除きます。本規約のいかなる内容も、消費者としてのお客様が有する放棄不能な法定の権利を制限するものではありません。</p>
-
-    <h2>14. 本規約の変更</h2>
-    <p>当社は、本規約を随時更新することがあります。重要な変更を行う場合、当社は上記の「最終更新日」を更新し、適切な場合にはアプリ内でお客様に通知します。発効日以降も本アプリの利用を継続することは、更新後の規約への同意を構成します。同意されない場合は、本アプリのご使用をおやめください。</p>
-
-    <h2>15. 確認事項</h2>
-    <div class="warning">
-        <p>Sentinel を使用することにより、お客様は以下を認識し、これに同意するものとします。</p>
-        <ul>
-            <li>本アプリは<strong>初期トリアージと気づきを支援するツール</strong>であり、確実な検出器ではなく、いかなる空間にも監視機器が存在しないことを保証できません。</li>
-            <li>誤検知および見逃しが起こり得ます。お客様は、ご自身の安全について<strong>本アプリのみに依拠しません</strong>。</li>
-            <li>お客様は、本アプリを<strong>適法に</strong>、かつ点検する権利を有する空間のみを点検するために使用します。</li>
-            <li>現実のリスクについては、専門家または法執行機関の支援を求めます。</li>
-        </ul>
-    </div>
-
-    <h2>16. 連絡先情報</h2>
+    <h2>お問い合わせ</h2>
     <div class="contact-info">
-        <p>本規約に関してご質問、ご懸念、またはご意見がある場合は、当社までご連絡ください。</p>
-        <p><strong>メール:</strong> <a href="mailto:nguyen@sartoro.co">nguyen@sartoro.co</a> <!-- [EDIT: contact email] --></p>
-        <p><strong>アプリ:</strong> Sentinel（バンドルID <code>io.ntvtech.hiddencamdetect</code>）</p>
-        <p><strong>提供者:</strong> [EDIT: company legal name] &middot; [EDIT: business address]</p>
-        <p><small>&copy; <span class="copyright-year">2026</span> Sentinel. 無断複製・転載を禁じます。</small></p>
+      <p>本規約についてご質問がある場合は、以下までお問い合わせください。</p>
+      <p><strong>HiddenCamDetect</strong><br>
+      メール: <a href="mailto:nhanntv113@gmail.com">nhanntv113@gmail.com</a></p>
     </div>
-
-    <script>
-        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
-    </script>
+  </div>
 </body>
 </html>

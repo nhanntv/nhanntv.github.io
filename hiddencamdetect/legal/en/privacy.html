@@ -1,264 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy – Sentinel</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-        }
-        h1 {
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #4CAF50;
-        }
-        h2 {
-            color: #2c3e50;
-            font-size: 1.3em;
-            margin-top: 30px;
-            margin-bottom: 10px;
-        }
-        h3 {
-            color: #34495e;
-            font-size: 1.1em;
-            margin-top: 15px;
-            margin-bottom: 8px;
-        }
-        p { margin-bottom: 12px; }
-        ul {
-            margin-left: 20px;
-            margin-bottom: 12px;
-        }
-        li { margin-bottom: 6px; }
-        .last-updated {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        .highlight {
-            background-color: #f8f9fa;
-            border-left: 4px solid #4CAF50;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .warning {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .contact-info {
-            background-color: #e8f5e9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-        a { color: #4CAF50; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #1a1a1a; color: #f5f5f5; }
-            h1 { color: #81C784; border-bottom-color: #4CAF50; }
-            h2 { color: #cfd8dc; }
-            h3 { color: #b0bec5; }
-            .highlight {
-                background-color: #263238;
-                border-left-color: #4CAF50;
-                color: #e0e0e0;
-            }
-            .highlight p, .highlight li, .highlight strong, .highlight span {
-                color: #e0e0e0;
-            }
-            .warning {
-                background-color: #3e2723;
-                border-left-color: #ff9800;
-                color: #e0e0e0;
-            }
-            .warning p, .warning li, .warning strong, .warning span {
-                color: #e0e0e0;
-            }
-            .contact-info {
-                background-color: #1b5e20;
-                color: #e0e0e0;
-            }
-            .contact-info p, .contact-info strong, .contact-info small, .contact-info h2 {
-                color: #e0e0e0;
-            }
-            ul, li { color: #f5f5f5; }
-            .last-updated { color: #b0bec5; }
-            a { color: #81C784; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — HiddenCamDetect</title>
+  <style>
+    :root {
+      color-scheme: light;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px 18px 48px;
+      -webkit-text-size-adjust: 100%;
+    }
+    .container { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; line-height: 1.3; margin: 0 0 8px; }
+    h2 { font-size: 1.2rem; line-height: 1.35; margin: 32px 0 8px; }
+    p, li { font-size: 1rem; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    a { color: #0a63c9; word-break: break-word; }
+    .last-updated { color: #6b7280; font-size: 0.9rem; margin: 0 0 24px; }
+    .highlight {
+      background: #eef4ff;
+      border-left: 4px solid #0a63c9;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .warning {
+      background: #fff4e5;
+      border-left: 4px solid #d97706;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .contact-info {
+      background: #f3f4f6;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    strong { font-weight: 600; }
+  </style>
 </head>
 <body>
+  <div class="container">
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Effective from: July 2026 &middot; Last updated: July 2026</p>
+    <p class="last-updated">Last updated: July 2026</p>
+
+    <p>HiddenCamDetect (the "App") is a hidden-device awareness and triage tool that helps you look for hidden cameras, covert recorders, and eavesdropping devices. This Privacy Policy explains what data the App does and does not handle, and how your privacy is protected. HiddenCamDetect is provided by HiddenCamDetect ("we", "us", or "our").</p>
 
     <div class="highlight">
-        <p>This Privacy Policy describes how <strong>Sentinel</strong> (the "App", "we", "us", "our") handles information. Sentinel is an <strong>offline-first, privacy-first</strong> tool that helps you scan your surroundings for hidden cameras and covert recording devices. Your scans stay on your device. We designed Sentinel so that, by default, <strong>no scan data ever leaves your phone</strong>.</p>
+      <p>HiddenCamDetect is <strong>offline-first and privacy-first</strong>. Your scan results are processed entirely on your device. The App has no scan backend, and your scan data is never uploaded to us or to anyone else.</p>
     </div>
 
-    <h2>1. What Sentinel Is — and What It Is Not</h2>
-    <div class="warning">
-        <p>Sentinel is an <strong>awareness and triage aid</strong>, not a guaranteed detector. It uses your phone's existing sensors to surface <em>possible</em> signs of surveillance devices. It <strong>cannot find every hidden device</strong>, and it can never confirm that a space is "100% safe." Results may include both false alarms and missed devices. Always combine Sentinel with a careful manual inspection, and seek professional help when your safety may be at risk.</p>
-    </div>
-
-    <h2>2. Our Privacy Principles</h2>
+    <h2>Data We Do Not Collect</h2>
+    <p>We do <strong>not</strong> collect, transmit, or store the following on any server. All of it stays on your device and never leaves it:</p>
     <ul>
-        <li><strong>Offline-first:</strong> Scanning works without an internet connection. Sensor readings and detections are processed on your device.</li>
-        <li><strong>No account required:</strong> You can use the core scanning features without signing up or providing personal information.</li>
-        <li><strong>Your scans stay local:</strong> Scan results, detected devices, and history are stored only on your device. We do not upload them.</li>
-        <li><strong>Minimal data:</strong> The only data that may leave your device is anonymized diagnostics (which you can turn off) and purchase validation (handled by the app stores).</li>
+      <li><strong>Wi-Fi and network scan results</strong> — IP addresses, device names, ports, and services discovered on your local network.</li>
+      <li><strong>Bluetooth (BLE) scan results</strong> — nearby broadcasting devices, signal strength, and identifiers.</li>
+      <li><strong>Camera frames</strong> — images captured during lens-glint or infrared checks are analyzed on-device in real time and are never saved or sent.</li>
+      <li><strong>Sensor readings</strong> — magnetometer and other motion-sensor values are shown live and are not retained off-device.</li>
+      <li><strong>Scan history and baselines</strong> — stored only in the App's local database on your device.</li>
+    </ul>
+    <p>Because this data never leaves your device, we cannot see it, access it, or share it.</p>
+
+    <h2>Permissions We Use and Why</h2>
+    <p>The App requests device permissions only in context and for a specific detection purpose. You can grant or deny each one, and revoke them later in your device settings.</p>
+    <ul>
+      <li><strong>Camera</strong> — to detect lens reflections (glint) and infrared light from hidden cameras. Frames are analyzed on-device and never stored or transmitted.</li>
+      <li><strong>Location / nearby Wi-Fi</strong> (Android) — required by the operating system to scan for networked devices on your local network. We do <strong>not</strong> track your geographic location.</li>
+      <li><strong>Local Network</strong> (iOS) — to discover devices on your local network for scanning.</li>
+      <li><strong>Bluetooth</strong> — to scan for nearby broadcasting devices. On Android this is flagged as "never for location", so it is not used to derive your location.</li>
+      <li><strong>Motion sensors</strong> — to read the magnetic field as a reference indicator. This signal is informational only.</li>
     </ul>
 
-    <h2>3. Information We Collect</h2>
-
-    <h3>3.1 Scan &amp; Sensor Data (On-Device Only)</h3>
-    <ul>
-        <li><strong>Sensor readings:</strong> Wi-Fi network scan results, Bluetooth Low Energy (BLE) advertisements, camera frames (for lens-glint and infrared viewing), magnetometer/motion readings, and Time-of-Flight/LiDAR depth data, depending on which scans you run and what your device supports.</li>
-        <li><strong>Detections &amp; history:</strong> Suspicious-device records, risk scores, scan sessions, and notes you save.</li>
-        <li>This data is created and stored <strong>locally on your device</strong> in an on-device database. Camera frames are processed in real time for analysis and are <strong>not saved</strong> as part of normal scanning. We do not transmit any of this data off your device by default.</li>
-    </ul>
-
-    <h3>3.2 Diagnostics &amp; Crash Data (Optional, Opt-Out)</h3>
-    <ul>
-        <li><strong>Crash reports &amp; analytics:</strong> To keep the App stable, we may collect anonymized crash logs, error information, device type, operating system version, app version, and basic feature-usage events through <strong>Firebase Crashlytics and Firebase Analytics</strong>.</li>
-        <li>This information is <strong>not linked to your identity</strong> and never includes your scan results, detected devices, camera images, or the contents of any space you inspect.</li>
-        <li>You can <strong>turn diagnostics off at any time</strong> in Settings.</li>
-    </ul>
-
-    <h3>3.3 Subscription Data</h3>
-    <ul>
-        <li>If you purchase a Pro subscription, the relevant app store (Apple App Store or Google Play) and our subscription manager <strong>Qonversion</strong> process the transaction and tell the App whether your subscription is active.</li>
-        <li>We do <strong>not</strong> receive or store your full payment-card details. Billing is handled entirely by the app stores.</li>
-    </ul>
-
-    <h3>3.4 What We Do NOT Collect</h3>
-    <ul>
-        <li>We do not collect your name, contacts, photos library, precise location history, or browsing activity.</li>
-        <li>We do not upload your scan results, detected-device lists, or camera/sensor data.</li>
-        <li>We do not sell, rent, or trade personal information to anyone.</li>
-    </ul>
-
-    <h2>4. Device Permissions and Why We Need Them</h2>
-    <p>Sentinel asks for permissions <strong>contextually — one at a time</strong>, with a short explanation, only when a feature needs it. You may decline any permission; the related scan simply will not be available. Each permission is used <strong>solely</strong> for on-device scanning.</p>
-    <ul>
-        <li><strong>Camera:</strong> Used for the lens-glint optical scan (detecting reflections from camera lenses with the torch) and the infrared viewer. Camera frames are analyzed on-device in real time and are not stored.</li>
-        <li><strong>Location (precise) &amp; nearby Wi-Fi:</strong> On Android, the operating system <strong>requires</strong> location permission in order to perform Wi-Fi network scans. We use it only to enumerate nearby Wi-Fi networks for the Wi-Fi scan. We do not track, store, or transmit your geographic location.</li>
-        <li><strong>Bluetooth / nearby devices:</strong> Used to scan for nearby Bluetooth Low Energy (BLE) devices that may be cameras, trackers, or recorders.</li>
-        <li><strong>Motion &amp; sensors (magnetometer):</strong> Used for the magnetometer scan, which looks for magnetic-field anomalies near electronics. This is a low-confidence, "reference only" signal.</li>
-    </ul>
-
-    <h2>5. How We Use Information</h2>
-    <ul>
-        <li><strong>To run scans:</strong> Sensor data is analyzed on your device to highlight possible surveillance devices and produce a risk score.</li>
-        <li><strong>To show history:</strong> Your detections and scan sessions are saved locally so you can review them.</li>
-        <li><strong>To improve stability:</strong> Anonymized diagnostics (if enabled) help us find and fix crashes and bugs.</li>
-        <li><strong>To manage your subscription:</strong> Purchase status from the stores/Qonversion unlocks Pro features.</li>
-    </ul>
-
-    <h2>6. On-Device Data Handling and Security</h2>
-    <ul>
-        <li><strong>Local storage:</strong> Scans, detections, and history are stored in a database on your device. Deleting the App removes this data.</li>
-        <li><strong>No background uploads:</strong> Scan data is not synced to any server.</li>
-        <li><strong>Encryption in transit:</strong> The limited data that does leave your device (diagnostics, purchase validation) is sent over encrypted connections (TLS/HTTPS).</li>
-        <li>No method of storage or transmission is 100% secure, and we cannot guarantee absolute security. You are responsible for the physical security of your device.</li>
-    </ul>
-
-    <h2>7. Optional: Community Surveillance-Device Database</h2>
+    <h2>Diagnostics and Analytics</h2>
+    <p>To keep the App stable and improve detection quality, we use Firebase Crashlytics and Firebase Analytics to collect <strong>anonymous</strong> diagnostic and usage information (for example, crash reports and aggregate feature usage).</p>
     <div class="highlight">
-        <p>We may offer an <strong>optional, opt-in</strong> feature that lets you contribute <strong>anonymized fingerprints</strong> of suspicious devices to help build a community database that improves detection for everyone.</p>
-        <ul>
-            <li>This feature is <strong>OFF by default</strong>. It is <strong>separate from accepting the Terms of Service</strong> — accepting the Terms does <em>not</em> enable sharing.</li>
-            <li>If you opt in, only <strong>anonymized technical signal traits</strong> may be shared — for example, an OUI/vendor prefix or generic signal characteristics of a suspicious device.</li>
-            <li>We do <strong>NOT</strong> share any personal data, camera images or other media, the contents of the space you scanned, or your geographic location.</li>
-            <li>You can <strong>turn this off and revoke sharing at any time</strong> in Settings.</li>
-        </ul>
+      <p>Diagnostics are <strong>enabled by default</strong> but are fully optional. You can turn them off at any time in <strong>Settings → "Share anonymous diagnostics"</strong>. This data is anonymized, is not linked to your identity, and is <strong>not</strong> used for cross-app tracking or advertising (no IDFA).</p>
     </div>
+    <p><strong>Your scan data (Wi-Fi, Bluetooth, camera, and sensor results) is never included in diagnostics and is never sent anywhere.</strong> This is a core commitment that does not change.</p>
 
-    <h2>8. Diagnostics and Analytics (Firebase)</h2>
-    <ul>
-        <li>We use <strong>Firebase Crashlytics</strong> (crash reporting) and <strong>Firebase Analytics</strong> (anonymous usage metrics) to improve reliability and understand which features are used.</li>
-        <li>Collected data may include device model, OS version, app version, crash stack traces, and anonymous event counts. It is <strong>not used to identify you</strong> and contains no scan content.</li>
-        <li>You can <strong>opt out</strong> at any time in Settings; diagnostics may be enabled by default and can be disabled.</li>
-    </ul>
+    <h2>Detection Data Updates</h2>
+    <p>The App may download public reference data over a secure HTTPS connection — for example, hardware vendor (OUI) lists and known suspicious port lists — to improve detection accuracy. This is a <strong>download only</strong>. No scan data or personal information is sent as part of these updates.</p>
 
-    <h2>9. Subscriptions and Purchases</h2>
-    <ul>
-        <li>Sentinel offers an optional <strong>Pro</strong> subscription that unlocks advanced scanning modules.</li>
-        <li>Purchases are processed by the <strong>Apple App Store</strong> or <strong>Google Play Store</strong> and managed via <strong>Qonversion</strong> for cross-platform entitlement tracking.</li>
-        <li>Billing information is handled by the app stores under their own privacy policies. We receive only your subscription status.</li>
-    </ul>
+    <h2>In-App Purchases</h2>
+    <p>The App offers an optional paid subscription ("Pro"). Payments are processed entirely by the Apple App Store or Google Play. We do <strong>not</strong> receive or store your payment card details. Purchase and subscription status is validated through the store's receipt mechanism. Please refer to the applicable store's privacy policy for how your payment information is handled.</p>
 
-    <h2>10. Data Sharing and Disclosure</h2>
-    <div class="warning">
-        <p><strong>We do NOT sell your personal information, and we do not share your scan data with third parties.</strong></p>
-    </div>
-    <p>We share only the limited categories of data described above, and only with the service providers needed to deliver the App:</p>
-    <ul>
-        <li><strong>Firebase (Google):</strong> Anonymized crash reporting and analytics (opt-out).</li>
-        <li><strong>Apple App Store / Google Play / Qonversion:</strong> Subscription billing and status.</li>
-        <li><strong>Legal requirements:</strong> We may disclose information if required by law, legal process, or to protect rights and safety. Because scan data stays on your device, it is not available to us to disclose.</li>
-    </ul>
+    <h2>Local Storage</h2>
+    <p>The App stores your scan history, baselines, and settings (such as theme, language, and enabled modules) locally on your device using an on-device database and preferences. This information is not synced to any server.</p>
 
-    <h2>11. Children's Privacy</h2>
-    <ul>
-        <li>Sentinel is <strong>not directed at children</strong> and is intended for adults and older teens (at least 13, or 16 where required by local law).</li>
-        <li>We do not knowingly collect personal information from children under the applicable age. If you believe a child has provided us information, please contact us and we will address it.</li>
-    </ul>
+    <h2>Children's Privacy</h2>
+    <p>The App is not directed to children under the age of 13 (or the minimum age required in your jurisdiction, such as 16 in parts of the EU). We do not knowingly collect personal information from children.</p>
 
-    <h2>12. Data Retention</h2>
-    <ul>
-        <li><strong>Scan data &amp; history:</strong> Kept on your device until you delete it or uninstall the App. You can clear history in the App at any time.</li>
-        <li><strong>Diagnostics:</strong> Crash and analytics data are retained by Firebase for a limited period (typically up to 12&ndash;14 months) and then automatically deleted or anonymized.</li>
-        <li><strong>Subscription data:</strong> Retained by the app stores and Qonversion according to their policies.</li>
-    </ul>
+    <h2>Your Rights</h2>
+    <p>Depending on where you live, you may have rights under laws such as the GDPR or CCPA, including the right to access or delete your personal data. Because the App does not collect or store your scan data or personal data on any server, <strong>all of your data lives on your device</strong>. Deleting the App removes this data, including your scan history and settings. If you have enabled diagnostics, you may disable them at any time in Settings.</p>
+    <p>For any privacy question or request, contact us using the details below.</p>
 
-    <h2>13. Your Privacy Rights</h2>
-    <p>Depending on where you live, you may have rights to access, correct, delete, or port your personal data, and to object to or restrict certain processing (for example under the EU/UK <strong>GDPR</strong> or the <strong>CCPA/CPRA</strong> in California).</p>
-    <ul>
-        <li>Because your scan data lives only on your device, you can exercise most rights directly — by viewing, exporting where available, or deleting your data and uninstalling the App.</li>
-        <li>For diagnostics or subscription data, contact us at the email below and we will respond within the time required by your local law (generally within 30 days).</li>
-        <li>California residents: we do not sell or "share" personal information as defined by the CCPA/CPRA.</li>
-    </ul>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we make material changes, we will update the "Last updated" date above and, where appropriate, notify you within the App. Your continued use of the App after changes take effect means you accept the updated policy.</p>
 
-    <h2>14. International Data Transfers</h2>
-    <p>The limited diagnostics and subscription data that leave your device may be processed by our service providers in countries other than your own, including the United States. Where required, we rely on appropriate safeguards such as Standard Contractual Clauses for cross-border transfers.</p>
-
-    <h2>15. Third-Party Services</h2>
-    <p>We encourage you to review the privacy policies of the services we rely on:</p>
-    <ul>
-        <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
-        <li><a href="https://firebase.google.com/support/privacy">Firebase Privacy &amp; Security</a></li>
-        <li><a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a></li>
-        <li><a href="https://qonversion.io/privacy-policy">Qonversion Privacy Policy</a></li>
-    </ul>
-
-    <h2>16. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. When we make material changes, we will update the "Last updated" date above and, where appropriate, notify you in the App. Continued use of the App after the effective date constitutes acceptance of the updated policy.</p>
-
-    <h2>17. Contact Us</h2>
+    <h2>Contact Us</h2>
     <div class="contact-info">
-        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please contact us:</p>
-        <p><strong>Email:</strong> <a href="mailto:nguyen@sartoro.co">nguyen@sartoro.co</a> <!-- [EDIT: contact email] --></p>
-        <p><strong>App:</strong> Sentinel (bundle ID <code>io.ntvtech.hiddencamdetect</code>)</p>
-        <p><strong>Provider:</strong> [EDIT: company legal name] &middot; [EDIT: business address]</p>
-        <p><small>&copy; <span class="copyright-year">2026</span> Sentinel. All rights reserved.</small></p>
+      <p>If you have questions about this Privacy Policy or your data, contact us at:</p>
+      <p><strong>HiddenCamDetect</strong><br>
+      Email: <a href="mailto:nhanntv113@gmail.com">nhanntv113@gmail.com</a></p>
     </div>
-
-    <script>
-        document.querySelector('.copyright-year').textContent = new Date().getFullYear();
-    </script>
+  </div>
 </body>
 </html>
