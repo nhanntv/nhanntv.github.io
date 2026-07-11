@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "minAppVersion": "1.0.0",
+  "datasets": [
+    {
+      "id": "device_type_keywords",
+      "version": 4,
+      "url": "https://cdn.jsdelivr.net/gh/nhanntv/nhanntv.github.io@main/hiddencamdetect/ota/device_type_keywords.json",
+      "sha256": "bfa82f482f6a52a989b2abb6a9e34f4ad85c0bf45219873c056ea62483014f63"
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "version": 4,
+    "schema": "device_type_keywords@1",
+    "generated": "2026-07-11",
+    "source": "Hand-curated hostname / mDNS-name / model / manufacturer keyword → device-type map. NOT imported from any dataset. Built from real-world device & ISP-CPE naming conventions across the app's supported locales (VN, EN/global, DE, ES, FR, HI, ID, IT, JA, KO, MS, NL, PT, RU, TH, ZH). Substring-matched (case-insensitive). v3: fine-grained subtypes (doorbell/nvr, tvBox/smartTv/streamingStick, ispGateway/accessPoint, robotVacuum/smartLight/smartPlug/smartHub/sensor). v4: + audioRecorder (network audio / baby monitor / intercom / mic). Tokens chosen distinctive to minimise false positives. Note: most hidden audio bugs use GSM/offline storage and are NOT visible to a network scan — audioRecorder only catches Wi-Fi audio devices that advertise a name.",
+    "disclaimer": "Chỉ GỢI Ý loại thiết bị để user dễ hiểu — KHÔNG phải kết luận chắc chắn, KHÔNG phải bằng chứng camera lén. Tín hiệu giao thức (RTSP/ONVIF/cổng) vẫn được ưu tiên cho phân loại camera.",
+    "matching": "case-insensitive substring against joined [hostname, friendlyName, serviceNames, model, manufacturer, ssdpDeviceType, serviceTypes]. When several categories match, meta.priority order wins (most specific first).",
+    "priority": [
+      "doorbell", "nvr", "camera",
+      "audioRecorder",
+      "tvBox", "streamingStick", "smartTv", "mediaPlayer",
+      "smartSpeaker",
+      "printer",
+      "ispGateway", "accessPoint", "router",
+      "computer",
+      "mobile",
+      "robotVacuum", "smartLight", "smartPlug", "smartHub", "sensor", "smartHome"
+    ]
+  },
+  "entries": [
+    {
+      "category": "doorbell",
+      "keywords": ["doorbell", "video-doorbell", "chuong-cua"]
+    },
+    {
+      "category": "nvr",
+      "keywords": ["nvr", "dvr", "xvr"]
+    },
+    {
+      "category": "camera",
+      "keywords": [
+        "camera", "ipcam", "ip-cam", "ipcamera", "ip-camera", "webcam",
+        "-cam", "cam-", "babycam", "netcam", "cctv", "onvif",
+        "hikvision", "hik-", "ds-2cd", "ds-kv", "hik-connect",
+        "dahua", "dahua-", "ezviz", "imou", "reolink", "foscam", "amcrest",
+        "annke", "lorex", "swann", "instar", "uniview", "vstarcam", "kbvision",
+        "kbone", "yoosee", "icsee", "v380", "goolink", "xmeye", "hqcam",
+        "dericam", "yi-cam", "yicam", "axis-", "dcs-", "dlink-cam", "wyze",
+        "arlo", "blink", "eufy", "ring-", "nestcam", "nest-cam", "mi-camera",
+        "unifi-protect", "tapo"
+      ]
+    },
+    {
+      "category": "audioRecorder",
+      "keywords": [
+        "babymonitor", "baby-monitor", "baby monitor", "intercom",
+        "ip-intercom", "microphone", "voicerecorder", "voice-recorder",
+        "dictaphone", "audiorecorder", "audio-recorder", "ip-audio"
+      ]
+    },
+    {
+      "category": "tvBox",
+      "keywords": [
+        "tvbox", "tv-box", "-box", "box-", "androidtv", "android-tv",
+        "android tv", "settopbox", "set-top", "settop", "stb", "stbandroid",
+        "netbox", "digibox", "tvos", "nasne", "appletv", "apple-tv", "apple tv",
+        "shield", "nvidia-shield", "tivo", "skyq", "mibox", "mi-box", "mi box",
+        "fptplay", "ottbox", "fpt-box", "fptbox", "tv360", "mytv", "mytvbox",
+        "vieon", "clip-tv", "onme", "clevertv", "flytv", "viettv", "vietteltv",
+        "useetv", "trueid", "playbox", "transvision", "b860h", "b760h", "zxv10",
+        "timvision", "meobox", "meo-box", "decodeur", "freebox-player",
+        "freebox player", "sberbox", "jiostb", "tatasky", "tataplay", "binge"
+      ]
+    },
+    {
+      "category": "streamingStick",
+      "keywords": [
+        "chromecast", "firestick", "firetv", "fire-tv", "fire tv", "aftt",
+        "aftmm", "roku", "googletv", "google-tv", "google tv"
+      ]
+    },
+    {
+      "category": "smartTv",
+      "keywords": [
+        "tv", "smarttv", "smart tv", "webos", "tizen", "vidaa", "bravia",
+        "aquos", "viera", "regza", "loewe", "grundig", "tpvision", "philips-tv",
+        "hisense", "vizio", "skyworth", "lgsmarttv", "mitv", "mi-tv", "mi tv",
+        "sky-glass"
+      ]
+    },
+    {
+      "category": "mediaPlayer",
+      "keywords": ["dlna", "mediarenderer", "soundbar", "airplay-"]
+    },
+    {
+      "category": "smartSpeaker",
+      "keywords": [
+        "speaker", "smart speaker", "homepod", "sonos", "spotify",
+        "google-home", "googlehome", "google home", "google-nest",
+        "nest-mini", "nestmini", "nest mini", "nest-audio", "nestaudio",
+        "nest-hub", "nesthub", "alexa", "echodot", "echo-dot", "echo dot",
+        "amazon-echo", "clova", "nugu", "xiaoai", "miai", "yandexstation",
+        "yandex-station", "yandexmini", "stationlite", "sberportal",
+        "salutespeaker", "vkcapsule"
+      ]
+    },
+    {
+      "category": "printer",
+      "keywords": [
+        "printer", "scanner", "airprint", "officejet", "laserjet", "deskjet",
+        "envy", "pixma", "maxify", "imageclass", "imagerunner", "ecotank",
+        "workforce", "phaser", "versalink", "mfp", "mfc-", "dcp-", "hl-",
+        "brn-", "brn30", "hp-print", "hp-color", "-print", "print-",
+        "epson", "brother", "canon", "ricoh", "kyocera", "lexmark", "xerox",
+        "fuji-xerox", "fujixerox", "samsung-print"
+      ]
+    },
+    {
+      "category": "ispGateway",
+      "keywords": [
+        "modem", "residentialgateway", "internetgatewaydevice", "broadband",
+        "gpon", "-ont-", "fritz", "fritzbox", "fritz.box", "speedport",
+        "easybox", "homebox", "vodafone-station", "vodafonestation", "livebox",
+        "mafreebox", "freeboxserver", "bbox", "mabbox", "sfrbox", "experiabox",
+        "experia-box", "connectbox", "smartwifi", "fastgate", "timhub",
+        "smart-modem", "smartmodem", "mitrastar", "arcadyan", "sagemcom",
+        "technicolor", "thomson", "fibergateway", "nosbox", "askey",
+        "echolife", "hg8245", "eg8145", "hg8145", "ec6608", "zxhn", "zte-",
+        "f660", "f670", "f609", "f672", "fiberhome", "innbox", "nokia-beacon",
+        "g-140w", "g-240w", "dasan", "igate", "gw040", "homeap", "vthomeap",
+        "indihome", "xfinity", "bgw210", "fios", "jiofi", "jiofiber", "xstream",
+        "hathway", "actfibernet", "rostelecom", "ais-fibre", "3bb-giga",
+        "gigatex", "kt-giga", "maxis", "celcomdigi", "myrepublic", "biznet",
+        "firstmedia", "hinet", "prolink"
+      ]
+    },
+    {
+      "category": "accessPoint",
+      "keywords": [
+        "mesh", "eero", "orbi", "deco-", "velop", "nestwifi", "nest-wifi",
+        "amplifi", "unifi", "wifiap", "wifi-ap", "access point", "accesspoint",
+        "repeater", "vht"
+      ]
+    },
+    {
+      "category": "router",
+      "keywords": [
+        "router", "openwrt", "dd-wrt", "routeros", "nighthawk", "netgear",
+        "archer", "tl-wr", "tl-wa", "asuscomm",
+        "asusrouter", "rt-ax", "rt-ac", "linksys", "udm", "edgerouter",
+        "mikrotik", "keenetic", "zyxel", "tenda", "totolink", "draytek",
+        "vigor", "mercury", "devolo", "dir-", "aterm", "warpstar", "airstation",
+        "buffalo-", "iodata", "io-data", "elecom", "iptime", "hilink",
+        "huawei-ax", "huawei-hg"
+      ]
+    },
+    {
+      "category": "computer",
+      "keywords": [
+        "macbook", "macbookpro", "macbookair", "imac", "mac-mini", "macmini",
+        "macpro", "windows", "windows-pc", "desktop-", "laptop", "laptop-",
+        "thinkpad", "surface-", "dell-", "lenovo-pc", "synology",
+        "diskstation", "qnap", "-nas", "nas-", "turbonas", "truenas",
+        "freenas", "unraid", "wdmycloud", "terramaster", "raspberrypi",
+        "raspberry-pi", "raspberry", "-rpi", "ubuntu", "fedora", "debian",
+        "proxmox", "workstation"
+      ]
+    },
+    {
+      "category": "mobile",
+      "keywords": [
+        "iphone", "ipad", "android-", "galaxy", "sm-g", "sm-n", "pixel-",
+        "redmi", "poco", "oneplus", "realme", "oppo-", "vivo-", "infinix",
+        "huawei-p", "huawei-phone", "honor-", "xiaomi-phone", "samsung-a"
+      ]
+    },
+    {
+      "category": "robotVacuum",
+      "keywords": [
+        "roborock", "roomba", "irobot", "deebot", "ecovacs", "dreame",
+        "viomi", "shark-", "robot-vacuum", "robotvacuum"
+      ]
+    },
+    {
+      "category": "smartLight",
+      "keywords": [
+        "philips-hue", "hue-", "lifx", "yeelight", "nanoleaf", "ledvance",
+        "smartbulb", "ledbulb", "wiz-", "wiz_", "tradfri", "smart-bulb"
+      ]
+    },
+    {
+      "category": "smartPlug",
+      "keywords": [
+        "smartplug", "smart-plug", "kasa", "wemo", "meross", "smart-socket"
+      ]
+    },
+    {
+      "category": "smartHub",
+      "keywords": [
+        "smartthings", "homekit", "aqara", "dirigera", "miniserver", "loxone",
+        "homematic", "switchbot", "nuki", "hubitat", "conbee"
+      ]
+    },
+    {
+      "category": "sensor",
+      "keywords": ["sensor", "netatmo", "motion-sens", "door-sens"]
+    },
+    {
+      "category": "smartHome",
+      "keywords": [
+        "smart", "thermostat", "tuya", "smartlife", "sonoff", "itead",
+        "espressif", "tasmota", "shelly", "govee", "lutron", "caseta", "tado",
+        "ecobee", "thinq", "dyson", "petkit", "nature-remo", "natureremo",
+        "mijia", "miio", "xiaomi-gateway", "rangdong", "lumi-", "syska"
+      ]
+    }
+  ]
+}
