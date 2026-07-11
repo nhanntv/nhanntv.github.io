@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="540" viewBox="0 0 260 540" role="img" aria-label="Screenshot coming soon">
+  <defs>
+    <linearGradient id="ph" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#151B2B"/>
+      <stop offset="1" stop-color="#0B0F1A"/>
+    </linearGradient>
+    <linearGradient id="phAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4D6BFF"/>
+      <stop offset="1" stop-color="#37E0C8"/>
+    </linearGradient>
+  </defs>
+  <rect width="260" height="540" rx="30" fill="url(#ph)" stroke="#2A3350" stroke-width="2"/>
+  <circle cx="130" cy="230" r="60" fill="none" stroke="#2A3350" stroke-width="2"/>
+  <circle cx="130" cy="230" r="40" fill="none" stroke="#2A3350" stroke-width="2"/>
+  <path d="M130 230 L130 168 A62 62 0 0 1 185 210 Z" fill="url(#phAccent)" opacity="0.22"/>
+  <circle cx="130" cy="230" r="16" fill="none" stroke="url(#phAccent)" stroke-width="4"/>
+  <circle cx="130" cy="230" r="6" fill="#37E0C8"/>
+  <text x="130" y="330" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#8891A8">Screenshot</text>
+  <text x="130" y="352" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#8891A8">coming soon</text>
+</svg>

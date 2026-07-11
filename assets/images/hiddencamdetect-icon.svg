@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="HiddenCamDetect">
+  <defs>
+    <linearGradient id="hcdBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#151B2B"/>
+      <stop offset="1" stop-color="#0B0F1A"/>
+    </linearGradient>
+    <linearGradient id="hcdScan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4D6BFF"/>
+      <stop offset="1" stop-color="#37E0C8"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="27" fill="url(#hcdBg)"/>
+  <!-- radar rings -->
+  <circle cx="60" cy="60" r="34" fill="none" stroke="#2A3350" stroke-width="2"/>
+  <circle cx="60" cy="60" r="23" fill="none" stroke="#2A3350" stroke-width="2"/>
+  <!-- sweep -->
+  <path d="M60 60 L60 22 A38 38 0 0 1 94 54 Z" fill="url(#hcdScan)" opacity="0.28"/>
+  <!-- eye / lens -->
+  <circle cx="60" cy="60" r="12" fill="none" stroke="url(#hcdScan)" stroke-width="3.5"/>
+  <circle cx="60" cy="60" r="4.5" fill="#37E0C8"/>
+  <circle cx="60" cy="60" r="12" fill="none" stroke="#4D6BFF" stroke-width="3.5" opacity="0.35"/>
+</svg>
