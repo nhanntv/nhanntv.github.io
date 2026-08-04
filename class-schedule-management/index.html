@@ -485,6 +485,8 @@
             background: var(--blue-light);
         }
 
+        .tech-chip img { width: 20px; height: 20px; object-fit: contain; }
+
         /* ===== App Info Strip ===== */
         .info-strip {
             display: grid;
@@ -720,12 +722,12 @@
                 <h2>Modern tech, reliable performance</h2>
             </div>
             <div class="tech-chips">
-                <div class="tech-chip">🦋 Flutter</div>
-                <div class="tech-chip">🍎 Swift (iOS)</div>
-                <div class="tech-chip">🤖 Kotlin (Android)</div>
-                <div class="tech-chip">🔥 Firebase Auth</div>
+                <div class="tech-chip"><img src="../assets/images/tech/flutter.svg" alt="Flutter" width="20" height="20"> Flutter</div>
+                <div class="tech-chip"><img src="../assets/images/tech/swift.svg" alt="Swift" width="20" height="20"> Swift (iOS)</div>
+                <div class="tech-chip"><img src="../assets/images/tech/kotlin.svg" alt="Kotlin" width="20" height="20"> Kotlin (Android)</div>
+                <div class="tech-chip"><img src="../assets/images/tech/firebase.svg" alt="Firebase" width="20" height="20"> Firebase Auth</div>
                 <div class="tech-chip">☁️ Cloud Firestore</div>
-                <div class="tech-chip">🗄️ SQLite (Drift)</div>
+                <div class="tech-chip"><img src="../assets/images/tech/sqlite.svg" alt="SQLite" width="20" height="20"> SQLite (Drift)</div>
                 <div class="tech-chip">⚓ Riverpod</div>
                 <div class="tech-chip">🌐 Multi-language (17)</div>
             </div>
@@ -812,8 +814,8 @@
 
             dots.forEach((d, i) => d.addEventListener('click', () => { scrollTo(i); resetAuto(); }));
 
-            if (prev) prev.addEventListener('click', () => { scrollTo(Math.max(getActiveIndex() - 1, 0)); resetAuto(); });
-            if (next) next.addEventListener('click', () => { scrollTo(Math.min(getActiveIndex() + 1, items.length - 1)); resetAuto(); });
+            if (prev) prev.addEventListener('click', () => { const idx = getActiveIndex(); scrollTo(idx === 0 ? items.length - 1 : idx - 1); resetAuto(); });
+            if (next) next.addEventListener('click', () => { const idx = getActiveIndex(); scrollTo(idx === items.length - 1 ? 0 : idx + 1); resetAuto(); });
 
             // Pause on hover / touch
             track.addEventListener('mouseenter', stopAuto);

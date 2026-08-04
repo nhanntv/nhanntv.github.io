@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Documents — Hụi Happy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --gold: #F4C025;
+            --gold-dark: #D4A017;
+            --gold-light: rgba(244,192,37,0.12);
+            --bg-dark: #12110D;
+            --bg-card: #1C1A14;
+            --text-light: #F1F5F9;
+            --text-2: #A8A29E;
+            --text-3: #78716C;
+            --border: #393528;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-pill: 100px;
+            --shadow: 0 4px 16px rgba(0,0,0,0.3);
+            --shadow-lg: 0 12px 36px rgba(0,0,0,0.4);
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .back-btn {
+            position: fixed; top: 20px; left: 20px;
+            background: rgba(28,26,20,0.92); color: var(--gold);
+            padding: 9px 18px; border-radius: var(--radius-pill);
+            text-decoration: none; box-shadow: var(--shadow);
+            display: flex; align-items: center; gap: 6px;
+            font-weight: 600; font-size: 0.9rem; z-index: 200;
+            backdrop-filter: blur(8px); border: 1px solid var(--border);
+            transition: transform 0.2s ease;
+        }
+        .back-btn:hover { transform: translateX(-3px); }
+        .lang-dropdown { position: fixed; top: 20px; right: 20px; z-index: 200; }
+        .lang-dropdown-btn {
+            background: rgba(28,26,20,0.92); border: 1px solid var(--border);
+            padding: 8px 14px; border-radius: var(--radius-pill); box-shadow: var(--shadow);
+            backdrop-filter: blur(8px); cursor: pointer; display: flex;
+            align-items: center; gap: 6px; font-size: 1rem; color: var(--text-light);
+        }
+        .lang-dropdown-btn:hover { border-color: var(--gold); }
+        .lang-dropdown-btn .arrow { font-size: 0.7rem; color: var(--text-2); transition: transform 0.2s; }
+        .lang-dropdown.open .lang-dropdown-btn .arrow { transform: rotate(180deg); }
+        .lang-dropdown-menu {
+            position: absolute; top: calc(100% + 6px); right: 0;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-lg);
+            overflow: hidden; opacity: 0; transform: translateY(-8px);
+            pointer-events: none; transition: opacity 0.2s, transform 0.2s; min-width: 160px;
+        }
+        .lang-dropdown.open .lang-dropdown-menu { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        .lang-option {
+            display: flex; align-items: center; gap: 10px; padding: 10px 16px;
+            cursor: pointer; font-size: 0.9rem; color: var(--text-light);
+            transition: background 0.15s; border: none; background: none; width: 100%; text-align: left;
+        }
+        .lang-option:hover { background: rgba(244,192,37,0.08); }
+        .lang-option.active { background: rgba(244,192,37,0.12); color: var(--gold); }
+        .header {
+            background: linear-gradient(135deg, #12110D 0%, #1C1A14 50%, #12110D 100%);
+            color: white; padding: 80px 24px 44px; text-align: center;
+            position: relative; overflow: hidden; border-bottom: 1px solid var(--border);
+        }
+        .header::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(244,192,37,0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .header-inner { position: relative; z-index: 1; }
+        .header-icon { font-size: 2.5rem; margin-bottom: 12px; }
+        .header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
+        .header p { color: var(--text-2); font-size: 1rem; }
+        .main { flex: 1; max-width: 700px; width: 100%; margin: 0 auto; padding: 48px 24px 64px; }
+        .legal-links { display: flex; flex-direction: column; gap: 16px; }
+        .legal-link {
+            display: flex; align-items: center; gap: 16px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 24px;
+            text-decoration: none; color: var(--text-light);
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+        .legal-link:hover { transform: translateY(-2px); border-color: var(--gold-dark); box-shadow: var(--shadow-lg); }
+        .legal-link .link-icon { font-size: 2rem; flex-shrink: 0; }
+        .legal-link .link-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; }
+        .legal-link .link-desc { font-size: 0.85rem; color: var(--text-2); }
+        .legal-link .link-arrow { margin-left: auto; color: var(--gold); font-size: 1.2rem; }
+        .page-footer {
+            background: #0a0a08; border-top: 1px solid var(--border);
+            color: var(--text-2); padding: 28px 24px; text-align: center;
+        }
+        .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 14px; flex-wrap: wrap; }
+        .footer-links a { color: var(--gold); text-decoration: none; font-size: 0.88rem; font-weight: 500; }
+        .footer-links a:hover { color: #F9D976; }
+        .footer-copy { font-size: 0.8rem; color: var(--text-3); }
+        @media (max-width: 640px) { .header h1 { font-size: 1.6rem; } .main { padding: 24px 16px 48px; } }
+    </style>
+</head>
+<body>
+    <a href="../" class="back-btn"><span>←</span> <span data-vi="Quay lại" data-en="Back">Quay lại</span></a>
+
+    <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-dropdown-btn" onclick="toggleLangMenu()">
+            <span id="langFlag">🇻🇳</span><span class="arrow">▼</span>
+        </button>
+        <div class="lang-dropdown-menu">
+            <button class="lang-option active" id="opt-vi" onclick="switchLang('vi')">🇻🇳 Tiếng Việt</button>
+            <button class="lang-option" id="opt-en" onclick="switchLang('en')">🇬🇧 English</button>
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="header-inner">
+            <div class="header-icon">📜</div>
+            <h1 data-vi="Tài liệu pháp lý" data-en="Legal Documents">Tài liệu pháp lý</h1>
+            <p data-vi="Hụi Happy — Điều khoản, Chính sách &amp; Quyền của bạn" data-en="Hụi Happy — Terms, Policies &amp; Your Rights">Hụi Happy — Điều khoản, Chính sách &amp; Quyền của bạn</p>
+        </div>
+    </div>
+
+    <main class="main">
+        <div class="legal-links">
+            <a href="terms.html" class="legal-link">
+                <div class="link-icon">🛡️</div>
+                <div>
+                    <div class="link-title" data-vi="Điều khoản bảo mật" data-en="Terms of Service">Điều khoản bảo mật</div>
+                    <div class="link-desc" data-vi="Cam kết bảo vệ sự riêng tư và tài sản số của bạn" data-en="Commitment to protecting your privacy and digital assets">Cam kết bảo vệ sự riêng tư và tài sản số của bạn</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+            <a href="privacy.html" class="legal-link">
+                <div class="link-icon">🔒</div>
+                <div>
+                    <div class="link-title" data-vi="Quyền riêng tư" data-en="Privacy Policy">Quyền riêng tư</div>
+                    <div class="link-desc" data-vi="Chính sách thu thập và sử dụng dữ liệu" data-en="Data collection and usage policy">Chính sách thu thập và sử dụng dữ liệu</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+            <a href="delete-account.html" class="legal-link">
+                <div class="link-icon">🗑️</div>
+                <div>
+                    <div class="link-title" data-vi="Yêu cầu xóa tài khoản" data-en="Account Deletion">Yêu cầu xóa tài khoản</div>
+                    <div class="link-desc" data-vi="Chính sách xoá tài khoản và dữ liệu cá nhân" data-en="Account and personal data deletion policy">Chính sách xoá tài khoản và dữ liệu cá nhân</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-links">
+            <a href="../" data-vi="← Quay lại ứng dụng" data-en="← Back to App">← Quay lại ứng dụng</a>
+            <a href="../../">App Hub</a>
+        </div>
+        <p class="footer-copy">&copy; <span id="footer-year"></span> Nhan Trinh. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+        function toggleLangMenu() { document.getElementById('langDropdown').classList.toggle('open'); }
+        document.addEventListener('click', function(e) { var dd = document.getElementById('langDropdown'); if (!dd.contains(e.target)) dd.classList.remove('open'); });
+        function switchLang(lang) {
+            document.querySelectorAll('[data-vi]').forEach(function(el) { el.textContent = el.getAttribute('data-' + lang); });
+            document.getElementById('langFlag').textContent = lang === 'vi' ? '🇻🇳' : '🇬🇧';
+            document.getElementById('opt-vi').classList.toggle('active', lang === 'vi');
+            document.getElementById('opt-en').classList.toggle('active', lang === 'en');
+            document.getElementById('langDropdown').classList.remove('open');
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>

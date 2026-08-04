@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hụi Happy — An Tâm Tiết Kiệm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --gold: #F4C025;
+            --gold-dark: #D4A017;
+            --gold-deeper: #DAA60B;
+            --gold-light: rgba(244,192,37,0.12);
+            --gold-mid: rgba(244,192,37,0.2);
+            --gold-highlight: #F9D976;
+            --bg-dark: #12110D;
+            --bg-card: #1C1A14;
+            --text-light: #F1F5F9;
+            --text-2: #A8A29E;
+            --text-3: #78716C;
+            --border: #393528;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-pill: 100px;
+            --shadow: 0 4px 16px rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.2);
+            --shadow-lg: 0 12px 36px rgba(0,0,0,0.4);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-light);
+            background: var(--bg-dark);
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(28,26,20,0.92);
+            color: var(--gold);
+            padding: 9px 18px;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 200;
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .back-btn:hover { transform: translateX(-3px); box-shadow: var(--shadow-lg); }
+
+        /* Language Dropdown */
+        .lang-dropdown {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 200;
+        }
+        .lang-dropdown-btn {
+            background: rgba(28,26,20,0.92);
+            border: 1px solid var(--border);
+            padding: 8px 14px;
+            border-radius: var(--radius-pill);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(8px);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 1rem;
+            color: var(--text-light);
+            transition: border-color 0.2s;
+        }
+        .lang-dropdown-btn:hover { border-color: var(--gold); }
+        .lang-dropdown-btn .arrow { font-size: 0.7rem; color: var(--text-2); transition: transform 0.2s; }
+        .lang-dropdown.open .lang-dropdown-btn .arrow { transform: rotate(180deg); }
+        .lang-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 6px);
+            right: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-8px);
+            pointer-events: none;
+            transition: opacity 0.2s, transform 0.2s;
+            min-width: 160px;
+        }
+        .lang-dropdown.open .lang-dropdown-menu {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            transition: background 0.15s;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+        .lang-option:hover { background: rgba(244,192,37,0.08); }
+        .lang-option.active { background: rgba(244,192,37,0.12); color: var(--gold); }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(140deg, #12110D 0%, #1C1A14 60%, #12110D 100%);
+            padding: 80px 24px 64px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 15% 60%, rgba(244,192,37,0.06) 0%, transparent 55%),
+                        radial-gradient(ellipse at 85% 10%, rgba(244,192,37,0.04) 0%, transparent 45%);
+            pointer-events: none;
+        }
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .hero-icon-wrap {
+            width: 104px;
+            height: 104px;
+            border-radius: 26px;
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 32px rgba(0,0,0,0.4);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .hero-icon-wrap img { width: 88px; height: 88px; border-radius: 20px; }
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(244,192,37,0.12);
+            border: 1px solid rgba(244,192,37,0.25);
+            color: var(--gold);
+            padding: 5px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .hero h1 { font-size: 2.6rem; font-weight: 800; color: var(--text-light); letter-spacing: -0.02em; line-height: 1.2; }
+        .hero-subtitle { font-size: 1.12rem; color: var(--gold); font-weight: 500; }
+        .hero-tagline { font-size: 1rem; color: var(--text-2); max-width: 540px; line-height: 1.65; }
+        .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(244,192,37,0.08);
+            border: 1px solid rgba(244,192,37,0.2);
+            color: var(--text-light);
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+
+        /* Sections */
+        .section { padding: 64px 0; }
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-tag {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--gold);
+            padding: 4px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            border: 1px solid rgba(244,192,37,0.2);
+        }
+        .section-header h2 { font-size: 2rem; font-weight: 700; color: var(--text-light); letter-spacing: -0.02em; margin-bottom: 10px; }
+        .section-header p, .section-desc { color: var(--text-2); font-size: 1rem; max-width: 600px; margin: 0 auto; line-height: 1.7; }
+
+        /* Features Grid */
+        .features-section { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .feature-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        .feature-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--gold-dark); }
+        .feature-icon-wrap {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--gold-light);
+            border: 1px solid rgba(244,192,37,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .feature-card h3 { font-size: 1rem; font-weight: 600; color: var(--text-light); margin-bottom: 6px; }
+        .feature-card p { font-size: 0.875rem; color: var(--text-2); line-height: 1.6; }
+
+        /* Built With */
+        .built-section { padding: 64px 0; }
+        .tech-chips { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .tech-chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            padding: 10px 18px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .tech-chip:hover { transform: translateY(-2px); border-color: var(--gold-dark); }
+        .tech-chip img { width: 20px; height: 20px; object-fit: contain; }
+
+        /* Screenshots */
+        .screenshots-section {
+            background: #0a0a08;
+            padding: 72px 0 56px;
+            overflow: hidden;
+        }
+        .screenshots-section .section-tag { background: rgba(244,192,37,0.1); color: var(--gold); border: 1px solid rgba(244,192,37,0.25); }
+        .screenshots-section .section-header h2 { color: #ffffff; }
+        .screenshots-section .section-header p { color: rgba(255,255,255,0.55); }
+        .screenshot-carousel { position: relative; margin-top: 40px; }
+        .screenshot-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-top: 24px;
+            padding-bottom: 36px;
+            scrollbar-width: none;
+            cursor: grab;
+            user-select: none;
+        }
+        .screenshot-track.grabbing { cursor: grabbing; scroll-snap-type: none; }
+        .screenshot-track::-webkit-scrollbar { display: none; }
+        .screenshot-item {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+            opacity: 0.45;
+            transform: scale(0.85);
+        }
+        .screenshot-item.active { opacity: 1; transform: scale(1); }
+        .screenshot-item img {
+            height: 500px;
+            width: auto;
+            min-width: 220px;
+            border-radius: 28px;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.65);
+            display: block;
+            pointer-events: none;
+        }
+        .screenshot-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+        .sc-dot {
+            width: 8px; height: 8px; border-radius: 8px;
+            background: rgba(255,255,255,0.22);
+            border: none; cursor: pointer; padding: 0;
+            transition: width 0.35s ease, background 0.35s ease;
+        }
+        .sc-dot.active { width: 28px; background: var(--gold); }
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: rgba(244,192,37,0.1);
+            border: 1px solid rgba(244,192,37,0.25);
+            color: var(--gold);
+            font-size: 1.4rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+            transition: background 0.2s, transform 0.2s;
+            z-index: 10;
+        }
+        .carousel-arrow:hover { background: rgba(244,192,37,0.2); }
+        .carousel-arrow.prev { left: 20px; }
+        .carousel-arrow.next { right: 20px; }
+
+        /* Footer */
+        .page-footer { background: #0a0a08; border-top: 1px solid var(--border); color: var(--text-2); padding: 32px 24px; text-align: center; }
+        .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+        .footer-links a { color: var(--gold); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--gold-highlight); }
+        .footer-copy { font-size: 0.82rem; color: var(--text-3); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero { padding: 72px 20px 52px; }
+            .hero h1 { font-size: 1.9rem; }
+            .section { padding: 48px 0; }
+            .section-header h2 { font-size: 1.6rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .carousel-arrow { display: none; }
+            .screenshot-item img { height: 380px; }
+        }
+        @media (max-width: 480px) {
+            .back-btn { font-size: 0.82rem; padding: 8px 14px; }
+            .hero h1 { font-size: 1.6rem; }
+            .lang-dropdown { top: 14px; right: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back Button -->
+    <a href="../" class="back-btn">
+        <span>←</span> Back
+    </a>
+
+    <!-- Language Dropdown -->
+    <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-dropdown-btn" id="langBtn" onclick="toggleLangMenu()">
+            <span id="langFlag">🇻🇳</span>
+            <span class="arrow">▼</span>
+        </button>
+        <div class="lang-dropdown-menu">
+            <button class="lang-option active" id="opt-vi" onclick="switchLang('vi')">🇻🇳 Tiếng Việt</button>
+            <button class="lang-option" id="opt-en" onclick="switchLang('en')">🇬🇧 English</button>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-tag" data-vi="QUẢN LÝ HỤI SỐ" data-en="DIGITAL ROSCA PLATFORM">QUẢN LÝ HỤI SỐ</div>
+            <div class="hero-icon-wrap">
+                <img src="../assets/images/huihappy-icon.png" alt="Hụi Happy">
+            </div>
+            <h1 data-vi="Hụi Happy" data-en="Hụi Happy">Hụi Happy</h1>
+            <p class="hero-subtitle" data-vi="An tâm tiết kiệm" data-en="Save with Peace of Mind">An tâm tiết kiệm</p>
+            <p class="hero-tagline" data-vi="Hụi Happy là nền tảng số hóa hoạt động hụi truyền thống, giúp chủ hụi và hụi viên quản lý toàn bộ quá trình tham gia hụi một cách minh bạch, thuận tiện và dễ theo dõi ngay trên điện thoại." data-en="Hụi Happy is a comprehensive digital platform for traditional Vietnamese ROSCA (Hụi), helping both organizers and members manage the entire participation process transparently, conveniently, and easily trackable right on their phone.">Hụi Happy là nền tảng số hóa hoạt động hụi truyền thống, giúp chủ hụi và hụi viên quản lý toàn bộ quá trình tham gia hụi một cách minh bạch, thuận tiện và dễ theo dõi ngay trên điện thoại.</p>
+            <div class="hero-badges">
+                <div class="hero-badge">📱 iOS &amp; Android</div>
+                <div class="hero-badge" data-vi="🖥️ Admin Portal" data-en="🖥️ Admin Portal">🖥️ Admin Portal</div>
+                <div class="hero-badge" data-vi="💳 Web Payment" data-en="💳 Web Payment">💳 Web Payment</div>
+                <div class="hero-badge" data-vi="💰 Hụi Số" data-en="💰 Hụi Số">💰 Hụi Số</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section features-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-vi="Tính năng" data-en="Features">Tính năng</span>
+                <h2 data-vi="Mọi thứ bạn cần để quản lý hụi" data-en="Everything you need for ROSCA management">Mọi thứ bạn cần để quản lý hụi</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">📋</div>
+                    <div>
+                        <h3 data-vi="Quản lý dây hụi" data-en="Group Management">Quản lý dây hụi</h3>
+                        <p data-vi="Tạo, theo dõi và quản lý nhiều dây hụi cùng lúc với thông tin chi tiết từng kỳ" data-en="Create, track and manage multiple hui groups simultaneously with detailed period info">Tạo, theo dõi và quản lý nhiều dây hụi cùng lúc với thông tin chi tiết từng kỳ</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">📅</div>
+                    <div>
+                        <h3 data-vi="Lịch khui & đóng hụi" data-en="Schedule & Payments">Lịch khui & đóng hụi</h3>
+                        <p data-vi="Nhắc nhở tự động lịch đóng tiền, theo dõi kỳ hốt và trạng thái thanh toán" data-en="Auto reminders for payment deadlines, track draw periods and payment status">Nhắc nhở tự động lịch đóng tiền, theo dõi kỳ hốt và trạng thái thanh toán</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">📊</div>
+                    <div>
+                        <h3 data-vi="Dashboard thống kê" data-en="Smart Dashboard">Dashboard thống kê</h3>
+                        <p data-vi="Tổng quan dòng tiền, giá trị đã hốt, dự kiến thu chi và hiệu quả tham gia" data-en="Cash flow overview, drawn values, projected income/expenses and participation ROI">Tổng quan dòng tiền, giá trị đã hốt, dự kiến thu chi và hiệu quả tham gia</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">🔄</div>
+                    <div>
+                        <h3 data-vi="Tràn hụi" data-en="Multi-Winner Draw">Tràn hụi</h3>
+                        <p data-vi="Hỗ trợ nhiều người hốt cùng kỳ, tự động chia nồi và ghi nhận kết quả" data-en="Support multiple winners per period, auto-split pot and record results">Hỗ trợ nhiều người hốt cùng kỳ, tự động chia nồi và ghi nhận kết quả</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">🏛️</div>
+                    <div>
+                        <h3 data-vi="Chầu hụi" data-en="Competitive Bidding">Chầu hụi</h3>
+                        <p data-vi="Phiên đấu giá minh bạch mỗi kỳ hốt, xác định người thắng công bằng" data-en="Transparent bidding each draw period, fair winner determination">Phiên đấu giá minh bạch mỗi kỳ hốt, xác định người thắng công bằng</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">🔗</div>
+                    <div>
+                        <h3 data-vi="Đắp chân" data-en="Slot Offset">Đắp chân</h3>
+                        <p data-vi="Bù đắp phần hụi chết, đảm bảo dòng tiền ổn định cho cả dây" data-en="Offset dead slots, ensuring stable cash flow for the entire group">Bù đắp phần hụi chết, đảm bảo dòng tiền ổn định cho cả dây</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">🔀</div>
+                    <div>
+                        <h3 data-vi="Sang hụi" data-en="Slot Transfer">Sang hụi</h3>
+                        <p data-vi="Chuyển nhượng phần hụi giữa các thành viên với quy trình phê duyệt rõ ràng" data-en="Transfer hui slots between members with clear approval workflow">Chuyển nhượng phần hụi giữa các thành viên với quy trình phê duyệt rõ ràng</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">⭐</div>
+                    <div>
+                        <h3 data-vi="Điểm thưởng uy tín" data-en="Loyalty Points">Điểm thưởng uy tín</h3>
+                        <p data-vi="Tích lũy điểm thưởng dựa trên mức độ tham gia và thanh toán đúng hạn" data-en="Earn points based on participation level and on-time payments">Tích lũy điểm thưởng dựa trên mức độ tham gia và thanh toán đúng hạn</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">🏦</div>
+                    <div>
+                        <h3 data-vi="Đối soát tự động" data-en="Auto-Reconciliation">Đối soát tự động</h3>
+                        <p data-vi="Nhận diện biên lai ngân hàng tự động, khớp giao dịch nhanh chóng và chính xác" data-en="Auto-detect bank receipts, match transactions quickly and accurately">Nhận diện biên lai ngân hàng tự động, khớp giao dịch nhanh chóng và chính xác</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Built With -->
+    <!-- Screenshots -->
+    <section class="screenshots-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-vi="Ảnh chụp màn hình" data-en="Screenshots">Ảnh chụp màn hình</span>
+                <h2 data-vi="Giao diện trực quan" data-en="Intuitive Interface">Giao diện trực quan</h2>
+                <p class="section-desc" data-vi="Thiết kế hiện đại, dễ sử dụng cho mọi đối tượng." data-en="Modern design, easy to use for everyone.">Thiết kế hiện đại, dễ sử dụng cho mọi đối tượng.</p>
+            </div>
+        </div>
+        <div class="screenshot-carousel">
+            <button class="carousel-arrow prev" id="sc-prev" aria-label="Previous">&#8249;</button>
+            <button class="carousel-arrow next" id="sc-next" aria-label="Next">&#8250;</button>
+            <div class="screenshot-track" id="screenshot-track">
+                <div class="screenshot-item active"><img src="images/sc01.png" alt="Hụi Happy - Screenshot 1" loading="eager"></div>
+                <div class="screenshot-item"><img src="images/sc02.png" alt="Hụi Happy - Screenshot 2" loading="lazy"></div>
+                <div class="screenshot-item"><img src="images/sc03.png" alt="Hụi Happy - Screenshot 3" loading="lazy"></div>
+                <div class="screenshot-item"><img src="images/sc04.png" alt="Hụi Happy - Screenshot 4" loading="lazy"></div>
+                <div class="screenshot-item"><img src="images/sc05.png" alt="Hụi Happy - Screenshot 5" loading="lazy"></div>
+                <div class="screenshot-item"><img src="images/sc06.png" alt="Hụi Happy - Admin Portal 1" loading="lazy"></div>
+                <div class="screenshot-item"><img src="images/sc07.png" alt="Hụi Happy - Admin Portal 2" loading="lazy"></div>
+                <div class="screenshot-item"><img src="images/sc08.png" alt="Hụi Happy - Admin Portal 3" loading="lazy"></div>
+                <div class="screenshot-item"><img src="images/sc09.png" alt="Hụi Happy - Admin Portal 4" loading="lazy"></div>
+            </div>
+            <div class="screenshot-dots" id="screenshot-dots">
+                <button class="sc-dot active"></button>
+                <button class="sc-dot"></button>
+                <button class="sc-dot"></button>
+                <button class="sc-dot"></button>
+                <button class="sc-dot"></button>
+                <button class="sc-dot"></button>
+                <button class="sc-dot"></button>
+                <button class="sc-dot"></button>
+                <button class="sc-dot"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Built With -->
+    <section class="section built-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-vi="Công nghệ" data-en="Built With">Công nghệ</span>
+                <h2 data-vi="Xây dựng bằng công nghệ hiện đại" data-en="Built with Modern Technology">Xây dựng bằng công nghệ hiện đại</h2>
+            </div>
+            <div class="tech-chips">
+                <div class="tech-chip"><img src="../assets/images/tech/golang.svg" alt="Go" width="20" height="20"> Go</div>
+                <div class="tech-chip"><img src="../assets/images/tech/vue.svg" alt="Vue 3" width="20" height="20"> Vue 3</div>
+                <div class="tech-chip"><img src="../assets/images/tech/flutter.svg" alt="Flutter" width="20" height="20"> Flutter</div>
+                <div class="tech-chip"><img src="../assets/images/tech/swift.svg" alt="Swift" width="20" height="20"> Swift (iOS)</div>
+                <div class="tech-chip"><img src="../assets/images/tech/kotlin.svg" alt="Kotlin" width="20" height="20"> Kotlin (Android)</div>
+                <div class="tech-chip"><img src="../assets/images/tech/gcloud.svg" alt="Google Cloud" width="20" height="20"> Google Cloud</div>
+                <div class="tech-chip"><img src="../assets/images/tech/cloudflare.svg" alt="Cloudflare" width="20" height="20"> Cloudflare</div>
+                <div class="tech-chip"><img src="../assets/images/tech/firebase.svg" alt="Firebase" width="20" height="20"> Firebase</div>
+                <div class="tech-chip"><img src="../assets/images/tech/redis.svg" alt="Redis" width="20" height="20"> Redis</div>
+                <div class="tech-chip"><img src="../assets/images/tech/postgresql.svg" alt="PostgreSQL" width="20" height="20"> PostgreSQL</div>
+                <div class="tech-chip"><img src="../assets/images/tech/docker.svg" alt="Docker" width="20" height="20"> Docker</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="footer-links">
+            <a href="legal/" data-vi="📜 Tài liệu pháp lý" data-en="📜 Legal Documents">📜 Tài liệu pháp lý</a>
+            <a href="legal/terms.html" data-vi="Điều khoản sử dụng" data-en="Terms &amp; Conditions">Điều khoản sử dụng</a>
+            <a href="legal/privacy.html" data-vi="Chính sách bảo mật" data-en="Privacy Policy">Chính sách bảo mật</a>
+            <a href="legal/delete-account.html" data-vi="Xoá tài khoản" data-en="Account Deletion">Xoá tài khoản</a>
+        </div>
+        <p class="footer-copy">&copy; <span id="footer-year"></span> Nhan Trinh. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Footer year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // ===== Language Dropdown =====
+        function toggleLangMenu() {
+            document.getElementById('langDropdown').classList.toggle('open');
+        }
+        // Close dropdown on outside click
+        document.addEventListener('click', function(e) {
+            var dd = document.getElementById('langDropdown');
+            if (!dd.contains(e.target)) dd.classList.remove('open');
+        });
+
+        function switchLang(lang) {
+            document.querySelectorAll('[data-vi]').forEach(function(el) {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+            document.getElementById('langFlag').textContent = lang === 'vi' ? '🇻🇳' : '🇬🇧';
+            document.getElementById('opt-vi').classList.toggle('active', lang === 'vi');
+            document.getElementById('opt-en').classList.toggle('active', lang === 'en');
+            document.getElementById('langDropdown').classList.remove('open');
+            document.documentElement.lang = lang;
+        }
+
+        // ===== Screenshot Carousel =====
+        (function () {
+            var track = document.getElementById('screenshot-track');
+            if (!track) return;
+            var items = Array.from(track.querySelectorAll('.screenshot-item'));
+            var dots  = Array.from(document.querySelectorAll('.sc-dot'));
+            var prev  = document.getElementById('sc-prev');
+            var next  = document.getElementById('sc-next');
+
+            function applyPadding() {
+                if (!items.length) return;
+                var half = track.clientWidth / 2 - items[0].offsetWidth / 2;
+                var pad  = Math.max(half, 20) + 'px';
+                track.style.paddingLeft  = pad;
+                track.style.paddingRight = pad;
+            }
+
+            function getActiveIndex() {
+                var center = track.scrollLeft + track.clientWidth / 2;
+                var idx = 0, best = Infinity;
+                items.forEach(function(el, i) {
+                    var d = Math.abs(el.offsetLeft + el.offsetWidth / 2 - center);
+                    if (d < best) { best = d; idx = i; }
+                });
+                return idx;
+            }
+
+            function updateActive() {
+                var idx = getActiveIndex();
+                items.forEach(function(el, i) { el.classList.toggle('active', i === idx); });
+                dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+            }
+
+            function scrollTo(i, smooth) {
+                var el  = items[i];
+                var pos = el.offsetLeft + el.offsetWidth / 2 - track.clientWidth / 2;
+                track.scrollTo({ left: pos, behavior: smooth === false ? 'instant' : 'smooth' });
+            }
+
+            var autoTimer = null;
+            function startAuto() { stopAuto(); autoTimer = setInterval(function() { scrollTo((getActiveIndex() + 1) % items.length); }, 3000); }
+            function stopAuto() { clearInterval(autoTimer); autoTimer = null; }
+            function resetAuto() { stopAuto(); startAuto(); }
+
+            track.addEventListener('scroll', updateActive, { passive: true });
+            dots.forEach(function(d, i) { d.addEventListener('click', function() { scrollTo(i); resetAuto(); }); });
+            if (prev) prev.addEventListener('click', function() { var idx = getActiveIndex(); scrollTo(idx === 0 ? items.length - 1 : idx - 1); resetAuto(); });
+            if (next) next.addEventListener('click', function() { var idx = getActiveIndex(); scrollTo(idx === items.length - 1 ? 0 : idx + 1); resetAuto(); });
+
+            track.addEventListener('mouseenter', stopAuto);
+            track.addEventListener('mouseleave', startAuto);
+            track.addEventListener('touchstart', stopAuto, { passive: true });
+            track.addEventListener('touchend', function() { setTimeout(startAuto, 2000); }, { passive: true });
+
+            var dragging = false, startX = 0, startScroll = 0;
+            track.addEventListener('mousedown', function(e) { dragging = true; startX = e.pageX; startScroll = track.scrollLeft; track.classList.add('grabbing'); stopAuto(); });
+            window.addEventListener('mouseup', function() { if (!dragging) return; dragging = false; track.classList.remove('grabbing'); setTimeout(startAuto, 2000); });
+            track.addEventListener('mousemove', function(e) { if (!dragging) return; e.preventDefault(); track.scrollLeft = startScroll - (e.pageX - startX) * 1.4; });
+
+            function init() { applyPadding(); scrollTo(0, false); updateActive(); startAuto(); }
+            var firstImg = items[0] && items[0].querySelector('img');
+            if (firstImg && firstImg.complete) { init(); }
+            else if (firstImg) { firstImg.addEventListener('load', init); firstImg.addEventListener('error', init); }
+            else { init(); }
+            window.addEventListener('load', applyPadding);
+            window.addEventListener('resize', function() { applyPadding(); updateActive(); });
+        })();
+    </script>
+
+</body>
+</html>

@@ -193,6 +193,7 @@
             padding: 7px 16px; border-radius: var(--radius-pill); font-size: 0.85rem; font-weight: 500;
             display: flex; align-items: center; gap: 6px; transition: border-color 0.2s, color 0.2s;
         }
+        .tech-chip img { width: 20px; height: 20px; object-fit: contain; }
         .tech-chip:hover { border-color: var(--iris); color: var(--text); }
 
         /* Footer */
@@ -353,14 +354,15 @@
                 <h2>Modern tech, on-device by default</h2>
             </div>
             <div class="tech-chips">
-                <div class="tech-chip">🦋 Flutter</div>
-                <div class="tech-chip">🍎 Swift (iOS)</div>
-                <div class="tech-chip">🤖 Kotlin (Android)</div>
+                <div class="tech-chip"><img src="../assets/images/tech/flutter.svg" alt="Flutter" width="20" height="20"> Flutter</div>
+                <div class="tech-chip"><img src="../assets/images/tech/swift.svg" alt="Swift" width="20" height="20"> Swift (iOS)</div>
+                <div class="tech-chip"><img src="../assets/images/tech/kotlin.svg" alt="Kotlin" width="20" height="20"> Kotlin (Android)</div>
                 <div class="tech-chip">⚓ Riverpod</div>
-                <div class="tech-chip">🗄️ SQLite (Drift)</div>
+                <div class="tech-chip"><img src="../assets/images/tech/sqlite.svg" alt="SQLite" width="20" height="20"> SQLite (Drift)</div>
                 <div class="tech-chip">📷 Camera &amp; Sensors</div>
-                <div class="tech-chip">🔥 Firebase</div>
+                <div class="tech-chip"><img src="../assets/images/tech/firebase.svg" alt="Firebase" width="20" height="20"> Firebase</div>
                 <div class="tech-chip">🌐 17 languages</div>
+                <div class="tech-chip">🧠 AI model on device</div>
                 <div class="tech-chip">🔒 On-device only</div>
             </div>
         </div>
@@ -415,8 +417,8 @@
 
             track.addEventListener('scroll', updateActive, { passive: true });
             dots.forEach((d, i) => d.addEventListener('click', () => { scrollTo(i); resetAuto(); }));
-            if (prev) prev.addEventListener('click', () => { scrollTo(Math.max(getActiveIndex() - 1, 0)); resetAuto(); });
-            if (next) next.addEventListener('click', () => { scrollTo(Math.min(getActiveIndex() + 1, items.length - 1)); resetAuto(); });
+            if (prev) prev.addEventListener('click', () => { const idx = getActiveIndex(); scrollTo(idx === 0 ? items.length - 1 : idx - 1); resetAuto(); });
+            if (next) next.addEventListener('click', () => { const idx = getActiveIndex(); scrollTo(idx === items.length - 1 ? 0 : idx + 1); resetAuto(); });
             track.addEventListener('mouseenter', stopAuto);
             track.addEventListener('mouseleave', startAuto);
             track.addEventListener('touchstart', stopAuto, { passive: true });

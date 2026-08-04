@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quyền riêng tư — Hụi Happy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --gold: #F4C025; --gold-dark: #D4A017; --gold-light: rgba(244,192,37,0.12);
+            --bg-dark: #12110D; --bg-card: #1C1A14; --text-light: #F1F5F9;
+            --text-2: #A8A29E; --text-3: #78716C; --border: #393528;
+            --radius: 16px; --radius-sm: 10px; --radius-pill: 100px;
+            --shadow: 0 4px 16px rgba(0,0,0,0.3); --shadow-lg: 0 12px 36px rgba(0,0,0,0.4);
+        }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg-dark); color: var(--text-light); min-height: 100vh; display: flex; flex-direction: column; line-height: 1.6; }
+        .back-btn { position: fixed; top: 20px; left: 20px; background: rgba(28,26,20,0.92); color: var(--gold); padding: 9px 18px; border-radius: var(--radius-pill); text-decoration: none; box-shadow: var(--shadow); display: flex; align-items: center; gap: 6px; font-weight: 600; font-size: 0.9rem; z-index: 200; backdrop-filter: blur(8px); border: 1px solid var(--border); transition: transform 0.2s; }
+        .back-btn:hover { transform: translateX(-3px); }
+        .lang-dropdown { position: fixed; top: 20px; right: 20px; z-index: 200; }
+        .lang-dropdown-btn { background: rgba(28,26,20,0.92); border: 1px solid var(--border); padding: 8px 14px; border-radius: var(--radius-pill); box-shadow: var(--shadow); backdrop-filter: blur(8px); cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 1rem; color: var(--text-light); }
+        .lang-dropdown-btn:hover { border-color: var(--gold); }
+        .lang-dropdown-btn .arrow { font-size: 0.7rem; color: var(--text-2); transition: transform 0.2s; }
+        .lang-dropdown.open .lang-dropdown-btn .arrow { transform: rotate(180deg); }
+        .lang-dropdown-menu { position: absolute; top: calc(100% + 6px); right: 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); box-shadow: var(--shadow-lg); overflow: hidden; opacity: 0; transform: translateY(-8px); pointer-events: none; transition: opacity 0.2s, transform 0.2s; min-width: 160px; }
+        .lang-dropdown.open .lang-dropdown-menu { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        .lang-option { display: flex; align-items: center; gap: 10px; padding: 10px 16px; cursor: pointer; font-size: 0.9rem; color: var(--text-light); transition: background 0.15s; border: none; background: none; width: 100%; text-align: left; }
+        .lang-option:hover { background: rgba(244,192,37,0.08); }
+        .lang-option.active { background: rgba(244,192,37,0.12); color: var(--gold); }
+        .header { background: linear-gradient(135deg, #12110D 0%, #1C1A14 50%, #12110D 100%); padding: 80px 24px 44px; text-align: center; border-bottom: 1px solid var(--border); position: relative; }
+        .header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 50%, rgba(244,192,37,0.05) 0%, transparent 60%); pointer-events: none; }
+        .header-inner { position: relative; z-index: 1; }
+        .header-icon { font-size: 2.5rem; margin-bottom: 12px; }
+        .header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+        .header p { color: var(--text-2); font-size: 1rem; max-width: 600px; margin: 0 auto; }
+        .main { flex: 1; max-width: 800px; width: 100%; margin: 0 auto; padding: 40px 24px 64px; }
+        .updated-date { display: inline-flex; align-items: center; gap: 6px; background: var(--gold-light); color: var(--gold); padding: 4px 12px; border-radius: var(--radius-pill); font-size: 0.8rem; font-weight: 600; margin-bottom: 32px; border: 1px solid rgba(244,192,37,0.2); }
+        .legal-section { margin-bottom: 40px; }
+        .legal-section h3 { font-size: 1.2rem; font-weight: 700; color: var(--text-light); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+        .section-number { color: var(--gold); margin-right: 8px; }
+        .legal-section p { color: var(--text-2); font-size: 0.95rem; line-height: 1.75; margin-bottom: 12px; }
+        .legal-section ul { list-style: none; padding: 0; margin-bottom: 16px; }
+        .legal-section ul li { color: var(--text-2); font-size: 0.95rem; line-height: 1.75; padding-left: 20px; position: relative; margin-bottom: 10px; }
+        .legal-section ul li::before { content: '•'; position: absolute; left: 4px; color: var(--gold); font-weight: bold; }
+        .legal-section strong { color: var(--text-light); }
+        .page-footer { background: #0a0a08; border-top: 1px solid var(--border); color: var(--text-2); padding: 28px 24px; text-align: center; }
+        .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 14px; flex-wrap: wrap; }
+        .footer-links a { color: var(--gold); text-decoration: none; font-size: 0.88rem; font-weight: 500; }
+        .footer-links a:hover { color: #F9D976; }
+        .footer-copy { font-size: 0.8rem; color: var(--text-3); }
+        @media (max-width: 640px) { .header h1 { font-size: 1.6rem; } .main { padding: 24px 16px 48px; } }
+    </style>
+</head>
+<body>
+    <a href="./" class="back-btn"><span>←</span> <span data-vi="Quay lại" data-en="Back">Quay lại</span></a>
+    <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-dropdown-btn" onclick="toggleLangMenu()"><span id="langFlag">🇻🇳</span><span class="arrow">▼</span></button>
+        <div class="lang-dropdown-menu">
+            <button class="lang-option active" id="opt-vi" onclick="switchLang('vi')">🇻🇳 Tiếng Việt</button>
+            <button class="lang-option" id="opt-en" onclick="switchLang('en')">🇬🇧 English</button>
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="header-inner">
+            <div class="header-icon">🔒</div>
+            <h1 data-vi="Quyền riêng tư" data-en="Privacy Policy">Quyền riêng tư</h1>
+            <p data-vi="Tại Hui Happy, chúng tôi cam kết bảo vệ sự riêng tư và tài sản số của bạn với tiêu chuẩn bảo mật khắt khe nhất." data-en="At Hui Happy, we are committed to protecting your privacy and digital assets with the strictest security standards.">Tại Hui Happy, chúng tôi cam kết bảo vệ sự riêng tư và tài sản số của bạn với tiêu chuẩn bảo mật khắt khe nhất.</p>
+        </div>
+    </div>
+
+    <main class="main">
+        <div class="updated-date">🔒 <span data-vi="Cập nhật: 24/05/2024" data-en="Updated: May 24, 2024">Cập nhật: 24/05/2024</span></div>
+
+        <div class="legal-section">
+            <h3><span class="section-number">01.</span> <span data-vi="Dữ Liệu Thu Thập" data-en="Data Collection">Dữ Liệu Thu Thập</span></h3>
+            <ul>
+                <li data-vi="Thông tin liên lạc: Số điện thoại để xác thực tài khoản và gửi thông báo hệ thống." data-en="Contact information: Phone number for account verification and system notifications."><strong>Thông tin liên lạc:</strong> Số điện thoại để xác thực tài khoản và gửi thông báo hệ thống.</li>
+                <li data-vi="Thông tin danh tính: Họ và tên đầy đủ theo đăng ký tham gia." data-en="Identity information: Full name as registered for participation."><strong>Thông tin danh tính:</strong> Họ và tên đầy đủ theo đăng ký tham gia.</li>
+                <li data-vi="Dữ liệu tài chính: Hình ảnh biên lai chuyển khoản ngân hàng phục vụ đối soát quỹ." data-en="Financial data: Bank transfer receipt images for fund reconciliation."><strong>Dữ liệu tài chính:</strong> Hình ảnh biên lai chuyển khoản ngân hàng phục vụ đối soát quỹ.</li>
+                <li data-vi="Dữ liệu kỹ thuật: Địa chỉ IP và định danh thiết bị để ngăn chặn xâm nhập trái phép." data-en="Technical data: IP addresses and device identifiers to prevent unauthorized access."><strong>Dữ liệu kỹ thuật:</strong> Địa chỉ IP và định danh thiết bị để ngăn chặn xâm nhập trái phép.</li>
+            </ul>
+        </div>
+
+        <div class="legal-section">
+            <h3><span class="section-number">02.</span> <span data-vi="Mục Đích Sử Dụng" data-en="Purpose of Use">Mục Đích Sử Dụng</span></h3>
+            <ul>
+                <li data-vi="Theo dõi đóng góp: Ghi nhận chính xác các khoản đóng góp theo thời gian thực." data-en="Contribution tracking: Accurately recording contributions in real-time."><strong>Theo dõi đóng góp:</strong> Ghi nhận chính xác các khoản đóng góp theo thời gian thực.</li>
+                <li data-vi="Đối soát tự động: Xác thực giao dịch ngân hàng qua nhận diện hình ảnh biên lai." data-en="Auto reconciliation: Verifying bank transactions through receipt image recognition."><strong>Đối soát tự động:</strong> Xác thực giao dịch ngân hàng qua nhận diện hình ảnh biên lai.</li>
+                <li data-vi="An toàn hệ thống: Phát hiện và ngăn chặn truy cập trái phép hoặc giả mạo." data-en="System security: Detecting and preventing unauthorized access or fraud."><strong>An toàn hệ thống:</strong> Phát hiện và ngăn chặn truy cập trái phép hoặc giả mạo.</li>
+                <li data-vi="Hỗ trợ thành viên: Giải quyết khiếu nại liên quan đến lịch sử giao dịch." data-en="Member support: Resolving complaints related to transaction history."><strong>Hỗ trợ thành viên:</strong> Giải quyết khiếu nại liên quan đến lịch sử giao dịch.</li>
+            </ul>
+        </div>
+
+        <div class="legal-section">
+            <h3><span class="section-number">03.</span> <span data-vi="Bảo Mật Dữ Liệu" data-en="Data Security">Bảo Mật Dữ Liệu</span></h3>
+            <ul>
+                <li data-vi="Mã hóa đầu cuối (AES-256) cho dữ liệu nhạy cảm và giao dịch tài chính." data-en="End-to-end encryption (AES-256) for sensitive data and financial transactions.">Mã hóa đầu cuối (AES-256) cho dữ liệu nhạy cảm và giao dịch tài chính.</li>
+                <li data-vi="Hệ thống tường lửa đa lớp và giám sát truy cập 24/7." data-en="Multi-layer firewall system and 24/7 access monitoring.">Hệ thống tường lửa đa lớp và giám sát truy cập 24/7.</li>
+            </ul>
+        </div>
+
+        <div class="legal-section">
+            <h3><span class="section-number">04.</span> <span data-vi="Quyền Hạn Của Thành Viên" data-en="Member Rights">Quyền Hạn Của Thành Viên</span></h3>
+            <ul>
+                <li data-vi="Quyền Truy cập: Xem lại toàn bộ lịch sử giao dịch và thông tin cá nhân bất cứ lúc nào." data-en="Right to Access: Review all transaction history and personal information at any time."><strong>Quyền Truy cập:</strong> Xem lại toàn bộ lịch sử giao dịch và thông tin cá nhân bất cứ lúc nào.</li>
+                <li data-vi="Quyền Chỉnh sửa: Yêu cầu cập nhật hoặc sửa đổi thông tin cá nhân chưa chính xác." data-en="Right to Rectification: Request updates or corrections to inaccurate personal information."><strong>Quyền Chỉnh sửa:</strong> Yêu cầu cập nhật hoặc sửa đổi thông tin cá nhân chưa chính xác.</li>
+                <li data-vi="Quyền Xóa bỏ: Yêu cầu tất toán quyền lợi và xóa vĩnh viễn tài khoản khỏi hệ thống." data-en="Right to Erasure: Request settlement of rights and permanent account deletion from the system."><strong>Quyền Xóa bỏ:</strong> Yêu cầu tất toán quyền lợi và xóa vĩnh viễn tài khoản khỏi hệ thống.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-links">
+            <a href="./" data-vi="← Tài liệu pháp lý" data-en="← Legal Documents">← Tài liệu pháp lý</a>
+            <a href="../" data-vi="Hụi Happy" data-en="Hụi Happy">Hụi Happy</a>
+        </div>
+        <p class="footer-copy">&copy; <span id="footer-year"></span> Nhan Trinh. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+        function toggleLangMenu() { document.getElementById('langDropdown').classList.toggle('open'); }
+        document.addEventListener('click', function(e) { var dd = document.getElementById('langDropdown'); if (!dd.contains(e.target)) dd.classList.remove('open'); });
+        function switchLang(lang) {
+            document.querySelectorAll('[data-vi]').forEach(function(el) { el.textContent = el.getAttribute('data-' + lang); });
+            document.getElementById('langFlag').textContent = lang === 'vi' ? '🇻🇳' : '🇬🇧';
+            document.getElementById('opt-vi').classList.toggle('active', lang === 'vi');
+            document.getElementById('opt-en').classList.toggle('active', lang === 'en');
+            document.getElementById('langDropdown').classList.remove('open');
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>
