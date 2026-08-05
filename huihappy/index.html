@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/animations.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -410,7 +411,7 @@
     </section>
 
     <!-- Download -->
-    <div class="download-section">
+    <div class="download-section" data-reveal="blur-up">
         <div class="download-inner">
             <span class="download-label" data-vi="Có mặt trên:" data-en="Available on:">Có mặt trên:</span>
             <a href="https://apps.apple.com/app/id6788280430" target="_blank" rel="noopener" class="store-btn store-btn-ios">
@@ -446,11 +447,11 @@
     <!-- Features -->
     <section class="section features-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="slide-left">
                 <span class="section-tag" data-vi="Tính năng" data-en="Features">Tính năng</span>
                 <h2 data-vi="Mọi thứ bạn cần để quản lý hụi" data-en="Everything you need for ROSCA management">Mọi thứ bạn cần để quản lý hụi</h2>
             </div>
-            <div class="features-grid">
+            <div class="features-grid" data-reveal-stagger>
                 <div class="feature-card">
                     <div class="feature-icon-wrap">📋</div>
                     <div>
@@ -522,7 +523,7 @@
     <!-- Screenshots -->
     <section class="screenshots-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="scale-blur">
                 <span class="section-tag" data-vi="Ảnh chụp màn hình" data-en="Screenshots">Ảnh chụp màn hình</span>
                 <h2 data-vi="Giao diện trực quan" data-en="Intuitive Interface">Giao diện trực quan</h2>
                 <p class="section-desc" data-vi="Thiết kế hiện đại, dễ sử dụng cho mọi đối tượng." data-en="Modern design, easy to use for everyone.">Thiết kế hiện đại, dễ sử dụng cho mọi đối tượng.</p>
@@ -559,11 +560,11 @@
     <!-- Built With -->
     <section class="section built-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="slide-right">
                 <span class="section-tag" data-vi="Công nghệ" data-en="Built With">Công nghệ</span>
                 <h2 data-vi="Xây dựng bằng công nghệ hiện đại" data-en="Built with Modern Technology">Xây dựng bằng công nghệ hiện đại</h2>
             </div>
-            <div class="tech-chips">
+            <div class="tech-chips" data-reveal-stagger>
                 <div class="tech-chip"><img src="../assets/images/tech/golang.svg" alt="Go" width="20" height="20"> Go</div>
                 <div class="tech-chip"><img src="../assets/images/tech/vue.svg" alt="Vue 3" width="20" height="20"> Vue 3</div>
                 <div class="tech-chip"><img src="../assets/images/tech/flutter.svg" alt="Flutter" width="20" height="20"> Flutter</div>
@@ -580,7 +581,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="page-footer">
+    <footer class="page-footer" data-reveal="fade-in">
         <div class="footer-links">
             <a href="legal/" data-vi="📜 Tài liệu pháp lý" data-en="📜 Legal Documents">📜 Tài liệu pháp lý</a>
             <a href="legal/terms.html" data-vi="Điều khoản sử dụng" data-en="Terms &amp; Conditions">Điều khoản sử dụng</a>
@@ -682,7 +683,6 @@
             window.addEventListener('load', applyPadding);
             window.addEventListener('resize', function() { applyPadding(); updateActive(); });
         })();
-    </script>
-
+    <script src="../assets/js/scroll-reveal.js"></script>
 </body>
 </html>

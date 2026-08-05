@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/animations.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -236,7 +237,7 @@
     </section>
 
     <!-- Download -->
-    <div class="download-section">
+    <div class="download-section" data-reveal="blur-up">
         <div class="download-inner">
             <span class="download-label">Coming soon on:</span>
             <a href="#" class="store-btn store-btn-ios" rel="noopener">
@@ -257,12 +258,12 @@
     <!-- Features -->
     <section class="section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="blur-up">
                 <span class="section-tag">Detection Toolkit</span>
                 <h2>Many sensors, one honest verdict</h2>
                 <p>HiddenCamDetect combines several detection methods and a weighted risk score — no single trick, no false confidence.</p>
             </div>
-            <div class="features-grid">
+            <div class="features-grid" data-reveal-stagger>
                 <div class="feature-card">
                     <div class="feature-icon-wrap">📡</div>
                     <div>
@@ -310,7 +311,7 @@
     </section>
 
     <!-- Honest by design -->
-    <div class="honest">
+    <div class="honest" data-reveal="blur-up">
         <div class="honest-inner">
             <h3>🛡️ Honest by design</h3>
             <p>HiddenCamDetect is a triage &amp; guidance aid — not a 100% guarantee. It surfaces suspicious signals with the methods your phone supports, and always recommends a manual sweep. Your scan data never leaves the device.</p>
@@ -320,7 +321,7 @@
     <!-- Screenshots -->
     <section class="screenshots-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="blur-up">
                 <span class="section-tag">Screenshots</span>
                 <h2>See it in action</h2>
                 <p>A dark, focused interface built for a calm, thorough sweep.</p>
@@ -349,11 +350,11 @@
     <!-- Tech -->
     <section class="tech-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="blur-up">
                 <span class="section-tag">Built With</span>
                 <h2>Modern tech, on-device by default</h2>
             </div>
-            <div class="tech-chips">
+            <div class="tech-chips" data-reveal-stagger>
                 <div class="tech-chip"><img src="../assets/images/tech/flutter.svg" alt="Flutter" width="20" height="20"> Flutter</div>
                 <div class="tech-chip"><img src="../assets/images/tech/swift.svg" alt="Swift" width="20" height="20"> Swift (iOS)</div>
                 <div class="tech-chip"><img src="../assets/images/tech/kotlin.svg" alt="Kotlin" width="20" height="20"> Kotlin (Android)</div>
@@ -369,7 +370,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="page-footer">
+    <footer class="page-footer" data-reveal="fade-in">
         <div class="footer-links">
             <a href="legal/">📜 Legal Documents (Multi-language)</a>
             <a href="legal/en/terms.html">Terms of Service</a>
@@ -437,6 +438,6 @@
             window.addEventListener('load', applyPadding);
             window.addEventListener('resize', () => { applyPadding(); updateActive(); });
         })();
-    </script>
+    <script src="../assets/js/scroll-reveal.js"></script>
 </body>
 </html>

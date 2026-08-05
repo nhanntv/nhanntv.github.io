@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App Hub - Nhan Trinh</title>
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,7 +23,7 @@
     </header>
 
     <!-- Filter Navigation -->
-    <nav class="filter-nav">
+    <nav class="filter-nav" data-reveal="fade-up">
         <div class="container">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
@@ -32,7 +33,7 @@
 
     <!-- Apps Grid -->
     <main class="container">
-        <div class="apps-grid">
+        <div class="apps-grid" data-reveal-stagger>
 
             <!-- Class Schedule Management -->
             <div class="app-card" data-category="mobile">
@@ -166,7 +167,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-content" data-reveal="fade-up">
                 <div class="footer-section">
                     <h4>About Developer</h4>
                     <p><strong>Nhan Trinh</strong></p>
@@ -212,5 +213,6 @@
     </div>
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/scroll-reveal.js"></script>
 </body>
 </html>

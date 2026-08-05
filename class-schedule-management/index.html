@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/store-buttons.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
     <style>
         /* ===== Reset & Base ===== */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -595,7 +596,7 @@
     </section>
 
     <!-- Download -->
-    <div class="download-section">
+    <div class="download-section" data-reveal="blur-up">
         <div class="download-inner">
             <span class="download-label">Available on:</span>
             <a href="https://apps.apple.com/app/id6749195306" target="_blank" rel="noopener" class="store-btn store-btn-ios">
@@ -622,12 +623,12 @@
     <!-- Features -->
     <section class="section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="blur-up">
                 <span class="section-tag">Features</span>
                 <h2>Everything you need to manage your classes</h2>
                 <p>Designed for teachers, tutors, and educators who want to spend less time on admin and more time teaching.</p>
             </div>
-            <div class="features-grid">
+            <div class="features-grid" data-reveal-stagger>
                 <div class="feature-card">
                     <div class="feature-icon-wrap">👥</div>
                     <div>
@@ -678,7 +679,7 @@
     <!-- Screenshots -->
     <section class="screenshots-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="blur-up">
                 <span class="section-tag">Screenshots</span>
                 <h2>See it in action</h2>
                 <p>A clean, intuitive interface designed for everyday use in the classroom.</p>
@@ -717,11 +718,11 @@
     <!-- Tech Stack -->
     <section class="tech-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="blur-up">
                 <span class="section-tag">Built With</span>
                 <h2>Modern tech, reliable performance</h2>
             </div>
-            <div class="tech-chips">
+            <div class="tech-chips" data-reveal-stagger>
                 <div class="tech-chip"><img src="../assets/images/tech/flutter.svg" alt="Flutter" width="20" height="20"> Flutter</div>
                 <div class="tech-chip"><img src="../assets/images/tech/swift.svg" alt="Swift" width="20" height="20"> Swift (iOS)</div>
                 <div class="tech-chip"><img src="../assets/images/tech/kotlin.svg" alt="Kotlin" width="20" height="20"> Kotlin (Android)</div>
@@ -735,7 +736,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="page-footer">
+    <footer class="page-footer" data-reveal="fade-in">
         <div class="footer-links">
             <a href="legal/">📜 Legal Documents (Multi-language)</a>
             <a href="legal/en/terms.html">Terms of Service</a>
@@ -865,6 +866,6 @@
 
             window.addEventListener('resize', () => { applyPadding(); updateActive(); });
         })();
-    </script>
+    <script src="../assets/js/scroll-reveal.js"></script>
 </body>
 </html>

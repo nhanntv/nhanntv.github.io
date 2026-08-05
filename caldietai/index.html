@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/animations.css">
     <style>
         /* ===== Reset & Base ===== */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -632,7 +633,7 @@
     </section>
 
     <!-- Download -->
-    <div class="download-section">
+    <div class="download-section" data-reveal="blur-up">
         <div class="download-inner">
             <span class="download-label">Coming soon on:</span>
             <div class="store-btn store-btn-soon">
@@ -659,12 +660,12 @@
     <!-- Features -->
     <section class="section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="blur-up">
                 <span class="section-tag">Features</span>
                 <h2>Your AI-powered nutrition companion</h2>
                 <p>Everything you need to track, analyze, and improve your diet — powered by advanced AI technology.</p>
             </div>
-            <div class="features-grid">
+            <div class="features-grid" data-reveal-stagger>
                 <div class="feature-card">
                     <div class="feature-icon-wrap icon-green">&#x1F4F8;</div>
                     <div>
@@ -714,12 +715,12 @@
     <!-- How It Works -->
     <section class="how-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="blur-up">
                 <span class="section-tag">How It Works</span>
                 <h2>Three simple steps</h2>
                 <p>From photo to nutrition insights in seconds.</p>
             </div>
-            <div class="steps">
+            <div class="steps" data-reveal-stagger>
                 <div class="step-card">
                     <div class="step-num">1</div>
                     <div class="step-icon">&#x1F4F7;</div>
@@ -745,12 +746,12 @@
     <!-- Premium -->
     <section class="premium-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="blur-up">
                 <span class="section-tag" style="background:var(--orange-light);color:#E65100;">Premium</span>
                 <h2>Unlock your full potential</h2>
                 <p>Get full AI scan access, personalized coaching, and advanced analytics.</p>
             </div>
-            <div class="premium-card">
+            <div class="premium-card" data-reveal="scale-up">
                 <div class="premium-icon">&#x2B50;</div>
                 <h3>CalDietAI PRO</h3>
                 <p>Full AI scan access, AI Coach, advanced charts, data export, cloud sync, and no ads.</p>
@@ -770,11 +771,11 @@
     <!-- Tech Stack -->
     <section class="tech-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="blur-up">
                 <span class="section-tag">Built With</span>
                 <h2>Modern tech, reliable performance</h2>
             </div>
-            <div class="tech-chips">
+            <div class="tech-chips" data-reveal-stagger>
                 <div class="tech-chip"><img src="../assets/images/tech/flutter.svg" alt="Flutter" width="20" height="20"> Flutter</div>
                 <div class="tech-chip"><img src="../assets/images/tech/swift.svg" alt="Swift" width="20" height="20"> Swift (iOS)</div>
                 <div class="tech-chip"><img src="../assets/images/tech/kotlin.svg" alt="Kotlin" width="20" height="20"> Kotlin (Android)</div>
@@ -813,7 +814,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="page-footer">
+    <footer class="page-footer" data-reveal="fade-in">
         <div class="footer-links">
             <a href="legal/">&#x1F4DC; Legal Documents (Multi-language)</a>
             <a href="legal/en/terms.html">Terms of Service</a>
@@ -824,6 +825,6 @@
 
     <script>
         document.getElementById('footer-year').textContent = new Date().getFullYear();
-    </script>
+    <script src="../assets/js/scroll-reveal.js"></script>
 </body>
 </html>
