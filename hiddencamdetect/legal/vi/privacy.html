@@ -51,7 +51,7 @@
 <body>
   <div class="container">
     <h1>Chính sách Bảo mật</h1>
-    <p class="last-updated">Cập nhật lần cuối: Tháng 7 năm 2026</p>
+    <p class="last-updated">Cập nhật lần cuối: Tháng 8 năm 2026</p>
 
     <p>HiddenCamDetect ("Ứng dụng") là công cụ hỗ trợ nhận biết và rà soát ban đầu, giúp bạn tìm camera ẩn, thiết bị quay lén và thiết bị nghe lén. Chính sách Bảo mật này giải thích những loại dữ liệu nào Ứng dụng xử lý và không xử lý, cũng như cách quyền riêng tư của bạn được bảo vệ. HiddenCamDetect được cung cấp bởi HiddenCamDetect ("chúng tôi").</p>
 
@@ -81,11 +81,16 @@
     </ul>
 
     <h2>Chẩn đoán và phân tích</h2>
-    <p>Để giữ cho Ứng dụng ổn định và cải thiện chất lượng dò tìm, chúng tôi dùng Firebase Crashlytics và Firebase Analytics để thu thập thông tin chẩn đoán và sử dụng <strong>ẩn danh</strong> (ví dụ báo cáo sự cố và số liệu sử dụng tính năng dạng tổng hợp).</p>
+    <p>Ứng dụng dùng hai dịch vụ Firebase <strong>tách biệt</strong>. Hai dịch vụ này có <strong>công tắc riêng</strong> và <strong>mặc định khác nhau</strong>, nên chúng tôi mô tả từng cái bên dưới.</p>
+    <ul>
+      <li><strong>Báo cáo sự cố và dữ liệu vận hành cơ bản — mặc định BẬT.</strong> Firebase Crashlytics gửi báo cáo khi Ứng dụng gặp sự cố. Song song đó, SDK của Firebase Analytics tự thu thập một số chỉ số tiêu chuẩn: số lần mở ứng dụng, lượt bắt đầu phiên và lần cập nhật ứng dụng, phiên bản ứng dụng, kiểu máy và ngôn ngữ, vị trí gần đúng suy ra từ địa chỉ IP của bạn, cùng một mã định danh cho bản cài đặt ứng dụng do Firebase tạo. Việc thu thập này bắt đầu ngay khi Ứng dụng khởi động, nghĩa là nó cũng diễn ra trước khi bạn tới màn hình đồng ý.</li>
+      <li><strong>Phân tích sử dụng — mặc định TẮT.</strong> Chỉ khi chính bạn tự bật, Ứng dụng mới gửi thêm những màn hình bạn mở và một danh sách thao tác ngắn, cố định: bắt đầu một phiên quét, hoàn tất hoặc hủy phiên quét (kèm mức rủi ro thu được, <strong>số lượng</strong> thiết bị đáng ngờ tìm thấy và thời lượng quét), mở một công cụ dò, xem màn hình nâng cấp, bắt đầu, hoàn tất hoặc khôi phục giao dịch mua, hoàn tất phần giới thiệu ban đầu, và xuất báo cáo PDF.</li>
+    </ul>
     <div class="highlight">
-      <p>Chẩn đoán được <strong>bật mặc định</strong> nhưng hoàn toàn tùy chọn. Bạn có thể tắt bất cứ lúc nào tại <strong>Cài đặt → "Chia sẻ chẩn đoán ẩn danh"</strong>. Dữ liệu này được ẩn danh, không gắn với danh tính của bạn, và <strong>không</strong> được dùng để theo dõi xuyên ứng dụng hay quảng cáo (không dùng IDFA).</p>
+      <p><strong>Hai công tắc, hai mặc định khác nhau.</strong> Báo cáo sự cố và dữ liệu vận hành cơ bản <strong>mặc định BẬT</strong>; bạn có thể tắt bất cứ lúc nào tại <strong>Cài đặt → "Chia sẻ chẩn đoán ẩn danh"</strong>. Phân tích sử dụng <strong>mặc định TẮT</strong> và vẫn tắt cho tới khi chính bạn bật nó lên — ở màn hình đồng ý hiện ra lần đầu bạn mở Ứng dụng, hoặc sau đó tại <strong>Cài đặt → "Chia sẻ phân tích sử dụng"</strong>. Tắt bất kỳ công tắc nào cũng không làm mất tính năng dò tìm nào. Cả hai dịch vụ đều <strong>không</strong> được dùng để theo dõi xuyên ứng dụng hay quảng cáo (không dùng IDFA).</p>
     </div>
-    <p><strong>Dữ liệu quét của bạn (kết quả Wi-Fi, Bluetooth, camera và cảm biến) không bao giờ được đưa vào chẩn đoán và không bao giờ được gửi đi bất cứ đâu.</strong> Đây là cam kết cốt lõi và không thay đổi.</p>
+    <p>Chúng tôi gọi công tắc thứ nhất là "ẩn danh" vì dữ liệu đó không chứa tên, địa chỉ email, tài khoản hay mã quảng cáo, và chúng tôi không bao giờ tìm cách truy ra bạn là ai từ nó. Dù vậy, chúng tôi chọn nói chính xác thay vì nói cho yên tâm: Firebase gán một mã định danh cho bản cài đặt Ứng dụng của bạn, đồng thời luôn nhìn thấy địa chỉ IP và thời điểm của mỗi sự kiện. Nếu bạn bật phân tích sử dụng, mức rủi ro và số lượng thiết bị đáng ngờ tìm thấy trong một phiên quét sẽ được gửi kèm mã định danh đó. Đây là một sự đánh đổi có thật, và bạn nên biết trước khi quyết định.</p>
+    <p><strong>Dữ liệu quét của bạn không bao giờ được đưa vào chẩn đoán hay phân tích sử dụng, và không bao giờ được gửi đi bất cứ đâu.</strong> Không một tên mạng (SSID), địa chỉ BSSID hay MAC, địa chỉ IP, hostname, tên thiết bị, nhãn phòng hay nhãn mạng, đường dẫn tệp, hoặc chi tiết phát hiện nào rời khỏi thiết bị của bạn qua hai dịch vụ này. Ứng dụng cưỡng chế điều đó ngay trong mã nguồn: lớp phân tích sử dụng chỉ nhận số, giá trị đúng/sai và lựa chọn từ một tập đóng — không bao giờ nhận chuỗi tự do; tên màn hình chỉ lấy từ một danh sách cố định các màn tĩnh không bao giờ chứa mã định danh; và bất kỳ giá trị nào vẫn trông giống địa chỉ hay mã định danh sẽ khiến toàn bộ sự kiện bị hủy. Những giá trị duy nhất liên quan tới phiên quét có thể rời khỏi thiết bị của bạn là mức rủi ro tổng thể và số lượng thiết bị đáng ngờ — và chỉ khi phân tích sử dụng đang bật. Đây là cam kết cốt lõi và không thay đổi.</p>
 
     <h2>Cập nhật dữ liệu nhận diện</h2>
     <p>Ứng dụng có thể tải xuống dữ liệu tham chiếu công khai qua kết nối HTTPS an toàn — ví dụ danh sách nhà sản xuất phần cứng (OUI) và danh sách cổng khả nghi đã biết — để nâng cao độ chính xác khi dò tìm. Đây chỉ là hành động <strong>tải xuống</strong>. Không có dữ liệu quét hay thông tin cá nhân nào được gửi đi trong các bản cập nhật này.</p>
@@ -101,7 +106,7 @@
     <p>Ứng dụng không hướng tới trẻ em dưới 13 tuổi (hoặc độ tuổi tối thiểu theo quy định tại khu vực của bạn, chẳng hạn 16 tuổi ở một số nơi thuộc EU). Chúng tôi không cố ý thu thập thông tin cá nhân từ trẻ em.</p>
 
     <h2>Quyền của bạn</h2>
-    <p>Tùy nơi bạn sinh sống, bạn có thể có các quyền theo luật như GDPR hoặc CCPA, bao gồm quyền truy cập hoặc xóa dữ liệu cá nhân. Vì Ứng dụng không thu thập hay lưu trữ dữ liệu quét hoặc dữ liệu cá nhân của bạn trên bất kỳ máy chủ nào, <strong>toàn bộ dữ liệu của bạn nằm trên thiết bị</strong>. Gỡ cài đặt Ứng dụng sẽ xóa dữ liệu này, bao gồm lịch sử quét và cài đặt. Nếu bạn đã bật chẩn đoán, bạn có thể tắt bất cứ lúc nào trong Cài đặt.</p>
+    <p>Tùy nơi bạn sinh sống, bạn có thể có các quyền theo luật như GDPR hoặc CCPA, bao gồm quyền truy cập hoặc xóa dữ liệu cá nhân. Vì Ứng dụng không thu thập hay lưu trữ dữ liệu quét hoặc dữ liệu cá nhân của bạn trên bất kỳ máy chủ nào, <strong>toàn bộ dữ liệu của bạn nằm trên thiết bị</strong>. Gỡ cài đặt Ứng dụng sẽ xóa dữ liệu này, bao gồm lịch sử quét và cài đặt. Bạn có thể tắt báo cáo sự cố và dữ liệu vận hành cơ bản, cũng như bật hoặc tắt phân tích sử dụng, bất cứ lúc nào trong Cài đặt.</p>
     <p>Với mọi câu hỏi hay yêu cầu về quyền riêng tư, vui lòng liên hệ chúng tôi theo thông tin bên dưới.</p>
 
     <h2>Thay đổi chính sách</h2>

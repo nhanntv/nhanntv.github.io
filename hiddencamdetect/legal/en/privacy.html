@@ -51,7 +51,7 @@
 <body>
   <div class="container">
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: July 2026</p>
+    <p class="last-updated">Last updated: August 2026</p>
 
     <p>HiddenCamDetect (the "App") is a hidden-device awareness and triage tool that helps you look for hidden cameras, covert recorders, and eavesdropping devices. This Privacy Policy explains what data the App does and does not handle, and how your privacy is protected. HiddenCamDetect is provided by HiddenCamDetect ("we", "us", or "our").</p>
 
@@ -81,11 +81,16 @@
     </ul>
 
     <h2>Diagnostics and Analytics</h2>
-    <p>To keep the App stable and improve detection quality, we use Firebase Crashlytics and Firebase Analytics to collect <strong>anonymous</strong> diagnostic and usage information (for example, crash reports and aggregate feature usage).</p>
+    <p>The App uses two <strong>separate</strong> Firebase services. They have <strong>different switches</strong> and <strong>different defaults</strong>, so each one is described on its own below.</p>
+    <ul>
+      <li><strong>Crash reports and basic app data — on by default.</strong> Firebase Crashlytics sends a report when the App crashes. Alongside it, the Firebase Analytics SDK collects a small set of standard measurements on its own: app opens, session starts and app updates, your app version, device model and language, an approximate location derived from your IP address, and an app-installation identifier created by Firebase. This collection starts when the App launches, which means it also happens before you reach the consent screen.</li>
+      <li><strong>App usage analytics — off by default.</strong> Only if you switch this on, the App additionally sends which screens you open and a short, fixed list of actions: starting a scan, finishing or cancelling a scan (together with the resulting risk level, the <strong>number</strong> of suspicious devices found, and how long the scan took), opening a detection tool, viewing the upgrade screen, starting, completing or restoring a purchase, finishing the initial introduction, and exporting a PDF report.</li>
+    </ul>
     <div class="highlight">
-      <p>Diagnostics are <strong>enabled by default</strong> but are fully optional. You can turn them off at any time in <strong>Settings → "Share anonymous diagnostics"</strong>. This data is anonymized, is not linked to your identity, and is <strong>not</strong> used for cross-app tracking or advertising (no IDFA).</p>
+      <p><strong>Two switches, two different defaults.</strong> Crash reports and basic app data are <strong>on by default</strong>; you can turn them off at any time in <strong>Settings → "Share anonymous diagnostics"</strong>. App usage analytics are <strong>off by default</strong> and stay off until you switch them on yourself — either on the consent screen shown the first time you open the App, or later in <strong>Settings → "Share app usage analytics"</strong>. Turning either switch off does not disable any detection feature. Neither service is used for cross-app tracking or advertising (no IDFA).</p>
     </div>
-    <p><strong>Your scan data (Wi-Fi, Bluetooth, camera, and sensor results) is never included in diagnostics and is never sent anywhere.</strong> This is a core commitment that does not change.</p>
+    <p>We call the first switch "anonymous" because the data carries no name, email address, account or advertising identifier, and we never try to work out who you are from it. Even so, we would rather be precise than reassuring: Firebase assigns an identifier to your installation of the App, and it always sees your IP address and the time of each event. If you switch app usage analytics on, the risk level and the number of suspicious devices found in a scan are sent alongside that identifier. That is a real trade-off, and you should know about it before you decide.</p>
+    <p><strong>Your scan data is never included in diagnostics or in usage analytics, and is never sent anywhere.</strong> No network name (SSID), BSSID or MAC address, IP address, hostname, device name, room or network label, file path, or detection detail ever leaves your device through either service. The App enforces this in its own code: the usage analytics layer accepts only numbers, true/false flags and choices from a closed list — never free text — screen names come from a fixed list of static screens that never contain an identifier, and any value that still resembles an address or identifier causes the whole event to be discarded. The only scan-related values that can ever leave your device are the overall risk level and the count of suspicious devices, and only while app usage analytics are switched on. This is a core commitment that does not change.</p>
 
     <h2>Detection Data Updates</h2>
     <p>The App may download public reference data over a secure HTTPS connection — for example, hardware vendor (OUI) lists and known suspicious port lists — to improve detection accuracy. This is a <strong>download only</strong>. No scan data or personal information is sent as part of these updates.</p>
@@ -101,7 +106,7 @@
     <p>The App is not directed to children under the age of 13 (or the minimum age required in your jurisdiction, such as 16 in parts of the EU). We do not knowingly collect personal information from children.</p>
 
     <h2>Your Rights</h2>
-    <p>Depending on where you live, you may have rights under laws such as the GDPR or CCPA, including the right to access or delete your personal data. Because the App does not collect or store your scan data or personal data on any server, <strong>all of your data lives on your device</strong>. Deleting the App removes this data, including your scan history and settings. If you have enabled diagnostics, you may disable them at any time in Settings.</p>
+    <p>Depending on where you live, you may have rights under laws such as the GDPR or CCPA, including the right to access or delete your personal data. Because the App does not collect or store your scan data or personal data on any server, <strong>all of your data lives on your device</strong>. Deleting the App removes this data, including your scan history and settings. You can turn crash reports and basic app data off, and turn app usage analytics on or off, at any time in Settings.</p>
     <p>For any privacy question or request, contact us using the details below.</p>
 
     <h2>Changes to This Policy</h2>

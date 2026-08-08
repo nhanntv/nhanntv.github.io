@@ -51,7 +51,7 @@
 <body>
   <div class="container">
     <h1>Política de Privacidade</h1>
-    <p class="last-updated">Última atualização: julho de 2026</p>
+    <p class="last-updated">Última atualização: agosto de 2026</p>
 
     <p>O HiddenCamDetect (o "App") é uma ferramenta de sensibilização e triagem de dispositivos ocultos que ajuda você a procurar câmaras ocultas, gravadores encobertos e dispositivos de escuta. Esta Política de Privacidade explica quais dados o App trata e não trata, e como sua privacidade é protegida. O HiddenCamDetect é fornecido por HiddenCamDetect ("nós", "nos" ou "nosso").</p>
 
@@ -81,11 +81,16 @@
     </ul>
 
     <h2>Diagnósticos e Análises</h2>
-    <p>Para manter o App estável e melhorar a qualidade da deteção, usamos o Firebase Crashlytics e o Firebase Analytics para recolher informações <strong>anónimas</strong> de diagnóstico e uso (por exemplo, relatórios de falhas e uso agregado de funcionalidades).</p>
+    <p>O App utiliza dois serviços Firebase <strong>separados</strong>. Têm <strong>interruptores diferentes</strong> e <strong>predefinições diferentes</strong>, pelo que cada um é descrito em separado abaixo.</p>
+    <ul>
+      <li><strong>Relatórios de falhas e dados básicos da aplicação — ativados por predefinição.</strong> O Firebase Crashlytics envia um relatório quando o App falha. Em conjunto, o SDK do Firebase Analytics recolhe por si próprio um pequeno conjunto de medições padrão: aberturas da aplicação, começos de sessão de utilização e atualizações da aplicação, versão da aplicação, modelo e idioma do dispositivo, uma localização aproximada deduzida do seu endereço IP e um identificador da sua instalação da aplicação gerado pelo Firebase. Esta recolha começa quando o App arranca, pelo que também ocorre antes de chegar ao ecrã de consentimento.</li>
+      <li><strong>Análises de utilização — desativadas por predefinição.</strong> Apenas se for você a ativá-las, o App envia também os ecrãs que abre e uma lista curta e fechada de ações: iniciar uma verificação, concluí-la ou cancelá-la (juntamente com o nível de risco obtido, o <strong>número</strong> de dispositivos suspeitos encontrados e a duração da verificação), abrir uma ferramenta de deteção, ver o ecrã de subscrição, iniciar, concluir ou restaurar uma compra, terminar a apresentação inicial e exportar um relatório PDF.</li>
+    </ul>
     <div class="highlight">
-      <p>Os diagnósticos são <strong>ativados por predefinição</strong>, mas são totalmente opcionais. Você pode desativá-los a qualquer momento em <strong>Definições → "Partilhar diagnósticos anónimos"</strong>. Esses dados são anonimizados, não são vinculados à sua identidade e <strong>não</strong> são usados para rastreio entre aplicações ou publicidade (sem IDFA).</p>
+      <p><strong>Dois interruptores, duas predefinições diferentes.</strong> Os relatórios de falhas e os dados básicos da aplicação estão <strong>ativados por predefinição</strong>; pode desativá-los a qualquer momento em <strong>Definições → "Partilhar diagnósticos anónimos"</strong>. As análises de utilização estão <strong>desativadas por predefinição</strong> e assim permanecem até ser você a ativá-las — no ecrã de consentimento apresentado da primeira vez que abre o App, ou mais tarde em <strong>Definições → "Partilhar análises de utilização"</strong>. Desativar qualquer um dos interruptores não desativa nenhuma funcionalidade de deteção. Nenhum destes dois serviços é usado para rastreio entre aplicações ou publicidade (sem IDFA).</p>
     </div>
-    <p><strong>Os seus dados de verificação (resultados de Wi-Fi, Bluetooth, câmara e sensores) nunca são incluídos nos diagnósticos e nunca são enviados para lado nenhum.</strong> Este é um compromisso fundamental que não muda.</p>
+    <p>Chamamos "anónimo" ao primeiro interruptor porque os dados não contêm nome, endereço de e-mail, conta nem identificador publicitário, e nunca tentamos descobrir quem é a partir deles. Ainda assim, preferimos ser rigorosos a ser tranquilizadores: o Firebase atribui um identificador à sua instalação do App e vê sempre o seu endereço IP e a hora de cada evento. Se ativar as análises de utilização, o nível de risco e o número de dispositivos suspeitos encontrados numa verificação são enviados juntamente com esse identificador. É uma contrapartida real e deve conhecê-la antes de decidir.</p>
+    <p><strong>Os seus dados de verificação nunca são incluídos nos diagnósticos nem nas análises de utilização e nunca são enviados para lado nenhum.</strong> Nenhum nome de rede (SSID), endereço BSSID ou MAC, endereço IP, nome de anfitrião, nome de dispositivo, etiqueta de divisão ou de rede, caminho de ficheiro ou pormenor de deteção sai alguma vez do seu dispositivo através de qualquer um destes dois serviços. O App impõe isto no próprio código: a camada de análises de utilização só aceita números, valores verdadeiro/falso e opções de uma lista fechada — nunca texto livre — os nomes de ecrã provêm de uma lista fixa de ecrãs estáticos que nunca contêm um identificador, e qualquer valor que ainda assim se pareça com um endereço ou identificador faz com que o evento inteiro seja descartado. Os únicos valores relacionados com a verificação que podem sair do seu dispositivo são o nível de risco global e a contagem de dispositivos suspeitos, e apenas enquanto as análises de utilização estiverem ativadas. Este é um compromisso fundamental que não muda.</p>
 
     <h2>Atualizações de Dados de Deteção</h2>
     <p>O App pode transferir dados públicos de referência através de uma ligação HTTPS segura — por exemplo, listas de fabricantes de hardware (OUI) e listas de portas suspeitas conhecidas — para melhorar a precisão da deteção. Trata-se de <strong>apenas uma transferência</strong>. Nenhum dado de verificação ou informação pessoal é enviado como parte dessas atualizações.</p>
@@ -101,7 +106,7 @@
     <p>O App não é direcionado a crianças menores de 13 anos (ou a idade mínima exigida na sua jurisdição, como 16 anos em partes da UE). Não recolhemos intencionalmente informações pessoais de crianças.</p>
 
     <h2>Seus Direitos</h2>
-    <p>Dependendo de onde você mora, você pode ter direitos ao abrigo de leis como o RGPD ou o CCPA, incluindo o direito de aceder ou eliminar os seus dados pessoais. Como o App não recolhe nem armazena os seus dados de verificação ou dados pessoais em nenhum servidor, <strong>todos os seus dados residem no seu dispositivo</strong>. Eliminar o App remove esses dados, incluindo o seu histórico de verificações e definições. Se você ativou os diagnósticos, pode desativá-los a qualquer momento nas Definições.</p>
+    <p>Dependendo de onde você mora, você pode ter direitos ao abrigo de leis como o RGPD ou o CCPA, incluindo o direito de aceder ou eliminar os seus dados pessoais. Como o App não recolhe nem armazena os seus dados de verificação ou dados pessoais em nenhum servidor, <strong>todos os seus dados residem no seu dispositivo</strong>. Eliminar o App remove esses dados, incluindo o seu histórico de verificações e definições. Pode desativar os relatórios de falhas e os dados básicos da aplicação, e ativar ou desativar as análises de utilização, a qualquer momento nas Definições.</p>
     <p>Para qualquer dúvida ou pedido sobre privacidade, entre em contacto connosco usando os dados abaixo.</p>
 
     <h2>Alterações a Esta Política</h2>

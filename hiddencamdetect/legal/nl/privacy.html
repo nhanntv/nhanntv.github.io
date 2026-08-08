@@ -51,7 +51,7 @@
 <body>
   <div class="container">
     <h1>Privacybeleid</h1>
-    <p class="last-updated">Laatst bijgewerkt: July 2026</p>
+    <p class="last-updated">Laatst bijgewerkt: augustus 2026</p>
 
     <p>HiddenCamDetect (de "App") is een hulpmiddel voor bewustwording en triage van verborgen apparaten dat u helpt bij het opsporen van verborgen camera's, heimelijke opnameapparaten en afluisterapparatuur. Dit Privacybeleid legt uit welke gegevens de App wel en niet verwerkt en hoe uw privacy wordt beschermd. HiddenCamDetect wordt aangeboden door HiddenCamDetect ("wij", "ons" of "onze").</p>
 
@@ -81,11 +81,16 @@
     </ul>
 
     <h2>Diagnostiek en analyse</h2>
-    <p>Om de App stabiel te houden en de detectiekwaliteit te verbeteren, gebruiken wij Firebase Crashlytics en Firebase Analytics om <strong>anonieme</strong> diagnostische en gebruiksgegevens te verzamelen (bijvoorbeeld crashrapporten en geaggregeerd functiegebruik).</p>
+    <p>De App gebruikt twee <strong>afzonderlijke</strong> Firebase-diensten. Ze hebben <strong>elk een eigen schakelaar</strong> en <strong>verschillende standaardinstellingen</strong>, daarom worden ze hieronder apart beschreven.</p>
+    <ul>
+      <li><strong>Crashrapporten en basisgegevens over de app — standaard ingeschakeld.</strong> Firebase Crashlytics stuurt een rapport wanneer de App vastloopt. Daarnaast verzamelt de SDK van Firebase Analytics uit zichzelf een kleine set standaardgegevens: het aantal keer dat de app wordt geopend, sessiestarts en app-updates, de appversie, het apparaatmodel en de taal, een globale locatie die uit uw IP-adres wordt afgeleid, en een door Firebase aangemaakte identificatie van uw app-installatie. Deze verzameling begint zodra de App start en vindt dus ook plaats voordat u het toestemmingsscherm bereikt.</li>
+      <li><strong>Gebruiksanalyse — standaard uitgeschakeld.</strong> Alleen als u dit zelf inschakelt, stuurt de App daarnaast welke schermen u opent en een korte, vaste lijst met handelingen: het starten van een scan, het voltooien of annuleren van een scan (samen met het resulterende risiconiveau, het <strong>aantal</strong> gevonden verdachte apparaten en de duur van de scan), het openen van een detectiehulpmiddel, het bekijken van het upgradescherm, het starten, voltooien of herstellen van een aankoop, het afronden van de introductie en het exporteren van een pdf-rapport.</li>
+    </ul>
     <div class="highlight">
-      <p>Diagnostiek is <strong>standaard ingeschakeld</strong>, maar volledig optioneel. U kunt deze op elk moment uitschakelen via <strong>Instellingen → "Anonieme diagnostiek delen"</strong>. Deze gegevens zijn geanonimiseerd, worden niet gekoppeld aan uw identiteit en worden <strong>niet</strong> gebruikt voor app-overschrijdende tracking of advertenties (geen IDFA).</p>
+      <p><strong>Twee schakelaars, twee verschillende standaardinstellingen.</strong> Crashrapporten en basisgegevens over de app staan <strong>standaard aan</strong>; u kunt ze op elk moment uitschakelen via <strong>Instellingen → "Anonieme diagnostiek delen"</strong>. Gebruiksanalyse staat <strong>standaard uit</strong> en blijft uit totdat u die zelf inschakelt — op het toestemmingsscherm dat verschijnt wanneer u de App voor het eerst opent, of later via <strong>Instellingen → "Gebruiksanalyse delen"</strong>. Het uitschakelen van een van beide schakelaars schakelt geen enkele detectiefunctie uit. Geen van beide diensten wordt gebruikt voor app-overschrijdende tracking of advertenties (geen IDFA).</p>
     </div>
-    <p><strong>Uw scangegevens (Wi-Fi-, Bluetooth-, camera- en sensorresultaten) worden nooit opgenomen in de diagnostiek en worden nooit ergens naartoe verzonden.</strong> Dit is een fundamentele toezegging die niet verandert.</p>
+    <p>Wij noemen de eerste schakelaar "anoniem" omdat de gegevens geen naam, e-mailadres, account of advertentie-identificatie bevatten en wij daaruit nooit proberen af te leiden wie u bent. Toch kiezen wij liever voor nauwkeurig dan voor geruststellend: Firebase kent een identificatie toe aan uw installatie van de App en ziet altijd uw IP-adres en het tijdstip van elke gebeurtenis. Als u gebruiksanalyse inschakelt, worden het risiconiveau en het aantal in een scan gevonden verdachte apparaten samen met die identificatie verzonden. Dat is een echte afweging, en u hoort dat te weten voordat u beslist.</p>
+    <p><strong>Uw scangegevens worden nooit opgenomen in de diagnostiek of in de gebruiksanalyse en worden nooit ergens naartoe verzonden.</strong> Geen enkele netwerknaam (SSID), BSSID- of MAC-adres, IP-adres, hostnaam, apparaatnaam, kamer- of netwerklabel, bestandspad of detectiedetail verlaat ooit uw apparaat via een van deze twee diensten. De App dwingt dit in haar eigen code af: de gebruiksanalyselaag accepteert uitsluitend getallen, waar/onwaar-waarden en keuzes uit een gesloten lijst — nooit vrije tekst — schermnamen komen uit een vaste lijst met statische schermen die nooit een identificatie bevatten, en elke waarde die er tóch uitziet als een adres of identificatie zorgt ervoor dat de hele gebeurtenis wordt weggegooid. De enige scangerelateerde waarden die uw apparaat kunnen verlaten, zijn het totale risiconiveau en het aantal verdachte apparaten, en dat alleen zolang gebruiksanalyse is ingeschakeld. Dit is een fundamentele toezegging die niet verandert.</p>
 
     <h2>Updates van detectiegegevens</h2>
     <p>De App kan openbare referentiegegevens downloaden via een beveiligde HTTPS-verbinding — bijvoorbeeld lijsten van hardwarefabrikanten (OUI) en lijsten van bekende verdachte poorten — om de detectienauwkeurigheid te verbeteren. Dit is uitsluitend een <strong>download</strong>. Als onderdeel van deze updates worden geen scangegevens of persoonsgegevens verzonden.</p>
@@ -101,7 +106,7 @@
     <p>De App is niet gericht op kinderen jonger dan 13 jaar (of de minimumleeftijd die in uw rechtsgebied vereist is, zoals 16 jaar in delen van de EU). Wij verzamelen niet bewust persoonsgegevens van kinderen.</p>
 
     <h2>Uw rechten</h2>
-    <p>Afhankelijk van waar u woont, kunt u rechten hebben op grond van wetten zoals de AVG/GDPR of de CCPA, waaronder het recht op inzage in of verwijdering van uw persoonsgegevens. Omdat de App uw scangegevens of persoonsgegevens niet op enige server verzamelt of bewaart, <strong>bevinden al uw gegevens zich op uw apparaat</strong>. Door de App te verwijderen, worden deze gegevens verwijderd, inclusief uw scangeschiedenis en instellingen. Als u diagnostiek hebt ingeschakeld, kunt u deze op elk moment uitschakelen in de Instellingen.</p>
+    <p>Afhankelijk van waar u woont, kunt u rechten hebben op grond van wetten zoals de AVG/GDPR of de CCPA, waaronder het recht op inzage in of verwijdering van uw persoonsgegevens. Omdat de App uw scangegevens of persoonsgegevens niet op enige server verzamelt of bewaart, <strong>bevinden al uw gegevens zich op uw apparaat</strong>. Door de App te verwijderen, worden deze gegevens verwijderd, inclusief uw scangeschiedenis en instellingen. U kunt crashrapporten en basisgegevens over de app op elk moment uitschakelen in de Instellingen, en gebruiksanalyse daar op elk moment in- of uitschakelen.</p>
     <p>Voor elke vraag of verzoek met betrekking tot privacy kunt u contact met ons opnemen via onderstaande gegevens.</p>
 
     <h2>Wijzigingen in dit beleid</h2>

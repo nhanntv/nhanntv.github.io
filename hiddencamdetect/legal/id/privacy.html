@@ -51,7 +51,7 @@
 <body>
   <div class="container">
     <h1>Kebijakan Privasi</h1>
-    <p class="last-updated">Terakhir diperbarui: July 2026</p>
+    <p class="last-updated">Terakhir diperbarui: Agustus 2026</p>
 
     <p>HiddenCamDetect ("Aplikasi") adalah alat kewaspadaan dan penyaringan awal (triage) untuk perangkat tersembunyi yang membantu Anda mencari kamera tersembunyi, perekam terselubung, dan perangkat penyadap. Kebijakan Privasi ini menjelaskan data apa yang ditangani dan tidak ditangani oleh Aplikasi, serta bagaimana privasi Anda dilindungi. HiddenCamDetect disediakan oleh HiddenCamDetect ("kami").</p>
 
@@ -81,11 +81,16 @@
     </ul>
 
     <h2>Diagnostik dan Analitik</h2>
-    <p>Untuk menjaga stabilitas Aplikasi dan meningkatkan kualitas deteksi, kami menggunakan Firebase Crashlytics dan Firebase Analytics untuk mengumpulkan informasi diagnostik dan penggunaan yang bersifat <strong>anonim</strong> (misalnya, laporan kerusakan (crash) dan penggunaan fitur secara agregat).</p>
+    <p>Aplikasi menggunakan dua layanan Firebase yang <strong>terpisah</strong>. Keduanya memiliki <strong>sakelar yang berbeda</strong> dan <strong>pengaturan bawaan yang berbeda</strong>, sehingga masing-masing dijelaskan tersendiri di bawah ini.</p>
+    <ul>
+      <li><strong>Laporan kerusakan dan data dasar aplikasi — aktif secara bawaan.</strong> Firebase Crashlytics mengirim laporan ketika Aplikasi mengalami kerusakan (crash). Bersamaan dengan itu, SDK Firebase Analytics mengumpulkan sendiri sejumlah kecil data standar: jumlah pembukaan aplikasi, awal sesi dan pembaruan aplikasi, versi aplikasi, model dan bahasa perangkat, perkiraan lokasi yang disimpulkan dari alamat IP Anda, serta pengenal instalasi aplikasi yang dibuat oleh Firebase. Pengumpulan ini dimulai saat Aplikasi dijalankan, sehingga juga terjadi sebelum Anda sampai ke layar persetujuan.</li>
+      <li><strong>Analitik penggunaan — nonaktif secara bawaan.</strong> Hanya jika Anda sendiri menyalakannya, Aplikasi juga mengirim layar mana yang Anda buka serta daftar tindakan yang singkat dan tetap: memulai pemindaian, menyelesaikan atau membatalkan pemindaian (beserta tingkat risiko yang dihasilkan, <strong>jumlah</strong> perangkat mencurigakan yang ditemukan, dan lama pemindaian), membuka alat deteksi, membuka layar peningkatan ke Pro, memulai, menyelesaikan atau memulihkan pembelian, menyelesaikan pengenalan awal, dan mengekspor laporan PDF.</li>
+    </ul>
     <div class="highlight">
-      <p>Diagnostik <strong>diaktifkan secara bawaan</strong> tetapi sepenuhnya opsional. Anda dapat menonaktifkannya kapan saja melalui <strong>Pengaturan → "Bagikan diagnostik anonim"</strong>. Data ini dianonimkan, tidak ditautkan dengan identitas Anda, dan <strong>tidak</strong> digunakan untuk pelacakan lintas aplikasi maupun periklanan (tanpa IDFA).</p>
+      <p><strong>Dua sakelar, dua pengaturan bawaan yang berbeda.</strong> Laporan kerusakan dan data dasar aplikasi <strong>aktif secara bawaan</strong>; Anda dapat mematikannya kapan saja di <strong>Pengaturan → "Bagikan diagnostik anonim"</strong>. Analitik penggunaan <strong>nonaktif secara bawaan</strong> dan tetap mati sampai Anda sendiri menyalakannya — baik di layar persetujuan yang muncul saat pertama kali membuka Aplikasi, maupun kemudian di <strong>Pengaturan → "Bagikan analitik penggunaan"</strong>. Mematikan salah satu sakelar tidak menonaktifkan fitur deteksi mana pun. Kedua layanan ini <strong>tidak</strong> digunakan untuk pelacakan lintas aplikasi maupun periklanan (tanpa IDFA).</p>
     </div>
-    <p><strong>Data pemindaian Anda (hasil Wi-Fi, Bluetooth, kamera, dan sensor) tidak pernah disertakan dalam diagnostik dan tidak pernah dikirim ke mana pun.</strong> Ini adalah komitmen inti yang tidak berubah.</p>
+    <p>Kami menyebut sakelar pertama "anonim" karena datanya tidak memuat nama, alamat email, akun, atau pengenal iklan, dan kami tidak pernah berusaha mengetahui siapa Anda darinya. Meski begitu, kami memilih untuk tepat daripada sekadar menenangkan: Firebase memberikan sebuah pengenal untuk instalasi Aplikasi Anda, dan Firebase selalu melihat alamat IP Anda beserta waktu setiap peristiwa. Jika Anda menyalakan analitik penggunaan, tingkat risiko dan jumlah perangkat mencurigakan yang ditemukan dalam sebuah pemindaian dikirim bersama pengenal tersebut. Ini adalah pertukaran yang nyata, dan Anda perlu mengetahuinya sebelum memutuskan.</p>
+    <p><strong>Data pemindaian Anda tidak pernah disertakan dalam diagnostik maupun dalam analitik penggunaan, dan tidak pernah dikirim ke mana pun.</strong> Tidak ada nama jaringan (SSID), alamat BSSID atau MAC, alamat IP, nama host, nama perangkat, label ruangan atau jaringan, jalur berkas, maupun rincian deteksi yang pernah keluar dari perangkat Anda melalui salah satu dari kedua layanan tersebut. Aplikasi menegakkannya di dalam kodenya sendiri: lapisan analitik penggunaan hanya menerima angka, nilai benar/salah, dan pilihan dari daftar tertutup — tidak pernah teks bebas — nama layar berasal dari daftar tetap berisi layar statis yang tidak pernah memuat pengenal, dan nilai apa pun yang tetap terlihat seperti alamat atau pengenal akan membuat seluruh peristiwa dibuang. Satu-satunya nilai terkait pemindaian yang dapat keluar dari perangkat Anda adalah tingkat risiko keseluruhan dan jumlah perangkat mencurigakan, dan hanya selama analitik penggunaan dinyalakan. Ini adalah komitmen inti yang tidak berubah.</p>
 
     <h2>Pembaruan Data Deteksi</h2>
     <p>Aplikasi dapat mengunduh data referensi publik melalui koneksi HTTPS yang aman — misalnya, daftar vendor perangkat keras (OUI) dan daftar port yang diketahui mencurigakan — untuk meningkatkan akurasi deteksi. Ini merupakan <strong>unduhan saja</strong>. Tidak ada data pemindaian atau informasi pribadi yang dikirim sebagai bagian dari pembaruan ini.</p>
@@ -101,7 +106,7 @@
     <p>Aplikasi ini tidak ditujukan bagi anak-anak di bawah usia 13 tahun (atau usia minimum yang disyaratkan di yurisdiksi Anda, seperti 16 tahun di sebagian wilayah Uni Eropa). Kami tidak dengan sengaja mengumpulkan informasi pribadi dari anak-anak.</p>
 
     <h2>Hak-Hak Anda</h2>
-    <p>Bergantung pada tempat tinggal Anda, Anda mungkin memiliki hak berdasarkan peraturan seperti GDPR atau CCPA, termasuk hak untuk mengakses atau menghapus data pribadi Anda. Karena Aplikasi tidak mengumpulkan atau menyimpan data pemindaian maupun data pribadi Anda di server mana pun, <strong>seluruh data Anda berada di perangkat Anda</strong>. Menghapus Aplikasi akan menghapus data ini, termasuk riwayat pemindaian dan pengaturan Anda. Jika Anda telah mengaktifkan diagnostik, Anda dapat menonaktifkannya kapan saja melalui Pengaturan.</p>
+    <p>Bergantung pada tempat tinggal Anda, Anda mungkin memiliki hak berdasarkan peraturan seperti GDPR atau CCPA, termasuk hak untuk mengakses atau menghapus data pribadi Anda. Karena Aplikasi tidak mengumpulkan atau menyimpan data pemindaian maupun data pribadi Anda di server mana pun, <strong>seluruh data Anda berada di perangkat Anda</strong>. Menghapus Aplikasi akan menghapus data ini, termasuk riwayat pemindaian dan pengaturan Anda. Anda dapat mematikan laporan kerusakan dan data dasar aplikasi, serta menyalakan atau mematikan analitik penggunaan, kapan saja melalui Pengaturan.</p>
     <p>Untuk pertanyaan atau permintaan apa pun terkait privasi, hubungi kami menggunakan detail di bawah ini.</p>
 
     <h2>Perubahan atas Kebijakan Ini</h2>

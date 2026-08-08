@@ -51,7 +51,7 @@
 <body>
   <div class="container">
     <h1>Dasar Privasi</h1>
-    <p class="last-updated">Kemas kini terakhir: Julai 2026</p>
+    <p class="last-updated">Kemas kini terakhir: Ogos 2026</p>
 
     <p>HiddenCamDetect ("Aplikasi") ialah alat kesedaran dan triaj peranti tersembunyi yang membantu anda mencari kamera tersembunyi, perakam terselindung, dan peranti pendengar. Dasar Privasi ini menerangkan data yang dikendalikan dan tidak dikendalikan oleh Aplikasi, serta cara privasi anda dilindungi. HiddenCamDetect disediakan oleh HiddenCamDetect ("kami", atau "milik kami").</p>
 
@@ -81,11 +81,16 @@
     </ul>
 
     <h2>Diagnostik dan Analitik</h2>
-    <p>Untuk memastikan Aplikasi kekal stabil dan meningkatkan kualiti pengesanan, kami menggunakan Firebase Crashlytics dan Firebase Analytics untuk mengumpul maklumat diagnostik dan penggunaan yang <strong>tanpa nama</strong> (contohnya, laporan ranap dan penggunaan ciri secara agregat).</p>
+    <p>Aplikasi menggunakan dua perkhidmatan Firebase yang <strong>berasingan</strong>. Kedua-duanya mempunyai <strong>suis yang berbeza</strong> dan <strong>tetapan lalai yang berbeza</strong>, jadi setiap satu diterangkan secara berasingan di bawah.</p>
+    <ul>
+      <li><strong>Laporan ranap dan data asas aplikasi — dihidupkan secara lalai.</strong> Firebase Crashlytics menghantar laporan apabila Aplikasi ranap. Bersama-sama dengannya, SDK Firebase Analytics mengumpul sendiri sedikit ukuran standard: bilangan aplikasi dibuka, permulaan sesi dan kemas kini aplikasi, versi aplikasi, model dan bahasa peranti, anggaran lokasi yang disimpulkan daripada alamat IP anda, serta pengenal pemasangan aplikasi yang dijana oleh Firebase. Pengumpulan ini bermula sebaik sahaja Aplikasi dilancarkan, jadi ia turut berlaku sebelum anda sampai ke skrin persetujuan.</li>
+      <li><strong>Analitik penggunaan — dimatikan secara lalai.</strong> Hanya jika anda sendiri menghidupkannya, Aplikasi turut menghantar skrin yang anda buka dan satu senarai tindakan yang pendek dan tetap: memulakan imbasan, menyelesaikan atau membatalkan imbasan (berserta tahap risiko yang diperoleh, <strong>bilangan</strong> peranti mencurigakan yang ditemui, dan tempoh imbasan), membuka alat pengesanan, melihat skrin naik taraf, memulakan, melengkapkan atau memulihkan pembelian, menamatkan pengenalan awal, dan mengeksport laporan PDF.</li>
+    </ul>
     <div class="highlight">
-      <p>Diagnostik <strong>didayakan secara lalai</strong> tetapi bersifat pilihan sepenuhnya. Anda boleh mematikannya pada bila-bila masa di <strong>Tetapan → "Kongsi diagnostik tanpa nama"</strong>. Data ini dinyahkenal, tidak dipautkan kepada identiti anda, dan <strong>tidak</strong> digunakan untuk penjejakan merentas aplikasi atau pengiklanan (tiada IDFA).</p>
+      <p><strong>Dua suis, dua tetapan lalai yang berbeza.</strong> Laporan ranap dan data asas aplikasi <strong>dihidupkan secara lalai</strong>; anda boleh mematikannya pada bila-bila masa di <strong>Tetapan → "Kongsi diagnostik tanpa nama"</strong>. Analitik penggunaan pula <strong>dimatikan secara lalai</strong> dan kekal mati sehingga anda sendiri menghidupkannya — sama ada pada skrin persetujuan yang dipaparkan kali pertama anda membuka Aplikasi, atau kemudian di <strong>Tetapan → "Kongsi analitik penggunaan"</strong>. Mematikan mana-mana suis tidak melumpuhkan sebarang ciri pengesanan. Kedua-dua perkhidmatan ini <strong>tidak</strong> digunakan untuk penjejakan merentas aplikasi atau pengiklanan (tiada IDFA).</p>
     </div>
-    <p><strong>Data imbasan anda (keputusan Wi-Fi, Bluetooth, kamera, dan penderia) tidak pernah disertakan dalam diagnostik dan tidak pernah dihantar ke mana-mana.</strong> Ini merupakan komitmen teras yang tidak berubah.</p>
+    <p>Kami menyebut suis pertama sebagai "tanpa nama" kerana datanya tidak mengandungi nama, alamat e-mel, akaun atau pengenal pengiklanan, dan kami tidak pernah cuba mengenal pasti siapa anda daripadanya. Namun kami memilih untuk tepat berbanding sekadar menenangkan: Firebase memberikan satu pengenal kepada pemasangan Aplikasi anda, dan ia sentiasa melihat alamat IP anda serta masa setiap peristiwa. Jika anda menghidupkan analitik penggunaan, tahap risiko dan bilangan peranti mencurigakan yang ditemui dalam sesuatu imbasan dihantar bersama pengenal tersebut. Ini satu pertukaran yang nyata, dan anda wajar mengetahuinya sebelum membuat keputusan.</p>
+    <p><strong>Data imbasan anda tidak pernah disertakan dalam diagnostik mahupun dalam analitik penggunaan, dan tidak pernah dihantar ke mana-mana.</strong> Tiada nama rangkaian (SSID), alamat BSSID atau MAC, alamat IP, nama hos, nama peranti, label bilik atau rangkaian, laluan fail, mahupun butiran pengesanan yang pernah keluar dari peranti anda melalui mana-mana daripada dua perkhidmatan itu. Aplikasi menguatkuasakannya dalam kodnya sendiri: lapisan analitik penggunaan hanya menerima nombor, nilai benar/palsu dan pilihan daripada senarai tertutup — tidak pernah teks bebas — nama skrin diambil daripada senarai tetap skrin statik yang tidak pernah mengandungi pengenal, dan sebarang nilai yang masih kelihatan seperti alamat atau pengenal akan menyebabkan keseluruhan peristiwa dibuang. Satu-satunya nilai berkaitan imbasan yang boleh keluar dari peranti anda ialah tahap risiko keseluruhan dan bilangan peranti mencurigakan, dan itu pun hanya semasa analitik penggunaan dihidupkan. Ini merupakan komitmen teras yang tidak berubah.</p>
 
     <h2>Kemas Kini Data Pengesanan</h2>
     <p>Aplikasi mungkin memuat turun data rujukan awam melalui sambungan HTTPS yang selamat — contohnya, senarai pembekal perkakasan (OUI) dan senarai port mencurigakan yang diketahui — untuk meningkatkan ketepatan pengesanan. Ini adalah <strong>muat turun sahaja</strong>. Tiada data imbasan atau maklumat peribadi dihantar sebagai sebahagian daripada kemas kini ini.</p>
@@ -101,7 +106,7 @@
     <p>Aplikasi ini tidak ditujukan kepada kanak-kanak berumur di bawah 13 tahun (atau umur minimum yang diperlukan dalam bidang kuasa anda, seperti 16 tahun di sesetengah bahagian EU). Kami tidak mengumpul maklumat peribadi daripada kanak-kanak secara sedar.</p>
 
     <h2>Hak Anda</h2>
-    <p>Bergantung pada tempat anda tinggal, anda mungkin mempunyai hak di bawah undang-undang seperti GDPR atau CCPA, termasuk hak untuk mengakses atau memadamkan data peribadi anda. Oleh sebab Aplikasi tidak mengumpul atau menyimpan data imbasan atau data peribadi anda pada mana-mana pelayan, <strong>semua data anda berada pada peranti anda</strong>. Memadamkan Aplikasi akan mengalih keluar data ini, termasuk sejarah imbasan dan tetapan anda. Jika anda telah mendayakan diagnostik, anda boleh melumpuhkannya pada bila-bila masa dalam Tetapan.</p>
+    <p>Bergantung pada tempat anda tinggal, anda mungkin mempunyai hak di bawah undang-undang seperti GDPR atau CCPA, termasuk hak untuk mengakses atau memadamkan data peribadi anda. Oleh sebab Aplikasi tidak mengumpul atau menyimpan data imbasan atau data peribadi anda pada mana-mana pelayan, <strong>semua data anda berada pada peranti anda</strong>. Memadamkan Aplikasi akan mengalih keluar data ini, termasuk sejarah imbasan dan tetapan anda. Anda boleh mematikan laporan ranap dan data asas aplikasi, serta menghidupkan atau mematikan analitik penggunaan, pada bila-bila masa dalam Tetapan.</p>
     <p>Untuk sebarang soalan atau permintaan berkaitan privasi, hubungi kami menggunakan butiran di bawah.</p>
 
     <h2>Perubahan pada Dasar Ini</h2>
