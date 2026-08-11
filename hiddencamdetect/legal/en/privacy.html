@@ -60,21 +60,21 @@
     </div>
 
     <h2>Data We Do Not Collect</h2>
-    <p>We do <strong>not</strong> collect, transmit, or store the following on any server. All of it stays on your device and never leaves it:</p>
+    <p>We do <strong>not</strong> collect, transmit, or store any of the following on any server. It stays on your device, and the only thing that can ever take any of it off your device is a report <em>you</em> choose to export (see <strong>"Evidence Photos"</strong>):</p>
     <ul>
       <li><strong>Wi-Fi and network scan results</strong> — IP addresses, device names, ports, and services discovered on your local network.</li>
       <li><strong>Bluetooth (BLE) scan results</strong> — nearby broadcasting devices, signal strength, and identifiers.</li>
-      <li><strong>Camera frames</strong> — images captured during lens-glint or infrared checks are analyzed on-device in real time and are never saved or sent.</li>
+      <li><strong>Camera frames</strong> — the picture from the lens-glint and infrared views is analyzed on your device in real time and is never sent to us or to anyone else. When a detection is confirmed, the App does save a small evidence photo of that frame <strong>on your device</strong>, so you can find the spot again later — see <strong>"Evidence Photos"</strong> below for exactly where it goes, how to switch it off, and how to delete it.</li>
       <li><strong>Sensor readings</strong> — magnetometer and other motion-sensor values are shown live and are not retained off-device.</li>
-      <li><strong>Scan history and baselines</strong> — stored only in the App's local database on your device.</li>
+      <li><strong>Scan history, evidence photos, and baselines</strong> — stored only in the App's local database and private storage on your device.</li>
     </ul>
-    <p>Because this data never leaves your device, we cannot see it, access it, or share it.</p>
+    <p>Because this data is never sent to us, we cannot see it, access it, or share it.</p>
 
     <h2>Permissions We Use and Why</h2>
     <p>The App requests device permissions only in context and for a specific detection purpose. You can grant or deny each one, and revoke them later in your device settings.</p>
     <ul>
-      <li><strong>Camera</strong> — to detect lens reflections (glint) and infrared light from hidden cameras. Frames are analyzed on-device and never stored or transmitted.</li>
-      <li><strong>Location / nearby Wi-Fi</strong> (Android) — required by the operating system to scan for networked devices on your local network. We do <strong>not</strong> track your geographic location.</li>
+      <li><strong>Camera</strong> — to detect lens reflections (glint) and infrared light from hidden cameras. Frames are analyzed on your device and are never transmitted; evidence photos of confirmed detections are saved on your device only (see <strong>"Evidence Photos"</strong>).</li>
+      <li><strong>Location / nearby Wi-Fi</strong> (Android) — required by the operating system to scan for networked devices on your local network, and, if you allow it, to read the name of the Wi-Fi network you are on so a scan can be labelled with it. We do <strong>not</strong> use this permission to track your geographic location, and the network name stays on your device. (Separately, Firebase estimates a rough, city-level location from your IP address — see <strong>"Diagnostics and Analytics"</strong>.)</li>
       <li><strong>Local Network</strong> (iOS) — to discover devices on your local network for scanning.</li>
       <li><strong>Bluetooth</strong> — to scan for nearby broadcasting devices. On Android this is flagged as "never for location", so it is not used to derive your location.</li>
       <li><strong>Motion sensors</strong> — to read the magnetic field as a reference indicator. This signal is informational only.</li>
@@ -90,23 +90,43 @@
       <p><strong>Two switches, two different defaults.</strong> Crash reports and basic app data are <strong>on by default</strong>; you can turn them off at any time in <strong>Settings → "Share anonymous diagnostics"</strong>. App usage analytics are <strong>off by default</strong> and stay off until you switch them on yourself — either on the consent screen shown the first time you open the App, or later in <strong>Settings → "Share app usage analytics"</strong>. Turning either switch off does not disable any detection feature. Neither service is used for cross-app tracking or advertising (no IDFA).</p>
     </div>
     <p>We call the first switch "anonymous" because the data carries no name, email address, account or advertising identifier, and we never try to work out who you are from it. Even so, we would rather be precise than reassuring: Firebase assigns an identifier to your installation of the App, and it always sees your IP address and the time of each event. If you switch app usage analytics on, the risk level and the number of suspicious devices found in a scan are sent alongside that identifier. That is a real trade-off, and you should know about it before you decide.</p>
-    <p><strong>Your scan data is never included in diagnostics or in usage analytics, and is never sent anywhere.</strong> No network name (SSID), BSSID or MAC address, IP address, hostname, device name, room or network label, file path, or detection detail ever leaves your device through either service. The App enforces this in its own code: the usage analytics layer accepts only numbers, true/false flags and choices from a closed list — never free text — screen names come from a fixed list of static screens that never contain an identifier, and any value that still resembles an address or identifier causes the whole event to be discarded. The only scan-related values that can ever leave your device are the overall risk level and the count of suspicious devices, and only while app usage analytics are switched on. This is a core commitment that does not change.</p>
+    <p><strong>Your scan results are never reported to us.</strong> Your list of discovered devices, your evidence photos, and your camera, audio and sensor data are never uploaded by either service — not in any form, and not under any setting. This is a core commitment that does not change.</p>
+    <p><strong>App usage analytics: guaranteed by the code, not by a promise.</strong> The analytics layer physically cannot carry a network name (SSID), BSSID or MAC address, IP address, hostname, device name, room or network label, file path, or detection detail, because it accepts only numbers, true/false flags and choices from a closed list — never free text, so there is no field such a value could travel in. Screen names come from a fixed list of static screens that never contain an identifier, and any value that still resembles an address or identifier causes the whole event to be discarded. The only scan-related values that can ever leave your device this way are the overall risk level and the count of suspicious devices, and only while app usage analytics are switched on.</p>
+    <p><strong>Crash reports: one honest exception.</strong> A crash report is not a tidy list of fields like an analytics event — to be worth anything it has to carry the technical error message and the stack trace exactly as the App produced them, and we do not rewrite or filter them. So if the App crashes during a network scan, the error text can contain a technical fragment of that moment — most often a local address from a failed connection, such as a 192.168.x.x number belonging to your own network. We would rather tell you this than claim an absolute we cannot guarantee. To be clear about what this is not: it is never your scan results, never a photo, and never a list of what was found; it is a private-network address that means nothing outside your own network; and it only occurs if the App actually crashes at that moment. If you would prefer not to take that chance at all, turn <strong>Settings → "Share anonymous diagnostics"</strong> off — every detection feature keeps working exactly the same.</p>
 
     <h2>Detection Data Updates</h2>
-    <p>The App may download public reference data over a secure HTTPS connection — for example, hardware vendor (OUI) lists and known suspicious port lists — to improve detection accuracy. This is a <strong>download only</strong>. No scan data or personal information is sent as part of these updates.</p>
+    <p>The App may download public reference data over a secure HTTPS connection — for example, hardware vendor (OUI) lists and known suspicious port lists — to improve detection accuracy. These files come from our website hosting and from Firebase Remote Config. This is a <strong>download only</strong>: <strong>no scan data is ever sent as part of these updates</strong>. As with any download, the server sees the request itself (your IP address, and for Remote Config the app installation identifier described above), which is how a file reaches your device at all.</p>
 
     <h2>In-App Purchases</h2>
     <p>The App offers an optional paid subscription ("Pro"). Payments are processed entirely by the Apple App Store or Google Play. We do <strong>not</strong> receive or store your payment card details. Purchase and subscription status is validated through the store's receipt mechanism. Please refer to the applicable store's privacy policy for how your payment information is handled.</p>
-    <p>We use Qonversion to manage and validate subscriptions. Qonversion receives your purchase and subscription status and an anonymous, app-generated identifier; it does not receive your payment card details. See Qonversion's privacy policy at https://qonversion.io/privacy.</p>
+    <p>We use Qonversion to manage and validate subscriptions. Qonversion receives your purchase and subscription status together with an anonymous installation identifier, which contains no name, email address or advertising identifier. It does not receive your payment card details. See Qonversion's privacy policy at https://qonversion.io/privacy.</p>
+    <p>That identifier has to survive reinstalling the App — otherwise a purchase you already paid for could not be restored — so it is produced differently on each platform:</p>
+    <ul>
+      <li><strong>iOS</strong> — a random value generated by the App and kept in the device Keychain. Because that Keychain entry is marked to sync through iCloud, the same identifier may also be present on other devices signed in to your Apple Account, which is what lets a purchase follow you to a new iPhone or iPad.</li>
+      <li><strong>Android</strong> — derived from your device's Android ID by combining it with a fixed secret built into the App and hashing the result (SHA-256). The Android ID itself never leaves your device; only the hash is used. If the Android ID cannot be read, the App falls back to a random value.</li>
+    </ul>
+
+    <h2>Evidence Photos</h2>
+    <p>When the lens-glint view confirms a detection, the App saves a small photo of the camera frame that produced it. The point is practical: a scan tells you something is there, and the photo is how you find the same spot again afterwards.</p>
+    <ul>
+      <li><strong>Where it goes.</strong> Into the App's own private storage on your device — not into your photo gallery or camera roll, where other apps could see it. On iOS the App asks the system to keep this folder out of iCloud backup; on Android the App is excluded from system backup entirely.</li>
+      <li><strong>It stays on your device.</strong> Evidence photos are never uploaded to us or to anyone else, and they are never attached to diagnostics or analytics.</li>
+      <li><strong>Unless you export or share a report.</strong> If you choose to export a scan as a PDF, the evidence photos for that scan are included in the document, because that is what makes the report evidence. From that moment the file is yours: whoever you send it to can see those photos. Nothing is exported until you ask for it.</li>
+      <li><strong>You can switch it off.</strong> Saving evidence photos is <strong>on by default</strong>. Turn it off at any time in <strong>Settings → "Save detection snapshots"</strong>; scanning still works, you simply get findings without pictures.</li>
+      <li><strong>You can delete them.</strong> Deleting a scan from your history deletes that scan's photos with it, and clearing your history deletes them all. <strong>Settings → "Delete all saved snapshots"</strong> removes every stored photo at once, and uninstalling the App removes them along with everything else.</li>
+    </ul>
+
+    <h2>Notifications</h2>
+    <p>If you allow notifications, the App registers with Firebase Cloud Messaging so that we can send occasional product messages, such as a scanning reminder or news about an update. Registering creates a notification token for this installation of the App, held by Google's messaging service; it is not tied to your name or email address. Notification content is written by us and never contains anything from your scans. You can turn notifications off at any time in the App's settings or in your device settings.</p>
 
     <h2>Local Storage</h2>
-    <p>The App stores your scan history, baselines, and settings (such as theme, language, and enabled modules) locally on your device using an on-device database and preferences. This information is not synced to any server.</p>
+    <p>The App stores your scan history, baselines, evidence photos, and settings (such as theme, language, and enabled modules) locally on your device using an on-device database, private file storage, and preferences. This information is not synced to any server.</p>
 
     <h2>Children's Privacy</h2>
     <p>The App is not directed to children under the age of 13 (or the minimum age required in your jurisdiction, such as 16 in parts of the EU). We do not knowingly collect personal information from children.</p>
 
     <h2>Your Rights</h2>
-    <p>Depending on where you live, you may have rights under laws such as the GDPR or CCPA, including the right to access or delete your personal data. Because the App does not collect or store your scan data or personal data on any server, <strong>all of your data lives on your device</strong>. Deleting the App removes this data, including your scan history and settings. You can turn crash reports and basic app data off, and turn app usage analytics on or off, at any time in Settings.</p>
+    <p>Depending on where you live, you may have rights under laws such as the GDPR or CCPA, including the right to access or delete your personal data. Because the App does not collect or store your scan data or personal data on any server, <strong>all of your data lives on your device</strong>. Deleting the App removes this data, including your scan history, your evidence photos, and your settings. You can also delete your scan history and your saved evidence photos from within the App at any time. You can turn crash reports and basic app data off, and turn app usage analytics on or off, at any time in Settings.</p>
     <p>For any privacy question or request, contact us using the details below.</p>
 
     <h2>Changes to This Policy</h2>
