@@ -280,17 +280,17 @@
             transition: background 0.2s;
         }
         .project-card:hover .project-card-header { background: var(--accent-soft); }
-        /* Project-specific header accent colors */
-        .project-card[data-color="green"] .project-card-header { border-bottom-color: rgba(52,168,83,0.3); }
-        .project-card[data-color="green"]:hover .project-card-header { background: rgba(52,168,83,0.06); }
-        .project-card[data-color="purple"] .project-card-header { border-bottom-color: rgba(108,99,255,0.3); }
-        .project-card[data-color="purple"]:hover .project-card-header { background: rgba(108,99,255,0.06); }
-        .project-card[data-color="iris"] .project-card-header { border-bottom-color: rgba(77,107,255,0.3); }
-        .project-card[data-color="iris"]:hover .project-card-header { background: rgba(77,107,255,0.06); }
-        .project-card[data-color="emerald"] .project-card-header { border-bottom-color: rgba(76,175,80,0.3); }
-        .project-card[data-color="emerald"]:hover .project-card-header { background: rgba(76,175,80,0.06); }
-        .project-card[data-color="gold"] .project-card-header { border-bottom-color: rgba(244,192,37,0.3); }
-        .project-card[data-color="gold"]:hover .project-card-header { background: rgba(244,192,37,0.06); }
+        /* Project-specific header accent colors — always visible */
+        .project-card[data-color="green"] .project-card-header { background: rgba(52,168,83,0.06); border-bottom-color: rgba(52,168,83,0.3); }
+        .project-card[data-color="green"]:hover .project-card-header { background: rgba(52,168,83,0.12); }
+        .project-card[data-color="purple"] .project-card-header { background: rgba(108,99,255,0.06); border-bottom-color: rgba(108,99,255,0.3); }
+        .project-card[data-color="purple"]:hover .project-card-header { background: rgba(108,99,255,0.12); }
+        .project-card[data-color="iris"] .project-card-header { background: rgba(77,107,255,0.06); border-bottom-color: rgba(77,107,255,0.3); }
+        .project-card[data-color="iris"]:hover .project-card-header { background: rgba(77,107,255,0.12); }
+        .project-card[data-color="emerald"] .project-card-header { background: rgba(76,175,80,0.06); border-bottom-color: rgba(76,175,80,0.3); }
+        .project-card[data-color="emerald"]:hover .project-card-header { background: rgba(76,175,80,0.12); }
+        .project-card[data-color="gold"] .project-card-header { background: rgba(244,192,37,0.06); border-bottom-color: rgba(244,192,37,0.3); }
+        .project-card[data-color="gold"]:hover .project-card-header { background: rgba(244,192,37,0.12); }
         .project-card-header .app-icon {
             width: 72px;
             height: 72px;
@@ -891,17 +891,23 @@
                 <div class="skill-chip"><img src="assets/images/tech/swift.svg" alt="Swift"> Swift / iOS</div>
                 <div class="skill-chip"><img src="assets/images/tech/flutter.svg" alt="Flutter"> Flutter</div>
                 <div class="skill-chip"><img src="assets/images/tech/kotlin.svg" alt="Kotlin"> Kotlin</div>
-                <div class="skill-chip">🐍 Python</div>
-                <div class="skill-chip">📦 Node.js</div>
-                <div class="skill-chip">☕ Java Spring Boot</div>
+                <div class="skill-chip"><img src="assets/images/tech/python.svg" alt="Python"> Python</div>
+                <div class="skill-chip"><img src="assets/images/tech/nodejs.svg" alt="Node.js"> Node.js</div>
+                <div class="skill-chip"><img src="assets/images/tech/java.svg" alt="Java"> Java</div>
+                <div class="skill-chip"><img src="assets/images/tech/spring.svg" alt="Spring Boot"> Spring Boot</div>
+                <div class="skill-chip"><img src="assets/images/tech/react.svg" alt="React"> React</div>
+                <div class="skill-chip"><img src="assets/images/tech/nextjs.svg" alt="Next.js"> Next.js</div>
+                <div class="skill-chip"><img src="assets/images/tech/typescript.svg" alt="TypeScript"> TypeScript</div>
                 <div class="skill-chip"><img src="assets/images/tech/postgresql.svg" alt="PostgreSQL"> PostgreSQL</div>
                 <div class="skill-chip"><img src="assets/images/tech/redis.svg" alt="Redis"> Redis</div>
-                <div class="skill-chip">📨 Kafka</div>
+                <div class="skill-chip"><img src="assets/images/tech/kafka.svg" alt="Kafka"> Kafka</div>
+                <div class="skill-chip"><img src="assets/images/tech/mongodb.svg" alt="MongoDB"> MongoDB</div>
                 <div class="skill-chip"><img src="assets/images/tech/firebase.svg" alt="Firebase"> Firebase</div>
                 <div class="skill-chip"><img src="assets/images/tech/gcloud.svg" alt="GCP"> Google Cloud</div>
-                <div class="skill-chip">☁️ AWS</div>
+                <div class="skill-chip"><img src="assets/images/tech/aws.svg" alt="AWS"> AWS</div>
                 <div class="skill-chip"><img src="assets/images/tech/docker.svg" alt="Docker"> Docker</div>
                 <div class="skill-chip"><img src="assets/images/tech/sqlite.svg" alt="SQLite"> SQLite</div>
+                <div class="skill-chip"><img src="assets/images/tech/git.svg" alt="Git"> Git</div>
                 <div class="skill-chip">🔄 Agile / Scrum</div>
                 <div class="skill-chip">🤖 AI-assisted Dev</div>
                 <div class="skill-chip">📐 System Architecture</div>
