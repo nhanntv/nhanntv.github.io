@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhan Trinh — Technical Lead & Senior Software Engineer</title>
+    <title>Nhan Trinh — Technical Lead & Senior Software Engineer & Product Manager</title>
     <meta name="description" content="Technical Lead & Senior Software Engineer with 14+ years of experience. Building mobile apps, enterprise platforms, and scalable systems.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/animations.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -209,8 +210,8 @@
         .projects-section { padding-bottom: 60px; }
         .projects-carousel {
             position: relative;
-            margin: 32px -32px 0;
-            padding: 0 32px;
+            margin-top: 32px;
+            overflow: hidden;
         }
         .projects-track {
             display: flex;
@@ -218,7 +219,7 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
-            padding: 16px 4px 32px;
+            padding: 16px 0 32px;
             scrollbar-width: none;
             cursor: grab;
             user-select: none;
@@ -252,6 +253,17 @@
             transition: background 0.2s;
         }
         .project-card:hover .project-card-header { background: var(--accent-soft); }
+        /* Project-specific header accent colors */
+        .project-card[data-color="green"] .project-card-header { border-bottom-color: rgba(52,168,83,0.3); }
+        .project-card[data-color="green"]:hover .project-card-header { background: rgba(52,168,83,0.06); }
+        .project-card[data-color="purple"] .project-card-header { border-bottom-color: rgba(108,99,255,0.3); }
+        .project-card[data-color="purple"]:hover .project-card-header { background: rgba(108,99,255,0.06); }
+        .project-card[data-color="iris"] .project-card-header { border-bottom-color: rgba(77,107,255,0.3); }
+        .project-card[data-color="iris"]:hover .project-card-header { background: rgba(77,107,255,0.06); }
+        .project-card[data-color="emerald"] .project-card-header { border-bottom-color: rgba(76,175,80,0.3); }
+        .project-card[data-color="emerald"]:hover .project-card-header { background: rgba(76,175,80,0.06); }
+        .project-card[data-color="gold"] .project-card-header { border-bottom-color: rgba(244,192,37,0.3); }
+        .project-card[data-color="gold"]:hover .project-card-header { background: rgba(244,192,37,0.06); }
         .project-card-header .app-icon {
             width: 72px;
             height: 72px;
@@ -341,8 +353,8 @@
             box-shadow: var(--shadow-sm);
         }
         .carousel-arrow:hover { border-color: var(--accent-border); box-shadow: var(--shadow-md); }
-        .carousel-arrow.prev { left: -8px; }
-        .carousel-arrow.next { right: -8px; }
+        .carousel-arrow.prev { left: 12px; }
+        .carousel-arrow.next { right: 12px; }
 
         /* ===== Experience Timeline ===== */
         .experience-section { border-top: 1px solid var(--border); }
@@ -564,10 +576,6 @@
         }
 
         @media (min-width: 1200px) {
-            .projects-carousel { margin: 32px -80px 0; padding: 0 80px; }
-        }
-        @media (min-width: 1600px) {
-            .projects-carousel { margin: 32px -160px 0; padding: 0 160px; }
             .project-card { flex: 0 0 360px; }
         }
     </style>
@@ -577,7 +585,7 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-inner">
-            <a href="#" class="nav-logo">nhan.dev</a>
+            <a href="#" class="nav-logo">nhanntv</a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#projects">Projects</a></li>
@@ -595,10 +603,10 @@
     <!-- Hero -->
     <section class="hero" id="about">
         <div class="container">
-            <div class="hero-inner">
+            <div class="hero-inner" data-reveal="blur-up">
                 <div class="hero-greeting">// hello, I'm Nhan</div>
-                <h1>Technical Lead &amp;<br>Senior Software Engineer</h1>
-                <p class="hero-subtitle">14+ years delivering mobile applications, enterprise platforms, and large-scale systems. Specializing in iOS, Flutter, and full-stack development — leading Agile teams from idea to App Store.</p>
+                <h1>Technical Lead &amp;<br>Senior Software Engineer<br>&amp; Product Manager</h1>
+                <p class="hero-subtitle">14+ years of experience delivering mobile applications, enterprise platforms, and large-scale software systems. Experienced in Technical Leadership, including architecture design, technical planning, code review, mentoring, and engineering best practices. Hands-on experience building backend services and microservice architectures using Kotlin (Spring Boot), Python, Node.js, PostgreSQL, Kafka, Redis, and cloud platforms.</p>
                 <div class="hero-stats">
                     <div class="hero-stat">
                         <div class="hero-stat-number">14+</div>
@@ -620,21 +628,19 @@
     <!-- Projects -->
     <section class="section projects-section" id="projects">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="fade-up">
                 <span class="section-tag">// projects</span>
                 <h2>Apps I've built &amp; shipped</h2>
                 <p>Personal projects crafted from idea to production.</p>
             </div>
         </div>
-        <div class="projects-carousel">
-            <div class="container" style="position:relative">
-                <button class="carousel-arrow prev" id="proj-prev" aria-label="Previous">&#8249;</button>
-                <button class="carousel-arrow next" id="proj-next" aria-label="Next">&#8250;</button>
-            </div>
+        <div class="projects-carousel" id="projects-carousel">
+            <button class="carousel-arrow prev" id="proj-prev" aria-label="Previous">&#8249;</button>
+            <button class="carousel-arrow next" id="proj-next" aria-label="Next">&#8250;</button>
             <div class="projects-track" id="projects-track">
 
                 <!-- Class Schedule Management -->
-                <div class="project-card">
+                <div class="project-card" data-color="green">
                     <a href="class-schedule-management/" class="project-card-header">
                         <img src="assets/images/class-schedule-icon.png" alt="Class Schedule Management" class="app-icon">
                         <h3>Class Schedule Management</h3>
@@ -658,7 +664,7 @@
                 </div>
 
                 <!-- Pikura -->
-                <div class="project-card">
+                <div class="project-card" data-color="purple">
                     <a href="pikura/" class="project-card-header">
                         <img src="assets/images/pikura-icon.png" alt="Pikura" class="app-icon">
                         <h3>Pikura</h3>
@@ -682,7 +688,7 @@
                 </div>
 
                 <!-- Hidden Cam Detect -->
-                <div class="project-card">
+                <div class="project-card" data-color="iris">
                     <a href="hiddencamdetect/" class="project-card-header">
                         <img src="assets/images/hiddencamdetect-icon.png" alt="Hidden Cam Detect" class="app-icon">
                         <h3>Hidden Cam Detect</h3>
@@ -706,7 +712,7 @@
                 </div>
 
                 <!-- CalDietAI -->
-                <div class="project-card">
+                <div class="project-card" data-color="emerald">
                     <a href="caldietai/" class="project-card-header">
                         <img src="assets/images/caldietai-icon.png" alt="CalDietAI" class="app-icon">
                         <h3>CalDietAI</h3>
@@ -730,7 +736,7 @@
                 </div>
 
                 <!-- Hụi Happy -->
-                <div class="project-card">
+                <div class="project-card" data-color="gold">
                     <a href="huihappy/" class="project-card-header">
                         <img src="assets/images/huihappy-icon.png" alt="Hụi Happy" class="app-icon">
                         <h3>Hụi Happy</h3>
@@ -761,11 +767,11 @@
     <!-- Experience -->
     <section class="section experience-section" id="experience">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="slide-left">
                 <span class="section-tag">// experience</span>
                 <h2>Where I've worked</h2>
             </div>
-            <div class="timeline">
+            <div class="timeline" data-reveal-stagger>
 
                 <!-- TeraGroup -->
                 <div class="timeline-item">
@@ -852,11 +858,11 @@
     <!-- Skills -->
     <section class="section skills-section" id="skills">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal="slide-right">
                 <span class="section-tag">// skills</span>
                 <h2>What I work with</h2>
             </div>
-            <div class="skills-grid">
+            <div class="skills-grid" data-reveal-stagger>
                 <div class="skill-chip"><img src="assets/images/tech/swift.svg" alt="Swift"> Swift / iOS</div>
                 <div class="skill-chip"><img src="assets/images/tech/flutter.svg" alt="Flutter"> Flutter</div>
                 <div class="skill-chip"><img src="assets/images/tech/kotlin.svg" alt="Kotlin"> Kotlin</div>
@@ -882,7 +888,7 @@
     <!-- Contact -->
     <section class="section contact-section" id="contact">
         <div class="container">
-            <div class="contact-grid">
+            <div class="contact-grid" data-reveal="fade-up">
                 <div class="contact-left">
                     <h2>Let's build something great</h2>
                     <p>Open to collaboration, consulting, and new opportunities. Based in Da Nang, Vietnam — working with teams worldwide.</p>
@@ -980,9 +986,66 @@
         (function() {
             var track = document.getElementById('projects-track');
             if (!track) return;
+            var items = Array.from(track.querySelectorAll('.project-card'));
             var prev = document.getElementById('proj-prev');
             var next = document.getElementById('proj-next');
-            var cardWidth = 368;
+
+            // Apply padding so first/last card can be centered
+            function applyPadding() {
+                if (!items.length) return;
+                var half = track.clientWidth / 2 - items[0].offsetWidth / 2;
+                var pad = Math.max(half, 32) + 'px';
+                track.style.paddingLeft = pad;
+                track.style.paddingRight = pad;
+            }
+
+            function getActiveIndex() {
+                var center = track.scrollLeft + track.clientWidth / 2;
+                var idx = 0, best = Infinity;
+                items.forEach(function(el, i) {
+                    var d = Math.abs(el.offsetLeft + el.offsetWidth / 2 - center);
+                    if (d < best) { best = d; idx = i; }
+                });
+                return idx;
+            }
+
+            function scrollToIndex(i, smooth) {
+                var el = items[i];
+                if (!el) return;
+                var pos = el.offsetLeft + el.offsetWidth / 2 - track.clientWidth / 2;
+                track.scrollTo({ left: pos, behavior: smooth === false ? 'instant' : 'smooth' });
+            }
+
+            // Auto-scroll
+            var autoTimer = null;
+            function startAuto() {
+                stopAuto();
+                autoTimer = setInterval(function() {
+                    var idx = getActiveIndex();
+                    var nextIdx = (idx + 1) % items.length;
+                    scrollToIndex(nextIdx);
+                }, 4000);
+            }
+            function stopAuto() { clearInterval(autoTimer); autoTimer = null; }
+            function resetAuto() { stopAuto(); startAuto(); }
+
+            // Arrows
+            if (prev) prev.addEventListener('click', function() {
+                var idx = getActiveIndex();
+                scrollToIndex(idx === 0 ? items.length - 1 : idx - 1);
+                resetAuto();
+            });
+            if (next) next.addEventListener('click', function() {
+                var idx = getActiveIndex();
+                scrollToIndex(idx === items.length - 1 ? 0 : idx + 1);
+                resetAuto();
+            });
+
+            // Pause on interaction
+            track.addEventListener('mouseenter', stopAuto);
+            track.addEventListener('mouseleave', startAuto);
+            track.addEventListener('touchstart', stopAuto, { passive: true });
+            track.addEventListener('touchend', function() { setTimeout(startAuto, 2500); }, { passive: true });
 
             // Drag to scroll
             var dragging = false, startX = 0, startScroll = 0;
@@ -991,11 +1054,13 @@
                 startX = e.pageX;
                 startScroll = track.scrollLeft;
                 track.classList.add('grabbing');
+                stopAuto();
             });
             window.addEventListener('mouseup', function() {
                 if (!dragging) return;
                 dragging = false;
                 track.classList.remove('grabbing');
+                setTimeout(startAuto, 2500);
             });
             track.addEventListener('mousemove', function(e) {
                 if (!dragging) return;
@@ -1003,36 +1068,23 @@
                 track.scrollLeft = startScroll - (e.pageX - startX) * 1.2;
             });
 
-            // Arrows
-            if (prev) prev.addEventListener('click', function() {
-                track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-            });
-            if (next) next.addEventListener('click', function() {
-                track.scrollBy({ left: cardWidth, behavior: 'smooth' });
-            });
-
-            // Auto-scroll with loop-back
-            var autoTimer = null;
-            function startAuto() {
-                stopAuto();
-                autoTimer = setInterval(function() {
-                    var maxScroll = track.scrollWidth - track.clientWidth;
-                    if (track.scrollLeft >= maxScroll - 10) {
-                        track.scrollTo({ left: 0, behavior: 'smooth' });
-                    } else {
-                        track.scrollBy({ left: cardWidth, behavior: 'smooth' });
-                    }
-                }, 4000);
+            // Init — NO scroll on page load (prevents focus jump)
+            function init() {
+                applyPadding();
+                // Set initial position without any scrolling behavior
+                track.scrollLeft = 0;
+                startAuto();
             }
-            function stopAuto() { clearInterval(autoTimer); }
 
-            track.addEventListener('mouseenter', stopAuto);
-            track.addEventListener('mouseleave', startAuto);
-            track.addEventListener('touchstart', stopAuto, { passive: true });
-            track.addEventListener('touchend', function() { setTimeout(startAuto, 3000); }, { passive: true });
-
-            startAuto();
+            // Wait for layout to be ready
+            if (document.readyState === 'complete') {
+                init();
+            } else {
+                window.addEventListener('load', init);
+            }
+            window.addEventListener('resize', applyPadding);
         })();
     </script>
+    <script src="assets/js/scroll-reveal.js"></script>
 </body>
 </html>
