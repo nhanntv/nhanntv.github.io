@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pikura — Drawing & Coloring for Kids</title>
+    <meta name="description" content="A fun and creative drawing & coloring app for kids. Let your child explore art with guided lessons, coloring pages, and free drawing tools.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <style>
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --purple: #6C63FF;
+            --purple-dark: #574FD6;
+            --purple-deeper: #3D3780;
+            --purple-light: #EEEDFF;
+            --purple-mid: #CDCAFF;
+            --purple-glow: rgba(108,99,255,0.12);
+            --pink: #FF6B9D;
+            --yellow: #FFD93D;
+            --green: #6BCB77;
+            --orange: #FF9A76;
+            --text: #1a1a2e;
+            --text-2: #5f6368;
+            --text-3: #9aa0a6;
+            --bg: #f8f9fa;
+            --surface: #ffffff;
+            --border: #e8eaed;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-pill: 100px;
+            --shadow: 0 4px 16px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.05);
+            --shadow-lg: 0 12px 36px rgba(0,0,0,0.10);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== Back Button ===== */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.92);
+            color: var(--purple-dark);
+            padding: 9px 18px;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 200;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.6);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .back-btn:hover { transform: translateX(-3px); box-shadow: var(--shadow-lg); }
+
+        /* ===== Language Dropdown ===== */
+        .lang-dropdown {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 200;
+        }
+        .lang-dropdown-btn {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid var(--border);
+            padding: 8px 14px;
+            border-radius: var(--radius-pill);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(8px);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 1rem;
+            color: var(--text);
+            transition: border-color 0.2s;
+        }
+        .lang-dropdown-btn:hover { border-color: var(--purple); }
+        .lang-dropdown-btn .arrow { font-size: 0.7rem; color: var(--text-2); transition: transform 0.2s; }
+        .lang-dropdown.open .lang-dropdown-btn .arrow { transform: rotate(180deg); }
+        .lang-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 6px);
+            right: 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-8px);
+            pointer-events: none;
+            transition: opacity 0.2s, transform 0.2s;
+            min-width: 160px;
+        }
+        .lang-dropdown.open .lang-dropdown-menu {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: var(--text);
+            transition: background 0.15s;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+        .lang-option:hover { background: var(--purple-light); }
+        .lang-option.active { background: var(--purple-light); color: var(--purple); }
+
+        /* ===== Hero ===== */
+        .hero {
+            background: linear-gradient(140deg, #6C63FF 0%, #574FD6 45%, #3D3780 100%);
+            padding: 80px 24px 64px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 15% 60%, rgba(255,255,255,0.14) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 10%, rgba(255,215,61,0.08) 0%, transparent 45%);
+            pointer-events: none;
+        }
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .hero-icon-wrap {
+            width: 104px;
+            height: 104px;
+            border-radius: 26px;
+            background: var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 32px rgba(0,0,0,0.2);
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .hero-icon-wrap img { width: 88px; height: 88px; border-radius: 20px; }
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #ffffff;
+            padding: 5px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .hero h1 { font-size: 2.6rem; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; line-height: 1.2; }
+        .hero-subtitle { font-size: 1.12rem; color: var(--yellow); font-weight: 500; }
+        .hero-tagline { font-size: 1rem; color: rgba(255,255,255,0.8); max-width: 540px; line-height: 1.65; }
+        .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+
+        /* ===== Download Section ===== */
+        .download-section { background: var(--surface); border-bottom: 1px solid var(--border); padding: 28px 24px; }
+        .download-inner { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+        .download-label { color: var(--text-2); font-size: 0.92rem; font-weight: 500; }
+        .store-btn {
+            display: inline-flex; align-items: center; gap: 10px; padding: 11px 20px;
+            border-radius: var(--radius-sm); text-decoration: none; font-weight: 600;
+            font-size: 0.88rem; transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1.5px solid transparent;
+        }
+        .store-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(108,99,255,0.15); }
+        .store-btn-ios { background: #1c1c1e; color: white; }
+        .store-btn-android { background: #34A853; color: white; }
+        .store-btn-text small { display: block; font-weight: 400; font-size: 0.72rem; opacity: 0.8; }
+        .store-btn-text strong { display: block; font-size: 0.92rem; }
+
+        /* ===== Sections ===== */
+        .section { padding: 64px 0; }
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-tag {
+            display: inline-block;
+            background: var(--purple-light);
+            color: var(--purple);
+            padding: 4px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            border: 1px solid var(--purple-mid);
+        }
+        .section-header h2 { font-size: 2rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; margin-bottom: 10px; }
+        .section-header p, .section-desc { color: var(--text-2); font-size: 1rem; max-width: 600px; margin: 0 auto; line-height: 1.7; }
+
+        /* ===== Features Grid ===== */
+        .features-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .feature-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        .feature-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--purple-mid); }
+        .feature-icon-wrap {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--purple-light);
+            border: 1px solid var(--purple-mid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .feature-card h3 { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+        .feature-card p { font-size: 0.875rem; color: var(--text-2); line-height: 1.6; }
+
+        /* ===== How It Works ===== */
+        .how-section { background: var(--bg); }
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .step-card {
+            text-align: center;
+            padding: 32px 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .step-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .step-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+        .step-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+        .step-card p { font-size: 0.875rem; color: var(--text-2); line-height: 1.6; }
+
+        /* ===== Built With ===== */
+        .built-section { padding: 64px 0; }
+        .tech-chips { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .tech-chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            padding: 10px 18px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .tech-chip:hover { transform: translateY(-2px); border-color: var(--purple-mid); }
+        .tech-chip img { width: 20px; height: 20px; object-fit: contain; }
+
+        /* ===== Screenshots ===== */
+        .screenshots-section {
+            background: linear-gradient(180deg, var(--purple-light) 0%, var(--bg) 100%);
+            padding: 72px 0 56px;
+            overflow: hidden;
+        }
+        .screenshot-carousel { position: relative; margin-top: 40px; }
+        .screenshot-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-top: 24px;
+            padding-bottom: 36px;
+            scrollbar-width: none;
+            cursor: grab;
+            user-select: none;
+        }
+        .screenshot-track.grabbing { cursor: grabbing; scroll-snap-type: none; }
+        .screenshot-track::-webkit-scrollbar { display: none; }
+        .screenshot-item {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+            opacity: 0.45;
+            transform: scale(0.85);
+        }
+        .screenshot-item.active { opacity: 1; transform: scale(1); }
+        .screenshot-item img {
+            height: 500px;
+            width: auto;
+            min-width: 220px;
+            border-radius: 28px;
+            box-shadow: 0 32px 80px rgba(108,99,255,0.18);
+            display: block;
+            pointer-events: none;
+        }
+        .screenshot-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+        .sc-dot {
+            width: 8px; height: 8px; border-radius: 8px;
+            background: var(--purple-mid);
+            border: none; cursor: pointer; padding: 0;
+            transition: width 0.35s ease, background 0.35s ease;
+        }
+        .sc-dot.active { width: 28px; background: var(--purple); }
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: rgba(108,99,255,0.1);
+            border: 1px solid var(--purple-mid);
+            color: var(--purple);
+            font-size: 1.4rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+            transition: background 0.2s, transform 0.2s;
+            z-index: 10;
+        }
+        .carousel-arrow:hover { background: rgba(108,99,255,0.2); }
+        .carousel-arrow.prev { left: 20px; }
+        .carousel-arrow.next { right: 20px; }
+
+        /* ===== Screenshot Placeholder ===== */
+        .screenshot-placeholder {
+            height: 500px;
+            width: 240px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, var(--purple-light), var(--purple-mid));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 32px 80px rgba(108,99,255,0.18);
+        }
+        .screenshot-placeholder .placeholder-icon { font-size: 3rem; }
+        .screenshot-placeholder .placeholder-text { font-size: 0.85rem; color: var(--purple-dark); font-weight: 500; }
+
+        /* ===== Footer ===== */
+        .page-footer { background: var(--surface); border-top: 1px solid var(--border); color: var(--text-2); padding: 32px 24px; text-align: center; }
+        .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+        .footer-links a { color: var(--purple); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--purple-dark); }
+        .footer-copy { font-size: 0.82rem; color: var(--text-3); }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .hero { padding: 72px 20px 52px; }
+            .hero h1 { font-size: 1.9rem; }
+            .section { padding: 48px 0; }
+            .section-header h2 { font-size: 1.6rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .carousel-arrow { display: none; }
+            .screenshot-item img, .screenshot-placeholder { height: 380px; }
+        }
+        @media (max-width: 480px) {
+            .back-btn { font-size: 0.82rem; padding: 8px 14px; }
+            .hero h1 { font-size: 1.6rem; }
+            .lang-dropdown { top: 14px; right: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back Button -->
+    <a href="../" class="back-btn">
+        <span>←</span> Back
+    </a>
+
+    <!-- Language Dropdown -->
+    <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-dropdown-btn" id="langBtn" onclick="toggleLangMenu()">
+            <span id="langFlag">🇬🇧</span>
+            <span class="arrow">▼</span>
+        </button>
+        <div class="lang-dropdown-menu">
+            <button class="lang-option active" id="opt-en" onclick="switchLang('en')">🇬🇧 English</button>
+            <button class="lang-option" id="opt-vi" onclick="switchLang('vi')">🇻🇳 Tiếng Việt</button>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-tag" data-en="CREATIVE KIDS APP" data-vi="ỨNG DỤNG SÁNG TẠO CHO BÉ">CREATIVE KIDS APP</div>
+            <div class="hero-icon-wrap">
+                <img src="../assets/images/pikura-icon.png" alt="Pikura">
+            </div>
+            <h1>Pikura</h1>
+            <p class="hero-subtitle" data-en="Draw, Color &amp; Create!" data-vi="Vẽ, Tô Màu &amp; Sáng Tạo!">Draw, Color &amp; Create!</p>
+            <p class="hero-tagline" data-en="Pikura is a fun and educational drawing &amp; coloring app designed for kids. With guided drawing lessons, hundreds of coloring pages, and free-draw mode, children can explore their creativity while developing fine motor skills." data-vi="Pikura là ứng dụng vẽ tranh và tô màu vui nhộn dành cho bé. Với các bài học vẽ có hướng dẫn, hàng trăm trang tô màu, và chế độ vẽ tự do, trẻ em có thể khám phá sự sáng tạo đồng thời phát triển kỹ năng vận động tinh.">Pikura is a fun and educational drawing &amp; coloring app designed for kids. With guided drawing lessons, hundreds of coloring pages, and free-draw mode, children can explore their creativity while developing fine motor skills.</p>
+            <div class="hero-badges">
+                <div class="hero-badge">📱 iOS & Android</div>
+                <div class="hero-badge" data-en="🎨 Ages 2-8" data-vi="🎨 Từ 2-8 tuổi">🎨 Ages 2-8</div>
+                <div class="hero-badge" data-en="🔒 Kid-Safe" data-vi="🔒 An toàn cho bé">🔒 Kid-Safe</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download -->
+    <div class="download-section" data-reveal="blur-up">
+        <div class="download-inner">
+            <span class="download-label" data-en="Available on:" data-vi="Có mặt trên:">Available on:</span>
+            <a href="#" class="store-btn store-btn-ios">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+                </svg>
+                <div class="store-btn-text">
+                    <small>Download on the</small>
+                    <strong>App Store</strong>
+                </div>
+            </a>
+            <a href="#" class="store-btn store-btn-android">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l10.04 10.973zm0 2.067l-10 10.933c.298.036.612-.016.906-.183l13.327-7.754-4.233-2.996z"/>
+                </svg>
+                <div class="store-btn-text">
+                    <small>Get it on</small>
+                    <strong>Google Play</strong>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <section class="section features-section">
+        <div class="container">
+            <div class="section-header" data-reveal="slide-left">
+                <span class="section-tag" data-en="Features" data-vi="Tính năng">Features</span>
+                <h2 data-en="Everything for young artists" data-vi="Tất cả cho những họa sĩ nhí">Everything for young artists</h2>
+                <p data-en="Pikura combines learning and play to help children develop artistic skills naturally." data-vi="Pikura kết hợp học và chơi để giúp trẻ phát triển kỹ năng nghệ thuật một cách tự nhiên.">Pikura combines learning and play to help children develop artistic skills naturally.</p>
+            </div>
+            <div class="features-grid" data-reveal-stagger>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">✏️</div>
+                    <div>
+                        <h3 data-en="Step-by-Step Drawing" data-vi="Vẽ theo từng bước">Step-by-Step Drawing</h3>
+                        <p data-en="Guided lessons teach kids to draw animals, characters, vehicles and more — stroke by stroke." data-vi="Bài học hướng dẫn bé vẽ động vật, nhân vật, phương tiện và nhiều hơn — từng nét một.">Guided lessons teach kids to draw animals, characters, vehicles and more — stroke by stroke.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">🎨</div>
+                    <div>
+                        <h3 data-en="Coloring Pages" data-vi="Trang tô màu">Coloring Pages</h3>
+                        <p data-en="Hundreds of beautiful coloring templates across themes like animals, nature, fantasy, and holidays." data-vi="Hàng trăm mẫu tô màu đẹp mắt theo chủ đề: động vật, thiên nhiên, thần tiên, lễ hội.">Hundreds of beautiful coloring templates across themes like animals, nature, fantasy, and holidays.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">🖌️</div>
+                    <div>
+                        <h3 data-en="Free Drawing Canvas" data-vi="Bảng vẽ tự do">Free Drawing Canvas</h3>
+                        <p data-en="A blank canvas with brushes, stamps, stickers, and colors for unlimited creative expression." data-vi="Bảng vẽ trắng với cọ, tem, sticker, và màu sắc cho sự sáng tạo không giới hạn.">A blank canvas with brushes, stamps, stickers, and colors for unlimited creative expression.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">🌈</div>
+                    <div>
+                        <h3 data-en="Magic Color Effects" data-vi="Hiệu ứng màu kỳ diệu">Magic Color Effects</h3>
+                        <p data-en="Neon, glitter, rainbow, and gradient brushes that make artwork sparkle and shine." data-vi="Cọ neon, lấp lánh, cầu vồng và gradient giúp tác phẩm lung linh và rực rỡ.">Neon, glitter, rainbow, and gradient brushes that make artwork sparkle and shine.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">📸</div>
+                    <div>
+                        <h3 data-en="Save &amp; Share" data-vi="Lưu &amp; Chia sẻ">Save &amp; Share</h3>
+                        <p data-en="Save creations to a personal gallery and share with family and friends." data-vi="Lưu tác phẩm vào bộ sưu tập cá nhân và chia sẻ với gia đình, bạn bè.">Save creations to a personal gallery and share with family and friends.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">🔒</div>
+                    <div>
+                        <h3 data-en="Safe for Kids" data-vi="An toàn cho bé">Safe for Kids</h3>
+                        <p data-en="No ads, no in-app purchases for kids, parental controls, and fully COPPA-compliant." data-vi="Không quảng cáo, không mua hàng trong app, kiểm soát phụ huynh, tuân thủ COPPA.">No ads, no in-app purchases for kids, parental controls, and fully COPPA-compliant.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section how-section">
+        <div class="container">
+            <div class="section-header" data-reveal="slide-right">
+                <span class="section-tag" data-en="How It Works" data-vi="Cách sử dụng">How It Works</span>
+                <h2 data-en="Simple as 1-2-3" data-vi="Đơn giản như 1-2-3">Simple as 1-2-3</h2>
+            </div>
+            <div class="steps-grid" data-reveal-stagger>
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 data-en="Choose an Activity" data-vi="Chọn hoạt động">Choose an Activity</h3>
+                    <p data-en="Pick from drawing lessons, coloring pages, or free-draw mode." data-vi="Chọn bài vẽ hướng dẫn, trang tô màu, hoặc chế độ vẽ tự do.">Pick from drawing lessons, coloring pages, or free-draw mode.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 data-en="Create &amp; Have Fun" data-vi="Sáng tạo &amp; Vui chơi">Create &amp; Have Fun</h3>
+                    <p data-en="Follow step-by-step guides or let imagination run wild with creative tools." data-vi="Theo hướng dẫn từng bước hoặc thoả sức tưởng tượng với các công cụ sáng tạo.">Follow step-by-step guides or let imagination run wild with creative tools.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 data-en="Save &amp; Celebrate" data-vi="Lưu &amp; Khoe tác phẩm">Save &amp; Celebrate</h3>
+                    <p data-en="Save artwork to the gallery and proudly share with family!" data-vi="Lưu tác phẩm vào bộ sưu tập và tự hào chia sẻ với gia đình!">Save artwork to the gallery and proudly share with family!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="screenshots-section">
+        <div class="container">
+            <div class="section-header" data-reveal="scale-blur">
+                <span class="section-tag" data-en="Screenshots" data-vi="Ảnh chụp màn hình">Screenshots</span>
+                <h2 data-en="Beautiful &amp; Colorful Interface" data-vi="Giao diện đẹp mắt &amp; nhiều màu sắc">Beautiful &amp; Colorful Interface</h2>
+                <p class="section-desc" data-en="Designed with love for little hands and big imaginations." data-vi="Thiết kế với tình yêu dành cho những bàn tay nhỏ và trí tưởng tượng lớn.">Designed with love for little hands and big imaginations.</p>
+            </div>
+        </div>
+        <div class="screenshot-carousel">
+            <button class="carousel-arrow prev" id="sc-prev" aria-label="Previous">&#8249;</button>
+            <button class="carousel-arrow next" id="sc-next" aria-label="Next">&#8250;</button>
+            <div class="screenshot-track" id="screenshot-track">
+                <div class="screenshot-item active">
+                    <div class="screenshot-placeholder">
+                        <span class="placeholder-icon">🎨</span>
+                        <span class="placeholder-text" data-en="Drawing Lessons" data-vi="Bài học vẽ">Drawing Lessons</span>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <span class="placeholder-icon">🖍️</span>
+                        <span class="placeholder-text" data-en="Coloring Pages" data-vi="Trang tô màu">Coloring Pages</span>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <span class="placeholder-icon">✨</span>
+                        <span class="placeholder-text" data-en="Magic Effects" data-vi="Hiệu ứng kỳ diệu">Magic Effects</span>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <span class="placeholder-icon">🖼️</span>
+                        <span class="placeholder-text" data-en="Gallery" data-vi="Bộ sưu tập">Gallery</span>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <span class="placeholder-icon">🏆</span>
+                        <span class="placeholder-text" data-en="Achievements" data-vi="Thành tích">Achievements</span>
+                    </div>
+                </div>
+            </div>
+            <div class="screenshot-dots" id="screenshot-dots">
+                <button class="sc-dot active" aria-label="Screenshot 1"></button>
+                <button class="sc-dot" aria-label="Screenshot 2"></button>
+                <button class="sc-dot" aria-label="Screenshot 3"></button>
+                <button class="sc-dot" aria-label="Screenshot 4"></button>
+                <button class="sc-dot" aria-label="Screenshot 5"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Built With -->
+    <section class="section built-section">
+        <div class="container">
+            <div class="section-header" data-reveal="slide-right">
+                <span class="section-tag" data-en="Built With" data-vi="Công nghệ">Built With</span>
+                <h2 data-en="Built with Modern Technology" data-vi="Xây dựng bằng công nghệ hiện đại">Built with Modern Technology</h2>
+            </div>
+            <div class="tech-chips" data-reveal-stagger>
+                <div class="tech-chip"><img src="../assets/images/tech/flutter.svg" alt="Flutter" width="20" height="20"> Flutter</div>
+                <div class="tech-chip"><img src="../assets/images/tech/swift.svg" alt="Swift" width="20" height="20"> Swift (iOS)</div>
+                <div class="tech-chip"><img src="../assets/images/tech/kotlin.svg" alt="Kotlin" width="20" height="20"> Kotlin (Android)</div>
+                <div class="tech-chip"><img src="../assets/images/tech/firebase.svg" alt="Firebase" width="20" height="20"> Firebase</div>
+                <div class="tech-chip"><img src="../assets/images/tech/cloudflare.svg" alt="Cloudflare" width="20" height="20"> Cloudflare</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer" data-reveal="fade-in">
+        <div class="footer-links">
+            <a href="legal/" data-en="📜 Legal Documents" data-vi="📜 Tài liệu pháp lý">📜 Legal Documents</a>
+            <a href="legal/en/terms.html" data-en="Terms of Service" data-vi="Điều khoản sử dụng">Terms of Service</a>
+            <a href="legal/en/privacy.html" data-en="Privacy Policy" data-vi="Chính sách bảo mật">Privacy Policy</a>
+        </div>
+        <p class="footer-copy">&copy; <span id="footer-year"></span> Nhan Trinh. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Footer year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // ===== Language Dropdown =====
+        function toggleLangMenu() {
+            document.getElementById('langDropdown').classList.toggle('open');
+        }
+        document.addEventListener('click', function(e) {
+            var dd = document.getElementById('langDropdown');
+            if (!dd.contains(e.target)) dd.classList.remove('open');
+        });
+
+        function switchLang(lang) {
+            document.querySelectorAll('[data-vi]').forEach(function(el) {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+            document.getElementById('langFlag').textContent = lang === 'vi' ? '🇻🇳' : '🇬🇧';
+            document.getElementById('opt-vi').classList.toggle('active', lang === 'vi');
+            document.getElementById('opt-en').classList.toggle('active', lang === 'en');
+            document.getElementById('langDropdown').classList.remove('open');
+            document.documentElement.lang = lang;
+        }
+
+        // ===== Screenshot Carousel =====
+        (function () {
+            var track = document.getElementById('screenshot-track');
+            if (!track) return;
+            var items = Array.from(track.querySelectorAll('.screenshot-item'));
+            var dots  = Array.from(document.querySelectorAll('.sc-dot'));
+            var prev  = document.getElementById('sc-prev');
+            var next  = document.getElementById('sc-next');
+
+            function applyPadding() {
+                if (!items.length) return;
+                var half = track.clientWidth / 2 - items[0].offsetWidth / 2;
+                var pad  = Math.max(half, 20) + 'px';
+                track.style.paddingLeft  = pad;
+                track.style.paddingRight = pad;
+            }
+
+            function getActiveIndex() {
+                var center = track.scrollLeft + track.clientWidth / 2;
+                var idx = 0, best = Infinity;
+                items.forEach(function(el, i) {
+                    var d = Math.abs(el.offsetLeft + el.offsetWidth / 2 - center);
+                    if (d < best) { best = d; idx = i; }
+                });
+                return idx;
+            }
+
+            function updateActive() {
+                var idx = getActiveIndex();
+                items.forEach(function(el, i) { el.classList.toggle('active', i === idx); });
+                dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+            }
+
+            function scrollTo(i, smooth) {
+                var el  = items[i];
+                var pos = el.offsetLeft + el.offsetWidth / 2 - track.clientWidth / 2;
+                track.scrollTo({ left: pos, behavior: smooth === false ? 'instant' : 'smooth' });
+            }
+
+            var autoTimer = null;
+            function startAuto() { stopAuto(); autoTimer = setInterval(function() { scrollTo((getActiveIndex() + 1) % items.length); }, 3000); }
+            function stopAuto() { clearInterval(autoTimer); autoTimer = null; }
+            function resetAuto() { stopAuto(); startAuto(); }
+
+            track.addEventListener('scroll', updateActive, { passive: true });
+            dots.forEach(function(d, i) { d.addEventListener('click', function() { scrollTo(i); resetAuto(); }); });
+            if (prev) prev.addEventListener('click', function() { var idx = getActiveIndex(); scrollTo(idx === 0 ? items.length - 1 : idx - 1); resetAuto(); });
+            if (next) next.addEventListener('click', function() { var idx = getActiveIndex(); scrollTo(idx === items.length - 1 ? 0 : idx + 1); resetAuto(); });
+
+            track.addEventListener('mouseenter', stopAuto);
+            track.addEventListener('mouseleave', startAuto);
+            track.addEventListener('touchstart', stopAuto, { passive: true });
+            track.addEventListener('touchend', function() { setTimeout(startAuto, 2000); }, { passive: true });
+
+            var dragging = false, startX = 0, startScroll = 0;
+            track.addEventListener('mousedown', function(e) { dragging = true; startX = e.pageX; startScroll = track.scrollLeft; track.classList.add('grabbing'); stopAuto(); });
+            window.addEventListener('mouseup', function() { if (!dragging) return; dragging = false; track.classList.remove('grabbing'); setTimeout(startAuto, 2000); });
+            track.addEventListener('mousemove', function(e) { if (!dragging) return; e.preventDefault(); track.scrollLeft = startScroll - (e.pageX - startX) * 1.4; });
+
+            function init() { applyPadding(); scrollTo(0, false); updateActive(); startAuto(); }
+            init();
+            window.addEventListener('load', applyPadding);
+            window.addEventListener('resize', function() { applyPadding(); updateActive(); });
+        })();
+    </script>
+    <script src="../assets/js/scroll-reveal.js"></script>
+</body>
+</html>
