@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,40 +7,66 @@
     <meta name="description" content="Technical Lead & Senior Software Engineer with 14+ years of experience. Building mobile apps, enterprise platforms, and scalable systems.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+        /* ===== Theme Variables ===== */
         :root {
-            --primary: #4D6BFF;
-            --primary-dark: #3D56E0;
-            --primary-light: #EEF1FF;
-            --primary-mid: #C5CDFF;
-            --accent: #37E0C8;
-            --accent-2: #9A6BFF;
-            --bg: #0B0F1A;
-            --surface: #151B2B;
-            --elevated: #1E2740;
-            --hairline: #2A3350;
-            --text: #F5F7FC;
-            --text-2: #A9B2C7;
-            --text-3: #6E778C;
-            --radius: 16px;
-            --radius-sm: 10px;
-            --radius-pill: 100px;
-            --shadow: 0 4px 16px rgba(0,0,0,0.35);
-            --shadow-lg: 0 16px 44px rgba(0,0,0,0.5);
+            --accent: #5B6EF5;
+            --accent-hover: #4458E0;
+            --accent-soft: rgba(91,110,245,0.08);
+            --accent-border: rgba(91,110,245,0.2);
+            --teal: #14B8A6;
+            --teal-soft: rgba(20,184,166,0.08);
+            --orange: #F59E0B;
+            --rose: #F43F5E;
         }
+
+        [data-theme="light"] {
+            --bg-base: #FAFBFC;
+            --bg-surface: #FFFFFF;
+            --bg-elevated: #F3F4F6;
+            --bg-inset: #E5E7EB;
+            --border: #E2E4E9;
+            --border-strong: #D1D5DB;
+            --text-1: #111827;
+            --text-2: #4B5563;
+            --text-3: #9CA3AF;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+            --nav-bg: rgba(250,251,252,0.88);
+        }
+
+        [data-theme="dark"] {
+            --bg-base: #0F1117;
+            --bg-surface: #1A1D27;
+            --bg-elevated: #252830;
+            --bg-inset: #2F323C;
+            --border: #2E3140;
+            --border-strong: #3E4250;
+            --text-1: #F1F3F7;
+            --text-2: #A0A6B4;
+            --text-3: #636B7E;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.4);
+            --nav-bg: rgba(15,17,23,0.88);
+        }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: var(--text);
-            background: var(--bg);
+            color: var(--text-1);
+            background: var(--bg-base);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 
         /* ===== Navigation ===== */
         .navbar {
@@ -49,171 +75,150 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(11,15,26,0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--hairline);
-            padding: 0 24px;
-            transition: box-shadow 0.3s;
+            background: var(--nav-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 32px;
         }
-        .navbar.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
         .nav-inner {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             align-items: center;
-            justify-content: space-between;
             height: 64px;
         }
         .nav-logo {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            color: var(--text);
+            color: var(--text-1);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: -0.02em;
+            margin-right: auto;
         }
-        .nav-logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
         .nav-links a {
             color: var(--text-2);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 500;
             transition: color 0.2s;
-            position: relative;
+            padding: 4px 0;
         }
-        .nav-links a:hover, .nav-links a.active { color: var(--text); }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--primary);
-            transform: scaleX(0);
-            transition: transform 0.2s;
-        }
-        .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
-        .nav-cta {
-            background: var(--primary);
-            color: white;
-            padding: 8px 20px;
-            border-radius: var(--radius-pill);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(77,107,255,0.3); }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
-        /* Mobile menu */
+        /* Theme Toggle */
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: background 0.2s, border-color 0.2s, transform 0.2s;
+            color: var(--text-2);
+            margin-left: 20px;
+        }
+        .theme-toggle:hover { border-color: var(--accent-border); transform: scale(1.05); }
+        [data-theme="light"] .theme-toggle .icon-dark { display: none; }
+        [data-theme="dark"] .theme-toggle .icon-light { display: none; }
+
         .nav-toggle {
             display: none;
             background: none;
             border: none;
-            color: var(--text);
+            color: var(--text-1);
             font-size: 1.5rem;
             cursor: pointer;
-            padding: 4px;
         }
 
-        /* ===== Hero / About ===== */
+        /* ===== Hero ===== */
         .hero {
-            padding: 140px 24px 80px;
+            padding: 140px 0 80px;
             position: relative;
-            overflow: hidden;
         }
         .hero::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(ellipse at 20% 50%, rgba(77,107,255,0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(55,224,200,0.05) 0%, transparent 50%);
+            top: 0;
+            left: -20%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(ellipse, var(--accent-soft) 0%, transparent 70%);
             pointer-events: none;
         }
         .hero-inner {
             position: relative;
             z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 20px;
-            max-width: 700px;
+            max-width: 680px;
         }
-        .hero-badge {
+        .hero-greeting {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(55,224,200,0.1);
-            border: 1px solid rgba(55,224,200,0.25);
             color: var(--accent);
-            padding: 6px 14px;
-            border-radius: var(--radius-pill);
-            font-size: 0.78rem;
+            font-size: 0.88rem;
             font-weight: 600;
-            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            font-family: 'JetBrains Mono', monospace;
         }
-        .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
         .hero h1 {
-            font-size: 3.2rem;
+            font-size: 3rem;
             font-weight: 800;
             letter-spacing: -0.03em;
             line-height: 1.15;
-            background: linear-gradient(135deg, var(--text) 0%, var(--text-2) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero h1 span { 
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-1);
+            margin-bottom: 20px;
         }
         .hero-subtitle {
             font-size: 1.1rem;
             color: var(--text-2);
-            line-height: 1.7;
-            max-width: 580px;
+            line-height: 1.75;
+            margin-bottom: 32px;
         }
-        .hero-stats { display: flex; gap: 32px; margin-top: 12px; }
-        .hero-stat { text-align: center; }
-        .hero-stat-number { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
-        .hero-stat-label { font-size: 0.78rem; color: var(--text-3); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
+        .hero-stats { display: flex; gap: 40px; }
+        .hero-stat { display: flex; flex-direction: column; }
+        .hero-stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .hero-stat-label { font-size: 0.78rem; color: var(--text-3); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
 
         /* ===== Section Common ===== */
         .section { padding: 80px 0; }
         .section-header { margin-bottom: 40px; }
         .section-tag {
             display: inline-block;
-            background: rgba(77,107,255,0.1);
-            color: var(--primary);
-            padding: 4px 14px;
-            border-radius: var(--radius-pill);
-            font-size: 0.75rem;
+            color: var(--accent);
+            font-size: 0.82rem;
             font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            border: 1px solid rgba(77,107,255,0.2);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 10px;
         }
-        .section-header h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; }
-        .section-header p { color: var(--text-2); font-size: 1rem; max-width: 600px; line-height: 1.7; }
+        .section-header h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-1); margin-bottom: 8px; }
+        .section-header p { color: var(--text-2); font-size: 1rem; }
 
         /* ===== Projects Carousel ===== */
-        .projects-section { padding: 80px 0 60px; }
-        .projects-carousel { position: relative; margin-top: 32px; }
+        .projects-section { padding-bottom: 60px; }
+        .projects-carousel {
+            position: relative;
+            margin: 32px -32px 0;
+            padding: 0 32px;
+        }
         .projects-track {
             display: flex;
-            gap: 24px;
+            gap: 28px;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
-            padding: 16px 0 32px;
+            padding: 16px 4px 32px;
             scrollbar-width: none;
             cursor: grab;
             user-select: none;
@@ -222,90 +227,99 @@
         .projects-track::-webkit-scrollbar { display: none; }
 
         .project-card {
-            flex: 0 0 320px;
+            flex: 0 0 340px;
             scroll-snap-align: start;
-            background: var(--surface);
-            border: 1px solid var(--hairline);
-            border-radius: var(--radius);
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-        .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
-        .project-card-header {
-            padding: 24px 24px 20px;
             display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--accent-border); }
+
+        .project-card-header {
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 16px;
+            padding: 32px 24px 20px;
+            text-decoration: none;
+            color: inherit;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.2s;
         }
-        .project-card-header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            opacity: 0.06;
-            transition: opacity 0.3s;
-        }
-        .project-card:hover .project-card-header::before { opacity: 0.1; }
+        .project-card:hover .project-card-header { background: var(--accent-soft); }
         .project-card-header .app-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 14px;
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
             object-fit: cover;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 1;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 14px;
         }
-        .project-card-header .app-meta { position: relative; z-index: 1; }
-        .project-card-header .app-meta h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
-        .project-card-header .app-meta .app-platforms { display: flex; gap: 6px; }
+        .project-card-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-1);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .project-card-header .app-platforms { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
         .platform-badge {
             font-size: 0.7rem;
             font-weight: 600;
-            padding: 2px 8px;
-            border-radius: var(--radius-pill);
-            background: rgba(77,107,255,0.12);
-            color: var(--primary);
-            border: 1px solid rgba(77,107,255,0.2);
+            padding: 3px 10px;
+            border-radius: 6px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            border: 1px solid var(--accent-border);
         }
-        .platform-badge.android { background: rgba(55,224,200,0.1); color: var(--accent); border-color: rgba(55,224,200,0.2); }
-        .platform-badge.web { background: rgba(154,107,255,0.1); color: var(--accent-2); border-color: rgba(154,107,255,0.2); }
+        .platform-badge.android { background: var(--teal-soft); color: var(--teal); border-color: rgba(20,184,166,0.2); }
+        .platform-badge.web { background: rgba(245,158,11,0.08); color: var(--orange); border-color: rgba(245,158,11,0.2); }
 
-        .project-card-body { padding: 0 24px 20px; }
-        .project-card-body p { font-size: 0.875rem; color: var(--text-2); line-height: 1.6; margin-bottom: 12px; }
+        .project-card-body {
+            padding: 20px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card-body p { font-size: 0.88rem; color: var(--text-2); line-height: 1.65; margin-bottom: 14px; flex: 1; }
         .project-features { display: flex; flex-wrap: wrap; gap: 6px; }
         .project-feature {
             font-size: 0.72rem;
-            padding: 3px 10px;
-            border-radius: var(--radius-pill);
-            background: var(--elevated);
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: var(--bg-elevated);
             color: var(--text-2);
-            border: 1px solid var(--hairline);
+            border: 1px solid var(--border);
+            font-weight: 500;
         }
 
         .project-card-footer {
             padding: 14px 24px;
-            border-top: 1px solid var(--hairline);
+            border-top: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
         .project-status {
-            font-size: 0.75rem;
+            font-size: 0.74rem;
             font-weight: 600;
-            padding: 3px 10px;
-            border-radius: var(--radius-pill);
+            padding: 4px 10px;
+            border-radius: 6px;
         }
-        .project-status.live { background: rgba(55,224,200,0.12); color: var(--accent); border: 1px solid rgba(55,224,200,0.25); }
-        .project-status.coming { background: rgba(255,180,50,0.12); color: #FFB432; border: 1px solid rgba(255,180,50,0.25); }
+        .project-status.live { background: var(--teal-soft); color: var(--teal); border: 1px solid rgba(20,184,166,0.2); }
+        .project-status.coming { background: rgba(245,158,11,0.08); color: var(--orange); border: 1px solid rgba(245,158,11,0.2); }
         .project-legal {
             font-size: 0.8rem;
             color: var(--text-3);
             text-decoration: none;
             transition: color 0.2s;
         }
-        .project-legal:hover { color: var(--primary); }
+        .project-legal:hover { color: var(--accent); }
 
         /* Carousel arrows */
         .carousel-arrow {
@@ -313,157 +327,191 @@
             top: 50%;
             transform: translateY(-50%);
             width: 44px; height: 44px;
-            border-radius: 50%;
-            background: var(--surface);
-            border: 1px solid var(--hairline);
-            color: var(--text);
-            font-size: 1.3rem;
+            border-radius: 12px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            color: var(--text-1);
+            font-size: 1.2rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.2s, border-color 0.2s;
+            transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
             z-index: 10;
+            box-shadow: var(--shadow-sm);
         }
-        .carousel-arrow:hover { background: var(--elevated); border-color: var(--primary); }
-        .carousel-arrow.prev { left: -16px; }
-        .carousel-arrow.next { right: -16px; }
+        .carousel-arrow:hover { border-color: var(--accent-border); box-shadow: var(--shadow-md); }
+        .carousel-arrow.prev { left: -8px; }
+        .carousel-arrow.next { right: -8px; }
 
         /* ===== Experience Timeline ===== */
-        .experience-section { border-top: 1px solid var(--hairline); }
-        .timeline { position: relative; padding-left: 28px; }
+        .experience-section { border-top: 1px solid var(--border); }
+        .timeline { position: relative; padding-left: 40px; margin-top: 8px; }
         .timeline::before {
             content: '';
             position: absolute;
-            left: 7px;
-            top: 0;
-            bottom: 0;
+            left: 11px;
+            top: 28px;
+            bottom: 28px;
             width: 2px;
-            background: linear-gradient(180deg, var(--primary), var(--accent-2), var(--hairline));
+            background: var(--border-strong);
+            border-radius: 1px;
         }
-        .timeline-item {
-            position: relative;
-            padding-bottom: 40px;
-        }
+        .timeline-item { position: relative; padding-bottom: 36px; }
         .timeline-item:last-child { padding-bottom: 0; }
         .timeline-dot {
             position: absolute;
-            left: -24px;
-            top: 4px;
-            width: 16px;
-            height: 16px;
+            left: -34px;
+            top: 22px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            background: var(--bg);
-            border: 3px solid var(--primary);
+            background: var(--bg-base);
+            border: 3px solid var(--border-strong);
+            box-shadow: 0 0 0 4px var(--bg-base);
         }
-        .timeline-item:first-child .timeline-dot { border-color: var(--accent); background: var(--accent); }
+        .timeline-item:first-child .timeline-dot {
+            border-color: var(--accent);
+            background: var(--accent);
+            box-shadow: 0 0 0 4px var(--bg-base), 0 0 0 6px var(--accent-border);
+        }
         .timeline-date {
             font-size: 0.78rem;
             font-weight: 600;
             color: var(--text-3);
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            margin-bottom: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 8px;
         }
         .timeline-item:first-child .timeline-date { color: var(--accent); }
         .timeline-content {
-            background: var(--surface);
-            border: 1px solid var(--hairline);
-            border-radius: var(--radius);
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
             padding: 20px 24px;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
-        .timeline-content:hover { border-color: var(--primary); }
-        .timeline-content h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-        .timeline-content .company { font-size: 0.88rem; color: var(--primary); font-weight: 500; margin-bottom: 10px; }
-        .timeline-content p { font-size: 0.85rem; color: var(--text-2); line-height: 1.65; }
-        .timeline-projects { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+        .timeline-content:hover { border-color: var(--accent-border); box-shadow: var(--shadow-sm); }
+        .timeline-content h3 { font-size: 1rem; font-weight: 700; color: var(--text-1); margin-bottom: 4px; }
+        .timeline-content .company { font-size: 0.88rem; color: var(--accent); font-weight: 500; margin-bottom: 12px; }
+        .timeline-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .timeline-content ul li {
+            font-size: 0.85rem;
+            color: var(--text-2);
+            line-height: 1.65;
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+        .timeline-content ul li:last-child { margin-bottom: 0; }
+        .timeline-content ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .timeline-projects { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
         .timeline-project-chip {
             font-size: 0.72rem;
-            padding: 3px 10px;
-            border-radius: var(--radius-pill);
-            background: var(--elevated);
+            padding: 4px 12px;
+            border-radius: 6px;
+            background: var(--bg-elevated);
             color: var(--text-2);
-            border: 1px solid var(--hairline);
+            border: 1px solid var(--border);
+            font-weight: 500;
+            text-decoration: none;
+            transition: border-color 0.2s, color 0.2s;
         }
+        a.timeline-project-chip:hover { border-color: var(--accent-border); color: var(--accent); }
 
         /* ===== Skills ===== */
-        .skills-section { border-top: 1px solid var(--hairline); }
+        .skills-section { border-top: 1px solid var(--border); }
         .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
         .skill-chip {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--surface);
-            border: 1px solid var(--hairline);
-            border-radius: var(--radius-pill);
-            padding: 9px 18px;
-            font-size: 0.85rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-size: 0.84rem;
             font-weight: 500;
-            color: var(--text);
-            transition: transform 0.2s, border-color 0.2s;
+            color: var(--text-1);
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
         }
-        .skill-chip:hover { transform: translateY(-2px); border-color: var(--primary); }
+        .skill-chip:hover { transform: translateY(-2px); border-color: var(--accent-border); box-shadow: var(--shadow-sm); }
         .skill-chip img { width: 18px; height: 18px; object-fit: contain; }
 
-        /* ===== Contact / Footer ===== */
-        .contact-section {
-            border-top: 1px solid var(--hairline);
-            padding: 80px 0;
-        }
+        /* ===== Contact ===== */
+        .contact-section { border-top: 1px solid var(--border); padding: 80px 0; }
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
+            gap: 32px;
+            align-items: stretch;
         }
-        .contact-info h2 { font-size: 2rem; font-weight: 700; margin-bottom: 16px; }
-        .contact-info p { color: var(--text-2); font-size: 1rem; line-height: 1.7; margin-bottom: 24px; }
+        .contact-left {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .contact-left h2 { font-size: 2rem; font-weight: 700; color: var(--text-1); margin-bottom: 4px; }
+        .contact-left > p { color: var(--text-2); font-size: 1rem; line-height: 1.7; margin-bottom: 8px; }
         .contact-links { display: flex; flex-direction: column; gap: 12px; }
         .contact-link {
             display: flex;
             align-items: center;
-            gap: 12px;
-            background: var(--surface);
-            border: 1px solid var(--hairline);
-            border-radius: var(--radius);
+            gap: 14px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
             padding: 16px 20px;
             text-decoration: none;
-            color: var(--text);
-            transition: border-color 0.2s, transform 0.2s;
+            color: var(--text-1);
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
         }
-        .contact-link:hover { border-color: var(--primary); transform: translateX(4px); }
+        .contact-link:hover { border-color: var(--accent-border); transform: translateX(4px); box-shadow: var(--shadow-sm); }
         .contact-link-icon {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 10px;
-            background: rgba(77,107,255,0.1);
+            background: var(--accent-soft);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             flex-shrink: 0;
         }
         .contact-link-text { font-size: 0.9rem; }
         .contact-link-text small { display: block; color: var(--text-3); font-size: 0.75rem; margin-bottom: 2px; }
-        .contact-link-text strong { font-weight: 600; }
+        .contact-link-text strong { font-weight: 600; color: var(--text-1); }
 
         .contact-card {
-            background: var(--surface);
-            border: 1px solid var(--hairline);
-            border-radius: var(--radius);
-            padding: 32px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
         }
-        .contact-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
-        .contact-card p { color: var(--text-2); font-size: 0.9rem; margin-bottom: 20px; }
-        .contact-card .social-links { display: flex; gap: 12px; justify-content: center; }
+        .contact-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; color: var(--text-1); }
+        .contact-card .contact-role { color: var(--accent); font-size: 0.92rem; font-weight: 500; margin-bottom: 4px; }
+        .contact-card .contact-location { color: var(--text-2); font-size: 0.88rem; margin-bottom: 28px; }
+        .social-links { display: flex; gap: 12px; justify-content: center; }
         .social-link {
             width: 44px;
             height: 44px;
             border-radius: 12px;
-            background: var(--elevated);
-            border: 1px solid var(--hairline);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -472,22 +520,21 @@
             font-size: 1.1rem;
             transition: border-color 0.2s, color 0.2s, transform 0.2s;
         }
-        .social-link:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+        .social-link:hover { border-color: var(--accent-border); color: var(--accent); transform: translateY(-2px); }
 
         /* Footer */
         .page-footer {
-            border-top: 1px solid var(--hairline);
-            padding: 24px;
+            border-top: 1px solid var(--border);
+            padding: 24px 32px;
             text-align: center;
         }
         .footer-copy { font-size: 0.82rem; color: var(--text-3); }
 
         /* ===== Responsive ===== */
         @media (max-width: 768px) {
+            .container { padding: 0 20px; }
             .nav-links { display: none; }
-            .nav-cta { display: none; }
             .nav-toggle { display: block; }
-
             .nav-links.open {
                 display: flex;
                 flex-direction: column;
@@ -495,31 +542,34 @@
                 top: 64px;
                 left: 0;
                 right: 0;
-                background: var(--bg);
-                border-bottom: 1px solid var(--hairline);
+                background: var(--bg-base);
+                border-bottom: 1px solid var(--border);
                 padding: 16px 24px;
-                gap: 16px;
+                gap: 14px;
             }
-
-            .hero { padding: 120px 24px 60px; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero-stats { gap: 20px; }
-            .hero-stat-number { font-size: 1.4rem; }
-
-            .project-card { flex: 0 0 280px; }
+            .hero { padding: 120px 0 60px; }
+            .hero h1 { font-size: 2rem; }
+            .hero-stats { gap: 24px; }
+            .hero-stat-number { font-size: 1.5rem; }
+            .projects-carousel { margin: 32px -20px 0; padding: 0 20px; }
+            .project-card { flex: 0 0 300px; }
             .carousel-arrow { display: none; }
-
             .contact-grid { grid-template-columns: 1fr; }
             .section { padding: 60px 0; }
         }
 
         @media (max-width: 480px) {
-            .hero h1 { font-size: 1.8rem; }
-            .project-card { flex: 0 0 260px; }
+            .hero h1 { font-size: 1.7rem; }
+            .project-card { flex: 0 0 280px; }
         }
 
-        /* Smooth scroll */
-        html { scroll-behavior: smooth; }
+        @media (min-width: 1200px) {
+            .projects-carousel { margin: 32px -80px 0; padding: 0 80px; }
+        }
+        @media (min-width: 1600px) {
+            .projects-carousel { margin: 32px -160px 0; padding: 0 160px; }
+            .project-card { flex: 0 0 360px; }
+        }
     </style>
 </head>
 <body>
@@ -527,10 +577,7 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-inner">
-            <a href="#" class="nav-logo">
-                <span class="nav-logo-dot"></span>
-                Nhan Trinh
-            </a>
+            <a href="#" class="nav-logo">nhan.dev</a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#projects">Projects</a></li>
@@ -538,24 +585,24 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#contact" class="nav-cta">Hire Me</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="icon-light">🌙</span>
+                <span class="icon-dark">☀️</span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero / About -->
+    <!-- Hero -->
     <section class="hero" id="about">
         <div class="container">
             <div class="hero-inner">
-                <div class="hero-badge">
-                    <span class="dot"></span>
-                    Available for collaboration
-                </div>
-                <h1>Technical Lead &<br><span>Senior Software Engineer</span></h1>
-                <p class="hero-subtitle">14+ years delivering mobile applications, enterprise platforms, and large-scale software systems. Specializing in iOS, Flutter, and full-stack development with proven leadership in Agile teams.</p>
+                <div class="hero-greeting">// hello, I'm Nhan</div>
+                <h1>Technical Lead &amp;<br>Senior Software Engineer</h1>
+                <p class="hero-subtitle">14+ years delivering mobile applications, enterprise platforms, and large-scale systems. Specializing in iOS, Flutter, and full-stack development — leading Agile teams from idea to App Store.</p>
                 <div class="hero-stats">
                     <div class="hero-stat">
                         <div class="hero-stat-number">14+</div>
-                        <div class="hero-stat-label">Years exp</div>
+                        <div class="hero-stat-label">Years</div>
                     </div>
                     <div class="hero-stat">
                         <div class="hero-stat-number">20+</div>
@@ -574,147 +621,139 @@
     <section class="section projects-section" id="projects">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Projects</span>
-                <h2>Apps I've built & shipped</h2>
-                <p>Personal projects crafted with care — from idea to App Store.</p>
+                <span class="section-tag">// projects</span>
+                <h2>Apps I've built &amp; shipped</h2>
+                <p>Personal projects crafted from idea to production.</p>
             </div>
-            <div class="projects-carousel">
+        </div>
+        <div class="projects-carousel">
+            <div class="container" style="position:relative">
                 <button class="carousel-arrow prev" id="proj-prev" aria-label="Previous">&#8249;</button>
                 <button class="carousel-arrow next" id="proj-next" aria-label="Next">&#8250;</button>
-                <div class="projects-track" id="projects-track">
+            </div>
+            <div class="projects-track" id="projects-track">
 
-                    <!-- Class Schedule Management -->
-                    <div class="project-card">
-                        <a href="class-schedule-management/" class="project-card-header" style="text-decoration:none;color:inherit">
-                            <img src="assets/images/class-schedule-icon.png" alt="Class Schedule Management" class="app-icon">
-                            <div class="app-meta">
-                                <h3>Class Schedule</h3>
-                                <div class="app-platforms">
-                                    <span class="platform-badge">iOS</span>
-                                    <span class="platform-badge android">Android</span>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="project-card-body">
-                            <p>Smart app for managing class schedules and student members. Attendance tracking, statistics, export, and cloud sync.</p>
-                            <div class="project-features">
-                                <span class="project-feature">📊 Analytics</span>
-                                <span class="project-feature">☁️ Cloud Sync</span>
-                                <span class="project-feature">📱 Cross-platform</span>
-                            </div>
+                <!-- Class Schedule Management -->
+                <div class="project-card">
+                    <a href="class-schedule-management/" class="project-card-header">
+                        <img src="assets/images/class-schedule-icon.png" alt="Class Schedule Management" class="app-icon">
+                        <h3>Class Schedule Management</h3>
+                        <div class="app-platforms">
+                            <span class="platform-badge">iOS</span>
+                            <span class="platform-badge android">Android</span>
                         </div>
-                        <div class="project-card-footer">
-                            <span class="project-status live">Live</span>
-                            <a href="class-schedule-management/legal/" class="project-legal">📜 Legal</a>
+                    </a>
+                    <div class="project-card-body">
+                        <p>Smart app for managing class schedules and student members. Attendance tracking, statistics, export, and cloud sync.</p>
+                        <div class="project-features">
+                            <span class="project-feature">📊 Analytics</span>
+                            <span class="project-feature">☁️ Cloud Sync</span>
+                            <span class="project-feature">📱 Cross-platform</span>
                         </div>
                     </div>
-
-                    <!-- Pikura -->
-                    <div class="project-card">
-                        <a href="pikura/" class="project-card-header" style="text-decoration:none;color:inherit">
-                            <img src="assets/images/pikura-icon.png" alt="Pikura" class="app-icon">
-                            <div class="app-meta">
-                                <h3>Pikura</h3>
-                                <div class="app-platforms">
-                                    <span class="platform-badge">iOS</span>
-                                    <span class="platform-badge android">Android</span>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="project-card-body">
-                            <p>Drawing & coloring app for kids ages 3-11. Step-by-step lessons, coloring pages, free-draw canvas, and AI on device.</p>
-                            <div class="project-features">
-                                <span class="project-feature">🎨 Drawing & Coloring</span>
-                                <span class="project-feature">✏️ Guided Lessons</span>
-                                <span class="project-feature">🔒 Kid-Safe</span>
-                            </div>
-                        </div>
-                        <div class="project-card-footer">
-                            <span class="project-status coming">Coming Soon</span>
-                            <a href="pikura/legal/" class="project-legal">📜 Legal</a>
-                        </div>
+                    <div class="project-card-footer">
+                        <span class="project-status live">Live</span>
+                        <a href="class-schedule-management/legal/" class="project-legal">📜 Legal</a>
                     </div>
-
-                    <!-- Hidden Cam Detect -->
-                    <div class="project-card">
-                        <a href="hiddencamdetect/" class="project-card-header" style="text-decoration:none;color:inherit">
-                            <img src="assets/images/hiddencamdetect-icon.png" alt="Hidden Cam Detect" class="app-icon">
-                            <div class="app-meta">
-                                <h3>Hidden Cam Detect</h3>
-                                <div class="app-platforms">
-                                    <span class="platform-badge">iOS</span>
-                                    <span class="platform-badge android">Android</span>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="project-card-body">
-                            <p>Scan rooms for hidden cameras and spy devices using phone sensors. AI-powered detection, offline-first, privacy-first.</p>
-                            <div class="project-features">
-                                <span class="project-feature">📡 Wi-Fi Scan</span>
-                                <span class="project-feature">📷 Lens Detect</span>
-                                <span class="project-feature">🧠 AI On-device</span>
-                            </div>
-                        </div>
-                        <div class="project-card-footer">
-                            <span class="project-status coming">Coming Soon</span>
-                            <a href="hiddencamdetect/legal/" class="project-legal">📜 Legal</a>
-                        </div>
-                    </div>
-
-                    <!-- CalDietAI -->
-                    <div class="project-card">
-                        <a href="caldietai/" class="project-card-header" style="text-decoration:none;color:inherit">
-                            <img src="assets/images/caldietai-icon.png" alt="CalDietAI" class="app-icon">
-                            <div class="app-meta">
-                                <h3>CalDietAI</h3>
-                                <div class="app-platforms">
-                                    <span class="platform-badge">iOS</span>
-                                    <span class="platform-badge android">Android</span>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="project-card-body">
-                            <p>AI-powered nutrition tracker. Snap a photo for instant calorie & macro estimates, AI coaching, and progress charts.</p>
-                            <div class="project-features">
-                                <span class="project-feature">📸 AI Food Scan</span>
-                                <span class="project-feature">🤖 AI Coach</span>
-                                <span class="project-feature">📊 Analytics</span>
-                            </div>
-                        </div>
-                        <div class="project-card-footer">
-                            <span class="project-status coming">Coming Soon</span>
-                            <a href="caldietai/legal/" class="project-legal">📜 Legal</a>
-                        </div>
-                    </div>
-
-                    <!-- Hụi Happy -->
-                    <div class="project-card">
-                        <a href="huihappy/" class="project-card-header" style="text-decoration:none;color:inherit">
-                            <img src="assets/images/huihappy-icon.png" alt="Hụi Happy" class="app-icon">
-                            <div class="app-meta">
-                                <h3>Hụi Happy</h3>
-                                <div class="app-platforms">
-                                    <span class="platform-badge">iOS</span>
-                                    <span class="platform-badge android">Android</span>
-                                    <span class="platform-badge web">Web</span>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="project-card-body">
-                            <p>Digital ROSCA platform for Vietnam. Manage hui groups, auto payment reminders, transparent transactions for organizers & members.</p>
-                            <div class="project-features">
-                                <span class="project-feature">💰 Hui Management</span>
-                                <span class="project-feature">📱 Mobile & Web</span>
-                                <span class="project-feature">🔔 Auto Notify</span>
-                            </div>
-                        </div>
-                        <div class="project-card-footer">
-                            <span class="project-status live">Live</span>
-                            <a href="huihappy/legal/" class="project-legal">📜 Legal</a>
-                        </div>
-                    </div>
-
                 </div>
+
+                <!-- Pikura -->
+                <div class="project-card">
+                    <a href="pikura/" class="project-card-header">
+                        <img src="assets/images/pikura-icon.png" alt="Pikura" class="app-icon">
+                        <h3>Pikura</h3>
+                        <div class="app-platforms">
+                            <span class="platform-badge">iOS</span>
+                            <span class="platform-badge android">Android</span>
+                        </div>
+                    </a>
+                    <div class="project-card-body">
+                        <p>Drawing &amp; coloring app for kids ages 3-11. Step-by-step lessons, coloring pages, free-draw canvas, and AI on device.</p>
+                        <div class="project-features">
+                            <span class="project-feature">🎨 Drawing &amp; Coloring</span>
+                            <span class="project-feature">✏️ Guided Lessons</span>
+                            <span class="project-feature">🔒 Kid-Safe</span>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <span class="project-status coming">Coming Soon</span>
+                        <a href="pikura/legal/" class="project-legal">📜 Legal</a>
+                    </div>
+                </div>
+
+                <!-- Hidden Cam Detect -->
+                <div class="project-card">
+                    <a href="hiddencamdetect/" class="project-card-header">
+                        <img src="assets/images/hiddencamdetect-icon.png" alt="Hidden Cam Detect" class="app-icon">
+                        <h3>Hidden Cam Detect</h3>
+                        <div class="app-platforms">
+                            <span class="platform-badge">iOS</span>
+                            <span class="platform-badge android">Android</span>
+                        </div>
+                    </a>
+                    <div class="project-card-body">
+                        <p>Scan rooms for hidden cameras and spy devices using phone sensors. AI-powered detection, offline-first, privacy-first.</p>
+                        <div class="project-features">
+                            <span class="project-feature">📡 Wi-Fi Scan</span>
+                            <span class="project-feature">📷 Lens Detect</span>
+                            <span class="project-feature">🧠 AI On-device</span>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <span class="project-status coming">Coming Soon</span>
+                        <a href="hiddencamdetect/legal/" class="project-legal">📜 Legal</a>
+                    </div>
+                </div>
+
+                <!-- CalDietAI -->
+                <div class="project-card">
+                    <a href="caldietai/" class="project-card-header">
+                        <img src="assets/images/caldietai-icon.png" alt="CalDietAI" class="app-icon">
+                        <h3>CalDietAI</h3>
+                        <div class="app-platforms">
+                            <span class="platform-badge">iOS</span>
+                            <span class="platform-badge android">Android</span>
+                        </div>
+                    </a>
+                    <div class="project-card-body">
+                        <p>AI-powered nutrition tracker. Snap a photo for instant calorie &amp; macro estimates, AI coaching, and progress charts.</p>
+                        <div class="project-features">
+                            <span class="project-feature">📸 AI Food Scan</span>
+                            <span class="project-feature">🤖 AI Coach</span>
+                            <span class="project-feature">📊 Analytics</span>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <span class="project-status coming">Coming Soon</span>
+                        <a href="caldietai/legal/" class="project-legal">📜 Legal</a>
+                    </div>
+                </div>
+
+                <!-- Hụi Happy -->
+                <div class="project-card">
+                    <a href="huihappy/" class="project-card-header">
+                        <img src="assets/images/huihappy-icon.png" alt="Hụi Happy" class="app-icon">
+                        <h3>Hụi Happy</h3>
+                        <div class="app-platforms">
+                            <span class="platform-badge">iOS</span>
+                            <span class="platform-badge android">Android</span>
+                            <span class="platform-badge web">Web</span>
+                        </div>
+                    </a>
+                    <div class="project-card-body">
+                        <p>Digital ROSCA platform. Manage hui groups, auto payment reminders, transparent transactions for organizers &amp; members.</p>
+                        <div class="project-features">
+                            <span class="project-feature">💰 Hui Management</span>
+                            <span class="project-feature">📱 Mobile &amp; Web</span>
+                            <span class="project-feature">🔔 Auto Notify</span>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <span class="project-status live">Live</span>
+                        <a href="huihappy/legal/" class="project-legal">📜 Legal</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -723,61 +762,89 @@
     <section class="section experience-section" id="experience">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Experience</span>
+                <span class="section-tag">// experience</span>
                 <h2>Where I've worked</h2>
             </div>
             <div class="timeline">
+
+                <!-- TeraGroup -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">Apr 2022 — Present</div>
+                    <div class="timeline-date">2022 — Present</div>
                     <div class="timeline-content">
-                        <h3>Technical Lead / Engineering Lead / Product Manager</h3>
+                        <h3>Technical Lead / Engineering Lead / Product &amp; Project Manager</h3>
                         <div class="company">TeraGroup (YeaH1 Corporation) — Da Nang</div>
-                        <p>Led cross-functional engineering teams delivering strategic digital products. Owned technical architecture, engineering planning, code quality, release management, and cross-team collaboration.</p>
+                        <ul>
+                            <li>Led cross-functional engineering teams in delivering strategic digital products, including 1Reels (Vietnam's first short-drama platform), YVote, and enterprise ERP systems for YeaH1 Group.</li>
+                            <li>Owned system architecture, engineering planning, technical decision-making, code quality, mentoring, release management, and cross-team collaboration while ensuring product scalability, maintainability, and on-time delivery.</li>
+                            <li>Collaborated closely with executives, Product Owners, BA, QA, Designers, and engineering teams to align business objectives with technical execution.</li>
+                            <li>Established Agile delivery practices using Scrum, Kanban, and Lean, continuously improving engineering productivity, development quality, and release efficiency.</li>
+                        </ul>
                         <div class="timeline-projects">
-                            <span class="timeline-project-chip">1Reels</span>
-                            <span class="timeline-project-chip">YVote</span>
-                            <span class="timeline-project-chip">ERP</span>
+                            <a href="https://apps.apple.com/us/app/1reels-watch-short-dramas/id6479233606" target="_blank" rel="noopener" class="timeline-project-chip">1Reels</a>
+                            <a href="https://yvote.vn/" target="_blank" rel="noopener" class="timeline-project-chip">YVote</a>
+                            <a href="https://erp.yeah1.vn/" target="_blank" rel="noopener" class="timeline-project-chip">ERP</a>
+                            <a href="https://vegiare.com/" target="_blank" rel="noopener" class="timeline-project-chip">vegiare</a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Axon Active -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">Apr 2018 — Mar 2022</div>
+                    <div class="timeline-date">2018 — 2022</div>
                     <div class="timeline-content">
                         <h3>Senior Software Engineer / Scrum Master</h3>
                         <div class="company">Axon Active — Da Nang</div>
-                        <p>Developed enterprise-grade mobile applications following Agile best practices. Served as Scrum Master, mentored teams and improved delivery predictability and sprint efficiency.</p>
+                        <ul>
+                            <li>Developed enterprise-grade mobile applications following Agile best practices.</li>
+                            <li>Designed and implemented scalable iOS application architectures while evaluating and integrating third-party APIs.</li>
+                            <li>Served as Scrum Master, mentored development teams and improved engineering collaboration, delivery predictability, and sprint efficiency.</li>
+                            <li>Facilitated Scrum framework sprint planning, backlog grooming, daily scrums, sprint reviews, and sprint retrospectives.</li>
+                            <li>Led sprint reviews, daily scrums and planning meetings to realize full team engagement. Drove Scrum team progress to overcome obstacles and realize success throughout the life of each sprint.</li>
+                        </ul>
                         <div class="timeline-projects">
-                            <span class="timeline-project-chip">Sojo</span>
-                            <span class="timeline-project-chip">Go NYC</span>
-                            <span class="timeline-project-chip">CPI</span>
+                            <a href="https://axonvibe.com/" target="_blank" rel="noopener" class="timeline-project-chip">Sojo: Smart Mobility</a>
+                            <a href="https://apps.apple.com/us/app/go-nyc/id6760516805" target="_blank" rel="noopener" class="timeline-project-chip">Go NYC</a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Viettel ICT -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">Dec 2013 — Mar 2018</div>
+                    <div class="timeline-date">2013 — 2018</div>
                     <div class="timeline-content">
                         <h3>Mobile Engineer / Team Lead / Project Manager</h3>
                         <div class="company">Viettel ICT — Da Nang</div>
-                        <p>Led mobile development initiatives for enterprise and government solutions. Defined product roadmaps, authored whitepapers, and oversaw full product lifecycle.</p>
+                        <ul>
+                            <li>Led mobile development initiatives and coordinated cross-functional teams to deliver enterprise and government solutions.</li>
+                            <li>Defined product roadmaps, technical solutions, and development plans while ensuring timely project delivery.</li>
+                            <li>Collaborated with stakeholders to translate business requirements into scalable software solutions.</li>
+                        </ul>
                         <div class="timeline-projects">
-                            <span class="timeline-project-chip">Vtracking</span>
-                            <span class="timeline-project-chip">mOffice</span>
-                            <span class="timeline-project-chip">Immunisation Mgmt</span>
+                            <a href="https://itunes.apple.com/vn/app/vtracking-2-0/id1219931486?l=vi&mt=8" target="_blank" rel="noopener" class="timeline-project-chip">Vtracking</a>
+                            <a href="https://itunes.apple.com/us/app/moffice/id986620609?mt=8" target="_blank" rel="noopener" class="timeline-project-chip">mOffice</a>
+                            <a href="https://tiemchung.vncdc.gov.vn/" target="_blank" rel="noopener" class="timeline-project-chip">Immunisation Management Systems</a>
+                            <a href="https://apps.apple.com/vn/app/cpi/id1435072311?l=vi" target="_blank" rel="noopener" class="timeline-project-chip">CPI</a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Unima -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">Oct 2012 — Nov 2013</div>
+                    <div class="timeline-date">2012 — 2013</div>
                     <div class="timeline-content">
-                        <h3>Mobile Engineer</h3>
+                        <h3>Mobile Software Engineer</h3>
                         <div class="company">Unima — Da Nang</div>
-                        <p>Developed native iOS applications supporting iPhone and iPad platforms. Integrated third-party SDKs and RESTful APIs.</p>
+                        <ul>
+                            <li>Developed native iOS applications supporting both iPhone and iPad platforms with responsive user experiences.</li>
+                            <li>Integrated third-party SDKs and RESTful APIs to accelerate development and enrich application functionality.</li>
+                        </ul>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -786,7 +853,7 @@
     <section class="section skills-section" id="skills">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Skills</span>
+                <span class="section-tag">// skills</span>
                 <h2>What I work with</h2>
             </div>
             <div class="skills-grid">
@@ -816,7 +883,7 @@
     <section class="section contact-section" id="contact">
         <div class="container">
             <div class="contact-grid">
-                <div class="contact-info">
+                <div class="contact-left">
                     <h2>Let's build something great</h2>
                     <p>Open to collaboration, consulting, and new opportunities. Based in Da Nang, Vietnam — working with teams worldwide.</p>
                     <div class="contact-links">
@@ -837,8 +904,9 @@
                     </div>
                 </div>
                 <div class="contact-card">
-                    <h3>Nhan Trinh (Trịnh Duy Nhân)</h3>
-                    <p>Technical Lead & Senior Software Engineer<br>Da Nang, Vietnam</p>
+                    <h3>Nhan Trinh</h3>
+                    <div class="contact-role">Technical Lead &amp; Senior Software Engineer</div>
+                    <div class="contact-location">Da Nang, Vietnam</div>
                     <div class="social-links">
                         <a href="https://github.com/nhanntv" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
@@ -861,20 +929,31 @@
         // Footer year
         document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-        // Navbar scroll effect
-        var navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', function() {
-            navbar.classList.toggle('scrolled', window.scrollY > 20);
-        });
+        // ===== Theme Toggle =====
+        (function() {
+            var toggle = document.getElementById('themeToggle');
+            var html = document.documentElement;
+            var saved = localStorage.getItem('theme');
+            if (saved) {
+                html.setAttribute('data-theme', saved);
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                html.setAttribute('data-theme', 'dark');
+            }
+            toggle.addEventListener('click', function() {
+                var current = html.getAttribute('data-theme');
+                var next = current === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+            });
+        })();
 
-        // Mobile menu toggle
+        // ===== Mobile menu =====
         var navToggle = document.getElementById('navToggle');
         var navLinks = document.getElementById('navLinks');
         navToggle.addEventListener('click', function() {
             navLinks.classList.toggle('open');
             navToggle.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
         });
-        // Close mobile menu on link click
         navLinks.querySelectorAll('a').forEach(function(a) {
             a.addEventListener('click', function() {
                 navLinks.classList.remove('open');
@@ -882,7 +961,7 @@
             });
         });
 
-        // Active nav link on scroll
+        // ===== Active nav link on scroll =====
         var sections = document.querySelectorAll('section[id]');
         window.addEventListener('scroll', function() {
             var scrollY = window.scrollY + 100;
@@ -897,14 +976,13 @@
             });
         });
 
-        // ===== Projects Carousel with infinite loop =====
+        // ===== Projects Carousel =====
         (function() {
             var track = document.getElementById('projects-track');
             if (!track) return;
-            var items = Array.from(track.children);
             var prev = document.getElementById('proj-prev');
             var next = document.getElementById('proj-next');
-            var cardWidth = 344; // 320 + 24 gap
+            var cardWidth = 368;
 
             // Drag to scroll
             var dragging = false, startX = 0, startScroll = 0;
@@ -925,7 +1003,7 @@
                 track.scrollLeft = startScroll - (e.pageX - startX) * 1.2;
             });
 
-            // Arrow navigation
+            // Arrows
             if (prev) prev.addEventListener('click', function() {
                 track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
             });
@@ -933,7 +1011,7 @@
                 track.scrollBy({ left: cardWidth, behavior: 'smooth' });
             });
 
-            // Auto-scroll back to start when reaching end
+            // Auto-scroll with loop-back
             var autoTimer = null;
             function startAuto() {
                 stopAuto();
