@@ -213,13 +213,32 @@
             margin-top: 32px;
             overflow: hidden;
         }
+        /* Gradient fade edges */
+        .projects-carousel::before,
+        .projects-carousel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .projects-carousel::before {
+            left: 0;
+            background: linear-gradient(to right, var(--bg-base), transparent);
+        }
+        .projects-carousel::after {
+            right: 0;
+            background: linear-gradient(to left, var(--bg-base), transparent);
+        }
         .projects-track {
             display: flex;
-            gap: 28px;
+            gap: 24px;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
-            padding: 16px 0 32px;
+            padding: 24px 0 36px;
             scrollbar-width: none;
             cursor: grab;
             user-select: none;
@@ -229,16 +248,24 @@
 
         .project-card {
             flex: 0 0 340px;
-            scroll-snap-align: start;
+            scroll-snap-align: center;
             background: var(--bg-surface);
             border: 1px solid var(--border);
             border-radius: 20px;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1), border-color 0.3s ease, opacity 0.4s ease;
             display: flex;
             flex-direction: column;
+            opacity: 0.5;
+            transform: scale(0.88);
         }
-        .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--accent-border); }
+        .project-card.active {
+            opacity: 1;
+            transform: scale(1);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-border);
+        }
+        .project-card:hover { border-color: var(--accent-border); }
 
         .project-card-header {
             display: flex;
@@ -564,19 +591,17 @@
             .hero-stats { gap: 24px; }
             .hero-stat-number { font-size: 1.5rem; }
             .projects-carousel { margin: 32px -20px 0; padding: 0 20px; }
-            .project-card { flex: 0 0 300px; }
+            .project-card { flex: 0 0 280px; }
             .carousel-arrow { display: none; }
+            .projects-carousel::before,
+            .projects-carousel::after { width: 40px; }
             .contact-grid { grid-template-columns: 1fr; }
             .section { padding: 60px 0; }
         }
 
         @media (max-width: 480px) {
             .hero h1 { font-size: 1.7rem; }
-            .project-card { flex: 0 0 280px; }
-        }
-
-        @media (min-width: 1200px) {
-            .project-card { flex: 0 0 360px; }
+            .project-card { flex: 0 0 260px; }
         }
     </style>
 </head>
@@ -606,7 +631,7 @@
             <div class="hero-inner" data-reveal="blur-up">
                 <div class="hero-greeting">// hello, I'm Nhan</div>
                 <h1>Technical Lead &amp;<br>Senior Software Engineer<br>&amp; Product Manager</h1>
-                <p class="hero-subtitle">14+ years of experience delivering mobile applications, enterprise platforms, and large-scale software systems. Experienced in Technical Leadership, including architecture design, technical planning, code review, mentoring, and engineering best practices. Hands-on experience building backend services and microservice architectures using Kotlin (Spring Boot), Python, Node.js, PostgreSQL, Kafka, Redis, and cloud platforms.</p>
+                <p class="hero-subtitle">14+ years of experience delivering mobile applications, enterprise platforms, and large-scale software systems.<br><br>Experienced in Technical Leadership, including architecture design, technical planning, code review, mentoring, and engineering best practices.<br><br>Hands-on experience building backend services and microservice architectures using Kotlin (Spring Boot), Python, Node.js, PostgreSQL, Kafka, Redis, and cloud platforms.<br><br>Strong project management and Scrum Master experience using Agile, Scrum, Kanban, and Lean methodologies.<br><br>Experienced in system architecture, technical solution design, software estimation, and engineering process improvement.</p>
                 <div class="hero-stats">
                     <div class="hero-stat">
                         <div class="hero-stat-number">14+</div>
@@ -989,16 +1014,17 @@
             var items = Array.from(track.querySelectorAll('.project-card'));
             var prev = document.getElementById('proj-prev');
             var next = document.getElementById('proj-next');
+            if (!items.length) return;
 
-            // Apply padding so first/last card can be centered
+            // Center padding so first/last items can be centered
             function applyPadding() {
-                if (!items.length) return;
                 var half = track.clientWidth / 2 - items[0].offsetWidth / 2;
-                var pad = Math.max(half, 32) + 'px';
+                var pad = Math.max(half, 40) + 'px';
                 track.style.paddingLeft = pad;
                 track.style.paddingRight = pad;
             }
 
+            // Find which item is closest to center
             function getActiveIndex() {
                 var center = track.scrollLeft + track.clientWidth / 2;
                 var idx = 0, best = Infinity;
@@ -1009,9 +1035,19 @@
                 return idx;
             }
 
-            function scrollToIndex(i, smooth) {
+            // Update active class
+            function updateActive() {
+                var idx = getActiveIndex();
+                items.forEach(function(el, i) {
+                    el.classList.toggle('active', i === idx);
+                });
+            }
+
+            // Scroll to specific index
+            function scrollTo(i, smooth) {
+                if (i < 0) i = items.length - 1;
+                if (i >= items.length) i = 0;
                 var el = items[i];
-                if (!el) return;
                 var pos = el.offsetLeft + el.offsetWidth / 2 - track.clientWidth / 2;
                 track.scrollTo({ left: pos, behavior: smooth === false ? 'instant' : 'smooth' });
             }
@@ -1022,26 +1058,28 @@
                 stopAuto();
                 autoTimer = setInterval(function() {
                     var idx = getActiveIndex();
-                    var nextIdx = (idx + 1) % items.length;
-                    scrollToIndex(nextIdx);
+                    scrollTo((idx + 1) % items.length);
                 }, 4000);
             }
             function stopAuto() { clearInterval(autoTimer); autoTimer = null; }
             function resetAuto() { stopAuto(); startAuto(); }
 
-            // Arrows
+            // Update on scroll
+            track.addEventListener('scroll', updateActive, { passive: true });
+
+            // Arrow navigation — precise: always go to next/prev, loop at ends
             if (prev) prev.addEventListener('click', function() {
                 var idx = getActiveIndex();
-                scrollToIndex(idx === 0 ? items.length - 1 : idx - 1);
+                scrollTo(idx === 0 ? items.length - 1 : idx - 1);
                 resetAuto();
             });
             if (next) next.addEventListener('click', function() {
                 var idx = getActiveIndex();
-                scrollToIndex(idx === items.length - 1 ? 0 : idx + 1);
+                scrollTo(idx === items.length - 1 ? 0 : idx + 1);
                 resetAuto();
             });
 
-            // Pause on interaction
+            // Pause on hover/touch
             track.addEventListener('mouseenter', stopAuto);
             track.addEventListener('mouseleave', startAuto);
             track.addEventListener('touchstart', stopAuto, { passive: true });
@@ -1065,24 +1103,23 @@
             track.addEventListener('mousemove', function(e) {
                 if (!dragging) return;
                 e.preventDefault();
-                track.scrollLeft = startScroll - (e.pageX - startX) * 1.2;
+                track.scrollLeft = startScroll - (e.pageX - startX) * 1.4;
             });
 
-            // Init — NO scroll on page load (prevents focus jump)
+            // Init — center first item, no scroll animation on load
             function init() {
                 applyPadding();
-                // Set initial position without any scrolling behavior
-                track.scrollLeft = 0;
+                scrollTo(0, false);
+                updateActive();
                 startAuto();
             }
 
-            // Wait for layout to be ready
             if (document.readyState === 'complete') {
                 init();
             } else {
                 window.addEventListener('load', init);
             }
-            window.addEventListener('resize', applyPadding);
+            window.addEventListener('resize', function() { applyPadding(); updateActive(); });
         })();
     </script>
     <script src="assets/js/scroll-reveal.js"></script>
