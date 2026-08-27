@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhan Trinh — Technical Lead & Senior Software Engineer & Product Manager</title>
-    <meta name="description" content="Technical Lead & Senior Software Engineer with 14+ years of experience. Building mobile apps, enterprise platforms, and scalable systems.">
+    <title>Nhan Trinh — Engineering Leader | Platform Architecture &amp; Delivery</title>
+    <meta name="description" content="Engineering leader with 14+ years building software systems and 10+ years in technical leadership. High-concurrency platforms, content delivery infrastructure, financial systems and enterprise ERP across mobile, web, backend and cloud.">
+    <meta property="og:title" content="Nhan Trinh — Engineering Leader | Platform Architecture &amp; Delivery">
+    <meta property="og:description" content="14+ years building software systems. 10+ years leading engineering teams across mobile, frontend, backend and platform.">
+    <meta property="og:type" content="profile">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -569,7 +572,205 @@
         }
         .footer-copy { font-size: 0.82rem; color: var(--text-3); }
 
+        /* ===== Hero: role fit + actions ===== */
+        .hero-roles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+        .hero-roles-label {
+            font-size: 0.78rem;
+            color: var(--text-3);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-right: 4px;
+        }
+        .role-chip {
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: var(--text-1);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 6px 14px;
+        }
+        .role-chip.primary {
+            color: var(--accent);
+            background: var(--accent-soft);
+            border-color: var(--accent-border);
+        }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, border-color 0.2s, background 0.2s;
+        }
+        .btn-primary { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
+        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
+        .btn-ghost { background: var(--bg-surface); color: var(--text-1); border: 1px solid var(--border); }
+        .btn-ghost:hover { border-color: var(--accent-border); color: var(--accent); transform: translateY(-2px); }
+
+        /* ===== Capability ladder ===== */
+        .ladder-section { padding: 40px 0 20px; }
+        .ladder-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        .ladder-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 22px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .ladder-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: var(--accent);
+            opacity: 0.5;
+        }
+        .ladder-card:nth-child(2)::before { background: var(--teal); }
+        .ladder-card:nth-child(3)::before { background: var(--orange); }
+        .ladder-card:nth-child(4)::before { background: var(--rose); }
+        .ladder-level {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-3);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .ladder-card h3 { font-size: 1rem; font-weight: 700; color: var(--text-1); margin-bottom: 8px; }
+        .ladder-card p { font-size: 0.86rem; color: var(--text-2); line-height: 1.65; }
+
+        /* ===== Systems ===== */
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 20px;
+        }
+        .system-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 26px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .system-card:hover { border-color: var(--accent-border); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .system-badge {
+            align-self: flex-start;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-border);
+            border-radius: 6px;
+            padding: 5px 10px;
+        }
+        .system-card[data-kind="delivery"] .system-badge { color: var(--teal); background: var(--teal-soft); border-color: rgba(20,184,166,0.25); }
+        .system-card[data-kind="financial"] .system-badge { color: var(--orange); background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.25); }
+        .system-card[data-kind="enterprise"] .system-badge { color: var(--rose); background: rgba(244,63,94,0.08); border-color: rgba(244,63,94,0.25); }
+        .system-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--text-1); }
+        .system-card h3 a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--border-strong); }
+        .system-card h3 a:hover { color: var(--accent); border-color: var(--accent); }
+        .system-role { font-size: 0.84rem; color: var(--text-3); font-weight: 500; margin-top: -6px; }
+        .system-scale {
+            font-size: 0.92rem;
+            color: var(--text-1);
+            font-weight: 600;
+            line-height: 1.6;
+            padding: 10px 14px;
+            background: var(--bg-elevated);
+            border-radius: 10px;
+        }
+        .system-card > p { font-size: 0.9rem; color: var(--text-2); line-height: 1.7; }
+        .system-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+        .system-tag {
+            font-size: 0.74rem;
+            color: var(--text-2);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 4px 9px;
+        }
+
+        /* ===== Leadership principles ===== */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 18px;
+        }
+        .principle-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 22px;
+        }
+        .principle-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        .principle-card h3 { font-size: 1.02rem; font-weight: 700; color: var(--text-1); margin-bottom: 10px; line-height: 1.4; }
+        .principle-card p { font-size: 0.88rem; color: var(--text-2); line-height: 1.7; }
+        .principle-card .principle-proof {
+            display: block;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            font-size: 0.84rem;
+            color: var(--text-3);
+        }
+        .principle-card .principle-proof strong { color: var(--text-2); font-weight: 600; }
+
+        /* ===== Skills: competency groups ===== */
+        .competency-groups { display: flex; flex-direction: column; gap: 18px; margin-bottom: 36px; }
+        .competency-group {
+            display: grid;
+            grid-template-columns: 210px 1fr;
+            gap: 20px;
+            align-items: start;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--border);
+        }
+        .competency-group:last-child { border-bottom: none; padding-bottom: 0; }
+        .competency-group h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-1); }
+        .competency-group p { font-size: 0.9rem; color: var(--text-2); line-height: 1.75; }
+        .skills-subtitle {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-3);
+            margin-bottom: 16px;
+        }
+
         /* ===== Responsive ===== */
+        @media (max-width: 900px) {
+            .ladder-grid { grid-template-columns: repeat(2, 1fr); }
+            .competency-group { grid-template-columns: 1fr; gap: 8px; }
+        }
+
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
             .nav-links { display: none; }
@@ -588,6 +789,8 @@
             }
             .hero { padding: 120px 0 60px; }
             .hero h1 { font-size: 2rem; }
+            .ladder-grid { grid-template-columns: 1fr; }
+            .systems-grid { grid-template-columns: 1fr; }
             .hero-stats { gap: 24px; }
             .hero-stat-number { font-size: 1.5rem; }
             .projects-carousel { margin: 32px -20px 0; padding: 0 20px; }
@@ -613,8 +816,10 @@
             <a href="#" class="nav-logo">nhanntv</a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#systems">Systems</a></li>
+                <li><a href="#leadership">How I Lead</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Products</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -629,34 +834,178 @@
     <section class="hero" id="about">
         <div class="container">
             <div class="hero-inner" data-reveal="blur-up">
-                <div class="hero-greeting">// hello, I'm Nhan</div>
-                <h1>Technical Lead &amp;<br>Senior Software Engineer<br>&amp; Product Manager</h1>
-                <p class="hero-subtitle">14+ years of experience delivering mobile applications, enterprise platforms, and large-scale software systems.<br><br>Experienced in Technical Leadership, including architecture design, technical planning, code review, mentoring, and engineering best practices.<br><br>Hands-on experience building backend services and microservice architectures using Kotlin (Spring Boot), Python, Node.js, PostgreSQL, Kafka, Redis, and cloud platforms.<br><br>Strong project management and Scrum Master experience using Agile, Scrum, Kanban, and Lean methodologies.<br><br>Experienced in system architecture, technical solution design, software estimation, and engineering process improvement.</p>
+                <div class="hero-greeting">// Nhan Trinh Duy</div>
+                <h1>I architect and lead<br>the engineering behind<br>systems that have to<br>stay correct under load.</h1>
+                <p class="hero-subtitle">14+ years building and running software systems, and 10+ years in technical leadership roles across mobile, frontend, backend and platform. I own technical strategy and architecture while staying hands-on enough to challenge designs, lead architecture and code reviews, and resolve production issues myself.<br><br>My work spans high-concurrency consumer platforms, media delivery infrastructure, transactional and financial systems, and enterprise ERP — built on distributed services, event-driven architecture, relational data, caching and cloud infrastructure across AWS and GCP.</p>
+
+                <div class="hero-roles">
+                    <span class="hero-roles-label">Open to</span>
+                    <span class="role-chip primary">Head of Engineering</span>
+                    <span class="role-chip primary">CTO</span>
+                    <span class="role-chip">Engineering Manager</span>
+                    <span class="role-chip">Technical Lead</span>
+                    <span class="role-chip">Engineering / Delivery Director</span>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#systems" class="btn btn-primary">View systems &rarr;</a>
+                    <a href="#leadership" class="btn btn-ghost">How I lead engineering</a>
+                </div>
+
                 <div class="hero-stats">
                     <div class="hero-stat">
                         <div class="hero-stat-number">14+</div>
-                        <div class="hero-stat-label">Years</div>
+                        <div class="hero-stat-label">Years building systems</div>
                     </div>
                     <div class="hero-stat">
-                        <div class="hero-stat-number">20+</div>
-                        <div class="hero-stat-label">Projects</div>
+                        <div class="hero-stat-number">20</div>
+                        <div class="hero-stat-label">Engineers led</div>
                     </div>
                     <div class="hero-stat">
                         <div class="hero-stat-number">5</div>
-                        <div class="hero-stat-label">Own Apps</div>
+                        <div class="hero-stat-label">Platforms architected</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects -->
+    <!-- Capability ladder -->
+    <section class="section ladder-section">
+        <div class="container">
+            <div class="ladder-grid" data-reveal-stagger>
+                <div class="ladder-card">
+                    <div class="ladder-level">01 — hands-on</div>
+                    <h3>I still ship</h3>
+                    <p>Production code, architecture reviews and code reviews. I stay technical enough to challenge a design and debug a live incident, not just approve a plan.</p>
+                </div>
+                <div class="ladder-card">
+                    <div class="ladder-level">02 — architecture</div>
+                    <h3>I design systems</h3>
+                    <p>Distributed services, event-driven workflows, relational data, caching and cloud infrastructure — designed around where failure is actually expensive.</p>
+                </div>
+                <div class="ladder-card">
+                    <div class="ladder-level">03 — organisation</div>
+                    <h3>I build teams</h3>
+                    <p>Team structure and ownership boundaries, hiring and onboarding, mentoring, delivery practice, engineering standards and release governance.</p>
+                </div>
+                <div class="ladder-card">
+                    <div class="ladder-level">04 — strategy</div>
+                    <h3>I connect it to the business</h3>
+                    <p>Build versus buy, technical roadmap, infrastructure cost, reliability and security trade-offs, and delivery forecasts that executives can plan against.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Systems -->
+    <section class="section" id="systems">
+        <div class="container">
+            <div class="section-header" data-reveal="fade-up">
+                <span class="section-tag">// systems</span>
+                <h2>Platforms I've architected and led</h2>
+                <p>The systems behind the products — scale, constraints and the decisions they forced.</p>
+            </div>
+            <div class="systems-grid" data-reveal-stagger>
+
+                <!-- YVote -->
+                <div class="system-card" data-kind="concurrency">
+                    <span class="system-badge">High-concurrency platform</span>
+                    <h3>YVote</h3>
+                    <div class="system-role">Engineering Lead — system design &amp; delivery</div>
+                    <div class="system-scale">Peaked at 1,000,000+ votes in a single campaign day, with tens of thousands of concurrent voters.</div>
+                    <p>Traffic was never evenly distributed — the majority of votes arrived inside live-broadcast windows, so the platform had to be designed for burst absorption rather than average throughput. Synchronous accept-and-acknowledge on the write path, asynchronous tallying over Kafka, duplicate-vote prevention in Redis.</p>
+                    <div class="system-tags">
+                        <span class="system-tag">Kotlin</span>
+                        <span class="system-tag">Kafka</span>
+                        <span class="system-tag">Redis</span>
+                        <span class="system-tag">PostgreSQL</span>
+                        <span class="system-tag">MongoDB</span>
+                        <span class="system-tag">Next.js</span>
+                        <span class="system-tag">Microservices</span>
+                        <span class="system-tag">GCP</span>
+                    </div>
+                </div>
+
+                <!-- 1Reels -->
+                <div class="system-card" data-kind="delivery">
+                    <span class="system-badge">Content delivery platform</span>
+                    <h3><a href="https://1reels.us" target="_blank" rel="noopener">1Reels</a></h3>
+                    <div class="system-role">Engineering Lead — architecture &amp; multi-platform delivery</div>
+                    <div class="system-scale">Vietnam's first short-drama streaming platform. Peak 20,000 monthly active users across iOS, Android and web.</div>
+                    <p>End-to-end architecture across mobile clients, backend microservices, media ingestion and transcoding, multi-bitrate packaging, CDN delivery, and DRM playback gated by short-lived authorisation tokens. The real constraint: deliver protected video across devices while controlling egress cost and preventing unauthorised extraction of licensed content.</p>
+                    <div class="system-tags">
+                        <span class="system-tag">Kotlin Multiplatform</span>
+                        <span class="system-tag">Spring Boot</span>
+                        <span class="system-tag">Node.js</span>
+                        <span class="system-tag">Next.js</span>
+                        <span class="system-tag">Media transcoding</span>
+                        <span class="system-tag">CDN</span>
+                        <span class="system-tag">DRM</span>
+                        <span class="system-tag">GCP</span>
+                    </div>
+                </div>
+
+                <!-- HuiHappy -->
+                <div class="system-card" data-kind="financial">
+                    <span class="system-badge">Financial system</span>
+                    <h3><a href="https://nop-tien.huihappy.vn" target="_blank" rel="noopener">HuiHappy</a></h3>
+                    <div class="system-role">Architect &amp; Engineering Lead</div>
+                    <div class="system-scale">Financial-obligation and ledger platform designed for 30,000 users.</div>
+                    <p>Built on a double-entry ledger whose entries and admin logs are insert-only, enforced at the database level with row-level security — an application bug cannot rewrite history. Integer-VND monetary arithmetic, transactional multi-step mutations, idempotent write endpoints and role-scoped access control across contribution, penalty and disbursement lifecycles.</p>
+                    <div class="system-tags">
+                        <span class="system-tag">Go</span>
+                        <span class="system-tag">PostgreSQL</span>
+                        <span class="system-tag">Redis</span>
+                        <span class="system-tag">Immutable audit trail</span>
+                        <span class="system-tag">Scoped RBAC</span>
+                        <span class="system-tag">Cloud Run</span>
+                    </div>
+                </div>
+
+                <!-- ERP -->
+                <div class="system-card" data-kind="enterprise">
+                    <span class="system-badge">Multi-entity enterprise platform</span>
+                    <h3><a href="https://erp.yeah1.vn" target="_blank" rel="noopener">ERP — YeaH1 Corporation</a></h3>
+                    <div class="system-role">Engineering Lead / Delivery Owner</div>
+                    <div class="system-scale">Six integrated modules serving ~200 internal users across 10+ operating companies.</div>
+                    <p>Budgeting, procure-to-pay, contract management, accounting, HRM and helpdesk. Camunda-driven approval workflows enforce segregation of duties and multi-level authorisation, while entity-scoped access control keeps company data isolated and still supports group-level consolidated reporting.</p>
+                    <div class="system-tags">
+                        <span class="system-tag">Odoo</span>
+                        <span class="system-tag">Python</span>
+                        <span class="system-tag">Camunda</span>
+                        <span class="system-tag">PostgreSQL</span>
+                        <span class="system-tag">AWS</span>
+                    </div>
+                </div>
+
+                <!-- Vegiare -->
+                <div class="system-card" data-kind="financial">
+                    <span class="system-badge">Transactional platform</span>
+                    <h3><a href="https://vegiare.com/" target="_blank" rel="noopener">Vegiare</a></h3>
+                    <div class="system-role">Engineering &amp; Operations Lead</div>
+                    <div class="system-scale">Flight search, booking and ticketing platform.</div>
+                    <p>Search and booking workflow with third-party airline and GDS integration. The engineering problem is consistency: keeping bookings and transactions correct against external providers that are slow, flaky, or occasionally wrong.</p>
+                    <div class="system-tags">
+                        <span class="system-tag">Java Spring Boot</span>
+                        <span class="system-tag">Next.js / React</span>
+                        <span class="system-tag">TypeScript</span>
+                        <span class="system-tag">MySQL</span>
+                        <span class="system-tag">Redis</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
     <section class="section projects-section" id="projects">
         <div class="container">
             <div class="section-header" data-reveal="fade-up">
-                <span class="section-tag">// projects</span>
-                <h2>Apps I've built &amp; shipped</h2>
-                <p>Personal projects crafted from idea to production.</p>
+                <span class="section-tag">// products</span>
+                <h2>Still shipping myself</h2>
+                <p>Products I design, build and release end-to-end as sole developer — using the same AI-assisted practice I introduced to my team.</p>
             </div>
         </div>
         <div class="projects-carousel" id="projects-carousel">
@@ -803,19 +1152,21 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2022 — Present</div>
                     <div class="timeline-content">
-                        <h3>Technical Lead / Engineering Lead / Product &amp; Project Manager</h3>
+                        <h3>Engineering Lead — Head of Engineering scope</h3>
                         <div class="company">TeraGroup (YeaH1 Corporation) — Da Nang</div>
                         <ul>
-                            <li>Led cross-functional engineering teams in delivering strategic digital products, including 1Reels (Vietnam's first short-drama platform), YVote, and enterprise ERP systems for YeaH1 Group.</li>
-                            <li>Owned system architecture, engineering planning, technical decision-making, code quality, mentoring, release management, and cross-team collaboration while ensuring product scalability, maintainability, and on-time delivery.</li>
-                            <li>Collaborated closely with executives, Product Owners, BA, QA, Designers, and engineering teams to align business objectives with technical execution.</li>
-                            <li>Established Agile delivery practices using Scrum, Kanban, and Lean, continuously improving engineering productivity, development quality, and release efficiency.</li>
+                            <li>Own technical strategy, architecture and engineering delivery for the group's consumer and enterprise digital products, working directly with executives and product leadership.</li>
+                            <li>Lead up to 20 engineers across mobile, frontend, backend and DevOps, spanning 3 concurrent product streams.</li>
+                            <li>Define team structure and ownership boundaries; interview and onboard engineers; run mentoring, architecture reviews and code reviews.</li>
+                            <li>Establish delivery practice (Scrum/Kanban), release management and engineering quality standards; report delivery forecasts and technical risk to executive stakeholders.</li>
+                            <li>Own production operation for consumer platforms: monitoring and alerting, incident response and root-cause analysis, capacity planning ahead of live-broadcast peaks, and backup and recovery procedures.</li>
+                            <li>Introduced AI-assisted engineering across the team with explicit boundaries and mandatory human review on every change — automated test coverage rose from under 10% to ~70%, and typical code-review turnaround fell from roughly one working day to ~30 minutes.</li>
                         </ul>
                         <div class="timeline-projects">
                             <a href="https://apps.apple.com/us/app/1reels-watch-short-dramas/id6479233606" target="_blank" rel="noopener" class="timeline-project-chip">1Reels</a>
-                            <a href="https://yvote.vn/" target="_blank" rel="noopener" class="timeline-project-chip">YVote</a>
+                            <a href="#systems" class="timeline-project-chip">YVote</a>
                             <a href="https://erp.yeah1.vn/" target="_blank" rel="noopener" class="timeline-project-chip">ERP</a>
-                            <a href="https://vegiare.com/" target="_blank" rel="noopener" class="timeline-project-chip">vegiare</a>
+                            <a href="https://vegiare.com/" target="_blank" rel="noopener" class="timeline-project-chip">Vegiare</a>
                         </div>
                     </div>
                 </div>
@@ -828,11 +1179,10 @@
                         <h3>Senior Software Engineer / Scrum Master</h3>
                         <div class="company">Axon Active — Da Nang</div>
                         <ul>
-                            <li>Developed enterprise-grade mobile applications following Agile best practices.</li>
-                            <li>Designed and implemented scalable iOS application architectures while evaluating and integrating third-party APIs.</li>
-                            <li>Served as Scrum Master, mentored development teams and improved engineering collaboration, delivery predictability, and sprint efficiency.</li>
-                            <li>Facilitated Scrum framework sprint planning, backlog grooming, daily scrums, sprint reviews, and sprint retrospectives.</li>
-                            <li>Led sprint reviews, daily scrums and planning meetings to realize full team engagement. Drove Scrum team progress to overcome obstacles and realize success throughout the life of each sprint.</li>
+                            <li>Delivered mobility products for Axon Vibe AG (Switzerland) shipped to the App Store and Google Play — working directly with Swiss product and business stakeholders across time zones and cultures.</li>
+                            <li>Designed application architecture and integration with third-party platform APIs.</li>
+                            <li>Delivered against client-side quality standards, service levels and knowledge-transfer commitments as an external engineering partner.</li>
+                            <li>Mentored engineers and raised engineering practice across code review, testing and release discipline.</li>
                         </ul>
                         <div class="timeline-projects">
                             <a href="https://axonvibe.com/" target="_blank" rel="noopener" class="timeline-project-chip">Sojo: Smart Mobility</a>
@@ -846,12 +1196,12 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2013 — 2018</div>
                     <div class="timeline-content">
-                        <h3>Mobile Engineer / Team Lead / Project Manager</h3>
+                        <h3>Engineering Team Lead / Project Manager</h3>
                         <div class="company">Viettel ICT — Da Nang</div>
                         <ul>
-                            <li>Led mobile development initiatives and coordinated cross-functional teams to deliver enterprise and government solutions.</li>
-                            <li>Defined product roadmaps, technical solutions, and development plans while ensuring timely project delivery.</li>
-                            <li>Collaborated with stakeholders to translate business requirements into scalable software solutions.</li>
+                            <li>Led engineering delivery for enterprise and government platforms, including the national Immunisation Management System for the Ministry of Health.</li>
+                            <li>Owned technical solution design, estimation and delivery planning across 5–8 engineer teams.</li>
+                            <li>Managed stakeholder relationships with government and enterprise customers.</li>
                         </ul>
                         <div class="timeline-projects">
                             <a href="https://itunes.apple.com/vn/app/vtracking-2-0/id1219931486?l=vi&mt=8" target="_blank" rel="noopener" class="timeline-project-chip">Vtracking</a>
@@ -867,7 +1217,7 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2012 — 2013</div>
                     <div class="timeline-content">
-                        <h3>Mobile Software Engineer</h3>
+                        <h3>Software Engineer</h3>
                         <div class="company">Unima — Da Nang</div>
                         <ul>
                             <li>Developed native iOS applications supporting both iPhone and iPad platforms with responsive user experiences.</li>
@@ -880,38 +1230,115 @@
         </div>
     </section>
 
+    <!-- Leadership -->
+    <section class="section" id="leadership">
+        <div class="container">
+            <div class="section-header" data-reveal="fade-up">
+                <span class="section-tag">// leadership</span>
+                <h2>How I lead engineering</h2>
+                <p>The principles I actually run teams by — and where each one came from.</p>
+            </div>
+            <div class="principles-grid" data-reveal-stagger>
+
+                <div class="principle-card">
+                    <div class="principle-num">01</div>
+                    <h3>Architecture follows business risk, not fashion</h3>
+                    <p>Not everything needs microservices. I put complexity where failure is expensive and keep everything else boring and simple. The question is never "what's modern" but "what breaks, and what does it cost when it does".</p>
+                    <span class="principle-proof"><strong>In practice:</strong> HuiHappy runs as a monolith with strict service boundaries — a small team and a domain still taking shape did not need distributed-system failure modes on day one.</span>
+                </div>
+
+                <div class="principle-card">
+                    <div class="principle-num">02</div>
+                    <h3>Correctness beats throughput in financial systems</h3>
+                    <p>Money is integers, never floats. Ledgers are append-only. Multi-step mutations are transactional. Audit trails are immutable by construction rather than by convention, because conventions are what break under deadline pressure.</p>
+                    <span class="principle-proof"><strong>In practice:</strong> HuiHappy's ledger and admin logs are insert-only, enforced with row-level security at the database — an application bug cannot rewrite history.</span>
+                </div>
+
+                <div class="principle-card">
+                    <div class="principle-num">03</div>
+                    <h3>Reliability is a product feature with a budget</h3>
+                    <p>Observability, alerting, backup and incident response are planned engineering work, not after-hours heroics. If reliability is not on the roadmap, it is being paid for in on-call burnout instead.</p>
+                    <span class="principle-proof"><strong>In practice:</strong> capacity planning ahead of live-broadcast peaks, so a voting platform absorbs bursts instead of rejecting users at the moment they matter most.</span>
+                </div>
+
+                <div class="principle-card">
+                    <div class="principle-num">04</div>
+                    <h3>Ownership must be unambiguous</h3>
+                    <p>Every service, pipeline and repository has one named owner. Shared ownership is no ownership — it is the state where everyone assumes someone else is watching the dashboard.</p>
+                    <span class="principle-proof"><strong>In practice:</strong> defined team structure and ownership boundaries across 3 concurrent product streams and up to 20 engineers.</span>
+                </div>
+
+                <div class="principle-card">
+                    <div class="principle-num">05</div>
+                    <h3>Measure engineering, then improve it</h3>
+                    <p>Lead time, deployment frequency, change failure rate, MTTR, escaped defects. Coverage is a proxy, not a goal — what matters is whether defects reach users, and how fast the team recovers when they do.</p>
+                    <span class="principle-proof"><strong>In practice:</strong> test coverage moved from under 10% to ~70%, and typical review turnaround from about a working day to ~30 minutes.</span>
+                </div>
+
+                <div class="principle-card">
+                    <div class="principle-num">06</div>
+                    <h3>Adopt AI deliberately, not defensively</h3>
+                    <p>I run AI adoption as controlled experiments with explicit boundaries — what it may touch, what it must never touch, and how quality, security and cost get measured. Human review stays mandatory: the tool changes how fast a reviewer reaches a decision, not whether one is made.</p>
+                    <span class="principle-proof"><strong>In practice:</strong> introduced across the team with measured outcomes, and used end-to-end on a product I shipped to the App Store alone.</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- Skills -->
     <section class="section skills-section" id="skills">
         <div class="container">
             <div class="section-header" data-reveal="slide-right">
-                <span class="section-tag">// skills</span>
-                <h2>What I work with</h2>
+                <span class="section-tag">// competencies</span>
+                <h2>What I bring</h2>
             </div>
+            <div class="competency-groups" data-reveal-stagger>
+                <div class="competency-group">
+                    <h3>Engineering leadership</h3>
+                    <p>Team building &amp; hiring · Mentoring &amp; career development · Architecture and code review · Delivery governance · Vendor &amp; external partner management · Engineering standards</p>
+                </div>
+                <div class="competency-group">
+                    <h3>Architecture</h3>
+                    <p>Distributed systems · Microservices · Event-driven architecture · API design · Relational data modelling · Caching · Async processing · High-concurrency design</p>
+                </div>
+                <div class="competency-group">
+                    <h3>Reliability &amp; operations</h3>
+                    <p>Observability · Incident response &amp; root-cause analysis · Capacity &amp; performance · Backup and recovery · Release control · CI/CD · Infrastructure as code</p>
+                </div>
+                <div class="competency-group">
+                    <h3>Security &amp; data integrity</h3>
+                    <p>Secure SDLC · Identity &amp; access control (RBAC, JWT/RS256) · Least privilege · Segregation of duties · Encryption &amp; secrets management · Immutable audit trails · Transactional consistency · DRM &amp; token-authorised access</p>
+                </div>
+                <div class="competency-group">
+                    <h3>Technology strategy</h3>
+                    <p>Technical roadmap · Build versus buy · Infrastructure cost &amp; unit economics · Risk management · Delivery forecasting · Executive and cross-functional stakeholder communication</p>
+                </div>
+            </div>
+
+            <div class="skills-subtitle">Hands-on stack</div>
             <div class="skills-grid" data-reveal-stagger>
-                <div class="skill-chip"><img src="assets/images/tech/swift.svg" alt="Swift"> Swift / iOS</div>
-                <div class="skill-chip"><img src="assets/images/tech/flutter.svg" alt="Flutter"> Flutter</div>
-                <div class="skill-chip"><img src="assets/images/tech/kotlin.svg" alt="Kotlin"> Kotlin</div>
-                <div class="skill-chip"><img src="assets/images/tech/python.svg" alt="Python"> Python</div>
+                <div class="skill-chip"><img src="assets/images/tech/typescript.svg" alt="TypeScript"> TypeScript</div>
                 <div class="skill-chip"><img src="assets/images/tech/nodejs.svg" alt="Node.js"> Node.js</div>
-                <div class="skill-chip"><img src="assets/images/tech/java.svg" alt="Java"> Java</div>
-                <div class="skill-chip"><img src="assets/images/tech/spring.svg" alt="Spring Boot"> Spring Boot</div>
                 <div class="skill-chip"><img src="assets/images/tech/react.svg" alt="React"> React</div>
                 <div class="skill-chip"><img src="assets/images/tech/nextjs.svg" alt="Next.js"> Next.js</div>
-                <div class="skill-chip"><img src="assets/images/tech/typescript.svg" alt="TypeScript"> TypeScript</div>
+                <div class="skill-chip"><img src="assets/images/tech/java.svg" alt="Java"> Java</div>
+                <div class="skill-chip"><img src="assets/images/tech/spring.svg" alt="Spring Boot"> Spring Boot</div>
+                <div class="skill-chip"><img src="assets/images/tech/kotlin.svg" alt="Kotlin"> Kotlin</div>
+                <div class="skill-chip"><img src="assets/images/tech/golang.svg" alt="Go"> Go</div>
+                <div class="skill-chip"><img src="assets/images/tech/python.svg" alt="Python"> Python</div>
                 <div class="skill-chip"><img src="assets/images/tech/postgresql.svg" alt="PostgreSQL"> PostgreSQL</div>
+                <div class="skill-chip"><img src="assets/images/tech/mysql.svg" alt="MySQL"> MySQL</div>
+                <div class="skill-chip"><img src="assets/images/tech/mongodb.svg" alt="MongoDB"> MongoDB</div>
                 <div class="skill-chip"><img src="assets/images/tech/redis.svg" alt="Redis"> Redis</div>
                 <div class="skill-chip"><img src="assets/images/tech/kafka.svg" alt="Kafka"> Kafka</div>
-                <div class="skill-chip"><img src="assets/images/tech/mongodb.svg" alt="MongoDB"> MongoDB</div>
-                <div class="skill-chip"><img src="assets/images/tech/firebase.svg" alt="Firebase"> Firebase</div>
-                <div class="skill-chip"><img src="assets/images/tech/gcloud.svg" alt="GCP"> Google Cloud</div>
-                <div class="skill-chip"><img src="assets/images/tech/aws.svg" alt="AWS"> AWS</div>
                 <div class="skill-chip"><img src="assets/images/tech/docker.svg" alt="Docker"> Docker</div>
-                <div class="skill-chip"><img src="assets/images/tech/sqlite.svg" alt="SQLite"> SQLite</div>
+                <div class="skill-chip"><img src="assets/images/tech/aws.svg" alt="AWS"> AWS</div>
+                <div class="skill-chip"><img src="assets/images/tech/gcloud.svg" alt="GCP"> Google Cloud</div>
+                <div class="skill-chip"><img src="assets/images/tech/firebase.svg" alt="Firebase"> Firebase</div>
                 <div class="skill-chip"><img src="assets/images/tech/git.svg" alt="Git"> Git</div>
-                <div class="skill-chip">🔄 Agile / Scrum</div>
-                <div class="skill-chip">🤖 AI-assisted Dev</div>
-                <div class="skill-chip">📐 System Architecture</div>
-                <div class="skill-chip">👥 Team Leadership</div>
+                <div class="skill-chip"><img src="assets/images/tech/swift.svg" alt="Swift"> Swift</div>
+                <div class="skill-chip"><img src="assets/images/tech/flutter.svg" alt="Flutter"> Flutter</div>
             </div>
         </div>
     </section>
@@ -922,7 +1349,7 @@
             <div class="contact-grid" data-reveal="fade-up">
                 <div class="contact-left">
                     <h2>Let's build something great</h2>
-                    <p>Open to collaboration, consulting, and new opportunities. Based in Da Nang, Vietnam — working with teams worldwide.</p>
+                    <p>Open to Head of Engineering, CTO, Engineering Manager and Technical Lead roles — and to consulting on architecture, delivery and engineering organisation. Based in Da Nang, Vietnam, working with teams and stakeholders worldwide.</p>
                     <div class="contact-links">
                         <a href="mailto:nhanntv113@gmail.com" class="contact-link">
                             <div class="contact-link-icon">📧</div>
@@ -942,7 +1369,7 @@
                 </div>
                 <div class="contact-card">
                     <h3>Nhan Trinh</h3>
-                    <div class="contact-role">Technical Lead &amp; Senior Software Engineer</div>
+                    <div class="contact-role">Engineering Leader — Platform Architecture &amp; Delivery</div>
                     <div class="contact-location">Da Nang, Vietnam</div>
                     <div class="social-links">
                         <a href="https://github.com/nhanntv" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
