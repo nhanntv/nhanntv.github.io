@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roomlore — Tidy a Room, Find a Story</title>
+    <meta name="description" content="A quiet tidying game set in real places. Unpack a Tokyo studio, a Paris flower shop and six more. No timer, no score, no way to lose — just one room, and where everything belongs.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <style>
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --lilac: #8B5CD6;
+            --lilac-dark: #7248BD;
+            --lilac-deeper: #4A3B5C;
+            --lilac-light: #F3EAFF;
+            --lilac-mid: #EDE0FF;
+            --lilac-glow: rgba(139, 92, 214, 0.12);
+            --pink: #FF9EC7;
+            --mint: #B8DCC8;
+            --cream: #F5E6D3;
+            --gold: #FFC94D;
+            --text: #2b2338;
+            --text-2: #756590;
+            --text-3: #9d92b0;
+            --bg: #FBF7FF;
+            --surface: #ffffff;
+            --border: #E7DCF2;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-pill: 100px;
+            --shadow: 0 4px 12px rgba(74, 59, 92, 0.08), 0 2px 6px rgba(74, 59, 92, 0.05);
+            --shadow-lg: 0 10px 30px rgba(74, 59, 92, 0.10), 0 4px 12px rgba(74, 59, 92, 0.06);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ===== Chrome ===== */
+        .back-btn {
+            position: fixed; top: 20px; left: 20px; z-index: 50;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 18px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            color: var(--text-2); text-decoration: none;
+            font-size: 0.9rem; font-weight: 500;
+            box-shadow: var(--shadow);
+            transition: color .2s, transform .2s;
+        }
+        .back-btn:hover { color: var(--lilac); transform: translateX(-2px); }
+
+        .lang-dropdown {
+            position: fixed; top: 20px; right: 20px; z-index: 50;
+        }
+        .lang-toggle {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            color: var(--text-2);
+            font-family: inherit; font-size: 0.9rem; font-weight: 500;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+        .lang-menu {
+            position: absolute; right: 0; top: calc(100% + 8px);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            display: none; min-width: 150px;
+        }
+        .lang-menu.open { display: block; }
+        .lang-menu button {
+            display: block; width: 100%; text-align: left;
+            padding: 10px 16px;
+            background: none; border: none;
+            font-family: inherit; font-size: 0.9rem; color: var(--text);
+            cursor: pointer;
+        }
+        .lang-menu button:hover { background: var(--lilac-light); }
+
+        /* ===== Layout ===== */
+        .section { padding: 72px 20px; }
+        .section-inner { max-width: 1040px; margin: 0 auto; }
+        .section-title {
+            font-size: 1.9rem; font-weight: 800; letter-spacing: -0.02em;
+            text-align: center; margin-bottom: 12px;
+        }
+        .section-sub {
+            text-align: center; color: var(--text-2);
+            max-width: 620px; margin: 0 auto 44px;
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            padding: 128px 20px 64px;
+            text-align: center;
+            background:
+                radial-gradient(1000px 520px at 50% -140px, var(--lilac-light), transparent 70%),
+                linear-gradient(180deg, #F3EAFF 0%, #FFF0F6 100%);
+        }
+        .hero-inner { max-width: 760px; margin: 0 auto; }
+        .hero-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            font-size: 0.78rem; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--lilac-dark);
+            margin-bottom: 26px;
+        }
+        .hero-icon-wrap {
+            width: 120px; height: 120px; margin: 0 auto 24px;
+            border-radius: 28px; overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            background: var(--surface);
+        }
+        .hero-icon-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .hero h1 {
+            font-size: 3.2rem; font-weight: 800;
+            letter-spacing: -0.03em; line-height: 1.1;
+        }
+        .hero-subtitle {
+            font-size: 1.3rem; font-weight: 600;
+            color: var(--lilac-dark); margin-top: 10px;
+        }
+        .hero-tagline {
+            color: var(--text-2); margin-top: 18px;
+            font-size: 1.02rem; max-width: 620px;
+            margin-left: auto; margin-right: auto;
+        }
+        .hero-badges {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            gap: 10px; margin-top: 28px;
+        }
+        .hero-badge {
+            padding: 8px 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            font-size: 0.88rem; font-weight: 500;
+            box-shadow: var(--shadow);
+        }
+
+        /* ===== Download ===== */
+        .download-section {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            gap: 14px; padding: 8px 20px 72px;
+            background: linear-gradient(180deg, #FFF0F6 0%, var(--bg) 100%);
+        }
+        .store-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 13px 24px;
+            background: var(--lilac-deeper); color: #fff;
+            border-radius: var(--radius-pill);
+            text-decoration: none; font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: transform .2s, box-shadow .2s;
+        }
+        .store-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .store-btn small { display: block; font-size: 0.68rem; font-weight: 400; opacity: .78; }
+        .store-btn span { font-size: 1rem; line-height: 1.2; }
+
+        /* ===== Cards ===== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .feature-card, .step-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 26px;
+            box-shadow: var(--shadow);
+            transition: transform .25s, box-shadow .25s;
+        }
+        .feature-card:hover, .step-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .feature-icon {
+            width: 46px; height: 46px;
+            display: grid; place-items: center;
+            border-radius: 13px;
+            background: var(--lilac-light);
+            font-size: 1.4rem; margin-bottom: 16px;
+        }
+        .feature-card h3, .step-card h3 { font-size: 1.08rem; font-weight: 700; margin-bottom: 8px; }
+        .feature-card p, .step-card p { color: var(--text-2); font-size: 0.95rem; }
+
+        .step-num {
+            width: 34px; height: 34px;
+            display: grid; place-items: center;
+            border-radius: 50%;
+            background: var(--lilac); color: #fff;
+            font-weight: 700; font-size: 0.95rem;
+            margin-bottom: 14px;
+        }
+
+        /* ===== Places ===== */
+        .places-row {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+        }
+        .place-chip {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 11px 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            font-size: 0.93rem; font-weight: 500;
+            box-shadow: var(--shadow);
+        }
+        .place-chip.soon { opacity: .55; }
+
+        /* ===== Screenshots ===== */
+        .screenshots-section { padding: 72px 20px; background: var(--lilac-light); }
+        .screenshot-row {
+            display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;
+            max-width: 1040px; margin: 0 auto;
+        }
+        .screenshot-placeholder {
+            width: 190px; height: 400px;
+            border-radius: 22px;
+            background: linear-gradient(160deg, #FFFFFF 0%, var(--lilac-mid) 100%);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+            display: grid; place-items: center;
+            font-size: 2.6rem;
+        }
+
+        /* ===== Built with ===== */
+        .tech-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+        .tech-chip {
+            display: inline-flex; align-items: center; gap: 9px;
+            padding: 10px 18px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            font-size: 0.9rem; font-weight: 500;
+            box-shadow: var(--shadow);
+        }
+        .tech-chip img { width: 20px; height: 20px; }
+
+        /* ===== Footer ===== */
+        .page-footer { text-align: center; padding: 44px 20px 56px; border-top: 1px solid var(--border); }
+        .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; margin-bottom: 16px; }
+        .footer-links a { color: var(--text-2); text-decoration: none; font-size: 0.92rem; }
+        .footer-links a:hover { color: var(--lilac); }
+        .footer-copy { color: var(--text-3); font-size: 0.85rem; }
+
+        @media (max-width: 620px) {
+            .hero { padding-top: 104px; }
+            .hero h1 { font-size: 2.3rem; }
+            .section { padding: 56px 20px; }
+            .section-title { font-size: 1.55rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="../" class="back-btn">&#8592; App Hub</a>
+
+    <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-toggle" id="langToggle"><span id="langFlag">&#x1F1EC;&#x1F1E7;</span> <span id="langLabel">EN</span></button>
+        <div class="lang-menu" id="langMenu">
+            <button onclick="switchLang('en')">&#x1F1EC;&#x1F1E7; English</button>
+            <button onclick="switchLang('vi')">&#x1F1FB;&#x1F1F3; Ti&#7871;ng Vi&#7879;t</button>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-tag" data-en="QUIET TIDYING GAME" data-vi="GAME D&#7884;N D&#7864;P T&#296;NH L&#7862;NG">QUIET TIDYING GAME</div>
+            <div class="hero-icon-wrap">
+                <img src="../assets/images/roomlore-icon.png" alt="Roomlore">
+            </div>
+            <h1>Roomlore</h1>
+            <p class="hero-subtitle" data-en="Tidy a room, find a story" data-vi="D&#7885;n m&#7897;t c&#259;n ph&#242;ng, g&#7863;p m&#7897;t c&#226;u chuy&#7879;n">Tidy a room, find a story</p>
+            <p class="hero-tagline" data-en="Open the boxes, put everything where it belongs, and let the room tell you who lived here. Eight real places, eight rooms each. No timer, no score, no way to lose." data-vi="M&#7903; t&#7915;ng chi&#7871;c h&#7897;p, &#273;&#7863;t m&#7885;i th&#7913; v&#7873; &#273;&#250;ng ch&#7895;, v&#224; &#273;&#7875; c&#259;n ph&#242;ng k&#7875; cho b&#7841;n nghe ai &#273;&#227; s&#7889;ng &#7903; &#273;&#226;y. T&#225;m n&#417;i ch&#7889;n c&#243; th&#7853;t, m&#7895;i n&#417;i t&#225;m ph&#242;ng. Kh&#244;ng &#273;&#7891;ng h&#7891;, kh&#244;ng &#273;i&#7875;m, kh&#244;ng c&#243; c&#225;ch n&#224;o &#273;&#7875; thua.">Open the boxes, put everything where it belongs, and let the room tell you who lived here. Eight real places, eight rooms each. No timer, no score, no way to lose.</p>
+            <div class="hero-badges">
+                <div class="hero-badge">&#128241; iOS &amp; Android</div>
+                <div class="hero-badge" data-en="&#127760; 17 languages" data-vi="&#127760; 17 ng&#244;n ng&#7919;">&#127760; 17 languages</div>
+                <div class="hero-badge" data-en="&#9992;&#65039; Plays offline" data-vi="&#9992;&#65039; Ch&#417;i ngo&#7841;i tuy&#7871;n">&#9992;&#65039; Plays offline</div>
+                <div class="hero-badge" data-en="&#128274; No account" data-vi="&#128274; Kh&#244;ng t&#224;i kho&#7843;n">&#128274; No account</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="download-section">
+        <a href="#" class="store-btn">
+            <span>&#63743;</span>
+            <span><small data-en="Coming soon to" data-vi="S&#7855;p c&#243; tr&#234;n">Coming soon to</small>App Store</span>
+        </a>
+        <a href="#" class="store-btn">
+            <span>&#9654;</span>
+            <span><small data-en="Coming soon to" data-vi="S&#7855;p c&#243; tr&#234;n">Coming soon to</small>Google Play</span>
+        </a>
+    </div>
+
+    <!-- Features -->
+    <section class="section">
+        <div class="section-inner">
+            <h2 class="section-title" data-en="Why it feels different" data-vi="V&#236; sao n&#243; kh&#225;c">Why it feels different</h2>
+            <p class="section-sub" data-en="Most tidying games race you. Roomlore does the opposite." data-vi="Ph&#7847;n l&#7899;n game d&#7885;n d&#7865;p b&#7855;t b&#7841;n ch&#7841;y &#273;ua. Roomlore l&#224;m ng&#432;&#7907;c l&#7841;i.">Most tidying games race you. Roomlore does the opposite.</p>
+            <div class="card-grid" data-reveal-stagger>
+                <div class="feature-card" data-reveal="fade-up">
+                    <div class="feature-icon">&#9203;</div>
+                    <h3 data-en="No timer, no score" data-vi="Kh&#244;ng &#273;&#7891;ng h&#7891;, kh&#244;ng &#273;i&#7875;m">No timer, no score</h3>
+                    <p data-en="Nothing counts down and nothing is graded. Put an object in the wrong place and it simply returns to your hand." data-vi="Kh&#244;ng g&#236; &#273;&#7871;m ng&#432;&#7907;c v&#224; kh&#244;ng g&#236; b&#7883; ch&#7845;m &#273;i&#7875;m. &#272;&#7863;t sai ch&#7895; th&#236; m&#243;n &#273;&#7891; n&#7843;y v&#7873; tay b&#7841;n.">Nothing counts down and nothing is graded. Put an object in the wrong place and it simply returns to your hand.</p>
+                </div>
+                <div class="feature-card" data-reveal="fade-up">
+                    <div class="feature-icon">&#128506;&#65039;</div>
+                    <h3 data-en="Eight real places" data-vi="T&#225;m n&#417;i ch&#7889;n c&#243; th&#7853;t">Eight real places</h3>
+                    <p data-en="Tokyo, Paris, Hu&#7871;, the Nordics, the 80s, Taipei, Amsterdam, Kyoto. Fictional homes in neighbourhoods that exist." data-vi="Tokyo, Paris, Hu&#7871;, B&#7855;c &#194;u, th&#7853;p ni&#234;n 80, &#272;&#224;i B&#7855;c, Amsterdam, Kyoto. Nh&#7919;ng c&#259;n nh&#224; h&#432; c&#7845;u trong nh&#7919;ng khu ph&#7889; c&#243; th&#7853;t.">Tokyo, Paris, Hu&#7871;, the Nordics, the 80s, Taipei, Amsterdam, Kyoto. Fictional homes in neighbourhoods that exist.</p>
+                </div>
+                <div class="feature-card" data-reveal="fade-up">
+                    <div class="feature-icon">&#128220;</div>
+                    <h3 data-en="Objects that remember" data-vi="&#272;&#7891; v&#7853;t bi&#7871;t nh&#7899;">Objects that remember</h3>
+                    <p data-en="Three objects in every room carry a memory. Put them away and you learn a little more about whoever lived here." data-vi="M&#7895;i ph&#242;ng c&#243; ba m&#243;n mang theo m&#7897;t m&#7849;u k&#253; &#7913;c. C&#7845;t ch&#250;ng &#273;i, b&#7841;n bi&#7871;t th&#234;m m&#7897;t ch&#250;t v&#7873; ng&#432;&#7901;i &#273;&#227; s&#7889;ng &#7903; &#273;&#226;y.">Three objects in every room carry a memory. Put them away and you learn a little more about whoever lived here.</p>
+                </div>
+                <div class="feature-card" data-reveal="fade-up">
+                    <div class="feature-icon">&#128266;</div>
+                    <h3 data-en="Sound you can feel" data-vi="&#194;m thanh c&#7843;m &#273;&#432;&#7907;c">Sound you can feel</h3>
+                    <p data-en="Wood, ceramic, fabric, metal, paper and glass each sound and feel different as they land." data-vi="G&#7895;, s&#7913;, v&#7843;i, kim lo&#7841;i, gi&#7845;y v&#224; thu&#7927; tinh &#8212; m&#7895;i ch&#7845;t li&#7879;u m&#7897;t ti&#7871;ng, m&#7897;t c&#7843;m gi&#225;c khi &#273;&#225;p xu&#7889;ng.">Wood, ceramic, fabric, metal, paper and glass each sound and feel different as they land.</p>
+                </div>
+                <div class="feature-card" data-reveal="fade-up">
+                    <div class="feature-icon">&#9992;&#65039;</div>
+                    <h3 data-en="Plays offline" data-vi="Ch&#417;i ngo&#7841;i tuy&#7871;n">Plays offline</h3>
+                    <p data-en="Everything except downloading a new collection works with no connection at all." data-vi="M&#7885;i th&#7913; tr&#7915; vi&#7879;c t&#7843;i b&#7897; s&#432;u t&#7853;p m&#7899;i &#273;&#7873;u ch&#7841;y &#273;&#432;&#7907;c khi kh&#244;ng c&#243; m&#7841;ng.">Everything except downloading a new collection works with no connection at all.</p>
+                </div>
+                <div class="feature-card" data-reveal="fade-up">
+                    <div class="feature-icon">&#128274;</div>
+                    <h3 data-en="No account, ever" data-vi="Kh&#244;ng bao gi&#7901; c&#7847;n t&#224;i kho&#7843;n">No account, ever</h3>
+                    <p data-en="Nothing to sign up for, no cloud sync, no social feed. Your progress lives on your device and nowhere else." data-vi="Kh&#244;ng c&#243; g&#236; &#273;&#7875; &#273;&#259;ng k&#253;, kh&#244;ng &#273;&#7891;ng b&#7897; &#273;&#225;m m&#226;y, kh&#244;ng b&#7843;ng tin. Ti&#7871;n tr&#236;nh n&#7857;m tr&#234;n m&#225;y b&#7841;n, kh&#244;ng &#7903; &#273;&#226;u kh&#225;c.">Nothing to sign up for, no cloud sync, no social feed. Your progress lives on your device and nowhere else.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How -->
+    <section class="section" style="background: var(--surface);">
+        <div class="section-inner">
+            <h2 class="section-title" data-en="How it plays" data-vi="Ch&#417;i th&#7871; n&#224;o">How it plays</h2>
+            <p class="section-sub" data-en="Three steps, and not one word of instructions in the room itself." data-vi="Ba b&#432;&#7899;c, v&#224; kh&#244;ng m&#7897;t ch&#7919; h&#432;&#7899;ng d&#7851;n n&#224;o trong ph&#242;ng.">Three steps, and not one word of instructions in the room itself.</p>
+            <div class="card-grid" data-reveal-stagger>
+                <div class="step-card" data-reveal="slide-left">
+                    <div class="step-num">1</div>
+                    <h3 data-en="Open the boxes" data-vi="M&#7903; h&#7897;p">Open the boxes</h3>
+                    <p data-en="Each room arrives packed. Everything you need is in the tray at the bottom of the screen." data-vi="M&#7895;i ph&#242;ng &#273;&#7871;n trong t&#236;nh tr&#7841;ng &#273;&#243;ng g&#243;i. M&#7885;i th&#7913; b&#7841;n c&#7847;n n&#7857;m trong khay d&#432;&#7899;i m&#224;n h&#236;nh.">Each room arrives packed. Everything you need is in the tray at the bottom of the screen.</p>
+                </div>
+                <div class="step-card" data-reveal="fade-up">
+                    <div class="step-num">2</div>
+                    <h3 data-en="Find where it belongs" data-vi="T&#236;m &#273;&#250;ng ch&#7895;">Find where it belongs</h3>
+                    <p data-en="Every object has one right home. Drag it there and it settles in with a sound that fits what it is made of." data-vi="M&#7895;i m&#243;n c&#243; &#273;&#250;ng m&#7897;t ch&#7895; c&#7911;a n&#243;. K&#233;o t&#7899;i &#273;&#243; l&#224; n&#243; y&#234;n v&#7883;, k&#232;m ti&#7871;ng &#273;&#7897;ng h&#7907;p v&#7899;i ch&#7845;t li&#7879;u.">Every object has one right home. Drag it there and it settles in with a sound that fits what it is made of.</p>
+                </div>
+                <div class="step-card" data-reveal="slide-right">
+                    <div class="step-num">3</div>
+                    <h3 data-en="Read the room" data-vi="&#272;&#7885;c c&#259;n ph&#242;ng">Read the room</h3>
+                    <p data-en="When the last object is away, the room is quiet — and three of the things you just put down have something to tell you." data-vi="Khi m&#243;n cu&#7889;i c&#249;ng &#273;&#227; v&#224;o ch&#7895;, c&#259;n ph&#242;ng l&#7863;ng &#273;i &#8212; v&#224; ba trong nh&#7919;ng th&#7913; b&#7841;n v&#7915;a c&#7845;t c&#243; chuy&#7879;n mu&#7889;n k&#7875;.">When the last object is away, the room is quiet — and three of the things you just put down have something to tell you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Places -->
+    <section class="section">
+        <div class="section-inner">
+            <h2 class="section-title" data-en="The journey" data-vi="H&#224;nh tr&#236;nh">The journey</h2>
+            <p class="section-sub" data-en="Eight collections, eight rooms each. Two are ready; the rest are on the way." data-vi="T&#225;m b&#7897; s&#432;u t&#7853;p, m&#7895;i b&#7897; t&#225;m ph&#242;ng. Hai b&#7897; &#273;&#227; s&#7861;n s&#224;ng, c&#225;c b&#7897; c&#242;n l&#7841;i &#273;ang tr&#234;n &#273;&#432;&#7901;ng.">Eight collections, eight rooms each. Two are ready; the rest are on the way.</p>
+            <div class="places-row" data-reveal="fade-up">
+                <div class="place-chip">&#127471;&#127477; Tokyo</div>
+                <div class="place-chip">&#127467;&#127479; Paris</div>
+                <div class="place-chip soon">&#127483;&#127475; Hu&#7871;</div>
+                <div class="place-chip soon">&#127470;&#127480; Nordics</div>
+                <div class="place-chip soon">&#128250; The 80s</div>
+                <div class="place-chip soon">&#127481;&#127484; Taipei</div>
+                <div class="place-chip soon">&#127475;&#127473; Amsterdam</div>
+                <div class="place-chip soon">&#127471;&#127477; Kyoto</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="screenshots-section">
+        <h2 class="section-title" data-en="A look inside" data-vi="Nh&#236;n th&#7917; b&#234;n trong">A look inside</h2>
+        <p class="section-sub" data-en="Pastel, isometric, and deliberately still." data-vi="Pastel, isometric, v&#224; c&#7889; &#253; t&#297;nh.">Pastel, isometric, and deliberately still.</p>
+        <div class="screenshot-row" data-reveal-stagger>
+            <div class="screenshot-placeholder" data-reveal="scale-blur">&#127968;</div>
+            <div class="screenshot-placeholder" data-reveal="scale-blur">&#127789;</div>
+            <div class="screenshot-placeholder" data-reveal="scale-blur">&#128722;</div>
+            <div class="screenshot-placeholder" data-reveal="scale-blur">&#127793;</div>
+        </div>
+    </section>
+
+    <!-- Built with -->
+    <section class="section">
+        <div class="section-inner">
+            <h2 class="section-title" data-en="Built with" data-vi="D&#7921;ng b&#7857;ng">Built with</h2>
+            <p class="section-sub" data-en="One Flutter codebase, offline-first, no game engine." data-vi="M&#7897;t m&#227; ngu&#7891;n Flutter, &#432;u ti&#234;n ngo&#7841;i tuy&#7871;n, kh&#244;ng d&#249;ng game engine.">One Flutter codebase, offline-first, no game engine.</p>
+            <div class="tech-row" data-reveal="fade-up">
+                <div class="tech-chip"><img src="../assets/images/tech/flutter.svg" alt="Flutter" width="20" height="20"> Flutter</div>
+                <div class="tech-chip"><img src="../assets/images/tech/sqlite.svg" alt="SQLite" width="20" height="20"> SQLite</div>
+                <div class="tech-chip"><img src="../assets/images/tech/firebase.svg" alt="Firebase" width="20" height="20"> Firebase</div>
+                <div class="tech-chip"><img src="../assets/images/tech/swift.svg" alt="iOS" width="20" height="20"> iOS</div>
+                <div class="tech-chip"><img src="../assets/images/tech/kotlin.svg" alt="Android" width="20" height="20"> Android</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer" data-reveal="fade-in">
+        <div class="footer-links">
+            <a href="legal/" data-en="&#128220; Legal Documents" data-vi="&#128220; T&#224;i li&#7879;u ph&#225;p l&#253;">&#128220; Legal Documents</a>
+            <a href="legal/en/terms.html" data-en="Terms of Service" data-vi="&#272;i&#7873;u kho&#7843;n s&#7917; d&#7909;ng">Terms of Service</a>
+            <a href="legal/en/privacy.html" data-en="Privacy Policy" data-vi="Ch&#237;nh s&#225;ch b&#7843;o m&#7853;t">Privacy Policy</a>
+            <a href="mailto:nhanntv113@gmail.com" data-en="Contact" data-vi="Li&#234;n h&#7879;">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; <span id="footer-year"></span> Nhan Trinh. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        var langToggle = document.getElementById('langToggle');
+        var langMenu = document.getElementById('langMenu');
+        langToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            langMenu.classList.toggle('open');
+        });
+        document.addEventListener('click', function () { langMenu.classList.remove('open'); });
+
+        function switchLang(lang) {
+            document.querySelectorAll('[data-vi]').forEach(function (el) {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+            document.getElementById('langFlag').innerHTML = lang === 'vi' ? '&#x1F1FB;&#x1F1F3;' : '&#x1F1EC;&#x1F1E7;';
+            document.getElementById('langLabel').textContent = lang === 'vi' ? 'VI' : 'EN';
+            document.documentElement.lang = lang;
+            langMenu.classList.remove('open');
+            // Đổi luôn liên kết pháp lý sang đúng ngôn ngữ đang xem.
+            document.querySelectorAll('.footer-links a[href*="/legal/"], .footer-links a[href^="legal/"]').forEach(function (a) {
+                a.href = a.getAttribute('href').replace(/legal\/(en|vi)\//, 'legal/' + lang + '/');
+            });
+        }
+    </script>
+    <script src="../assets/js/scroll-reveal.js"></script>
+</body>
+</html>
