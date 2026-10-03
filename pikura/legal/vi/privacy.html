@@ -20,6 +20,11 @@
         .contact-info { background-color: #e8f5e8; padding: 15px; border-radius: 5px; margin: 20px 0; }
         ul { padding-left: 20px; }
         .last-updated { font-style: italic; color: #7f8c8d; }
+        .table-wrap { overflow-x: auto; margin: 15px 0; }
+        table { border-collapse: collapse; width: 100%; font-size: 14px; }
+        th, td { border: 1px solid rgba(127, 127, 127, 0.45); padding: 8px; text-align: left; vertical-align: top; }
+        th { font-weight: 600; }
+        td a { color: inherit; overflow-wrap: anywhere; }
         @media (prefers-color-scheme: dark) {
             body { background-color: #1A1B2E; color: #F8F9FE; }
             h1 { color: #9A6BFF; border-bottom-color: #9A6BFF; }
@@ -50,63 +55,124 @@
 </head>
 <body>
     <h1>Pikura - Chính sách Quyền riêng tư</h1>
-    <p class="last-updated">Cập nhật lần cuối: Tháng 10 năm 2026</p>
+    <p class="last-updated">Cập nhật lần cuối: ngày 3 tháng 10 năm 2026</p>
 
     <h2>1. Tổng quan</h2>
-    <p>Pikura ("Ứng dụng") là ứng dụng vẽ dành cho trẻ em do NTVTech phát triển. Chúng tôi cam kết bảo vệ quyền riêng tư của trẻ em và tuân thủ COPPA (Đạo luật Bảo vệ Quyền riêng tư Trực tuyến của Trẻ em) cùng GDPR-K.</p>
+    <p>Pikura ("Ứng dụng") là ứng dụng vẽ và tô màu dành cho cả trẻ em và người lớn, do NTVTech phát triển. Chính sách này giải thích dữ liệu nào ở lại trên thiết bị, những dịch vụ bên thứ ba nào nhận dữ liệu từ Ứng dụng, và các lựa chọn dành cho phụ huynh.</p>
 
     <h2>2. Thông tin chúng tôi KHÔNG thu thập</h2>
     <div class="highlight">
-        <strong>Chúng tôi không thu thập bất kỳ thông tin cá nhân nào từ trẻ em</strong>, bao gồm:
+        <strong>Không cần tạo tài khoản, và chúng tôi không thu thập:</strong>
     </div>
     <ul>
         <li>Tên, địa chỉ email hoặc thông tin liên hệ khác</li>
-        <li>Ảnh (ảnh nguồn cho tính năng Photo Magic chỉ được xử lý trong bộ nhớ và không bao giờ được lưu trữ hay truyền đi)</li>
-        <li>Dữ liệu vị trí</li>
-        <li>Mã định danh thiết bị dùng cho mục đích theo dõi</li>
+        <li>Ảnh (ảnh dùng cho Phép màu ảnh được xử lý trên thiết bị và không bao giờ được tải lên cho chúng tôi hay bất kỳ ai khác)</li>
+        <li>Vị trí chính xác (Ứng dụng không bao giờ xin quyền truy cập vị trí)</li>
+        <li>Mã định danh quảng cáo (IDFA / mã quảng cáo Android) hoặc bất kỳ mã nào dùng để theo dõi người dùng qua các ứng dụng hay trang web khác</li>
     </ul>
+    <p>Một số dữ liệu kỹ thuật, như địa chỉ IP và thông tin thiết bị, được các nhà cung cấp dịch vụ bên thứ ba liệt kê ở mục 4 nhận.</p>
 
     <h2>3. Thông tin được lưu trữ cục bộ</h2>
     <p>Các dữ liệu sau CHỈ được lưu trên thiết bị của người dùng và không bao giờ được truyền đến máy chủ của chúng tôi:</p>
     <ul>
         <li>Tranh vẽ và tệp tác phẩm</li>
+        <li>Ảnh dùng cho tính năng Phép màu ảnh, được giữ trên thiết bị cùng với trang tô màu tạo ra từ ảnh đó để có thể hiện lên làm mẫu màu — ảnh không bao giờ rời khỏi thiết bị và được xoá cùng với tác phẩm đó</li>
         <li>Tùy chọn ứng dụng (giao diện, ngôn ngữ, chế độ tuổi)</li>
         <li>Tiến trình vẽ và thành tích</li>
         <li>Tên hiển thị tùy chọn (nhập trong quá trình thiết lập ban đầu)</li>
+        <li>Mã PIN phụ huynh (tùy chọn), chỉ lưu dưới dạng băm một chiều có muối trong kho lưu trữ bảo mật của thiết bị</li>
     </ul>
 
-    <h2>4. Dịch vụ bên thứ ba</h2>
-    <p>Ứng dụng sử dụng các dịch vụ bên thứ ba sau:</p>
-    <ul>
-        <li>Firebase Analytics: Chỉ gồm số liệu thống kê sử dụng ẩn danh, tổng hợp (không có PII)</li>
-        <li>Firebase Crashlytics: Báo cáo sự cố ẩn danh nhằm cải thiện độ ổn định</li>
-        <li>Google AdMob: Chỉ gồm quảng cáo không cá nhân hóa, hướng đến trẻ em</li>
-        <li>Firebase Remote Config: Cấu hình ứng dụng (không truyền dữ liệu người dùng)</li>
-    </ul>
+    <h2>4. Nhà cung cấp dịch vụ</h2>
+    <p>Bảng dưới đây là danh sách đầy đủ các bên thứ ba nhận bất kỳ dữ liệu nào từ Ứng dụng. Không bên nào nhận tranh vẽ, ảnh, tên hiển thị hay bất cứ thứ gì khác được tạo trong Ứng dụng. Mỗi nhà cung cấp xử lý dữ liệu theo chính sách quyền riêng tư của riêng họ.</p>
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>Nhà cung cấp</th>
+                <th>Mục đích</th>
+                <th>Dữ liệu nhận được</th>
+                <th>Chính sách quyền riêng tư</th>
+            </tr>
+            <tr>
+                <td>Google Firebase Analytics</td>
+                <td>Thống kê sử dụng ẩn danh, tổng hợp từ các sự kiện tiêu chuẩn mà Firebase tự động thu thập (như mở ứng dụng, phiên sử dụng và cập nhật ứng dụng). Ứng dụng không gửi sự kiện tùy chỉnh nào.</td>
+                <td>Mã định danh cài đặt và thiết bị chỉ dùng cho thống kê (không phải mã định danh quảng cáo), mẫu thiết bị, phiên bản hệ điều hành và ứng dụng, ngôn ngữ, và quốc gia hoặc khu vực gần đúng suy ra từ địa chỉ IP.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Crashlytics</td>
+                <td>Báo cáo sự cố, chỉ dùng để khắc phục lỗi ổn định.</td>
+                <td>Chi tiết kỹ thuật của sự cố (thông báo lỗi và dấu vết ngăn xếp), mẫu thiết bị, phiên bản hệ điều hành và ứng dụng, và một mã định danh cài đặt của Crashlytics.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Remote Config</td>
+                <td>Tải cấu hình ứng dụng, như giới hạn của bản miễn phí và thông báo bảo trì hoặc cập nhật.</td>
+                <td>Mã định danh cài đặt Firebase, phiên bản ứng dụng, nền tảng, và ngôn ngữ hoặc quốc gia.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google AdMob</td>
+                <td>Quảng cáo video có thưởng tùy chọn, chỉ trong bản miễn phí (xem mục 5). SDK quảng cáo không được khởi động với người dùng Pikura Plus.</td>
+                <td>Địa chỉ IP, thông tin thiết bị và hệ điều hành, ngôn ngữ, thông tin ứng dụng và tương tác với quảng cáo. Ứng dụng không bao giờ xin quyền theo dõi trên iOS và không có quyền truy cập mã quảng cáo trên Android, nên không cung cấp mã định danh quảng cáo nào. Tùy theo lựa chọn đồng ý (xem mục 5) và luật địa phương, Google có thể dùng dữ liệu này để cá nhân hóa quảng cáo. Việc cá nhân hóa này chỉ áp dụng cho hồ sơ Người lớn; với các hồ sơ trẻ em (Mini và Junior), yêu cầu được gắn nhãn dành cho trẻ em và quảng cáo không được cá nhân hóa. Trên iOS, quảng cáo không được cá nhân hóa ở bất kỳ hồ sơ nào.</td>
+                <td><a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></td>
+            </tr>
+            <tr>
+                <td>Qonversion</td>
+                <td>Xác thực gói đăng ký và khôi phục giao dịch mua.</td>
+                <td>Trạng thái mua hàng và gói đăng ký từ cửa hàng, mã định danh cài đặt ẩn danh mô tả bên dưới, mẫu thiết bị, phiên bản hệ điều hành và ứng dụng, và địa chỉ IP. Không có tên, địa chỉ email hay thông tin thẻ thanh toán.</td>
+                <td><a href="https://qonversion.io/privacy">qonversion.io/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Apple App Store / Google Play</td>
+                <td>Thanh toán, quản lý gói đăng ký và lời mời đánh giá tùy chọn.</td>
+                <td>Được xử lý theo tài khoản cửa hàng của chính bạn. Chúng tôi không bao giờ nhận thông tin thẻ thanh toán.</td>
+                <td><a href="https://www.apple.com/legal/privacy/">www.apple.com/legal/privacy/</a><br><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+            <tr>
+                <td>GitHub Pages (GitHub, Inc.)</td>
+                <td>Lưu trữ phiên bản mới nhất của các tài liệu pháp lý này, được Ứng dụng tải về khi bạn mở chúng.</td>
+                <td>Địa chỉ IP và dữ liệu kỹ thuật của yêu cầu, như với bất kỳ trang web nào.</td>
+                <td><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a></td>
+            </tr>
+            <tr>
+                <td>Google Fonts</td>
+                <td>Tải một phông chữ, chỉ khi phụ huynh xuất tệp PDF có chữ tiếng Trung, tiếng Nhật hoặc tiếng Hàn.</td>
+                <td>Địa chỉ IP và dữ liệu kỹ thuật của yêu cầu, như với bất kỳ trang web nào.</td>
+                <td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+        </table>
+    </div>
+    <p>Chỉ các nhà cung cấp trên nhận dữ liệu. Các thành phần chạy hoàn toàn trên thiết bị (ví dụ các mô hình AI dùng cho Phép màu ảnh, công cụ vẽ và thông báo cục bộ) không gửi gì ra ngoài. Nếu chúng tôi thêm hoặc thay đổi nhà cung cấp, chúng tôi sẽ cập nhật mục này.</p>
+    <h3>Mã định danh cài đặt ẩn danh</h3>
+    <p>Để có thể khôi phục giao dịch mua, Ứng dụng tạo một mã định danh ngẫu nhiên, không gắn với tên, địa chỉ email, thiết bị hay mã định danh quảng cáo, và chỉ chia sẻ mã này với Qonversion. Trên iOS, mã được giữ trong Keychain của thiết bị, nơi không bị xoá khi gỡ Ứng dụng, nên giao dịch mua vẫn được nhận ra sau khi cài lại; mã không được đồng bộ qua iCloud. Trên Android, mã bị xoá khi gỡ Ứng dụng.</p>
 
     <h2>5. Quảng cáo</h2>
-    <p>Quảng cáo trong Ứng dụng:</p>
+    <p>Bản miễn phí của Ứng dụng chỉ hiển thị quảng cáo video có thưởng tùy chọn. Video chỉ phát khi người dùng tự chạm để xem nhằm nhận một phần thưởng nhỏ, ví dụ thêm một lượt Phép màu ảnh, thêm chỗ trong Bộ sưu tập, bộ bút đặc biệt cho buổi vẽ hiện tại, đóng băng chuỗi ngày, hoặc mở tạm một trang tô màu. Ứng dụng không hiển thị quảng cáo biểu ngữ (banner), quảng cáo xen kẽ (bật lên toàn màn hình) hay quảng cáo chen giữa nội dung. Quảng cáo:</p>
     <ul>
-        <li>Không được cá nhân hóa (không nhắm mục tiêu theo hành vi)</li>
-        <li>Được đánh dấu là hướng đến trẻ em (tagForChildDirectedTreatment)</li>
-        <li>Phù hợp với lứa tuổi (xếp hạng nội dung tối đa: G)</li>
-        <li>Không hiển thị trên màn hình vẽ/tô màu/bài học</li>
+        <li>Do Google AdMob cung cấp. Ở các hồ sơ trẻ em (Mini và Junior), yêu cầu quảng cáo được gắn nhãn dành cho trẻ em và cho người dùng chưa đủ tuổi đồng ý, và không có biểu mẫu xin đồng ý nào được hiển thị. Ở hồ sơ Người lớn, tại nơi pháp luật yêu cầu (ví dụ Khu vực Kinh tế Châu Âu và Vương quốc Anh), biểu mẫu xin đồng ý của Google được hiển thị trước, quảng cáo chỉ được yêu cầu nếu biểu mẫu đó cho phép, và khi cần có thể xem lại lựa chọn trong Dành cho bố mẹ &gt; Tuỳ chọn quyền riêng tư quảng cáo</li>
+        <li>Chỉ được cá nhân hóa ở hồ sơ Người lớn: ở đó, tùy theo lựa chọn đồng ý và luật địa phương, Google có thể dùng dữ liệu như địa chỉ IP và thông tin thiết bị để hiển thị và cá nhân hóa quảng cáo. Quảng cáo ở các hồ sơ trẻ em không bao giờ được cá nhân hóa. Trên iOS, quảng cáo không được cá nhân hóa ở bất kỳ hồ sơ nào. Cách Google sử dụng dữ liệu này: <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></li>
+        <li>Phù hợp lứa tuổi (mức nội dung tối đa: G)</li>
+        <li>Không bao giờ do Ứng dụng tự khởi chạy: màn hình vẽ, tô màu và bài học không hiển thị quảng cáo, trừ khi người dùng tự chọn xem video có thưởng tại đó (ví dụ để mở bộ bút đặc biệt)</li>
+        <li>Không bao giờ hiển thị với người dùng Pikura Plus</li>
     </ul>
 
-    <h2>6. Kiểm soát của Phụ huynh</h2>
-    <p>Phụ huynh có thể truy cập Khu vực Phụ huynh (được bảo vệ bằng cổng phụ huynh) để:</p>
+    <h2>6. Phụ huynh và trẻ em</h2>
+    <p>Pikura được làm cho cả trẻ em và người lớn. Phụ huynh hoặc người giám hộ nên giám sát trẻ nhỏ khi sử dụng Ứng dụng. Hồ sơ chọn khi thiết lập (3-5, 6-11 hoặc Người lớn) chỉ được lưu trên thiết bị và chỉ dùng để điều chỉnh Ứng dụng và quyết định cách yêu cầu quảng cáo (xem mục 5).</p>
+    <p>Ở các hồ sơ trẻ em, cổng phụ huynh (một phép nhân, hoặc mã PIN phụ huynh tùy chọn) bảo vệ việc mua hàng, mục Dành cho bố mẹ, việc chia sẻ và xuất tác phẩm, và việc xóa tác phẩm. Hồ sơ Người lớn bỏ qua cổng phụ huynh; muốn chuyển sang hồ sơ này phải vượt qua cổng một lần. Trong mục Dành cho bố mẹ, phụ huynh có thể:</p>
     <ul>
         <li>Quản lý cài đặt ứng dụng</li>
         <li>Kiểm soát tùy chọn thông báo</li>
         <li>Xuất hoặc xóa toàn bộ dữ liệu</li>
         <li>Quản lý gói đăng ký</li>
     </ul>
+    <p>Quảng cáo là tùy chọn. Việc xem video có thưởng không được bảo vệ bằng cổng phụ huynh vì đó không phải giao dịch mua. Phụ huynh không muốn con xem quảng cáo có thể đăng ký Pikura Plus, khi đó SDK quảng cáo hoàn toàn không được khởi động, hoặc đảm bảo trẻ không chọn các lời mời xem video tùy chọn.</p>
 
     <h2>7. Xóa dữ liệu</h2>
-    <p>Toàn bộ dữ liệu của ứng dụng có thể được xóa qua Khu vực Phụ huynh &gt; Xóa toàn bộ dữ liệu. Gỡ cài đặt ứng dụng cũng sẽ xóa toàn bộ dữ liệu đã lưu.</p>
+    <p>Toàn bộ dữ liệu ứng dụng (tranh vẽ, ảnh giữ lại cho Phép màu ảnh, tiến độ, cài đặt và tên hiển thị) có thể được xóa qua Khu vực Phụ huynh (Dành cho bố mẹ) &gt; Xóa toàn bộ dữ liệu. Gỡ cài đặt Ứng dụng cũng xóa dữ liệu này khỏi thiết bị. Trên iOS, mã định danh cài đặt ẩn danh mô tả ở mục 4 vẫn nằm trong Keychain để có thể khôi phục giao dịch mua sau khi cài lại; mã này không chứa thông tin cá nhân nào.</p>
 
     <h2>8. Bảo mật</h2>
-    <p>Mọi dữ liệu đều nằm trên thiết bị. Không yêu cầu tài khoản đám mây hay đăng nhập. Giao dịch mua gói cao cấp gắn với tài khoản cửa hàng ứng dụng, không gắn với bất kỳ mã định danh nào do chúng tôi tạo ra.</p>
+    <p>Tranh vẽ, ảnh và cài đặt cá nhân luôn nằm trên thiết bị. Không cần tài khoản đám mây hay đăng nhập. Giao dịch mua gói cao cấp gắn với tài khoản App Store hoặc Google Play của bạn; Qonversion chỉ nhận mã định danh cài đặt ẩn danh mô tả ở mục 4, không bao giờ nhận tên hay địa chỉ email. Dữ liệu gửi tới các nhà cung cấp dịch vụ ở mục 4 được truyền qua kết nối mã hóa (HTTPS).</p>
 
     <h2>9. Thay đổi Chính sách này</h2>
     <p>Chúng tôi sẽ thông báo cho người dùng về những thay đổi quan trọng thông qua thông báo trong ứng dụng. Việc tiếp tục sử dụng sau khi có thay đổi đồng nghĩa với việc chấp nhận.</p>

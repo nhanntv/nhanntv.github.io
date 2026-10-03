@@ -20,6 +20,11 @@
         .contact-info { background-color: #e8f5e8; padding: 15px; border-radius: 5px; margin: 20px 0; }
         ul { padding-left: 20px; }
         .last-updated { font-style: italic; color: #7f8c8d; }
+        .table-wrap { overflow-x: auto; margin: 15px 0; }
+        table { border-collapse: collapse; width: 100%; font-size: 14px; }
+        th, td { border: 1px solid rgba(127, 127, 127, 0.45); padding: 8px; text-align: left; vertical-align: top; }
+        th { font-weight: 600; }
+        td a { color: inherit; overflow-wrap: anywhere; }
         @media (prefers-color-scheme: dark) {
             body { background-color: #1A1B2E; color: #F8F9FE; }
             h1 { color: #9A6BFF; border-bottom-color: #9A6BFF; }
@@ -50,63 +55,124 @@
 </head>
 <body>
     <h1>Pikura - Datenschutzerklärung</h1>
-    <p class="last-updated">Zuletzt aktualisiert: Oktober 2026</p>
+    <p class="last-updated">Zuletzt aktualisiert: 3. Oktober 2026</p>
 
     <h2>1. Überblick</h2>
-    <p>Pikura („die App&#8220;) ist eine von NTVTech entwickelte Zeichen-App für Kinder. Wir verpflichten uns zum Schutz der Privatsphäre von Kindern und halten COPPA (Children's Online Privacy Protection Act) sowie GDPR-K ein.</p>
+    <p>Pikura („die App&#8220;) ist eine von NTVTech entwickelte Mal- und Ausmal-App für Kinder und Erwachsene. Diese Erklärung beschreibt, welche Daten auf dem Gerät bleiben, welche Dienste Dritter Daten von der App erhalten und welche Wahlmöglichkeiten Eltern haben.</p>
 
     <h2>2. Daten, die wir NICHT erheben</h2>
     <div class="highlight">
-        <strong>Wir erheben keinerlei personenbezogene Daten von Kindern</strong>, einschließlich:
+        <strong>Es ist kein Konto erforderlich, und wir erheben keine:</strong>
     </div>
     <ul>
         <li>Namen, E-Mail-Adressen oder andere Kontaktdaten</li>
-        <li>Fotos (Quellfotos für Photo Magic werden ausschließlich im Arbeitsspeicher verarbeitet und niemals gespeichert oder übertragen)</li>
-        <li>Standortdaten</li>
-        <li>Gerätekennungen zu Tracking-Zwecken</li>
+        <li>Fotos (die von Foto-Magie verwendeten Fotos werden auf dem Gerät verarbeitet und niemals an uns oder an Dritte hochgeladen)</li>
+        <li>Genauen Standortdaten (die App fragt niemals nach der Standortberechtigung)</li>
+        <li>Werbe-IDs (IDFA / Android-Werbe-ID) oder andere Kennungen, mit denen Nutzer über Apps oder Websites hinweg verfolgt werden</li>
     </ul>
+    <p>Einige technische Daten, etwa die IP-Adresse und Geräteinformationen, erhalten die in Abschnitt 4 aufgeführten Dienstleister.</p>
 
     <h2>3. Lokal gespeicherte Daten</h2>
     <p>Die folgenden Daten werden AUSSCHLIESSLICH auf dem Gerät des Nutzers gespeichert und niemals an unsere Server übertragen:</p>
     <ul>
         <li>Zeichnungen und Kunstwerk-Dateien</li>
+        <li>Das von Foto-Magie verwendete Foto, das gemeinsam mit dem daraus erstellten Ausmalbild auf dem Gerät bleibt, damit es als Farbvorlage angezeigt werden kann – es verlässt das Gerät nie und wird gemeinsam mit diesem Kunstwerk gelöscht</li>
         <li>App-Einstellungen (Design, Sprache, Altersmodus)</li>
         <li>Zeichenfortschritt und Erfolge</li>
         <li>Optionaler Anzeigename (bei der Ersteinrichtung eingegeben)</li>
+        <li>Optionale Eltern-PIN, ausschließlich als gesalzener Einweg-Hash im sicheren Speicher des Geräts abgelegt</li>
     </ul>
 
-    <h2>4. Dienste von Drittanbietern</h2>
-    <p>Die App nutzt die folgenden Dienste von Drittanbietern:</p>
-    <ul>
-        <li>Firebase Analytics: ausschließlich anonyme, aggregierte Nutzungsstatistiken (keine personenbezogenen Daten)</li>
-        <li>Firebase Crashlytics: anonyme Absturzberichte zur Verbesserung der Stabilität</li>
-        <li>Google AdMob: ausschließlich nicht personalisierte, kindgerechte Werbung</li>
-        <li>Firebase Remote Config: App-Konfiguration (es werden keine Nutzerdaten übertragen)</li>
-    </ul>
+    <h2>4. Dienstleister</h2>
+    <p>Die folgende Tabelle ist die vollständige Liste aller Dritten, die überhaupt Daten von der App erhalten. Keiner von ihnen erhält die Zeichnungen, Fotos, den Anzeigenamen oder sonst etwas, das in der App erstellt wurde. Jeder Anbieter verarbeitet Daten gemäß seiner eigenen Datenschutzerklärung.</p>
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>Anbieter</th>
+                <th>Zweck</th>
+                <th>Empfangene Daten</th>
+                <th>Datenschutzerklärung</th>
+            </tr>
+            <tr>
+                <td>Google Firebase Analytics</td>
+                <td>Anonyme, zusammengefasste Nutzungsstatistiken aus Standardereignissen, die Firebase automatisch erfasst (z. B. App-Starts, Sitzungen und App-Updates). Die App sendet keine eigenen Ereignisse.</td>
+                <td>Installations- und Gerätekennungen, die nur für Statistiken verwendet werden (keine Werbe-IDs), Gerätemodell, Betriebssystem- und App-Version, Sprache sowie ungefähres Land bzw. ungefähre Region, abgeleitet aus der IP-Adresse.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Crashlytics</td>
+                <td>Absturzberichte, die ausschließlich zur Behebung von Stabilitätsproblemen dienen.</td>
+                <td>Technische Absturzdetails (Fehlermeldung und Stacktrace), Gerätemodell, Betriebssystem- und App-Version sowie eine Crashlytics-Installationskennung.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Remote Config</td>
+                <td>Herunterladen von App-Einstellungen, etwa der Grenzen der kostenlosen Version sowie Wartungs- oder Update-Hinweisen.</td>
+                <td>Eine Firebase-Installationskennung, App-Version, Plattform sowie Sprache oder Land.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google AdMob</td>
+                <td>Optionale Videoanzeigen mit Belohnung, nur in der kostenlosen Version (siehe Abschnitt 5). Für Abonnenten von Pikura Plus wird das Werbe-SDK nicht gestartet.</td>
+                <td>IP-Adresse, Geräte- und Betriebssysteminformationen, Sprache, App-Informationen und Interaktionen mit der Anzeige. Die App fragt unter iOS niemals nach einer Tracking-Erlaubnis und hat unter Android keinen Zugriff auf die Werbe-ID; sie stellt daher keine Werbe-ID bereit. Je nach Einwilligung (siehe Abschnitt 5) und geltendem Recht kann Google diese Daten zur Personalisierung von Anzeigen verwenden. Diese Personalisierung gilt nur für das Profil „Erwachsene“; in den Kinderprofilen (Mini und Junior) werden Anfragen als an Kinder gerichtet gekennzeichnet und Anzeigen nicht personalisiert. Unter iOS werden Anzeigen in keinem Profil personalisiert.</td>
+                <td><a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></td>
+            </tr>
+            <tr>
+                <td>Qonversion</td>
+                <td>Prüfung von Abonnements und Wiederherstellung von Käufen.</td>
+                <td>Kauf- und Abonnementstatus aus dem Store, die unten beschriebene anonyme Installationskennung, Gerätemodell, Betriebssystem- und App-Version sowie IP-Adresse. Kein Name, keine E-Mail-Adresse und keine Zahlungskartendaten.</td>
+                <td><a href="https://qonversion.io/privacy">qonversion.io/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Apple App Store / Google Play</td>
+                <td>Zahlungen, Abonnementverwaltung und die optionale Bewertungsanfrage.</td>
+                <td>Wird über Ihr eigenes Store-Konto abgewickelt. Wir erhalten niemals Zahlungskartendaten.</td>
+                <td><a href="https://www.apple.com/legal/privacy/">www.apple.com/legal/privacy/</a><br><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+            <tr>
+                <td>GitHub Pages (GitHub, Inc.)</td>
+                <td>Hosting der aktuellen Fassung dieser Rechtsdokumente, die die App beim Öffnen lädt.</td>
+                <td>IP-Adresse und technische Anfragedaten, wie bei jeder Website.</td>
+                <td><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a></td>
+            </tr>
+            <tr>
+                <td>Google Fonts</td>
+                <td>Herunterladen einer Schriftart, nur wenn ein Elternteil ein PDF mit chinesischem, japanischem oder koreanischem Text exportiert.</td>
+                <td>IP-Adresse und technische Anfragedaten, wie bei jeder Website.</td>
+                <td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+        </table>
+    </div>
+    <p>Nur die oben genannten Anbieter erhalten Daten. Komponenten, die vollständig auf dem Gerät laufen (zum Beispiel die von Foto-Magie genutzten KI-Modelle, die Malwerkzeuge und lokale Benachrichtigungen), senden nichts nach außen. Wenn wir einen Anbieter hinzufügen oder ändern, aktualisieren wir diesen Abschnitt.</p>
+    <h3>Anonyme Installationskennung</h3>
+    <p>Damit ein Kauf wiederhergestellt werden kann, erstellt die App eine zufällige Kennung, die mit keinem Namen, keiner E-Mail-Adresse, keinem Gerät und keiner Werbe-ID verknüpft ist, und teilt sie ausschließlich mit Qonversion. Unter iOS wird sie im Schlüsselbund (Keychain) des Geräts gespeichert, der beim Deinstallieren der App nicht gelöscht wird, sodass ein Kauf auch nach einer Neuinstallation erkannt werden kann; sie wird nicht über iCloud synchronisiert. Unter Android wird sie beim Deinstallieren der App gelöscht.</p>
 
     <h2>5. Werbung</h2>
-    <p>Anzeigen sind:</p>
+    <p>Die kostenlose Version der App zeigt ausschließlich optionale Videoanzeigen mit Belohnung. Ein Video wird nur abgespielt, wenn ein Nutzer bewusst antippt, um es anzusehen, und dafür eine kleine Belohnung erhält, zum Beispiel eine zusätzliche Nutzung von Foto-Magie, mehr Platz in der Galerie, das Set besonderer Pinsel für die aktuelle Malsitzung, einen Serienschutz oder vorübergehenden Zugang zu einer Ausmalseite. Die App zeigt keine Bannerwerbung, keine Interstitial-Anzeigen (bildschirmfüllende Pop-ups) und keine zwischen Inhalten platzierten Anzeigen. Anzeigen sind:</p>
     <ul>
-        <li>Nicht personalisiert (kein verhaltensbasiertes Targeting)</li>
-        <li>Als kindgerecht gekennzeichnet (tagForChildDirectedTreatment)</li>
+        <li>Bereitgestellt von Google AdMob. In den Kinderprofilen (Mini und Junior) werden Anzeigenanfragen als an Kinder gerichtet und als von Nutzern unter dem Einwilligungsalter stammend gekennzeichnet, und es wird kein Einwilligungsformular angezeigt. Im Profil „Erwachsene“ wird, wo das Gesetz es verlangt (zum Beispiel im Europäischen Wirtschaftsraum und im Vereinigten Königreich), zuerst das Einwilligungsformular von Google angezeigt, Anzeigen werden nur angefordert, wenn dieses Formular es zulässt, und wo erforderlich lässt sich die Auswahl später unter Elternbereich &gt; Datenschutzoptionen für Werbung prüfen</li>
+        <li>Nur im Profil „Erwachsene“ personalisiert: Dort kann Google je nach Einwilligung und geltendem Recht Daten wie die IP-Adresse und Geräteinformationen verwenden, um Anzeigen auszuliefern und zu personalisieren. Anzeigen in den Kinderprofilen werden nie personalisiert. Unter iOS werden Anzeigen in keinem Profil personalisiert. Wie Google diese Daten verwendet: <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></li>
         <li>Altersgerecht (maximale Inhaltseinstufung: G)</li>
-        <li>Nicht auf Zeichen-, Ausmal- oder Lektionsbildschirmen zu sehen</li>
+        <li>Niemals von der App selbst gestartet: Auf den Mal-, Ausmal- und Lektionsbildschirmen erscheinen keine Anzeigen, es sei denn, ein Nutzer entscheidet sich dort, ein Video mit Belohnung anzusehen (zum Beispiel, um die besonderen Pinsel freizuschalten)</li>
+        <li>Abonnenten von Pikura Plus werden niemals Anzeigen gezeigt</li>
     </ul>
 
-    <h2>6. Elterliche Kontrolle</h2>
-    <p>Eltern können den Elternbereich (durch eine Kindersicherung geschützt) aufrufen, um:</p>
+    <h2>6. Eltern und Kinder</h2>
+    <p>Pikura ist für Kinder und Erwachsene gemacht. Eltern oder Erziehungsberechtigte sollten kleine Kinder bei der Nutzung der App beaufsichtigen. Das bei der Einrichtung gewählte Profil (3–5, 6–11 oder Erwachsene) wird nur auf dem Gerät gespeichert und nur dazu verwendet, die App anzupassen und festzulegen, wie Anzeigen angefordert werden (siehe Abschnitt 5).</p>
+    <p>In den Kinderprofilen schützt eine Kindersicherung (eine Multiplikationsaufgabe oder eine optionale Eltern-PIN) Käufe, den Elternbereich, das Teilen und Exportieren von Werken sowie das Löschen von Werken. Das Profil „Erwachsene“ überspringt die Kindersicherung; der Wechsel zu diesem Profil erfordert, sie einmal zu bestehen. Im Elternbereich können Eltern:</p>
     <ul>
         <li>App-Einstellungen zu verwalten</li>
         <li>Benachrichtigungseinstellungen zu steuern</li>
         <li>Alle Daten zu exportieren oder zu löschen</li>
         <li>Das Abonnement zu verwalten</li>
     </ul>
+    <p>Werbung ist optional. Das Ansehen eines Videos mit Belohnung ist nicht durch die Kindersicherung geschützt, da es kein Kauf ist. Eltern, die nicht möchten, dass ihr Kind Werbung sieht, können Pikura Plus abonnieren – dann wird das Werbe-SDK gar nicht erst gestartet – oder darauf achten, dass das Kind die optionalen Angebote zum Ansehen eines Videos nicht auswählt.</p>
 
     <h2>7. Datenlöschung</h2>
-    <p>Alle App-Daten können über Elternbereich &gt; Alle Daten löschen entfernt werden. Beim Deinstallieren der App werden ebenfalls alle gespeicherten Daten gelöscht.</p>
+    <p>Alle App-Daten (Zeichnungen, für Foto-Magie aufbewahrte Fotos, Fortschritt, Einstellungen und Anzeigename) können über Elternbereich &gt; Alle Daten löschen gelöscht werden. Durch das Deinstallieren der App werden diese Daten ebenfalls vom Gerät entfernt. Unter iOS verbleibt die in Abschnitt 4 beschriebene anonyme Installationskennung im Schlüsselbund, damit Käufe nach einer Neuinstallation wiederhergestellt werden können; sie enthält keine personenbezogenen Daten.</p>
 
     <h2>8. Sicherheit</h2>
-    <p>Alle Daten verbleiben auf dem Gerät. Es sind keine Cloud-Konten oder Anmeldungen erforderlich. Premium-Käufe sind an das App-Store-Konto gebunden, nicht an eine von uns erstellte Kennung.</p>
+    <p>Zeichnungen, Fotos und persönliche Einstellungen verbleiben auf dem Gerät. Es sind keine Cloud-Konten oder Anmeldungen erforderlich. Premium-Käufe sind an Ihr App-Store- oder Google-Play-Konto gebunden; Qonversion erhält nur die in Abschnitt 4 beschriebene anonyme Installationskennung, niemals einen Namen oder eine E-Mail-Adresse. Daten, die an die Dienstleister in Abschnitt 4 gesendet werden, werden über verschlüsselte Verbindungen (HTTPS) übertragen.</p>
 
     <h2>9. Änderungen dieser Erklärung</h2>
     <p>Über wesentliche Änderungen informieren wir Nutzer durch einen Hinweis in der App. Die fortgesetzte Nutzung nach Änderungen gilt als Zustimmung.</p>

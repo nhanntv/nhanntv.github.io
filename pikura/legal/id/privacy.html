@@ -20,6 +20,11 @@
         .contact-info { background-color: #e8f5e8; padding: 15px; border-radius: 5px; margin: 20px 0; }
         ul { padding-left: 20px; }
         .last-updated { font-style: italic; color: #7f8c8d; }
+        .table-wrap { overflow-x: auto; margin: 15px 0; }
+        table { border-collapse: collapse; width: 100%; font-size: 14px; }
+        th, td { border: 1px solid rgba(127, 127, 127, 0.45); padding: 8px; text-align: left; vertical-align: top; }
+        th { font-weight: 600; }
+        td a { color: inherit; overflow-wrap: anywhere; }
         @media (prefers-color-scheme: dark) {
             body { background-color: #1A1B2E; color: #F8F9FE; }
             h1 { color: #9A6BFF; border-bottom-color: #9A6BFF; }
@@ -50,63 +55,124 @@
 </head>
 <body>
     <h1>Pikura - Kebijakan Privasi</h1>
-    <p class="last-updated">Terakhir diperbarui: Oktober 2026</p>
+    <p class="last-updated">Terakhir diperbarui: 3 Oktober 2026</p>
 
     <h2>1. Ikhtisar</h2>
-    <p>Pikura ("Aplikasi") adalah aplikasi menggambar untuk anak-anak yang dikembangkan oleh NTVTech. Kami berkomitmen untuk melindungi privasi anak dan mematuhi COPPA (Children's Online Privacy Protection Act) serta GDPR-K.</p>
+    <p>Pikura ("Aplikasi") adalah aplikasi menggambar dan mewarnai untuk anak-anak dan orang dewasa yang dikembangkan oleh NTVTech. Kebijakan ini menjelaskan data apa yang tetap berada di perangkat, layanan pihak ketiga mana yang menerima data dari Aplikasi, dan pilihan yang tersedia bagi orang tua.</p>
 
     <h2>2. Informasi yang TIDAK Kami Kumpulkan</h2>
     <div class="highlight">
-        <strong>Kami tidak mengumpulkan informasi pribadi apa pun dari anak-anak</strong>, termasuk:
+        <strong>Tidak perlu membuat akun, dan kami tidak mengumpulkan:</strong>
     </div>
     <ul>
         <li>Nama, alamat email, atau informasi kontak lainnya</li>
-        <li>Foto (foto sumber untuk Photo Magic hanya diproses di memori dan tidak pernah disimpan atau dikirim)</li>
-        <li>Data lokasi</li>
-        <li>Pengidentifikasi perangkat untuk tujuan pelacakan</li>
+        <li>Foto (foto yang digunakan Sihir Foto diproses di perangkat dan tidak pernah diunggah kepada kami maupun kepada pihak lain)</li>
+        <li>Lokasi yang akurat (Aplikasi tidak pernah meminta izin lokasi)</li>
+        <li>Pengidentifikasi iklan (IDFA / ID iklan Android) atau pengidentifikasi apa pun yang digunakan untuk melacak pengguna di berbagai aplikasi atau situs web</li>
     </ul>
+    <p>Sebagian data teknis, seperti alamat IP dan informasi perangkat, diterima oleh penyedia layanan pihak ketiga yang tercantum di bagian 4.</p>
 
     <h2>3. Informasi yang Disimpan Secara Lokal</h2>
     <p>Data berikut HANYA disimpan di perangkat pengguna dan tidak pernah dikirim ke server kami:</p>
     <ul>
         <li>Gambar dan berkas karya seni</li>
+        <li>Foto yang digunakan Sihir Foto, disimpan di perangkat bersama halaman mewarnai yang dihasilkan darinya agar dapat ditampilkan sebagai acuan warna — foto itu tidak pernah meninggalkan perangkat dan dihapus bersama karya seni tersebut</li>
         <li>Preferensi aplikasi (tema, bahasa, mode usia)</li>
         <li>Progres menggambar dan pencapaian</li>
         <li>Nama tampilan opsional (dimasukkan saat pengaturan awal)</li>
+        <li>PIN orang tua opsional, yang hanya disimpan sebagai hash satu arah bergaram di penyimpanan aman perangkat</li>
     </ul>
 
-    <h2>4. Layanan Pihak Ketiga</h2>
-    <p>Aplikasi menggunakan layanan pihak ketiga berikut:</p>
-    <ul>
-        <li>Firebase Analytics: Hanya statistik penggunaan anonim dan agregat (tanpa PII)</li>
-        <li>Firebase Crashlytics: Laporan kerusakan anonim untuk peningkatan stabilitas</li>
-        <li>Google AdMob: Hanya iklan yang tidak dipersonalisasi dan ditujukan untuk anak</li>
-        <li>Firebase Remote Config: Konfigurasi aplikasi (tanpa pengiriman data pengguna)</li>
-    </ul>
+    <h2>4. Penyedia Layanan</h2>
+    <p>Tabel di bawah ini adalah daftar lengkap pihak ketiga yang menerima data apa pun dari Aplikasi. Tidak satu pun dari mereka menerima gambar, foto, nama tampilan, atau apa pun lainnya yang dibuat di Aplikasi. Setiap penyedia menangani data berdasarkan kebijakan privasinya sendiri.</p>
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>Penyedia</th>
+                <th>Tujuan</th>
+                <th>Data yang diterima</th>
+                <th>Kebijakan privasi</th>
+            </tr>
+            <tr>
+                <td>Google Firebase Analytics</td>
+                <td>Statistik penggunaan anonim dan agregat dari peristiwa standar yang dikumpulkan Firebase secara otomatis (seperti membuka aplikasi, sesi, dan pembaruan aplikasi). Aplikasi tidak mengirim peristiwa khusus apa pun.</td>
+                <td>Pengidentifikasi instalasi dan perangkat yang hanya digunakan untuk analitik (bukan pengidentifikasi iklan), model perangkat, versi sistem operasi dan aplikasi, bahasa, serta perkiraan negara atau wilayah yang diturunkan dari alamat IP.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Crashlytics</td>
+                <td>Laporan kerusakan, hanya digunakan untuk memperbaiki masalah stabilitas.</td>
+                <td>Detail teknis kerusakan (pesan kesalahan dan jejak tumpukan), model perangkat, versi sistem operasi dan aplikasi, serta pengidentifikasi instalasi Crashlytics.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Remote Config</td>
+                <td>Mengunduh pengaturan aplikasi, seperti batas versi gratis serta pemberitahuan pemeliharaan atau pembaruan.</td>
+                <td>Pengidentifikasi instalasi Firebase, versi aplikasi, platform, serta bahasa atau negara.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google AdMob</td>
+                <td>Iklan video berhadiah opsional, hanya di versi gratis (lihat bagian 5). SDK iklan tidak dijalankan untuk pelanggan Pikura Plus.</td>
+                <td>Alamat IP, informasi perangkat dan sistem operasi, bahasa, informasi aplikasi, dan interaksi dengan iklan. Aplikasi tidak pernah meminta izin pelacakan di iOS dan tidak memiliki akses ke ID iklan di Android, sehingga tidak memberikan pengidentifikasi iklan apa pun. Bergantung pada pilihan persetujuan (lihat bagian 5) dan hukum setempat, Google dapat menggunakan data ini untuk mempersonalisasi iklan. Personalisasi ini hanya berlaku untuk profil Dewasa; untuk profil anak (Mini dan Junior), permintaan ditandai sebagai ditujukan untuk anak dan iklan tidak dipersonalisasi. Di iOS, iklan tidak dipersonalisasi di profil mana pun.</td>
+                <td><a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></td>
+            </tr>
+            <tr>
+                <td>Qonversion</td>
+                <td>Memvalidasi langganan dan memulihkan pembelian.</td>
+                <td>Status pembelian dan langganan dari toko, pengidentifikasi instalasi anonim yang dijelaskan di bawah, model perangkat, versi sistem operasi dan aplikasi, serta alamat IP. Tanpa nama, alamat email, atau detail kartu pembayaran.</td>
+                <td><a href="https://qonversion.io/privacy">qonversion.io/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Apple App Store / Google Play</td>
+                <td>Pembayaran, pengelolaan langganan, dan permintaan penilaian opsional.</td>
+                <td>Ditangani melalui akun toko Anda sendiri. Kami tidak pernah menerima detail kartu pembayaran.</td>
+                <td><a href="https://www.apple.com/legal/privacy/">www.apple.com/legal/privacy/</a><br><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+            <tr>
+                <td>GitHub Pages (GitHub, Inc.)</td>
+                <td>Menghosting versi terbaru dokumen hukum ini, yang dimuat oleh Aplikasi saat Anda membukanya.</td>
+                <td>Alamat IP dan data teknis permintaan, seperti pada situs web mana pun.</td>
+                <td><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a></td>
+            </tr>
+            <tr>
+                <td>Google Fonts</td>
+                <td>Mengunduh font, hanya ketika orang tua mengekspor PDF yang berisi teks bahasa Tionghoa, Jepang, atau Korea.</td>
+                <td>Alamat IP dan data teknis permintaan, seperti pada situs web mana pun.</td>
+                <td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+        </table>
+    </div>
+    <p>Hanya penyedia di atas yang menerima data. Komponen yang berjalan sepenuhnya di perangkat (misalnya model AI yang digunakan Sihir Foto, alat menggambar, dan notifikasi lokal) tidak mengirim apa pun ke mana pun. Jika kami menambah atau mengubah penyedia, kami akan memperbarui bagian ini.</p>
+    <h3>Pengidentifikasi instalasi anonim</h3>
+    <p>Agar pembelian dapat dipulihkan, Aplikasi membuat pengidentifikasi acak yang tidak terkait dengan nama, alamat email, perangkat, atau pengidentifikasi iklan, dan hanya membagikannya kepada Qonversion. Di iOS, pengidentifikasi ini disimpan di Keychain perangkat, yang tidak terhapus saat Aplikasi dicopot, sehingga pembelian tetap dapat dikenali setelah pemasangan ulang; pengidentifikasi ini tidak disinkronkan melalui iCloud. Di Android, pengidentifikasi ini dihapus saat Aplikasi dicopot.</p>
 
     <h2>5. Iklan</h2>
-    <p>Iklan bersifat:</p>
+    <p>Versi gratis Aplikasi hanya menampilkan iklan video berhadiah yang bersifat opsional. Video hanya diputar ketika pengguna mengetuk untuk menontonnya demi mendapatkan hadiah kecil, misalnya satu kali tambahan penggunaan Sihir Foto, ruang Galeri tambahan, set kuas khusus untuk sesi menggambar saat ini, pembekuan runtutan, atau akses sementara ke halaman mewarnai. Aplikasi tidak menampilkan iklan banner, iklan interstisial (pop-up layar penuh), atau iklan yang disisipkan di antara konten. Iklan:</p>
     <ul>
-        <li>Tidak dipersonalisasi (tanpa penargetan perilaku)</li>
-        <li>Ditandai sebagai konten untuk anak (tagForChildDirectedTreatment)</li>
+        <li>Disediakan oleh Google AdMob. Di profil anak (Mini dan Junior), permintaan iklan ditandai sebagai ditujukan untuk anak dan berasal dari pengguna di bawah usia persetujuan, dan tidak ada formulir persetujuan yang ditampilkan. Di profil Dewasa, jika diwajibkan oleh hukum (misalnya di Wilayah Ekonomi Eropa dan Britania Raya), formulir persetujuan Google ditampilkan terlebih dahulu, iklan hanya diminta jika formulir tersebut mengizinkannya, dan bila diperlukan pilihan dapat ditinjau kembali di Zona Orang Tua &gt; Opsi privasi iklan</li>
+        <li>Hanya dipersonalisasi di profil Dewasa: di sana, bergantung pada pilihan persetujuan dan hukum setempat, Google dapat menggunakan data seperti alamat IP dan informasi perangkat untuk menampilkan dan mempersonalisasi iklan. Iklan di profil anak tidak pernah dipersonalisasi. Di iOS, iklan tidak dipersonalisasi di profil mana pun. Cara Google menggunakan data ini: <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></li>
         <li>Sesuai usia (rating konten maksimum: G)</li>
-        <li>Tidak ditampilkan di layar menggambar/mewarnai/pelajaran</li>
+        <li>Tidak pernah dimulai oleh Aplikasi dengan sendirinya: layar menggambar, mewarnai, dan pelajaran tidak menampilkan iklan kecuali pengguna memilih untuk menonton video berhadiah di sana (misalnya untuk membuka kuas khusus)</li>
+        <li>Tidak pernah ditampilkan kepada pelanggan Pikura Plus</li>
     </ul>
 
-    <h2>6. Kontrol Orang Tua</h2>
-    <p>Orang tua dapat mengakses Zona Orang Tua (dilindungi oleh gerbang orang tua) untuk:</p>
+    <h2>6. Orang Tua dan Anak</h2>
+    <p>Pikura dibuat untuk anak-anak maupun orang dewasa. Orang tua atau wali sebaiknya mengawasi anak kecil saat mereka menggunakan Aplikasi. Profil yang dipilih saat penyiapan (3-5, 6-11, atau Dewasa) hanya disimpan di perangkat dan hanya digunakan untuk menyesuaikan Aplikasi dan menentukan cara iklan diminta (lihat bagian 5).</p>
+    <p>Di profil anak, gerbang orang tua (soal perkalian, atau PIN orang tua opsional) melindungi pembelian, Zona Orang Tua, berbagi dan mengekspor karya, serta menghapus karya. Profil Dewasa melewati gerbang orang tua; beralih ke profil ini memerlukan satu kali melewati gerbang. Di Zona Orang Tua, orang tua dapat:</p>
     <ul>
         <li>Mengelola pengaturan aplikasi</li>
         <li>Mengontrol preferensi notifikasi</li>
         <li>Mengekspor atau menghapus semua data</li>
         <li>Mengelola langganan</li>
     </ul>
+    <p>Iklan bersifat opsional. Menonton video berhadiah tidak dilindungi oleh gerbang orang tua karena itu bukan pembelian. Orang tua yang tidak ingin anaknya melihat iklan dapat berlangganan Pikura Plus, sehingga SDK iklan sama sekali tidak dijalankan, atau memastikan anak tidak memilih tawaran opsional untuk menonton video.</p>
 
     <h2>7. Penghapusan Data</h2>
-    <p>Semua data aplikasi dapat dihapus melalui Zona Orang Tua &gt; Hapus Semua Data. Mencopot pemasangan aplikasi juga akan menghapus semua data yang tersimpan.</p>
+    <p>Semua data aplikasi (gambar, foto yang disimpan untuk Sihir Foto, progres, pengaturan, dan nama tampilan) dapat dihapus melalui Zona Orang Tua &gt; Hapus Semua Data. Mencopot Aplikasi juga menghapus data ini dari perangkat. Di iOS, pengidentifikasi instalasi anonim yang dijelaskan di bagian 4 tetap berada di Keychain agar pembelian dapat dipulihkan setelah pemasangan ulang; pengidentifikasi ini tidak berisi informasi pribadi apa pun.</p>
 
     <h2>8. Keamanan</h2>
-    <p>Semua data tetap berada di perangkat. Tidak diperlukan akun cloud atau login. Pembelian premium terikat pada akun toko aplikasi, bukan pada pengidentifikasi apa pun yang kami buat.</p>
+    <p>Gambar, foto, dan pengaturan pribadi tetap berada di perangkat. Tidak diperlukan akun cloud atau login. Pembelian premium terkait dengan akun App Store atau Google Play Anda; Qonversion hanya menerima pengidentifikasi instalasi anonim yang dijelaskan di bagian 4, tidak pernah nama atau alamat email. Data yang dikirim ke penyedia layanan di bagian 4 dikirimkan melalui koneksi terenkripsi (HTTPS).</p>
 
     <h2>9. Perubahan Kebijakan Ini</h2>
     <p>Kami akan memberi tahu pengguna tentang perubahan penting melalui pemberitahuan dalam aplikasi. Penggunaan yang berlanjut setelah perubahan dianggap sebagai bentuk penerimaan.</p>

@@ -20,6 +20,11 @@
         .contact-info { background-color: #e8f5e8; padding: 15px; border-radius: 5px; margin: 20px 0; }
         ul { padding-left: 20px; }
         .last-updated { font-style: italic; color: #7f8c8d; }
+        .table-wrap { overflow-x: auto; margin: 15px 0; }
+        table { border-collapse: collapse; width: 100%; font-size: 14px; }
+        th, td { border: 1px solid rgba(127, 127, 127, 0.45); padding: 8px; text-align: left; vertical-align: top; }
+        th { font-weight: 600; }
+        td a { color: inherit; overflow-wrap: anywhere; }
         @media (prefers-color-scheme: dark) {
             body { background-color: #1A1B2E; color: #F8F9FE; }
             h1 { color: #9A6BFF; border-bottom-color: #9A6BFF; }
@@ -50,63 +55,124 @@
 </head>
 <body>
     <h1>Pikura - Dasar Privasi</h1>
-    <p class="last-updated">Kemas kini terakhir: Oktober 2026</p>
+    <p class="last-updated">Kemas kini terakhir: 3 Oktober 2026</p>
 
     <h2>1. Gambaran Keseluruhan</h2>
-    <p>Pikura («Aplikasi») ialah aplikasi lukisan kanak-kanak yang dibangunkan oleh NTVTech. Kami komited untuk melindungi privasi kanak-kanak dan mematuhi COPPA (Akta Perlindungan Privasi Dalam Talian Kanak-kanak) serta GDPR-K.</p>
+    <p>Pikura («Aplikasi») ialah aplikasi melukis dan mewarna untuk kanak-kanak dan orang dewasa yang dibangunkan oleh NTVTech. Dasar ini menerangkan data yang kekal pada peranti, perkhidmatan pihak ketiga yang menerima data daripada Aplikasi, dan pilihan yang tersedia untuk ibu bapa.</p>
 
     <h2>2. Maklumat yang TIDAK Kami Kumpul</h2>
     <div class="highlight">
-        <strong>Kami tidak mengumpul sebarang maklumat peribadi daripada kanak-kanak</strong>, termasuk:
+        <strong>Tiada akaun diperlukan, dan kami tidak mengumpul:</strong>
     </div>
     <ul>
         <li>Nama, alamat e-mel atau maklumat hubungan lain</li>
-        <li>Foto (foto sumber untuk Photo Magic diproses dalam memori sahaja dan tidak pernah disimpan atau dihantar)</li>
-        <li>Data lokasi</li>
-        <li>Pengecam peranti untuk tujuan penjejakan</li>
+        <li>Foto (foto yang digunakan oleh Magik Foto diproses pada peranti dan tidak pernah dimuat naik kepada kami atau kepada sesiapa pun)</li>
+        <li>Lokasi tepat (Aplikasi tidak pernah meminta kebenaran lokasi)</li>
+        <li>Pengecam pengiklanan (IDFA / ID pengiklanan Android) atau sebarang pengecam yang digunakan untuk menjejak pengguna merentas aplikasi atau laman web</li>
     </ul>
+    <p>Sesetengah data teknikal, seperti alamat IP dan maklumat peranti, diterima oleh penyedia perkhidmatan pihak ketiga yang disenaraikan dalam bahagian 4.</p>
 
     <h2>3. Maklumat yang Disimpan Secara Setempat</h2>
     <p>Data berikut disimpan HANYA pada peranti pengguna dan tidak pernah dihantar ke pelayan kami:</p>
     <ul>
         <li>Lukisan dan fail karya seni</li>
+        <li>Foto yang digunakan oleh Magik Foto, disimpan pada peranti bersama halaman mewarna yang dihasilkan daripadanya supaya boleh dipaparkan sebagai rujukan warna — foto itu tidak pernah meninggalkan peranti dan dihapuskan bersama karya seni tersebut</li>
         <li>Keutamaan aplikasi (tema, bahasa, mod umur)</li>
         <li>Kemajuan lukisan dan pencapaian</li>
         <li>Nama paparan pilihan (dimasukkan semasa persediaan awal)</li>
+        <li>PIN ibu bapa pilihan, disimpan hanya sebagai cincangan sehala bergaram dalam storan selamat peranti</li>
     </ul>
 
-    <h2>4. Perkhidmatan Pihak Ketiga</h2>
-    <p>Aplikasi ini menggunakan perkhidmatan pihak ketiga berikut:</p>
-    <ul>
-        <li>Firebase Analytics: statistik penggunaan tanpa nama dan teragregat sahaja (tiada data peribadi)</li>
-        <li>Firebase Crashlytics: laporan ranap tanpa nama untuk penambahbaikan kestabilan</li>
-        <li>Google AdMob: iklan tidak diperibadikan khusus kanak-kanak sahaja</li>
-        <li>Firebase Remote Config: konfigurasi aplikasi (tiada data pengguna dihantar)</li>
-    </ul>
+    <h2>4. Penyedia Perkhidmatan</h2>
+    <p>Jadual di bawah ialah senarai lengkap pihak ketiga yang menerima sebarang data daripada Aplikasi. Tiada seorang pun daripada mereka menerima lukisan, foto, nama paparan atau apa-apa lagi yang dicipta dalam Aplikasi. Setiap penyedia mengendalikan data di bawah dasar privasinya sendiri.</p>
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>Penyedia</th>
+                <th>Tujuan</th>
+                <th>Data yang diterima</th>
+                <th>Dasar privasi</th>
+            </tr>
+            <tr>
+                <td>Google Firebase Analytics</td>
+                <td>Statistik penggunaan tanpa nama dan teragregat daripada peristiwa standard yang dikumpul secara automatik oleh Firebase (seperti pembukaan aplikasi, sesi dan kemas kini aplikasi). Aplikasi tidak menghantar sebarang peristiwa tersuai.</td>
+                <td>Pengecam pemasangan dan peranti yang digunakan untuk analitik sahaja (bukan pengecam pengiklanan), model peranti, versi sistem pengendalian dan aplikasi, bahasa, serta anggaran negara atau wilayah yang diperoleh daripada alamat IP.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Crashlytics</td>
+                <td>Laporan ranap, digunakan hanya untuk membaiki masalah kestabilan.</td>
+                <td>Butiran teknikal ranap (mesej ralat dan surih tindanan), model peranti, versi sistem pengendalian dan aplikasi, serta pengecam pemasangan Crashlytics.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Remote Config</td>
+                <td>Memuat turun tetapan aplikasi, seperti had versi percuma serta notis penyelenggaraan atau kemas kini.</td>
+                <td>Pengecam pemasangan Firebase, versi aplikasi, platform, serta bahasa atau negara.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google AdMob</td>
+                <td>Iklan video berganjaran pilihan dalam versi percuma sahaja (lihat bahagian 5). SDK iklan tidak dimulakan untuk pelanggan Pikura Plus.</td>
+                <td>Alamat IP, maklumat peranti dan sistem pengendalian, bahasa, maklumat aplikasi dan interaksi dengan iklan. Aplikasi tidak pernah meminta kebenaran penjejakan pada iOS dan tidak mempunyai akses kepada ID pengiklanan pada Android, jadi ia tidak memberikan sebarang pengecam pengiklanan. Bergantung pada pilihan persetujuan (lihat bahagian 5) dan undang-undang tempatan, Google boleh menggunakan data ini untuk memperibadikan iklan. Pemperibadian ini hanya terpakai pada profil Dewasa; bagi profil kanak-kanak (Mini dan Junior), permintaan ditandakan sebagai ditujukan kepada kanak-kanak dan iklan tidak diperibadikan. Pada iOS, iklan tidak diperibadikan dalam mana-mana profil.</td>
+                <td><a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></td>
+            </tr>
+            <tr>
+                <td>Qonversion</td>
+                <td>Mengesahkan langganan dan memulihkan pembelian.</td>
+                <td>Status pembelian dan langganan daripada gedung, pengecam pemasangan tanpa nama yang diterangkan di bawah, model peranti, versi sistem pengendalian dan aplikasi, serta alamat IP. Tiada nama, alamat e-mel atau butiran kad pembayaran.</td>
+                <td><a href="https://qonversion.io/privacy">qonversion.io/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Apple App Store / Google Play</td>
+                <td>Pembayaran, pengurusan langganan dan gesaan penilaian pilihan.</td>
+                <td>Dikendalikan di bawah akaun gedung anda sendiri. Kami tidak pernah menerima butiran kad pembayaran.</td>
+                <td><a href="https://www.apple.com/legal/privacy/">www.apple.com/legal/privacy/</a><br><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+            <tr>
+                <td>GitHub Pages (GitHub, Inc.)</td>
+                <td>Mengehos versi terkini dokumen undang-undang ini, yang dimuatkan oleh Aplikasi apabila anda membukanya.</td>
+                <td>Alamat IP dan data teknikal permintaan, seperti bagi mana-mana laman web.</td>
+                <td><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a></td>
+            </tr>
+            <tr>
+                <td>Google Fonts</td>
+                <td>Memuat turun fon, hanya apabila ibu bapa mengeksport PDF yang mengandungi teks bahasa Cina, Jepun atau Korea.</td>
+                <td>Alamat IP dan data teknikal permintaan, seperti bagi mana-mana laman web.</td>
+                <td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+        </table>
+    </div>
+    <p>Hanya penyedia di atas yang menerima data. Komponen yang berjalan sepenuhnya pada peranti (contohnya model AI yang digunakan oleh Magik Foto, alat lukisan dan pemberitahuan setempat) tidak menghantar apa-apa ke mana-mana. Jika kami menambah atau menukar penyedia, kami akan mengemas kini bahagian ini.</p>
+    <h3>Pengecam pemasangan tanpa nama</h3>
+    <p>Bagi membolehkan pembelian dipulihkan, Aplikasi mencipta pengecam rawak yang tidak dikaitkan dengan nama, alamat e-mel, peranti atau pengecam pengiklanan, dan berkongsinya hanya dengan Qonversion. Pada iOS, pengecam ini disimpan dalam Keychain peranti, yang tidak dipadamkan apabila Aplikasi dinyahpasang, jadi pembelian masih boleh dikenali selepas pemasangan semula; pengecam ini tidak disegerakkan melalui iCloud. Pada Android, pengecam ini dipadamkan apabila Aplikasi dinyahpasang.</p>
 
     <h2>5. Pengiklanan</h2>
-    <p>Iklan adalah:</p>
+    <p>Versi percuma Aplikasi hanya memaparkan iklan video berganjaran pilihan. Video dimainkan hanya apabila pengguna mengetik untuk menontonnya sebagai pertukaran untuk ganjaran kecil, contohnya satu penggunaan tambahan Magik Foto, lebih banyak ruang Galeri, set berus khas untuk sesi lukisan semasa, pembekuan rentetan hari, atau akses sementara kepada halaman mewarna. Aplikasi tidak memaparkan iklan sepanduk, iklan selitan (pop-up skrin penuh) atau iklan yang diletakkan di celah-celah kandungan. Iklan:</p>
     <ul>
-        <li>Tidak diperibadikan (tiada penyasaran tingkah laku)</li>
-        <li>Ditanda sebagai khusus kanak-kanak (tagForChildDirectedTreatment)</li>
-        <li>Sesuai dengan umur (penarafan kandungan maksimum: G)</li>
-        <li>Tidak dipaparkan pada skrin melukis, mewarna atau pelajaran</li>
+        <li>Disediakan oleh Google AdMob. Dalam profil kanak-kanak (Mini dan Junior), permintaan iklan ditandakan sebagai ditujukan kepada kanak-kanak dan datang daripada pengguna di bawah umur persetujuan, dan tiada borang persetujuan dipaparkan. Dalam profil Dewasa, di tempat yang dikehendaki oleh undang-undang (contohnya di Kawasan Ekonomi Eropah dan United Kingdom), borang persetujuan Google dipaparkan terlebih dahulu, iklan hanya diminta jika borang itu membenarkannya, dan jika perlu pilihan boleh disemak semula kemudian di Zon Ibu Bapa &gt; Pilihan privasi iklan</li>
+        <li>Diperibadikan hanya dalam profil Dewasa: di situ, bergantung pada pilihan persetujuan dan undang-undang tempatan, Google boleh menggunakan data seperti alamat IP dan maklumat peranti untuk memaparkan dan memperibadikan iklan. Iklan dalam profil kanak-kanak tidak pernah diperibadikan. Pada iOS, iklan tidak diperibadikan dalam mana-mana profil. Cara Google menggunakan data ini: <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></li>
+        <li>Sesuai mengikut umur (penarafan kandungan maksimum: G)</li>
+        <li>Tidak pernah dimulakan oleh Aplikasi dengan sendirinya: skrin lukisan, mewarna dan pelajaran tidak memaparkan iklan melainkan pengguna memilih untuk menonton video berganjaran di situ (contohnya untuk membuka berus khas)</li>
+        <li>Tidak pernah dipaparkan kepada pelanggan Pikura Plus</li>
     </ul>
 
-    <h2>6. Kawalan Ibu Bapa</h2>
-    <p>Ibu bapa boleh mengakses Zon Ibu Bapa (dilindungi oleh get ibu bapa) untuk:</p>
+    <h2>6. Ibu Bapa dan Kanak-kanak</h2>
+    <p>Pikura dibuat untuk kanak-kanak dan juga orang dewasa. Ibu bapa atau penjaga hendaklah mengawasi kanak-kanak kecil semasa mereka menggunakan Aplikasi. Profil yang dipilih semasa persediaan (3-5, 6-11 atau Dewasa) disimpan hanya pada peranti dan digunakan hanya untuk menyesuaikan Aplikasi dan menentukan cara iklan diminta (lihat bahagian 5).</p>
+    <p>Dalam profil kanak-kanak, get ibu bapa (soalan pendaraban, atau PIN ibu bapa pilihan) melindungi pembelian, Zon Ibu Bapa, perkongsian dan eksport karya, serta pemadaman karya. Profil Dewasa melangkau get ibu bapa; bertukar kepada profil ini memerlukan get dilepasi sekali. Dalam Zon Ibu Bapa, ibu bapa boleh:</p>
     <ul>
         <li>Mengurus tetapan aplikasi</li>
         <li>Mengawal keutamaan pemberitahuan</li>
         <li>Mengeksport atau memadamkan semua data</li>
         <li>Mengurus langganan</li>
     </ul>
+    <p>Iklan adalah pilihan. Menonton video berganjaran tidak dilindungi oleh get ibu bapa kerana ia bukan pembelian. Ibu bapa yang tidak mahu anak melihat iklan boleh melanggan Pikura Plus, dan dalam keadaan itu SDK iklan langsung tidak dimulakan, atau memastikan anak tidak memilih tawaran pilihan untuk menonton video.</p>
 
     <h2>7. Pemadaman Data</h2>
-    <p>Semua data aplikasi boleh dipadamkan melalui Zon Ibu Bapa &gt; Padam Semua Data. Menyahpasang aplikasi juga membuang semua data yang disimpan.</p>
+    <p>Semua data aplikasi (lukisan, foto yang disimpan untuk Magik Foto, kemajuan, tetapan dan nama paparan) boleh dipadamkan melalui Zon Ibu Bapa &gt; Padam Semua Data. Menyahpasang Aplikasi juga memadamkan data ini daripada peranti. Pada iOS, pengecam pemasangan tanpa nama yang diterangkan dalam bahagian 4 kekal dalam Keychain supaya pembelian boleh dipulihkan selepas pemasangan semula; pengecam ini tidak mengandungi sebarang maklumat peribadi.</p>
 
     <h2>8. Keselamatan</h2>
-    <p>Semua data kekal pada peranti. Tiada akaun awan atau log masuk diperlukan. Pembelian premium terikat pada akaun gedung aplikasi, bukan pada sebarang pengecam yang kami cipta.</p>
+    <p>Lukisan, foto dan tetapan peribadi kekal pada peranti. Tiada akaun awan atau log masuk diperlukan. Pembelian premium dikaitkan dengan akaun App Store atau Google Play anda; Qonversion hanya menerima pengecam pemasangan tanpa nama yang diterangkan dalam bahagian 4, tidak pernah nama atau alamat e-mel. Data yang dihantar kepada penyedia perkhidmatan dalam bahagian 4 dipindahkan melalui sambungan yang disulitkan (HTTPS).</p>
 
     <h2>9. Perubahan kepada Dasar Ini</h2>
     <p>Kami akan memaklumkan pengguna tentang perubahan penting melalui notis dalam aplikasi. Penggunaan berterusan selepas perubahan dianggap sebagai penerimaan.</p>

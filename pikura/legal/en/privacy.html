@@ -20,6 +20,11 @@
         .contact-info { background-color: #e8f5e8; padding: 15px; border-radius: 5px; margin: 20px 0; }
         ul { padding-left: 20px; }
         .last-updated { font-style: italic; color: #7f8c8d; }
+        .table-wrap { overflow-x: auto; margin: 15px 0; }
+        table { border-collapse: collapse; width: 100%; font-size: 14px; }
+        th, td { border: 1px solid rgba(127, 127, 127, 0.45); padding: 8px; text-align: left; vertical-align: top; }
+        th { font-weight: 600; }
+        td a { color: inherit; overflow-wrap: anywhere; }
         @media (prefers-color-scheme: dark) {
             body { background-color: #1A1B2E; color: #F8F9FE; }
             h1 { color: #9A6BFF; border-bottom-color: #9A6BFF; }
@@ -50,63 +55,124 @@
 </head>
 <body>
     <h1>Pikura - Privacy Policy</h1>
-    <p class="last-updated">Last updated: October 2026</p>
+    <p class="last-updated">Last updated: October 3, 2026</p>
 
     <h2>1. Overview</h2>
-    <p>Pikura ("the App") is a children's drawing application developed by NTVTech. We are committed to protecting children's privacy and comply with COPPA (Children's Online Privacy Protection Act) and GDPR-K.</p>
+    <p>Pikura ("the App") is a drawing and coloring application for children and adults, developed by NTVTech. This policy explains which data stays on the device, which third-party services receive data from the App, and the choices available to parents.</p>
 
     <h2>2. Information We Do NOT Collect</h2>
     <div class="highlight">
-        <strong>We do not collect any personal information from children</strong>, including:
+        <strong>No account is required, and we do not collect:</strong>
     </div>
     <ul>
         <li>Names, email addresses, or other contact information</li>
-        <li>Photos (source photos for Photo Magic are processed in-memory only and never stored or transmitted)</li>
-        <li>Location data</li>
-        <li>Device identifiers for tracking purposes</li>
+        <li>Photos (photos used by Photo Magic are processed on the device and are never uploaded to us or to anyone else)</li>
+        <li>Precise location (the App never asks for location permission)</li>
+        <li>Advertising identifiers (IDFA / Android advertising ID) or any identifier used to track users across apps or websites</li>
     </ul>
+    <p>Some technical data, such as the IP address and device information, is received by the third-party service providers listed in section 4.</p>
 
     <h2>3. Information Stored Locally</h2>
     <p>The following data is stored ONLY on the user's device and is never transmitted to our servers:</p>
     <ul>
         <li>Drawings and artwork files</li>
+        <li>The photo used by Photo Magic, kept on the device alongside the coloring page it created so it can be shown as a color reference — it never leaves the device and is deleted together with that artwork</li>
         <li>App preferences (theme, language, age mode)</li>
         <li>Drawing progress and achievements</li>
         <li>Optional display name (entered during onboarding)</li>
+        <li>Optional parent PIN, stored only as a salted one-way hash in the device's secure storage</li>
     </ul>
 
-    <h2>4. Third-Party Services</h2>
-    <p>The App uses the following third-party services:</p>
-    <ul>
-        <li>Firebase Analytics: Anonymous, aggregated usage statistics only (no PII)</li>
-        <li>Firebase Crashlytics: Anonymous crash reports for stability improvement</li>
-        <li>Google AdMob: Non-personalized, child-directed advertisements only</li>
-        <li>Firebase Remote Config: App configuration (no user data transmitted)</li>
-    </ul>
+    <h2>4. Service Providers</h2>
+    <p>The table below is the complete list of third parties that receive any data from the App. None of them receives the drawings, photos, display name or anything else created in the App. Each provider handles data under its own privacy policy.</p>
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>Provider</th>
+                <th>Purpose</th>
+                <th>Data received</th>
+                <th>Privacy policy</th>
+            </tr>
+            <tr>
+                <td>Google Firebase Analytics</td>
+                <td>Anonymous, aggregated usage statistics from standard events that Firebase collects automatically (such as app opens, sessions and app updates). The App sends no custom events.</td>
+                <td>Installation and device identifiers used only for analytics (not advertising identifiers), device model, operating system and app version, language, and approximate country or region derived from the IP address.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Crashlytics</td>
+                <td>Crash reports, used only to fix stability problems.</td>
+                <td>Technical crash details (error message and stack trace), device model, operating system and app version, and a Crashlytics installation identifier.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Remote Config</td>
+                <td>Downloading app settings, such as free-version limits and maintenance or update notices.</td>
+                <td>A Firebase installation identifier, app version, platform, and language or country.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google AdMob</td>
+                <td>Optional rewarded video ads in the free version only (see section 5). The ad SDK is not started for Pikura Plus subscribers.</td>
+                <td>IP address, device and operating system information, language, app information and interactions with the ad. The App never asks for tracking permission on iOS and has no access to the advertising ID on Android, so it provides no advertising identifier. Depending on consent choices (see section 5) and local law, Google may use this data to personalize ads. This personalization applies only to the Adult profile; for the child profiles (Mini and Junior), requests are tagged for child-directed treatment and ads are not personalized. On iOS, ads are not personalized in any profile.</td>
+                <td><a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></td>
+            </tr>
+            <tr>
+                <td>Qonversion</td>
+                <td>Validating subscriptions and restoring purchases.</td>
+                <td>Purchase and subscription status from the store, the anonymous installation identifier described below, device model, operating system and app version, and IP address. No name, email address or payment card details.</td>
+                <td><a href="https://qonversion.io/privacy">qonversion.io/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Apple App Store / Google Play</td>
+                <td>Payments, subscription management and the optional rating prompt.</td>
+                <td>Handled under your own store account. We never receive payment card details.</td>
+                <td><a href="https://www.apple.com/legal/privacy/">www.apple.com/legal/privacy/</a><br><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+            <tr>
+                <td>GitHub Pages (GitHub, Inc.)</td>
+                <td>Hosting the latest version of these legal documents, which the App loads when you open them.</td>
+                <td>IP address and technical request data, as for any website.</td>
+                <td><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a></td>
+            </tr>
+            <tr>
+                <td>Google Fonts</td>
+                <td>Downloading a font, only when a parent exports a PDF that contains Chinese, Japanese or Korean text.</td>
+                <td>IP address and technical request data, as for any website.</td>
+                <td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+        </table>
+    </div>
+    <p>Only the providers above receive data. Components that run entirely on the device (for example the AI models used by Photo Magic, the drawing tools and local notifications) send nothing anywhere. If we add or change a provider, we will update this section.</p>
+    <h3>Anonymous installation identifier</h3>
+    <p>To let a purchase be restored, the App creates a random identifier that is not linked to a name, email address, device or advertising identifier, and shares it only with Qonversion. On iOS it is kept in the device Keychain, which is not removed when the App is uninstalled, so a purchase can still be recognized after reinstalling; it is not synced through iCloud. On Android it is removed when the App is uninstalled.</p>
 
     <h2>5. Advertising</h2>
-    <p>Advertisements are:</p>
+    <p>The free version of the App shows only optional rewarded video ads. A video plays only when a user taps to watch one in exchange for a small reward, for example one extra Photo Magic use, more Gallery space, the special brush set for the current drawing session, a streak freeze, or temporary access to a coloring page. The App does not show banner ads, interstitial (full-screen pop-up) ads or ads placed among content. Ads are:</p>
     <ul>
-        <li>Non-personalized (no behavioral targeting)</li>
-        <li>Marked as child-directed (tagForChildDirectedTreatment)</li>
+        <li>Provided by Google AdMob. In the child profiles (Mini and Junior), ad requests are tagged for child-directed treatment and as coming from users under the age of consent, and no consent form is shown. In the Adult profile, where the law requires it (for example in the European Economic Area and the United Kingdom), Google's consent form is shown first, ads are requested only if that form allows it, and where required the choice can be reviewed later under Parent Zone &gt; Ad privacy options</li>
+        <li>Personalized only in the Adult profile: there, depending on consent choices and local law, Google may use data such as the IP address and device information to show and personalize ads. Ads in the child profiles are never personalized. On iOS, ads are not personalized in any profile. How Google uses this data: <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></li>
         <li>Age-appropriate (max content rating: G)</li>
-        <li>Not displayed on drawing/coloring/lesson screens</li>
+        <li>Never started by the App on its own: drawing, coloring and lesson screens show no ads unless a user chooses to watch a rewarded video there (for example to unlock the special brushes)</li>
+        <li>Never shown to Pikura Plus subscribers</li>
     </ul>
 
-    <h2>6. Parental Controls</h2>
-    <p>Parents can access the Parent Zone (protected by a parental gate) to:</p>
+    <h2>6. Parents and Children</h2>
+    <p>Pikura is made for both children and adults. Parents or guardians should supervise young children when they use the App. The profile chosen during setup (3-5, 6-11 or Adult) is stored only on the device and is used only to adapt the App and to decide how ads are requested (see section 5).</p>
+    <p>In the child profiles, a parental gate (a multiplication question, or an optional parent PIN) protects purchases, the Parent Zone, sharing and exporting artwork, and deleting artwork. The Adult profile skips the parental gate; switching to it requires passing the gate once. In the Parent Zone, parents can:</p>
     <ul>
         <li>Manage app settings</li>
         <li>Control notification preferences</li>
         <li>Export or delete all data</li>
         <li>Manage subscription</li>
     </ul>
+    <p>Ads are optional. Watching a rewarded video is not protected by the parental gate, because it is not a purchase. A parent who does not want a child to see ads can subscribe to Pikura Plus, in which case the ad SDK is not started at all, or make sure the child does not choose the optional offers to watch a video.</p>
 
     <h2>7. Data Deletion</h2>
-    <p>All app data can be deleted through Parent Zone &gt; Delete All Data. Uninstalling the app also removes all stored data.</p>
+    <p>All app data (drawings, photos kept for Photo Magic, progress, settings and display name) can be deleted through Parent Zone &gt; Delete All Data. Uninstalling the App also removes this data from the device. On iOS, the anonymous installation identifier described in section 4 stays in the Keychain so that purchases can be restored after reinstalling; it contains no personal information.</p>
 
     <h2>8. Security</h2>
-    <p>All data remains on-device. No cloud accounts or logins are required. Premium purchases are tied to the app store account, not to any identifier we create.</p>
+    <p>Drawings, photos and personal settings remain on the device. No cloud accounts or logins are required. Premium purchases are tied to your App Store or Google Play account; Qonversion receives only the anonymous installation identifier described in section 4, never a name or email address. Data sent to the service providers in section 4 travels over encrypted (HTTPS) connections.</p>
 
     <h2>9. Changes to This Policy</h2>
     <p>We will notify users of significant changes through an in-app notice. Continued use after changes constitutes acceptance.</p>

@@ -20,6 +20,11 @@
         .contact-info { background-color: #e8f5e8; padding: 15px; border-radius: 5px; margin: 20px 0; }
         ul { padding-left: 20px; }
         .last-updated { font-style: italic; color: #7f8c8d; }
+        .table-wrap { overflow-x: auto; margin: 15px 0; }
+        table { border-collapse: collapse; width: 100%; font-size: 14px; }
+        th, td { border: 1px solid rgba(127, 127, 127, 0.45); padding: 8px; text-align: left; vertical-align: top; }
+        th { font-weight: 600; }
+        td a { color: inherit; overflow-wrap: anywhere; }
         @media (prefers-color-scheme: dark) {
             body { background-color: #1A1B2E; color: #F8F9FE; }
             h1 { color: #9A6BFF; border-bottom-color: #9A6BFF; }
@@ -50,63 +55,124 @@
 </head>
 <body>
     <h1>Pikura - Privacybeleid</h1>
-    <p class="last-updated">Laatst bijgewerkt: oktober 2026</p>
+    <p class="last-updated">Laatst bijgewerkt: 3 oktober 2026</p>
 
     <h2>1. Overzicht</h2>
-    <p>Pikura ('de App') is een tekenapp voor kinderen, ontwikkeld door NTVTech. Wij zetten ons in voor de bescherming van de privacy van kinderen en voldoen aan COPPA (Children's Online Privacy Protection Act) en GDPR-K.</p>
+    <p>Pikura ('de App') is een teken- en kleurapp voor kinderen en volwassenen, ontwikkeld door NTVTech. Dit beleid legt uit welke gegevens op het apparaat blijven, welke diensten van derden gegevens van de App ontvangen en welke keuzes ouders hebben.</p>
 
     <h2>2. Informatie die wij NIET verzamelen</h2>
     <div class="highlight">
-        <strong>Wij verzamelen geen enkele persoonlijke informatie van kinderen</strong>, waaronder:
+        <strong>Er is geen account nodig, en wij verzamelen geen:</strong>
     </div>
     <ul>
         <li>Namen, e-mailadressen of andere contactgegevens</li>
-        <li>Foto's (bronfoto's voor Photo Magic worden uitsluitend in het geheugen verwerkt en nooit opgeslagen of verzonden)</li>
-        <li>Locatiegegevens</li>
-        <li>Apparaat-ID's voor trackingdoeleinden</li>
+        <li>Foto's (foto's die Foto-magie gebruikt, worden op het apparaat verwerkt en nooit geüpload naar ons of naar iemand anders)</li>
+        <li>Precieze locatie (de App vraagt nooit om locatietoestemming)</li>
+        <li>Advertentie-ID's (IDFA / Android-advertentie-ID) of andere ID's die worden gebruikt om gebruikers over apps of websites heen te volgen</li>
     </ul>
+    <p>Sommige technische gegevens, zoals het IP-adres en apparaatinformatie, worden ontvangen door de externe dienstverleners die in sectie 4 staan vermeld.</p>
 
     <h2>3. Lokaal opgeslagen informatie</h2>
     <p>De volgende gegevens worden UITSLUITEND op het apparaat van de gebruiker opgeslagen en nooit naar onze servers verzonden:</p>
     <ul>
         <li>Tekeningen en kunstwerkbestanden</li>
+        <li>De foto die Foto-magie heeft gebruikt, die op het apparaat bij de kleurplaat blijft staan die eruit is gemaakt, zodat deze als kleurvoorbeeld kan worden weergegeven – de foto verlaat het apparaat nooit en wordt samen met dat kunstwerk verwijderd</li>
         <li>App-voorkeuren (thema, taal, leeftijdsmodus)</li>
         <li>Tekenvoortgang en prestaties</li>
         <li>Optionele weergavenaam (ingevoerd tijdens de eerste installatie)</li>
+        <li>Optionele ouder-pincode, uitsluitend opgeslagen als gezouten eenrichtingshash in de beveiligde opslag van het apparaat</li>
     </ul>
 
-    <h2>4. Diensten van derden</h2>
-    <p>De App maakt gebruik van de volgende diensten van derden:</p>
-    <ul>
-        <li>Firebase Analytics: uitsluitend anonieme, geaggregeerde gebruiksstatistieken (geen persoonsgegevens)</li>
-        <li>Firebase Crashlytics: anonieme crashrapporten ter verbetering van de stabiliteit</li>
-        <li>Google AdMob: uitsluitend niet-gepersonaliseerde, kindgerichte advertenties</li>
-        <li>Firebase Remote Config: app-configuratie (er worden geen gebruikersgegevens verzonden)</li>
-    </ul>
+    <h2>4. Dienstverleners</h2>
+    <p>De onderstaande tabel is de volledige lijst van derden die gegevens van de App ontvangen. Geen van hen ontvangt de tekeningen, foto's, weergavenaam of iets anders dat in de App is gemaakt. Elke dienstverlener verwerkt gegevens volgens zijn eigen privacybeleid.</p>
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>Dienstverlener</th>
+                <th>Doel</th>
+                <th>Ontvangen gegevens</th>
+                <th>Privacybeleid</th>
+            </tr>
+            <tr>
+                <td>Google Firebase Analytics</td>
+                <td>Anonieme, geaggregeerde gebruiksstatistieken op basis van standaardgebeurtenissen die Firebase automatisch verzamelt (zoals het openen van de app, sessies en app-updates). De App verstuurt geen aangepaste gebeurtenissen.</td>
+                <td>Installatie- en apparaat-ID's die alleen voor statistieken worden gebruikt (geen advertentie-ID's), apparaatmodel, versie van het besturingssysteem en de app, taal, en het bij benadering bepaalde land of de regio, afgeleid van het IP-adres.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Crashlytics</td>
+                <td>Crashrapporten, uitsluitend gebruikt om stabiliteitsproblemen op te lossen.</td>
+                <td>Technische crashgegevens (foutmelding en stacktrace), apparaatmodel, versie van het besturingssysteem en de app, en een Crashlytics-installatie-ID.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Remote Config</td>
+                <td>Het downloaden van app-instellingen, zoals limieten van de gratis versie en onderhouds- of updatemeldingen.</td>
+                <td>Een Firebase-installatie-ID, app-versie, platform, en taal of land.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google AdMob</td>
+                <td>Optionele videoadvertenties met beloning, alleen in de gratis versie (zie sectie 5). De advertentie-SDK wordt niet gestart voor abonnees van Pikura Plus.</td>
+                <td>IP-adres, informatie over het apparaat en het besturingssysteem, taal, app-informatie en interacties met de advertentie. De App vraagt op iOS nooit toestemming voor tracking en heeft op Android geen toegang tot de advertentie-ID, en levert dus geen advertentie-ID. Afhankelijk van de toestemmingskeuzes (zie sectie 5) en de plaatselijke wetgeving kan Google deze gegevens gebruiken om advertenties te personaliseren. Deze personalisatie geldt alleen voor het profiel Volwassene; voor de kinderprofielen (Mini en Junior) worden verzoeken gemarkeerd als gericht op kinderen en worden advertenties niet gepersonaliseerd. Op iOS worden advertenties in geen enkel profiel gepersonaliseerd.</td>
+                <td><a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></td>
+            </tr>
+            <tr>
+                <td>Qonversion</td>
+                <td>Het valideren van abonnementen en het herstellen van aankopen.</td>
+                <td>Aankoop- en abonnementsstatus van de store, de hieronder beschreven anonieme installatie-ID, apparaatmodel, versie van het besturingssysteem en de app, en IP-adres. Geen naam, e-mailadres of betaalkaartgegevens.</td>
+                <td><a href="https://qonversion.io/privacy">qonversion.io/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Apple App Store / Google Play</td>
+                <td>Betalingen, abonnementsbeheer en het optionele beoordelingsverzoek.</td>
+                <td>Verwerkt onder uw eigen store-account. Wij ontvangen nooit betaalkaartgegevens.</td>
+                <td><a href="https://www.apple.com/legal/privacy/">www.apple.com/legal/privacy/</a><br><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+            <tr>
+                <td>GitHub Pages (GitHub, Inc.)</td>
+                <td>Het hosten van de nieuwste versie van deze juridische documenten, die de App laadt wanneer u ze opent.</td>
+                <td>IP-adres en technische verzoekgegevens, zoals bij elke website.</td>
+                <td><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a></td>
+            </tr>
+            <tr>
+                <td>Google Fonts</td>
+                <td>Het downloaden van een lettertype, alleen wanneer een ouder een pdf exporteert die Chinese, Japanse of Koreaanse tekst bevat.</td>
+                <td>IP-adres en technische verzoekgegevens, zoals bij elke website.</td>
+                <td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+        </table>
+    </div>
+    <p>Alleen de bovenstaande dienstverleners ontvangen gegevens. Onderdelen die volledig op het apparaat werken (bijvoorbeeld de AI-modellen die Foto-magie gebruikt, de tekengereedschappen en lokale meldingen) versturen nergens iets naartoe. Als wij een dienstverlener toevoegen of wijzigen, werken wij deze sectie bij.</p>
+    <h3>Anonieme installatie-ID</h3>
+    <p>Om een aankoop te kunnen herstellen, maakt de App een willekeurige ID aan die niet is gekoppeld aan een naam, e-mailadres, apparaat of advertentie-ID, en deelt deze alleen met Qonversion. Op iOS wordt deze bewaard in de sleutelhanger (Keychain) van het apparaat, die niet wordt gewist wanneer de App wordt verwijderd, zodat een aankoop na herinstallatie nog steeds wordt herkend; de ID wordt niet via iCloud gesynchroniseerd. Op Android wordt deze verwijderd wanneer de App wordt verwijderd.</p>
 
     <h2>5. Advertenties</h2>
-    <p>Advertenties zijn:</p>
+    <p>De gratis versie van de App toont uitsluitend optionele videoadvertenties met beloning. Een video wordt alleen afgespeeld wanneer een gebruiker erop tikt om die te bekijken in ruil voor een kleine beloning, bijvoorbeeld één extra keer Foto-magie, meer ruimte in de Galerij, de speciale penselenset voor de huidige tekensessie, het bevriezen van een reeks of tijdelijke toegang tot een kleurplaat. De App toont geen banneradvertenties, interstitiële advertenties (pop-ups op volledig scherm) of advertenties tussen de inhoud. Advertenties zijn:</p>
     <ul>
-        <li>Niet gepersonaliseerd (geen gedragsgerichte targeting)</li>
-        <li>Gemarkeerd als kindgericht (tagForChildDirectedTreatment)</li>
+        <li>Geleverd door Google AdMob. In de kinderprofielen (Mini en Junior) worden advertentieverzoeken gemarkeerd als gericht op kinderen en als afkomstig van gebruikers onder de toestemmingsleeftijd, en wordt geen toestemmingsformulier getoond. In het profiel Volwassene wordt, waar de wet dat vereist (bijvoorbeeld in de Europese Economische Ruimte en het Verenigd Koninkrijk), eerst het toestemmingsformulier van Google getoond, worden advertenties alleen opgevraagd als dat formulier het toestaat, en kan de keuze waar nodig later worden bekeken via Ouderzone &gt; Privacyopties voor advertenties</li>
+        <li>Alleen gepersonaliseerd in het profiel Volwassene: daar kan Google, afhankelijk van de toestemmingskeuzes en de plaatselijke wetgeving, gegevens zoals het IP-adres en apparaatinformatie gebruiken om advertenties te tonen en te personaliseren. Advertenties in de kinderprofielen worden nooit gepersonaliseerd. Op iOS worden advertenties in geen enkel profiel gepersonaliseerd. Hoe Google deze gegevens gebruikt: <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></li>
         <li>Leeftijdsgeschikt (maximale inhoudsclassificatie: G)</li>
-        <li>Niet zichtbaar op teken-, kleur- of lesschermen</li>
+        <li>Nooit uit zichzelf door de App gestart: teken-, kleur- en lesschermen tonen geen advertenties, tenzij een gebruiker daar zelf kiest om een video met beloning te bekijken (bijvoorbeeld om de speciale penselen te ontgrendelen)</li>
+        <li>Nooit getoond aan abonnees van Pikura Plus</li>
     </ul>
 
-    <h2>6. Ouderlijk toezicht</h2>
-    <p>Ouders hebben toegang tot de Ouderzone (beveiligd met een ouderslot) om:</p>
+    <h2>6. Ouders en kinderen</h2>
+    <p>Pikura is gemaakt voor zowel kinderen als volwassenen. Ouders of voogden moeten toezicht houden op jonge kinderen wanneer zij de App gebruiken. Het profiel dat bij het instellen wordt gekozen (3-5, 6-11 of Volwassene) wordt alleen op het apparaat opgeslagen en alleen gebruikt om de App aan te passen en te bepalen hoe advertenties worden opgevraagd (zie sectie 5).</p>
+    <p>In de kinderprofielen beschermt een ouderslot (een vermenigvuldigingssom of een optionele ouder-pincode) aankopen, de Ouderzone, het delen en exporteren van werken en het verwijderen van werken. Het profiel Volwassene slaat het ouderslot over; overschakelen naar dit profiel vereist dat het ouderslot één keer wordt doorlopen. In de Ouderzone kunnen ouders:</p>
     <ul>
         <li>App-instellingen te beheren</li>
         <li>Meldingsvoorkeuren in te stellen</li>
         <li>Alle gegevens te exporteren of te verwijderen</li>
         <li>Het abonnement te beheren</li>
     </ul>
+    <p>Advertenties zijn optioneel. Het bekijken van een video met beloning is niet beveiligd met het ouderslot, omdat het geen aankoop is. Ouders die niet willen dat hun kind advertenties ziet, kunnen een abonnement op Pikura Plus nemen – dan wordt de advertentie-SDK helemaal niet gestart – of erop letten dat het kind de optionele aanbiedingen om een video te bekijken niet kiest.</p>
 
     <h2>7. Gegevens verwijderen</h2>
-    <p>Alle app-gegevens kunnen worden verwijderd via Ouderzone &gt; Alle gegevens verwijderen. Bij het de-installeren van de app worden ook alle opgeslagen gegevens gewist.</p>
+    <p>Alle app-gegevens (tekeningen, voor Foto-magie bewaarde foto's, voortgang, instellingen en weergavenaam) kunnen worden verwijderd via Ouderzone &gt; Alle gegevens verwijderen. Bij het verwijderen van de App worden deze gegevens ook van het apparaat gewist. Op iOS blijft de in sectie 4 beschreven anonieme installatie-ID in de sleutelhanger (Keychain) staan, zodat aankopen na herinstallatie kunnen worden hersteld; deze bevat geen persoonlijke informatie.</p>
 
     <h2>8. Beveiliging</h2>
-    <p>Alle gegevens blijven op het apparaat. Er zijn geen cloudaccounts of aanmeldingen vereist. Premiumaankopen zijn gekoppeld aan het appstore-account, niet aan een door ons aangemaakte identifier.</p>
+    <p>Tekeningen, foto's en persoonlijke instellingen blijven op het apparaat. Er zijn geen cloudaccounts of aanmeldingen vereist. Premiumaankopen zijn gekoppeld aan uw App Store- of Google Play-account; Qonversion ontvangt alleen de in sectie 4 beschreven anonieme installatie-ID, nooit een naam of e-mailadres. Gegevens die naar de dienstverleners in sectie 4 worden verzonden, gaan via versleutelde (HTTPS-)verbindingen.</p>
 
     <h2>9. Wijzigingen in dit beleid</h2>
     <p>Wij informeren gebruikers over belangrijke wijzigingen via een melding in de app. Voortgezet gebruik na wijzigingen geldt als aanvaarding.</p>

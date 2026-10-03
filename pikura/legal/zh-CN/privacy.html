@@ -20,6 +20,11 @@
         .contact-info { background-color: #e8f5e8; padding: 15px; border-radius: 5px; margin: 20px 0; }
         ul { padding-left: 20px; }
         .last-updated { font-style: italic; color: #7f8c8d; }
+        .table-wrap { overflow-x: auto; margin: 15px 0; }
+        table { border-collapse: collapse; width: 100%; font-size: 14px; }
+        th, td { border: 1px solid rgba(127, 127, 127, 0.45); padding: 8px; text-align: left; vertical-align: top; }
+        th { font-weight: 600; }
+        td a { color: inherit; overflow-wrap: anywhere; }
         @media (prefers-color-scheme: dark) {
             body { background-color: #1A1B2E; color: #F8F9FE; }
             h1 { color: #9A6BFF; border-bottom-color: #9A6BFF; }
@@ -50,63 +55,124 @@
 </head>
 <body>
     <h1>Pikura - 隐私政策</h1>
-    <p class="last-updated">最后更新:2026年10月</p>
+    <p class="last-updated">最后更新:2026年10月3日</p>
 
     <h2>1. 概述</h2>
-    <p>Pikura(以下简称"本应用")是由 NTVTech 开发的儿童绘画应用。我们致力于保护儿童隐私,并遵守 COPPA(《儿童在线隐私保护法》)及 GDPR-K。</p>
+    <p>Pikura(以下简称"本应用")是由 NTVTech 开发、适合儿童和成人使用的绘画与涂色应用。本政策说明哪些数据保留在设备上、哪些第三方服务会从本应用接收数据,以及家长可以作出的选择。</p>
 
     <h2>2. 我们不收集的信息</h2>
     <div class="highlight">
-        <strong>我们不会收集儿童的任何个人信息</strong>,包括:
+        <strong>无需创建账户,我们不会收集:</strong>
     </div>
     <ul>
         <li>姓名、电子邮箱地址或其他联系信息</li>
-        <li>照片(Photo Magic 功能的源照片仅在内存中处理,绝不会被存储或传输)</li>
-        <li>位置数据</li>
-        <li>用于追踪目的的设备标识符</li>
+        <li>照片(照片魔法使用的照片在设备上处理,绝不会上传给我们或任何其他人)</li>
+        <li>精确位置(本应用从不请求位置权限)</li>
+        <li>广告标识符(IDFA / Android 广告 ID),或任何用于跨应用或网站追踪用户的标识符</li>
     </ul>
+    <p>部分技术数据(例如 IP 地址和设备信息)会由第 4 条所列的第三方服务提供商接收。</p>
 
     <h2>3. 本地存储的信息</h2>
     <p>以下数据仅存储在用户设备上,绝不会传输到我们的服务器:</p>
     <ul>
         <li>绘画作品及作品文件</li>
+        <li>照片魔法功能使用的照片(与由它生成的涂色图一起保存在设备上,以便作为配色参考显示;照片绝不会离开设备,并会随该作品一同删除)</li>
         <li>应用偏好设置(主题、语言、年龄模式)</li>
         <li>绘画进度与成就</li>
         <li>可选的显示名称(在初始设置时输入)</li>
+        <li>可选的家长 PIN 码,仅以加盐单向哈希的形式存储在设备的安全存储中</li>
     </ul>
 
-    <h2>4. 第三方服务</h2>
-    <p>本应用使用以下第三方服务:</p>
-    <ul>
-        <li>Firebase Analytics:仅匿名、汇总的使用统计(无个人身份信息)</li>
-        <li>Firebase Crashlytics:用于改进稳定性的匿名崩溃报告</li>
-        <li>Google AdMob:仅非个性化、面向儿童的广告</li>
-        <li>Firebase Remote Config:应用配置(不传输用户数据)</li>
-    </ul>
+    <h2>4. 服务提供商</h2>
+    <p>下表完整列出了从本应用接收任何数据的第三方。其中没有任何一方会接收绘画、照片、显示名称或在本应用中创作的任何其他内容。各提供商依照其各自的隐私政策处理数据。</p>
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>提供商</th>
+                <th>用途</th>
+                <th>接收的数据</th>
+                <th>隐私政策</th>
+            </tr>
+            <tr>
+                <td>Google Firebase Analytics</td>
+                <td>基于 Firebase 自动收集的标准事件(如打开应用、会话和应用更新)生成的匿名、汇总使用统计。本应用不发送任何自定义事件。</td>
+                <td>仅用于统计分析的安装标识符和设备标识符(不是广告标识符)、设备型号、操作系统和应用版本、语言,以及根据 IP 地址推断的大致国家或地区。</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Crashlytics</td>
+                <td>崩溃报告,仅用于修复稳定性问题。</td>
+                <td>崩溃的技术细节(错误信息和堆栈跟踪)、设备型号、操作系统和应用版本,以及 Crashlytics 安装标识符。</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Remote Config</td>
+                <td>下载应用配置,例如免费版的限制以及维护或更新通知。</td>
+                <td>Firebase 安装标识符、应用版本、平台,以及语言或国家。</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google AdMob</td>
+                <td>仅在免费版中提供的可选激励视频广告(见第 5 条)。对 Pikura Plus 订阅用户不会启动广告 SDK。</td>
+                <td>IP 地址、设备和操作系统信息、语言、应用信息以及与广告的互动。本应用在 iOS 上从不请求追踪权限,在 Android 上无法访问广告 ID,因此不会提供任何广告标识符。根据同意选择(见第 5 条)和当地法律,Google 可能会使用这些数据对广告进行个性化。 此个性化仅适用于成人档案;在儿童档案(Mini 和 Junior)中,请求会被标记为面向儿童,广告不会个性化。在 iOS 上,任何档案中的广告都不会个性化。</td>
+                <td><a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></td>
+            </tr>
+            <tr>
+                <td>Qonversion</td>
+                <td>验证订阅并恢复购买。</td>
+                <td>来自应用商店的购买和订阅状态、下文所述的匿名安装标识符、设备型号、操作系统和应用版本,以及 IP 地址。不包含姓名、电子邮箱地址或支付卡信息。</td>
+                <td><a href="https://qonversion.io/privacy">qonversion.io/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Apple App Store / Google Play</td>
+                <td>付款、订阅管理以及可选的评分提示。</td>
+                <td>在您自己的应用商店账户下处理。我们绝不会接收支付卡信息。</td>
+                <td><a href="https://www.apple.com/legal/privacy/">www.apple.com/legal/privacy/</a><br><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+            <tr>
+                <td>GitHub Pages (GitHub, Inc.)</td>
+                <td>托管这些法律文件的最新版本,您打开文件时由本应用加载。</td>
+                <td>与访问任何网站一样的 IP 地址和请求技术数据。</td>
+                <td><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a></td>
+            </tr>
+            <tr>
+                <td>Google Fonts</td>
+                <td>下载字体,仅在家长导出包含中文、日文或韩文文字的 PDF 时进行。</td>
+                <td>与访问任何网站一样的 IP 地址和请求技术数据。</td>
+                <td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+        </table>
+    </div>
+    <p>只有上述提供商会接收数据。完全在设备上运行的组件(例如照片魔法使用的 AI 模型、绘画工具和本地通知)不会向任何地方发送任何内容。如果我们新增或更换提供商,将更新本条。</p>
+    <h3>匿名安装标识符</h3>
+    <p>为了能够恢复购买,本应用会创建一个随机标识符,该标识符与姓名、电子邮箱地址、设备或广告标识符均无关联,且仅与 Qonversion 共享。在 iOS 上,该标识符保存在设备的 Keychain 中,卸载本应用时 Keychain 不会被清除,因此重新安装后仍可识别购买;该标识符不会通过 iCloud 同步。在 Android 上,卸载本应用时该标识符会被删除。</p>
 
     <h2>5. 广告</h2>
-    <p>广告具有以下特点:</p>
+    <p>本应用的免费版仅展示可选的激励视频广告。只有当用户为了获得一份小奖励而主动点击观看时,视频才会播放,例如额外一次照片魔法使用次数、更多画廊空间、本次绘画期间可用的特殊画笔套装、连续记录保护(连胜冻结),或临时使用某个涂色页。本应用不展示横幅广告、插页式广告(全屏弹出广告)或穿插在内容之间的广告。广告具有以下特点:</p>
     <ul>
-        <li>非个性化(无行为定向)</li>
-        <li>标记为面向儿童(tagForChildDirectedTreatment)</li>
-        <li>适合儿童年龄(最高内容分级:G)</li>
-        <li>不在绘画/涂色/课程界面展示</li>
+        <li>由 Google AdMob 提供。在儿童档案(Mini 和 Junior)中,广告请求会被标记为面向儿童且来自未达同意年龄的用户,并且不会显示同意表单。在成人档案中,在法律要求的地区(例如欧洲经济区和英国),会先显示 Google 的同意表单,只有在该表单允许的情况下才会请求广告;如有需要,之后可在 家长空间 &gt; 广告隐私选项 中重新查看选择</li>
+        <li>仅在成人档案中个性化:在成人档案中,根据同意选择和当地法律,Google 可能会使用 IP 地址和设备信息等数据来展示广告并进行个性化。儿童档案中的广告绝不会个性化。在 iOS 上,任何档案中的广告都不会个性化。Google 如何使用这些数据:<a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></li>
+        <li>适合年龄(最高内容分级:G)</li>
+        <li>绝不由本应用自行启动:绘画、涂色和课程界面不展示广告,除非用户在该界面主动选择观看激励视频(例如解锁特殊画笔)</li>
+        <li>绝不向 Pikura Plus 订阅用户展示</li>
     </ul>
 
-    <h2>6. 家长控制</h2>
-    <p>家长可进入家长专区(受家长验证门保护)进行以下操作:</p>
+    <h2>6. 家长与儿童</h2>
+    <p>Pikura 同时面向儿童和成人。幼儿使用本应用时,家长或监护人应在旁看护。初次设置时选择的档案(3-5 岁、6-11 岁或成人)仅存储在设备上,并且仅用于调整本应用以及决定如何请求广告(见第 5 条)。</p>
+    <p>在儿童档案中,家长验证门(一道乘法题,或可选的家长 PIN 码)会保护购买、家长空间、作品的分享与导出,以及作品的删除。成人档案会跳过家长验证门;切换到该档案需要通过一次验证门。在家长空间中,家长可以:</p>
     <ul>
         <li>管理应用设置</li>
         <li>控制通知偏好</li>
         <li>导出或删除全部数据</li>
         <li>管理订阅</li>
     </ul>
+    <p>广告是可选的。观看激励视频不受家长验证门保护,因为这不属于购买。不希望孩子看到广告的家长可以订阅 Pikura Plus(此时广告 SDK 完全不会启动),或确保孩子不选择观看视频的可选邀请。</p>
 
     <h2>7. 数据删除</h2>
-    <p>应用的全部数据可通过 家长专区 &gt; 删除全部数据 进行删除。卸载本应用也会移除所有已存储的数据。</p>
+    <p>所有应用数据(绘画作品、为照片魔法保留的照片、进度、设置和显示名称)均可通过家长空间 &gt; 删除全部数据进行删除。卸载本应用也会从设备中移除这些数据。在 iOS 上,第 4 条所述的匿名安装标识符会保留在 Keychain 中,以便重新安装后恢复购买;该标识符不包含任何个人信息。</p>
 
     <h2>8. 安全</h2>
-    <p>所有数据均保留在设备上。无需云端账户或登录。高级版购买与应用商店账户绑定,而非与我们创建的任何标识符绑定。</p>
+    <p>绘画作品、照片和个人设置始终保留在设备上。无需云账户或登录。高级版购买与您的 App Store 或 Google Play 账户绑定;Qonversion 仅接收第 4 条所述的匿名安装标识符,绝不会接收姓名或电子邮箱地址。发送给第 4 条所列服务提供商的数据通过加密(HTTPS)连接传输。</p>
 
     <h2>9. 本政策的变更</h2>
     <p>如有重大变更,我们将通过应用内通知告知用户。变更后继续使用即视为接受。</p>

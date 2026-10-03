@@ -20,6 +20,11 @@
         .contact-info { background-color: #e8f5e8; padding: 15px; border-radius: 5px; margin: 20px 0; }
         ul { padding-left: 20px; }
         .last-updated { font-style: italic; color: #7f8c8d; }
+        .table-wrap { overflow-x: auto; margin: 15px 0; }
+        table { border-collapse: collapse; width: 100%; font-size: 14px; }
+        th, td { border: 1px solid rgba(127, 127, 127, 0.45); padding: 8px; text-align: left; vertical-align: top; }
+        th { font-weight: 600; }
+        td a { color: inherit; overflow-wrap: anywhere; }
         @media (prefers-color-scheme: dark) {
             body { background-color: #1A1B2E; color: #F8F9FE; }
             h1 { color: #9A6BFF; border-bottom-color: #9A6BFF; }
@@ -50,63 +55,124 @@
 </head>
 <body>
     <h1>Pikura - Politique de confidentialité</h1>
-    <p class="last-updated">Dernière mise à jour&#8239;: octobre 2026</p>
+    <p class="last-updated">Dernière mise à jour&#8239;: 3 octobre 2026</p>
 
     <h2>1. Présentation</h2>
-    <p>Pikura (« l'Application ») est une application de dessin pour enfants développée par NTVTech. Nous nous engageons à protéger la vie privée des enfants et respectons la loi COPPA (Children's Online Privacy Protection Act) ainsi que le RGPD-K.</p>
+    <p>Pikura (« l'Application ») est une application de dessin et de coloriage pour les enfants comme pour les adultes, développée par NTVTech. Cette politique explique quelles données restent sur l'appareil, quels services tiers reçoivent des données de l'Application et quels choix s'offrent aux parents.</p>
 
     <h2>2. Informations que nous ne collectons PAS</h2>
     <div class="highlight">
-        <strong>Nous ne collectons aucune information personnelle auprès des enfants</strong>, notamment&#8239;:
+        <strong>Aucun compte n'est requis, et nous ne collectons pas&#8239;:</strong>
     </div>
     <ul>
         <li>Noms, adresses e-mail ou autres coordonnées</li>
-        <li>Photos (les photos sources de Photo Magic sont traitées uniquement en mémoire et ne sont jamais stockées ni transmises)</li>
-        <li>Données de localisation</li>
-        <li>Identifiants de l'appareil à des fins de suivi</li>
+        <li>Photos (les photos utilisées par Photo Magique sont traitées sur l'appareil et ne sont jamais envoyées ni à nous ni à qui que ce soit)</li>
+        <li>La localisation précise (l'Application ne demande jamais l'autorisation d'accéder à la localisation)</li>
+        <li>Identifiants publicitaires (IDFA / identifiant publicitaire Android) ou tout identifiant servant à suivre les utilisateurs d'une application ou d'un site web à l'autre</li>
     </ul>
+    <p>Certaines données techniques, comme l'adresse IP et des informations sur l'appareil, sont reçues par les prestataires tiers énumérés à la section 4.</p>
 
     <h2>3. Informations stockées localement</h2>
     <p>Les données suivantes sont stockées UNIQUEMENT sur l'appareil de l'utilisateur et ne sont jamais transmises à nos serveurs&#8239;:</p>
     <ul>
         <li>Dessins et fichiers d'œuvres</li>
+        <li>La photo utilisée par Photo Magique, conservée sur l'appareil avec le coloriage qu'elle a servi à créer afin de pouvoir être affichée comme référence de couleurs&#8239;: elle ne quitte jamais l'appareil et est supprimée en même temps que cette œuvre</li>
         <li>Préférences de l'application (thème, langue, mode d'âge)</li>
         <li>Progression du dessin et succès</li>
         <li>Nom d'affichage facultatif (saisi lors de la configuration initiale)</li>
+        <li>Code PIN parental facultatif, conservé uniquement sous forme de hachage à sens unique salé dans le stockage sécurisé de l'appareil</li>
     </ul>
 
-    <h2>4. Services tiers</h2>
-    <p>L'Application utilise les services tiers suivants&#8239;:</p>
-    <ul>
-        <li>Firebase Analytics&#8239;: statistiques d'utilisation anonymes et agrégées uniquement (aucune donnée personnelle)</li>
-        <li>Firebase Crashlytics&#8239;: rapports de plantage anonymes pour améliorer la stabilité</li>
-        <li>Google AdMob&#8239;: publicités non personnalisées et destinées aux enfants uniquement</li>
-        <li>Firebase Remote Config&#8239;: configuration de l'application (aucune donnée utilisateur transmise)</li>
-    </ul>
+    <h2>4. Prestataires de services</h2>
+    <p>Le tableau ci-dessous est la liste complète des tiers qui reçoivent des données de l'Application. Aucun d'eux ne reçoit les dessins, les photos, le nom affiché ni quoi que ce soit d'autre créé dans l'Application. Chaque prestataire traite les données conformément à sa propre politique de confidentialité.</p>
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>Prestataire</th>
+                <th>Finalité</th>
+                <th>Données reçues</th>
+                <th>Politique de confidentialité</th>
+            </tr>
+            <tr>
+                <td>Google Firebase Analytics</td>
+                <td>Statistiques d'utilisation anonymes et agrégées, issues d'événements standard que Firebase collecte automatiquement (ouvertures de l'application, sessions, mises à jour, etc.). L'Application n'envoie aucun événement personnalisé.</td>
+                <td>Identifiants d'installation et d'appareil utilisés uniquement à des fins statistiques (pas d'identifiants publicitaires), modèle de l'appareil, versions du système d'exploitation et de l'application, langue, et pays ou région approximatifs déduits de l'adresse IP.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Crashlytics</td>
+                <td>Rapports de plantage, utilisés uniquement pour corriger des problèmes de stabilité.</td>
+                <td>Détails techniques du plantage (message d'erreur et trace d'appels), modèle de l'appareil, versions du système d'exploitation et de l'application, et un identifiant d'installation Crashlytics.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google Firebase Remote Config</td>
+                <td>Téléchargement des paramètres de l'application, tels que les limites de la version gratuite et les avis de maintenance ou de mise à jour.</td>
+                <td>Un identifiant d'installation Firebase, la version de l'application, la plateforme, et la langue ou le pays.</td>
+                <td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Google AdMob</td>
+                <td>Publicités vidéo avec récompense facultatives, uniquement dans la version gratuite (voir la section 5). Le SDK publicitaire n'est pas lancé pour les abonnés Pikura Plus.</td>
+                <td>Adresse IP, informations sur l'appareil et le système d'exploitation, langue, informations sur l'application et interactions avec la publicité. L'Application ne demande jamais d'autorisation de suivi sur iOS et n'a pas accès à l'identifiant publicitaire sur Android&#8239;; elle ne fournit donc aucun identifiant publicitaire. Selon les choix de consentement (voir la section 5) et la loi applicable, Google peut utiliser ces données pour personnaliser les publicités. Cette personnalisation ne concerne que le profil Adulte&#8239;; pour les profils enfants (Mini et Junior), les demandes sont signalées comme destinées aux enfants et les publicités ne sont pas personnalisées. Sur iOS, les publicités ne sont personnalisées dans aucun profil.</td>
+                <td><a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></td>
+            </tr>
+            <tr>
+                <td>Qonversion</td>
+                <td>Validation des abonnements et restauration des achats.</td>
+                <td>Statut des achats et de l'abonnement fourni par la boutique, l'identifiant d'installation anonyme décrit ci-dessous, modèle de l'appareil, versions du système d'exploitation et de l'application, et adresse IP. Aucun nom, aucune adresse e-mail ni aucune donnée de carte de paiement.</td>
+                <td><a href="https://qonversion.io/privacy">qonversion.io/privacy</a></td>
+            </tr>
+            <tr>
+                <td>Apple App Store / Google Play</td>
+                <td>Paiements, gestion des abonnements et invitation facultative à laisser une note.</td>
+                <td>Géré via votre propre compte de la boutique. Nous ne recevons jamais de données de carte de paiement.</td>
+                <td><a href="https://www.apple.com/legal/privacy/">www.apple.com/legal/privacy/</a><br><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+            <tr>
+                <td>GitHub Pages (GitHub, Inc.)</td>
+                <td>Hébergement de la version la plus récente de ces documents juridiques, que l'Application charge lorsque vous les ouvrez.</td>
+                <td>Adresse IP et données techniques de la requête, comme pour tout site web.</td>
+                <td><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a></td>
+            </tr>
+            <tr>
+                <td>Google Fonts</td>
+                <td>Téléchargement d'une police de caractères, uniquement lorsqu'un parent exporte un PDF contenant du texte en chinois, en japonais ou en coréen.</td>
+                <td>Adresse IP et données techniques de la requête, comme pour tout site web.</td>
+                <td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+            </tr>
+        </table>
+    </div>
+    <p>Seuls les prestataires ci-dessus reçoivent des données. Les composants qui fonctionnent entièrement sur l'appareil (par exemple les modèles d'IA utilisés par Photo Magique, les outils de dessin et les notifications locales) n'envoient rien nulle part. Si nous ajoutons ou changeons un prestataire, nous mettrons à jour cette section.</p>
+    <h3>Identifiant d'installation anonyme</h3>
+    <p>Pour permettre la restauration d'un achat, l'Application crée un identifiant aléatoire qui n'est lié à aucun nom, adresse e-mail, appareil ni identifiant publicitaire, et ne le partage qu'avec Qonversion. Sur iOS, il est conservé dans le trousseau (Keychain) de l'appareil, qui n'est pas effacé lors de la désinstallation de l'Application, de sorte qu'un achat peut encore être reconnu après une réinstallation&#8239;; il n'est pas synchronisé via iCloud. Sur Android, il est supprimé lors de la désinstallation de l'Application.</p>
 
     <h2>5. Publicité</h2>
-    <p>Les publicités sont&#8239;:</p>
+    <p>La version gratuite de l'Application n'affiche que des publicités vidéo avec récompense facultatives. Une vidéo ne se lance que lorsqu'un utilisateur appuie pour la regarder en échange d'une petite récompense, par exemple une utilisation supplémentaire de Photo Magique, plus d'espace dans la Galerie, l'ensemble de pinceaux spéciaux pour la séance de dessin en cours, une protection de série ou un accès temporaire à une page de coloriage. L'Application n'affiche ni bannières publicitaires, ni publicités interstitielles (fenêtres plein écran), ni publicités insérées dans le contenu. Les publicités sont&#8239;:</p>
     <ul>
-        <li>Non personnalisées (aucun ciblage comportemental)</li>
-        <li>Marquées comme destinées aux enfants (tagForChildDirectedTreatment)</li>
+        <li>Fournies par Google AdMob. Dans les profils enfants (Mini et Junior), les demandes de publicité sont signalées comme destinées aux enfants et comme provenant d'utilisateurs n'ayant pas l'âge du consentement, et aucun formulaire de consentement ne s'affiche. Dans le profil Adulte, lorsque la loi l'exige (par exemple dans l'Espace économique européen et au Royaume-Uni), le formulaire de consentement de Google s'affiche d'abord, les publicités ne sont demandées que si ce formulaire le permet et, si nécessaire, le choix peut être revu plus tard dans Espace parents &gt; Options de confidentialité des annonces</li>
+        <li>Personnalisées uniquement dans le profil Adulte&#8239;: selon les choix de consentement et la loi applicable, Google peut y utiliser des données telles que l'adresse IP et des informations sur l'appareil pour diffuser et personnaliser les publicités. Les publicités des profils enfants ne sont jamais personnalisées. Sur iOS, les publicités ne sont personnalisées dans aucun profil. Comment Google utilise ces données&#8239;: <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></li>
         <li>Adaptées à l'âge (classification maximale du contenu&#8239;: G)</li>
-        <li>Jamais affichées sur les écrans de dessin, de coloriage ou de leçons</li>
+        <li>Jamais lancées par l'Application d'elle-même&#8239;: les écrans de dessin, de coloriage et de leçons n'affichent aucune publicité, sauf si un utilisateur choisit d'y regarder une vidéo avec récompense (par exemple pour débloquer les pinceaux spéciaux)</li>
+        <li>Jamais affichées aux abonnés Pikura Plus</li>
     </ul>
 
-    <h2>6. Contrôle parental</h2>
-    <p>Les parents peuvent accéder à l'Espace Parents (protégé par un contrôle parental) pour&#8239;:</p>
+    <h2>6. Parents et enfants</h2>
+    <p>Pikura s'adresse aussi bien aux enfants qu'aux adultes. Les parents ou tuteurs doivent surveiller les jeunes enfants lorsqu'ils utilisent l'Application. Le profil choisi lors de la configuration (3-5, 6-11 ou Adulte) est enregistré uniquement sur l'appareil et sert seulement à adapter l'Application et à déterminer comment les publicités sont demandées (voir la section 5).</p>
+    <p>Dans les profils enfants, un contrôle parental (une multiplication ou un code PIN parental facultatif) protège les achats, l'Espace parents, le partage et l'export des créations, ainsi que la suppression des créations. Le profil Adulte ignore le contrôle parental&#8239;; passer à ce profil nécessite de le réussir une fois. Dans l'Espace parents, les parents peuvent&#8239;:</p>
     <ul>
         <li>Gérer les paramètres de l'application</li>
         <li>Contrôler les préférences de notification</li>
         <li>Exporter ou supprimer toutes les données</li>
         <li>Gérer l'abonnement</li>
     </ul>
+    <p>Les publicités sont facultatives. Regarder une vidéo avec récompense n'est pas protégé par le contrôle parental, car ce n'est pas un achat. Un parent qui ne souhaite pas que son enfant voie des publicités peut s'abonner à Pikura Plus, auquel cas le SDK publicitaire n'est pas du tout lancé, ou veiller à ce que l'enfant ne choisisse pas les offres facultatives de regarder une vidéo.</p>
 
     <h2>7. Suppression des données</h2>
-    <p>Toutes les données de l'application peuvent être supprimées via Espace Parents &gt; Supprimer toutes les données. La désinstallation de l'application supprime également toutes les données stockées.</p>
+    <p>Toutes les données de l'application (dessins, photos conservées pour Photo Magique, progression, réglages et nom affiché) peuvent être supprimées via Espace parents &gt; Supprimer toutes les données. La désinstallation de l'Application supprime également ces données de l'appareil. Sur iOS, l'identifiant d'installation anonyme décrit à la section 4 reste dans le trousseau afin que les achats puissent être restaurés après une réinstallation&#8239;; il ne contient aucune information personnelle.</p>
 
     <h2>8. Sécurité</h2>
-    <p>Toutes les données restent sur l'appareil. Aucun compte cloud ni identifiant de connexion n'est requis. Les achats premium sont liés au compte de la boutique d'applications, et non à un identifiant que nous créons.</p>
+    <p>Les dessins, les photos et les réglages personnels restent sur l'appareil. Aucun compte cloud ni aucune connexion n'est nécessaire. Les achats premium sont liés à votre compte App Store ou Google Play&#8239;; Qonversion ne reçoit que l'identifiant d'installation anonyme décrit à la section 4, jamais un nom ni une adresse e-mail. Les données envoyées aux prestataires de services de la section 4 transitent par des connexions chiffrées (HTTPS).</p>
 
     <h2>9. Modifications de la présente politique</h2>
     <p>Nous informerons les utilisateurs de tout changement important par une notification dans l'application. La poursuite de l'utilisation après modification vaut acceptation.</p>
