@@ -578,36 +578,11 @@
             <button class="carousel-arrow prev" id="sc-prev" aria-label="Previous">&#8249;</button>
             <button class="carousel-arrow next" id="sc-next" aria-label="Next">&#8250;</button>
             <div class="screenshot-track" id="screenshot-track">
-                <div class="screenshot-item active">
-                    <div class="screenshot-placeholder">
-                        <span class="placeholder-icon">🎨</span>
-                        <span class="placeholder-text" data-en="Drawing Lessons" data-vi="Bài học vẽ">Drawing Lessons</span>
-                    </div>
-                </div>
-                <div class="screenshot-item">
-                    <div class="screenshot-placeholder">
-                        <span class="placeholder-icon">🖍️</span>
-                        <span class="placeholder-text" data-en="Coloring Pages" data-vi="Trang tô màu">Coloring Pages</span>
-                    </div>
-                </div>
-                <div class="screenshot-item">
-                    <div class="screenshot-placeholder">
-                        <span class="placeholder-icon">✨</span>
-                        <span class="placeholder-text" data-en="Magic Effects" data-vi="Hiệu ứng kỳ diệu">Magic Effects</span>
-                    </div>
-                </div>
-                <div class="screenshot-item">
-                    <div class="screenshot-placeholder">
-                        <span class="placeholder-icon">🖼️</span>
-                        <span class="placeholder-text" data-en="Gallery" data-vi="Bộ sưu tập">Gallery</span>
-                    </div>
-                </div>
-                <div class="screenshot-item">
-                    <div class="screenshot-placeholder">
-                        <span class="placeholder-icon">🏆</span>
-                        <span class="placeholder-text" data-en="Achievements" data-vi="Thành tích">Achievements</span>
-                    </div>
-                </div>
+                <div class="screenshot-item active"><img src="images/screens/01_lesson_en.webp" data-src-en="images/screens/01_lesson_en.webp" data-src-vi="images/screens/01_lesson_vi.webp" alt="Pikura: Step-by-step drawing lesson" width="460" height="1000" loading="eager"></div>
+                <div class="screenshot-item"><img src="images/screens/02_coloring_en.webp" data-src-en="images/screens/02_coloring_en.webp" data-src-vi="images/screens/02_coloring_vi.webp" alt="Pikura: Coloring a cat with the fill tool" width="460" height="1000" loading="lazy"></div>
+                <div class="screenshot-item"><img src="images/screens/03_photo_en.webp" data-src-en="images/screens/03_photo_en.webp" data-src-vi="images/screens/03_photo_vi.webp" alt="Pikura: A photo turned into a coloring page" width="460" height="1000" loading="lazy"></div>
+                <div class="screenshot-item"><img src="images/screens/04_brushes_en.webp" data-src-en="images/screens/04_brushes_en.webp" data-src-vi="images/screens/04_brushes_vi.webp" alt="Pikura: Special pens: glitter, rainbow, glow" width="460" height="1000" loading="lazy"></div>
+                <div class="screenshot-item"><img src="images/screens/05_gallery_en.webp" data-src-en="images/screens/05_gallery_en.webp" data-src-vi="images/screens/05_gallery_vi.webp" alt="Pikura: The gallery of drawings and colorings" width="460" height="1000" loading="lazy"></div>
             </div>
             <div class="screenshot-dots" id="screenshot-dots">
                 <button class="sc-dot active" aria-label="Screenshot 1"></button>
@@ -671,6 +646,9 @@
             document.getElementById('opt-en').classList.toggle('active', lang === 'en');
             document.getElementById('langDropdown').classList.remove('open');
             document.documentElement.lang = lang;
+            document.querySelectorAll('img[data-src-' + lang + ']').forEach(function(img) {
+                img.src = img.getAttribute('data-src-' + lang);
+            });
         }
 
         // ===== Screenshot Carousel =====
